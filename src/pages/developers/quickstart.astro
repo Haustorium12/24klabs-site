@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Quickstart -- 24K Labs">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Developer Guide</span>
+      <h1 class="page-header__title">Quickstart</h1>
+      <p class="page-header__desc">Your first API call in 2 minutes. No API keys, no signup, no OAuth.</p>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container prose">
+
+      <div class="step-block reveal">
+        <h2>Step 1: Choose a Service</h2>
+        <p>Pick the AI service you need. Each one accepts code and returns structured analysis.</p>
+        <ul>
+          <li><code>/api/explain-code</code> -- Plain-English code explanation</li>
+          <li><code>/api/debug-assist</code> -- Bug detection and fix suggestions</li>
+          <li><code>/api/code-review</code> -- Quality, style, and best-practice review</li>
+          <li><code>/api/security-audit</code> -- Vulnerability scanning</li>
+          <li><code>/api/automation-script</code> -- Generate automation scripts</li>
+          <li><code>/api/mcp-blueprint</code> -- MCP server architecture blueprints</li>
+        </ul>
+      </div>
+
+      <div class="step-block reveal">
+        <h2>Step 2: Make the Request</h2>
+        <p>Send a POST with your code. No auth headers needed.</p>
+<pre><code>{`curl -X POST https://api.24klabs.ai/api/explain-code \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "code": "const add = (a, b) => a + b;",
+    "language": "javascript",
+    "tier": "quick"
+  }'`}</code></pre>
+      </div>
+
+      <div class="step-block reveal">
+        <h2>Step 3: Handle the 402</h2>
+        <p>Without payment, the server responds with a <code>402 Payment Required</code> containing everything you need to pay.</p>
+<pre><code>{`{
+  "error": "Payment Required",
+  "price": "0.50",
+  "currency": "USDC",
+  "network": "base",
+  "wallet": "0x1234...abcd",
+  "paymentMethods": ["x402"],
+  "x402": {
+    "version": 1,
+    "scheme": "exact",
+    "mimeType": "application/json"
+  }
+}`}</code></pre>
+      </div>
+
+      <div class="step-block reveal">
+        <h2>Step 4: Pay with USDC on Base L2</h2>
+        <p>Transfer the exact USDC amount to the wallet address on Base (Coinbase L2). Gas fees are fractions of a cent. Your AI agent or wallet SDK handles this automatically via the x402 protocol.</p>
+      </div>
+
+      <div class="step-block reveal">
+        <h2>Step 5: Retry with Receipt</h2>
+        <p>Resend the same request with the payment receipt in the header.</p>
+<pre><code>{`curl -X POST https://api.24klabs.ai/api/explain-code \\
+  -H "Content-Type: application/json" \\
+  -H "X-Payment: {base64_encoded_receipt}" \\
+  -d '{
+    "code": "const add = (a, b) => a + b;",
+    "language": "javascript",
+    "tier": "quick"
+  }'`}</code></pre>
+        <p>The server verifies the on-chain payment and returns your result. Done.</p>
+      </div>
+
+      <hr>
+
+      <div class="step-block reveal">
+        <h2>Free Demo Endpoint</h2>
+        <p>Not ready to pay? Try the free demo endpoint -- no payment required, 5 requests per day.</p>
+<pre><code>{`curl -X POST https://api.24klabs.ai/api/demo/explain \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "code": "print('hello world')",
+    "language": "python",
+    "tier": "quick"
+  }'`}</code></pre>
+      </div>
+
+      <hr>
+
+      <div class="reveal" style="text-align: center; padding: 40px 0;">
+        <a href="/developers/docs" class="btn btn--primary">Full API Reference</a>
+        <a href="/products/ai-services" class="btn btn--outline" style="margin-left: 12px;">View Pricing</a>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .step-block {
+    margin-bottom: 48px;
+  }
+  .step-block h2 {
+    color: var(--gold);
+  }
+</style>

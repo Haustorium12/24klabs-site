@@ -1,0 +1,288 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  { name: 'Explain Code', badge: 'haiku', model: 'Haiku', quick: '$0.50', standard: '$1.00', pro: '$2.00' },
+  { name: 'Debug Assist', badge: 'sonnet', model: 'Sonnet', quick: '$2.00', standard: '$4.00', pro: '$8.00' },
+  { name: 'Code Review', badge: 'sonnet', model: 'Sonnet', quick: '$10.00', standard: '$20.00', pro: '$40.00' },
+  { name: 'Security Audit', badge: 'opus', model: 'Opus', quick: '$25.00', standard: '$50.00', pro: '$100.00' },
+  { name: 'Automation Script', badge: 'sonnet', model: 'Sonnet', quick: '$15.00', standard: '$30.00', pro: '$60.00' },
+  { name: 'MCP Blueprint', badge: 'opus', model: 'Opus', quick: '$50.00', standard: '$100.00', pro: '$200.00' },
+];
+---
+
+<BaseLayout title="Pricing -- 24K Labs" description="Simple per-request pricing. No subscriptions, no API keys. Pay in USDC on Base L2. From $0.50 per request.">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Pricing</span>
+      <h1 class="page-header__title">Pay Per Request</h1>
+      <p class="page-header__desc">
+        No subscriptions. No seat licenses. Every request has a price.
+        Pick your tier, pay in USDC, get your result.
+      </p>
+    </div>
+  </section>
+
+  <!-- Free demo callout -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="free-banner reveal">
+        <div class="free-banner__content">
+          <h3 class="free-banner__title">Try it free first</h3>
+          <p class="free-banner__desc">5 free Explain Code requests per day. No wallet needed.</p>
+        </div>
+        <a href="/#demo" class="btn btn--primary">Try the Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tier explanation -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="grid-3 reveal">
+        <div class="card tier-explain">
+          <h3 class="tier-explain__title">Quick</h3>
+          <p class="tier-explain__desc">
+            Faster response, shorter analysis. Good for straightforward code, quick checks,
+            and simple questions. Gets you 80% of the answer in half the time.
+          </p>
+        </div>
+        <div class="card tier-explain tier-explain--highlight">
+          <span class="badge badge--gold">Recommended</span>
+          <h3 class="tier-explain__title">Standard</h3>
+          <p class="tier-explain__desc">
+            Balanced depth and speed. The right choice for most requests. Thorough analysis
+            with clear explanations and actionable recommendations.
+          </p>
+        </div>
+        <div class="card tier-explain">
+          <h3 class="tier-explain__title">Pro</h3>
+          <p class="tier-explain__desc">
+            Maximum depth and detail. Extended analysis time, more examples,
+            deeper investigation. For complex code and critical decisions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing table -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title reveal">All Services</h2>
+      <p class="section__subtitle reveal">Every price is per request. USDC on Base L2.</p>
+
+      <div class="pricing-table reveal">
+        <div class="pricing-table__header">
+          <div class="pricing-table__cell pricing-table__cell--service">Service</div>
+          <div class="pricing-table__cell">Quick</div>
+          <div class="pricing-table__cell pricing-table__cell--highlight">Standard</div>
+          <div class="pricing-table__cell">Pro</div>
+        </div>
+        {services.map(s => (
+          <div class="pricing-table__row">
+            <div class="pricing-table__cell pricing-table__cell--service">
+              <span class={`badge badge--${s.badge}`}>{s.model}</span>
+              <span class="pricing-table__service-name">{s.name}</span>
+            </div>
+            <div class="pricing-table__cell">{s.quick}</div>
+            <div class="pricing-table__cell pricing-table__cell--highlight">{s.standard}</div>
+            <div class="pricing-table__cell">{s.pro}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Settlement note -->
+  <section class="section--sm" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="grid-2 reveal">
+        <div>
+          <h3 class="settlement__title">Settlement: USDC on Base L2</h3>
+          <p class="settlement__desc">
+            All payments settle in USDC on the Base L2 network. Transactions are instant,
+            gas fees are typically under $0.01, and every payment is verifiable on-chain.
+            No credit cards, no invoices, no billing cycles.
+          </p>
+        </div>
+        <div>
+          <h3 class="settlement__title">How Payment Works</h3>
+          <ul class="settlement__list">
+            <li>Send a request -- get a <code>402</code> with the exact price</li>
+            <li>Transfer USDC on Base to our vault address</li>
+            <li>Retry with the transaction receipt</li>
+            <li>Payment verified on-chain, result delivered</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="coming-soon reveal">
+        <h2 class="coming-soon__title">Start with the free demo</h2>
+        <p class="coming-soon__desc">No wallet needed. 5 requests per day. See what the AI can do before you pay anything.</p>
+        <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="/#demo" class="btn btn--primary btn--lg">Try the Demo</a>
+          <a href="/products/ai-services" class="btn btn--outline btn--lg">View Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .free-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .free-banner__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .free-banner__desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .tier-explain {
+    text-align: center;
+  }
+
+  .tier-explain--highlight {
+    border-color: var(--gold-dim);
+    background: rgba(212, 175, 55, 0.03);
+  }
+
+  .tier-explain__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 12px 0;
+  }
+
+  .tier-explain__desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .pricing-table {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .pricing-table__header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pricing-table__header .pricing-table__cell {
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .pricing-table__row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .pricing-table__row:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-table__row:hover {
+    background: var(--bg-surface);
+  }
+
+  .pricing-table__cell {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+
+  .pricing-table__cell--service {
+    gap: 12px;
+  }
+
+  .pricing-table__cell--highlight {
+    background: rgba(212, 175, 55, 0.04);
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  .pricing-table__service-name {
+    font-weight: 600;
+  }
+
+  .settlement__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .settlement__desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .settlement__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .settlement__list li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .settlement__list li:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-table__header,
+    .pricing-table__row {
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    }
+
+    .pricing-table__cell {
+      padding: 12px 10px;
+      font-size: 0.8rem;
+    }
+
+    .pricing-table__cell--service {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+</style>

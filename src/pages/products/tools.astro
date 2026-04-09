@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const tools = [
+  {
+    name: 'awesome-x402',
+    description: 'A curated list of x402 protocol resources, tools, libraries, and services. The community-maintained directory of everything being built on the x402 standard.',
+    tags: ['Directory', 'Community', 'Resources'],
+    github: 'https://github.com/Haustorium12/awesome-x402',
+  },
+  {
+    name: 'memory-v2',
+    description: 'A persistent memory system for AI agents. Store, search, and graph-query knowledge across sessions. Built for Claude Code and MCP-compatible environments.',
+    tags: ['AI Agents', 'Memory', 'MCP'],
+    github: 'https://github.com/Haustorium12/memory-v2',
+  },
+  {
+    name: '24K Weather Bot',
+    description: 'An autonomous trading bot for Kalshi weather markets. Analyzes NOAA data, evaluates market odds, and places weather derivative trades with configurable risk parameters.',
+    tags: ['Trading', 'Weather', 'Automation'],
+    github: 'https://github.com/Haustorium12/24k-weather-bot',
+  },
+];
+---
+
+<BaseLayout title="Open Source Tools -- 24K Labs" description="Open source tools and projects from 24K Labs. AI agent memory, x402 resources, weather trading bots, and more.">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Open Source</span>
+      <h1 class="page-header__title">Tools</h1>
+      <p class="page-header__desc">
+        Open source projects from 24K Labs. Built in public, free to use.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="tools-grid">
+        {tools.map(tool => (
+          <div class="card tool-card reveal">
+            <div class="tool-card__header">
+              <h2 class="tool-card__name">{tool.name}</h2>
+              <a href={tool.github} target="_blank" rel="noopener" class="btn btn--outline btn--sm">
+                GitHub &#8599;
+              </a>
+            </div>
+            <p class="tool-card__desc">{tool.description}</p>
+            <div class="tool-card__tags">
+              {tool.tags.map(tag => (
+                <span class="badge badge--gold">{tag}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="coming-soon reveal">
+        <div class="coming-soon__icon">&#128736;</div>
+        <h2 class="coming-soon__title">More tools coming</h2>
+        <p class="coming-soon__desc">
+          We're building more open source tools for the x402 ecosystem.
+          Watch our GitHub for new releases.
+        </p>
+        <div style="margin-top: 24px;">
+          <a href="https://github.com/Haustorium12" target="_blank" rel="noopener" class="btn btn--primary">
+            Follow on GitHub &#8599;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .tools-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .tool-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .tool-card__name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: var(--mono);
+    letter-spacing: -0.01em;
+  }
+
+  .tool-card__desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .tool-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+// Footer component
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <span style="color: var(--gold); font-size: 1.3rem;">&#9670;</span>
+          <span style="font-size: 1.2rem; font-weight: 700;">24K Labs</span>
+        </div>
+        <p class="footer__tagline">AI code services.<br>Pay per request, not per seat.</p>
+        <p class="footer__tagline" style="margin-top: 8px; font-size: 0.8rem;">The human layer of the x402 economy.</p>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">Product</h4>
+        <a href="/products/ai-services" class="footer__link">AI Services</a>
+        <a href="/products/x402" class="footer__link">x402 Protocol</a>
+        <a href="/pricing" class="footer__link">Pricing</a>
+        <a href="/products/tools" class="footer__link">Tools</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">Developers</h4>
+        <a href="/developers/quickstart" class="footer__link">Quickstart</a>
+        <a href="/developers/docs" class="footer__link">API Docs</a>
+        <a href="/developers/blog" class="footer__link">Blog</a>
+        <a href="/developers/changelog" class="footer__link">Changelog</a>
+        <a href="https://api.24klabs.ai/.well-known/x402.json" class="footer__link" target="_blank" rel="noopener">x402 Discovery</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">Community</h4>
+        <a href="/community/directory" class="footer__link">x402 Directory</a>
+        <a href="/community/jobs" class="footer__link">Job Board</a>
+        <a href="/about" class="footer__link">About</a>
+        <a href="https://github.com/Haustorium12" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 24K Labs. All rights reserved.</p>
+      <p style="color: var(--text-dim);">Built with Claude &middot; Paid with x402</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 60px 0 40px;
+    border-top: 1px solid var(--border);
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  .footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .footer__tagline {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .footer__heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer__link {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+  .footer__link:hover { color: var(--text); }
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    .footer__grid { grid-template-columns: 1fr; gap: 28px; }
+    .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>

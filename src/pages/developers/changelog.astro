@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Changelog -- 24K Labs">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Updates</span>
+      <h1 class="page-header__title">Changelog</h1>
+      <p class="page-header__desc">What we shipped and when.</p>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container">
+      <div class="timeline">
+
+        <div class="timeline-entry reveal">
+          <div class="timeline-date">April 2026</div>
+          <div class="timeline-content card">
+            <h3>24klabs.ai Website Launch</h3>
+            <p>Public website live with full product pages, developer docs, quickstart guide, and community hub.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry reveal">
+          <div class="timeline-date">March 2026</div>
+          <div class="timeline-content card">
+            <h3>6 AI Services Live</h3>
+            <p>All six code analysis endpoints operational with x402 payments on Base L2. Explain, debug, review, security audit, automation scripts, and MCP blueprints.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry reveal">
+          <div class="timeline-date">March 2026</div>
+          <div class="timeline-content card">
+            <h3>Memory V2 System</h3>
+            <p>Complete memory architecture rebuild. 11,637 memories successfully migrated from V1. New graph-based search and cross-session persistence.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry reveal">
+          <div class="timeline-date">March 2026</div>
+          <div class="timeline-content card">
+            <h3>24K Weather Bot</h3>
+            <p>Kalshi weather market paper trading bot launched. Automated position management and market analysis.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry reveal">
+          <div class="timeline-date">March 2026</div>
+          <div class="timeline-content card">
+            <h3>Ken Telegram Bot</h3>
+            <p>Telegram bot launched with 29 integrated tools. Pawn shop operations, memory access, and system management from mobile.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .timeline {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-entry {
+    position: relative;
+    margin-bottom: 40px;
+  }
+  .timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--bg);
+  }
+  .timeline-date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .timeline-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .timeline-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,343 @@
+---
+// Nav component with mega menu dropdowns
+---
+
+<nav class="nav" id="nav">
+  <div class="nav__inner container">
+    <a href="/" class="nav__logo">
+      <span class="nav__logo-icon">&#9670;</span>
+      <span class="nav__logo-text">24K Labs</span>
+    </a>
+
+    <div class="nav__links" id="nav-links">
+      <!-- Products dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__link--trigger">Products <span class="nav__chevron">&#9662;</span></button>
+        <div class="mega-menu">
+          <div class="mega-menu__inner">
+            <div class="mega-menu__col">
+              <h4 class="mega-menu__heading">AI Services</h4>
+              <a href="/products/ai-services" class="mega-menu__link">
+                <span class="mega-menu__link-title">API Catalog</span>
+                <span class="mega-menu__link-desc">6 AI-powered code analysis tools</span>
+              </a>
+              <a href="/pricing" class="mega-menu__link">
+                <span class="mega-menu__link-title">Pricing</span>
+                <span class="mega-menu__link-desc">Pay per request, from $0.50</span>
+              </a>
+            </div>
+            <div class="mega-menu__col">
+              <h4 class="mega-menu__heading">x402 Protocol</h4>
+              <a href="/products/x402" class="mega-menu__link">
+                <span class="mega-menu__link-title">How x402 Works</span>
+                <span class="mega-menu__link-desc">Payment protocol overview</span>
+              </a>
+              <a href="/community/directory" class="mega-menu__link">
+                <span class="mega-menu__link-title">x402 Directory</span>
+                <span class="mega-menu__link-desc">Ecosystem project catalog</span>
+              </a>
+            </div>
+            <div class="mega-menu__col">
+              <h4 class="mega-menu__heading">Tools</h4>
+              <a href="/products/tools" class="mega-menu__link">
+                <span class="mega-menu__link-title">Open Source</span>
+                <span class="mega-menu__link-desc">GitHub projects & CLI tools</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developers dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__link--trigger">Developers <span class="nav__chevron">&#9662;</span></button>
+        <div class="mega-menu">
+          <div class="mega-menu__inner">
+            <div class="mega-menu__col">
+              <h4 class="mega-menu__heading">Get Started</h4>
+              <a href="/developers/quickstart" class="mega-menu__link">
+                <span class="mega-menu__link-title">Quickstart</span>
+                <span class="mega-menu__link-desc">First API call in 2 minutes</span>
+              </a>
+              <a href="/developers/docs" class="mega-menu__link">
+                <span class="mega-menu__link-title">API Reference</span>
+                <span class="mega-menu__link-desc">Full endpoint documentation</span>
+              </a>
+            </div>
+            <div class="mega-menu__col">
+              <h4 class="mega-menu__heading">Resources</h4>
+              <a href="/developers/blog" class="mega-menu__link">
+                <span class="mega-menu__link-title">Blog</span>
+                <span class="mega-menu__link-desc">Tutorials & deep dives</span>
+              </a>
+              <a href="/developers/changelog" class="mega-menu__link">
+                <span class="mega-menu__link-title">Changelog</span>
+                <span class="mega-menu__link-desc">What's new</span>
+              </a>
+            </div>
+            <div class="mega-menu__col">
+              <h4 class="mega-menu__heading">Open Source</h4>
+              <a href="https://github.com/Haustorium12" class="mega-menu__link" target="_blank" rel="noopener">
+                <span class="mega-menu__link-title">GitHub &#8599;</span>
+                <span class="mega-menu__link-desc">Repos & contributions</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Community dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__link--trigger">Community <span class="nav__chevron">&#9662;</span></button>
+        <div class="mega-menu">
+          <div class="mega-menu__inner">
+            <div class="mega-menu__col">
+              <h4 class="mega-menu__heading">x402 Hub</h4>
+              <a href="/community/directory" class="mega-menu__link">
+                <span class="mega-menu__link-title">Project Directory</span>
+                <span class="mega-menu__link-desc">Browse 300+ x402 projects</span>
+              </a>
+              <a href="/community/jobs" class="mega-menu__link">
+                <span class="mega-menu__link-title">Job Board</span>
+                <span class="mega-menu__link-desc">x402 & crypto careers</span>
+              </a>
+            </div>
+            <div class="mega-menu__col">
+              <h4 class="mega-menu__heading">Connect</h4>
+              <a href="/community" class="mega-menu__link">
+                <span class="mega-menu__link-title">Community Hub</span>
+                <span class="mega-menu__link-desc">Events, partners, showcase</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="/pricing" class="nav__link">Pricing</a>
+      <a href="/about" class="nav__link">About</a>
+    </div>
+
+    <div class="nav__actions">
+      <a href="/developers/quickstart" class="btn btn--primary btn--sm">Start Building</a>
+      <button class="nav__hamburger" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    z-index: 1000;
+    transition: border-color 0.3s;
+  }
+  .nav.scrolled { border-bottom-color: var(--border); }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .nav__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .nav__logo:hover { color: var(--text); }
+  .nav__logo-icon { color: var(--gold); font-size: 1.4rem; }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav__link {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s, background 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font);
+    text-decoration: none;
+  }
+  .nav__link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+
+  .nav__chevron { font-size: 0.7em; margin-left: 2px; opacity: 0.5; }
+
+  .nav__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav__hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s;
+  }
+
+  /* Mega menu */
+  .nav__dropdown { position: relative; }
+
+  .mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    padding-top: 12px;
+  }
+
+  .nav__dropdown:hover .mega-menu,
+  .nav__dropdown:focus-within .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .mega-menu__inner {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    min-width: 520px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  }
+
+  .mega-menu__col { flex: 1; min-width: 160px; }
+
+  .mega-menu__heading {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    padding: 0 12px;
+  }
+
+  .mega-menu__link {
+    display: block;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+  .mega-menu__link:hover { background: var(--bg-card); }
+
+  .mega-menu__link-title {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .mega-menu__link-desc {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .nav__links { display: none; }
+    .nav__hamburger { display: flex; }
+
+    .nav__links.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      gap: 4px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .mega-menu {
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+      padding-top: 0;
+      display: none;
+    }
+
+    .nav__dropdown.open .mega-menu { display: block; }
+
+    .mega-menu__inner {
+      flex-direction: column;
+      min-width: unset;
+      box-shadow: none;
+      background: var(--bg-card);
+      padding: 12px;
+    }
+  }
+</style>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // Mobile toggle
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  toggle?.addEventListener('click', () => {
+    links?.classList.toggle('active');
+  });
+
+  // Mobile dropdown toggles
+  document.querySelectorAll('.nav__dropdown .nav__link--trigger').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        btn.closest('.nav__dropdown')?.classList.toggle('open');
+      }
+    });
+  });
+</script>

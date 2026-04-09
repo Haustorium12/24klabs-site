@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="API Reference -- 24K Labs">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Documentation</span>
+      <h1 class="page-header__title">API Reference</h1>
+      <p class="page-header__desc">Everything you need to integrate with 24K Labs AI services.</p>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container">
+
+      <div class="reveal" style="margin-bottom: 48px;">
+        <h2 class="docs-heading">Base URL</h2>
+        <pre><code>https://api.24klabs.ai</code></pre>
+      </div>
+
+      <div class="reveal" style="margin-bottom: 48px;">
+        <h2 class="docs-heading">Endpoints</h2>
+
+        <h3 class="docs-subheading">Public Endpoints</h3>
+        <div class="endpoint-grid">
+          <div class="endpoint-card card">
+            <span class="badge badge--haiku">GET</span>
+            <code>/health</code>
+            <p>Server health check</p>
+          </div>
+          <div class="endpoint-card card">
+            <span class="badge badge--haiku">GET</span>
+            <code>/services</code>
+            <p>List all available services and pricing</p>
+          </div>
+          <div class="endpoint-card card">
+            <span class="badge badge--haiku">GET</span>
+            <code>/stats</code>
+            <p>Platform usage statistics</p>
+          </div>
+          <div class="endpoint-card card">
+            <span class="badge badge--haiku">GET</span>
+            <code>/.well-known/x402.json</code>
+            <p>x402 payment discovery manifest</p>
+          </div>
+          <div class="endpoint-card card">
+            <span class="badge badge--haiku">GET</span>
+            <code>/discovery/resources</code>
+            <p>Service discovery for AI agents</p>
+          </div>
+        </div>
+
+        <h3 class="docs-subheading">Free Demo</h3>
+        <div class="endpoint-grid">
+          <div class="endpoint-card card">
+            <span class="badge badge--gold">POST</span>
+            <code>/api/demo/explain</code>
+            <p>Free code explanation (rate limited, 5/day)</p>
+          </div>
+        </div>
+
+        <h3 class="docs-subheading">Paid Services (x402)</h3>
+        <div class="endpoint-grid">
+          <div class="endpoint-card card">
+            <span class="badge badge--sonnet">POST</span>
+            <code>/api/explain-code</code>
+            <p>Plain-English code explanation</p>
+          </div>
+          <div class="endpoint-card card">
+            <span class="badge badge--sonnet">POST</span>
+            <code>/api/debug-assist</code>
+            <p>Bug detection and fix suggestions</p>
+          </div>
+          <div class="endpoint-card card">
+            <span class="badge badge--sonnet">POST</span>
+            <code>/api/code-review</code>
+            <p>Quality, style, and best-practice review</p>
+          </div>
+          <div class="endpoint-card card">
+            <span class="badge badge--sonnet">POST</span>
+            <code>/api/security-audit</code>
+            <p>Vulnerability scanning and analysis</p>
+          </div>
+          <div class="endpoint-card card">
+            <span class="badge badge--sonnet">POST</span>
+            <code>/api/automation-script</code>
+            <p>Generate automation scripts from descriptions</p>
+          </div>
+          <div class="endpoint-card card">
+            <span class="badge badge--sonnet">POST</span>
+            <code>/api/mcp-blueprint</code>
+            <p>MCP server architecture blueprints</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal prose" style="margin-bottom: 48px;">
+        <h2 class="docs-heading">Request Body</h2>
+        <p>All POST endpoints accept the same JSON body schema.</p>
+<pre><code>{`{
+  "code": "string",         // Required. The code to analyze.
+  "language": "string",     // Optional. Language hint (auto-detected if omitted).
+  "context": "string",      // Optional. Additional context for the analysis.
+  "tier": "quick" | "standard" | "pro"  // Required. Analysis depth.
+}`}</code></pre>
+        <p>Tiers map to different models and depths of analysis. Quick uses Haiku, Standard uses Sonnet, Pro uses Opus.</p>
+      </div>
+
+      <div class="reveal prose" style="margin-bottom: 48px;">
+        <h2 class="docs-heading">Response (200 OK)</h2>
+<pre><code>{`{
+  "service": "explain-code",
+  "tier": "quick",
+  "result": "...",            // The AI-generated analysis
+  "model": "claude-3-haiku",
+  "tokens_used": 1247,
+  "request_id": "req_abc123"
+}`}</code></pre>
+      </div>
+
+      <div class="reveal prose" style="margin-bottom: 48px;">
+        <h2 class="docs-heading">402 Payment Required</h2>
+        <p>Returned when a paid endpoint is called without a valid payment receipt.</p>
+<pre><code>{`{
+  "error": "Payment Required",
+  "price": "0.50",
+  "currency": "USDC",
+  "network": "base",
+  "wallet": "0x...",
+  "paymentMethods": ["x402"],
+  "x402": {
+    "version": 1,
+    "scheme": "exact",
+    "mimeType": "application/json"
+  }
+}`}</code></pre>
+      </div>
+
+      <div class="reveal prose" style="margin-bottom: 48px;">
+        <h2 class="docs-heading">Authentication: x402 Payment Flow</h2>
+        <p>24K Labs uses the x402 protocol. There are no API keys or OAuth tokens. The payment itself is the authentication.</p>
+        <ol>
+          <li>Send a request to any paid endpoint without payment.</li>
+          <li>Receive a <code>402</code> response with price, wallet, and payment details.</li>
+          <li>Transfer the exact USDC amount on Base L2 to the provided wallet.</li>
+          <li>Resend the original request with the <code>X-Payment</code> header containing the base64-encoded transaction receipt.</li>
+          <li>The server verifies the on-chain transaction and returns the result.</li>
+        </ol>
+        <p>AI agents using x402-compatible SDKs handle this loop automatically.</p>
+      </div>
+
+      <div class="reveal" style="text-align: center; padding: 40px 0;">
+        <a href="/developers/quickstart" class="btn btn--primary">Quickstart Guide</a>
+        <a href="/products/ai-services" class="btn btn--outline" style="margin-left: 12px;">View Pricing</a>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .docs-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .docs-subheading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 32px 0 16px;
+  }
+  .endpoint-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .endpoint-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 24px;
+  }
+  .endpoint-card code {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .endpoint-card p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .endpoint-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

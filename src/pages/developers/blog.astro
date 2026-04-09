@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Blog -- 24K Labs">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">From the Lab</span>
+      <h1 class="page-header__title">Blog</h1>
+      <p class="page-header__desc">Tutorials, product deep-dives, and research from the 24K Labs team.</p>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container">
+
+      <div class="grid-3">
+
+        <article class="card blog-card reveal">
+          <span class="badge badge--haiku">Tutorial</span>
+          <h3 class="blog-card__title">How to Pay for AI Services with USDC in One HTTP Call</h3>
+          <p class="blog-card__excerpt">Walk through the full x402 payment flow from first request to final result. See how a single curl command handles discovery, payment, and response.</p>
+          <span class="blog-card__meta">Coming soon</span>
+        </article>
+
+        <article class="card blog-card reveal">
+          <span class="badge badge--sonnet">Product</span>
+          <h3 class="blog-card__title">Code Review API: Pay Per PR, Not Per Seat</h3>
+          <p class="blog-card__excerpt">Why per-request pricing makes more sense for code review than annual subscriptions. Breakdown of costs for solo devs vs. teams.</p>
+          <span class="blog-card__meta">Coming soon</span>
+        </article>
+
+        <article class="card blog-card reveal">
+          <span class="badge badge--opus">Research</span>
+          <h3 class="blog-card__title">The Three Layers of AI Memory</h3>
+          <p class="blog-card__excerpt">How we built a memory system that migrated 11,637 memories across architectures. The design philosophy behind session, working, and long-term memory.</p>
+          <span class="blog-card__meta">Coming soon</span>
+        </article>
+
+      </div>
+
+      <p class="blog-footer reveal">More posts coming. Follow us on <a href="https://github.com/24klabs" target="_blank" rel="noopener">GitHub</a> for updates.</p>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .blog-card__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .blog-card__excerpt {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    flex: 1;
+  }
+  .blog-card__meta {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+  .blog-footer {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 60px;
+    font-size: 0.95rem;
+  }
+</style>

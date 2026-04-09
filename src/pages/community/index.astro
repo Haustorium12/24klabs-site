@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Community -- 24K Labs">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Ecosystem</span>
+      <h1 class="page-header__title">Community</h1>
+      <p class="page-header__desc">Building the x402 ecosystem together. Developers, projects, and partners pushing pay-per-request forward.</p>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container">
+
+      <div class="grid-2">
+
+        <a href="/community/directory" class="card community-card reveal">
+          <div class="community-card__icon">&#9733;</div>
+          <h3 class="community-card__title">x402 Directory</h3>
+          <p class="community-card__desc">Browse 300+ x402 projects. APIs, tools, agents, and services accepting crypto payments.</p>
+        </a>
+
+        <a href="/community/jobs" class="card community-card reveal">
+          <div class="community-card__icon">&#9881;</div>
+          <h3 class="community-card__title">Job Board</h3>
+          <p class="community-card__desc">x402 and crypto careers from Foundation members and ecosystem partners.</p>
+          <span class="badge badge--coming-soon">Coming Soon</span>
+        </a>
+
+        <a href="/community/partners" class="card community-card reveal">
+          <div class="community-card__icon">&#10070;</div>
+          <h3 class="community-card__title">Partners</h3>
+          <p class="community-card__desc">Organizations and protocols building on x402 infrastructure.</p>
+          <span class="badge badge--coming-soon">Coming Soon</span>
+        </a>
+
+        <a href="/community/showcase" class="card community-card reveal">
+          <div class="community-card__icon">&#9889;</div>
+          <h3 class="community-card__title">Showcase</h3>
+          <p class="community-card__desc">Projects and integrations built with 24K Labs services.</p>
+          <span class="badge badge--coming-soon">Coming Soon</span>
+        </a>
+
+      </div>
+
+      <div class="community-links reveal">
+        <a href="https://github.com/24klabs" target="_blank" rel="noopener" class="btn btn--outline">GitHub</a>
+        <a href="https://discord.gg/24klabs" target="_blank" rel="noopener" class="btn btn--outline">Discord</a>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .community-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .community-card__icon {
+    font-size: 2rem;
+    margin-bottom: 4px;
+  }
+  .community-card__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .community-card__desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .community-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 60px;
+  }
+</style>

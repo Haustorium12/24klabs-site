@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About -- 24K Labs" description="24K Labs builds AI code services on the x402 protocol. Founded in Philadelphia, 2026.">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">About</span>
+      <h1 class="page-header__title">24K Labs</h1>
+      <p class="page-header__desc">
+        AI services that work the way the internet was supposed to work.
+        Request, pay, done.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose reveal">
+        <h2>Who We Are</h2>
+        <p>
+          24K Labs is a small, independent company founded in 2026 in Philadelphia.
+          We build AI-powered code analysis services and sell them through the
+          x402 protocol -- no subscriptions, no API keys, no middlemen.
+        </p>
+        <p>
+          We're not trying to be a platform. We're building useful tools and selling them
+          the simplest way possible: you send a request, you pay for it, you get your result.
+          That's it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="prose reveal">
+        <h2>The Mission</h2>
+        <p>
+          Make AI services accessible through open payment protocols.
+        </p>
+        <p>
+          The current model for selling AI services is broken. You sign up for an account,
+          get an API key, connect a credit card, manage billing, rotate secrets, and hope
+          the provider doesn't change their pricing. It's a lot of overhead for what should
+          be a simple transaction.
+        </p>
+        <p>
+          x402 fixes this. It turns every HTTP endpoint into a self-describing,
+          self-pricing service. Any client -- human or AI agent -- can discover what's available,
+          see the price, pay, and get the result. No accounts. No dashboards. No billing surprises.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose reveal">
+        <h2>The x402 Vision</h2>
+        <p>
+          We're building toward a world where AI agents are first-class economic actors.
+          An agent with a USDC balance should be able to browse the web, discover services,
+          compare prices, and pay for what it needs -- all without a human managing credentials
+          or approving invoices.
+        </p>
+        <p>
+          That world needs open infrastructure, not walled gardens. x402 is that infrastructure,
+          and we're proud to be one of the first companies building real services on top of it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="grid-2 reveal">
+        <div>
+          <h2 class="value__title">Open Source</h2>
+          <p class="value__desc">
+            We build in public. Our tools, our research, and our learnings go back to the community.
+            The x402 ecosystem grows faster when everyone can see how things work.
+          </p>
+          <a href="https://github.com/Haustorium12" target="_blank" rel="noopener" class="btn btn--outline" style="margin-top: 16px;">
+            GitHub &#8599;
+          </a>
+        </div>
+        <div>
+          <h2 class="value__title">Built in Philly</h2>
+          <p class="value__desc">
+            Philadelphia, PA. Not Silicon Valley, not a coworking space in Lisbon.
+            A real city with real problems and a long history of people figuring things out.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="coming-soon reveal">
+        <h2 class="coming-soon__title">Get in Touch</h2>
+        <p class="coming-soon__desc">
+          Questions, partnerships, or just want to talk about x402 --
+          find us on GitHub or try the demo.
+        </p>
+        <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://github.com/Haustorium12" target="_blank" rel="noopener" class="btn btn--primary">
+            GitHub &#8599;
+          </a>
+          <a href="/#demo" class="btn btn--outline">Try the Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .value__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .value__desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+</style>

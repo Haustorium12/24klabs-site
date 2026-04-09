@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="x402 Protocol -- 24K Labs" description="HTTP 402 Payment Required. The open protocol for machine-to-machine payments. Pay for AI services with USDC -- no API keys, no accounts.">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Protocol</span>
+      <h1 class="page-header__title">x402</h1>
+      <p class="page-header__desc">
+        The HTTP payment protocol that lets AI agents discover, pay for, and consume services autonomously.
+      </p>
+    </div>
+  </section>
+
+  <!-- What is x402 -->
+  <section class="section">
+    <div class="container">
+      <div class="prose reveal">
+        <h2>What is x402?</h2>
+        <p>
+          x402 brings HTTP status code <code>402 Payment Required</code> to life. Originally reserved in the HTTP spec decades ago,
+          it was never standardized -- until now. x402 turns it into a real, interoperable payment protocol for the web.
+        </p>
+        <p>
+          Instead of API keys, OAuth tokens, or billing portals, x402 uses the payment itself as authentication.
+          Any HTTP client -- human or AI agent -- can discover a service, see the price, pay in USDC, and get the result.
+          All in a single request-response cycle.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section bg-surface">
+    <div class="container">
+      <h2 class="section__title reveal">How It Works</h2>
+      <p class="section__subtitle reveal">Three HTTP exchanges. No signup. No dashboard.</p>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <div class="step-num">1</div>
+          <h3 class="card__title">Request the Service</h3>
+          <p class="card__desc">
+            Send a normal HTTP request to any x402-enabled endpoint. No auth headers needed.
+          </p>
+          <pre><code>{`POST /api/explain
+Content-Type: application/json
+
+{"code": "def fib(n): ..."}`}</code></pre>
+        </div>
+
+        <div class="card reveal">
+          <div class="step-num">2</div>
+          <h3 class="card__title">Receive 402 + Price</h3>
+          <p class="card__desc">
+            The server responds with <code>402 Payment Required</code> and tells you exactly what to pay.
+          </p>
+          <pre><code>{`HTTP/1.1 402 Payment Required
+X-Payment-Amount: 1.00
+X-Payment-Currency: USDC
+X-Payment-Network: base
+X-Payment-Address: 0xABC...`}</code></pre>
+        </div>
+
+        <div class="card reveal">
+          <div class="step-num">3</div>
+          <h3 class="card__title">Pay + Retry</h3>
+          <p class="card__desc">
+            Transfer USDC on Base L2, then retry the request with the transaction receipt.
+          </p>
+          <pre><code>{`POST /api/explain
+X-Payment-Receipt: 0xTXHASH...
+Content-Type: application/json
+
+{"code": "def fib(n): ..."}`}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Linux Foundation -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="reveal">
+          <h2 class="feature__title">Backed by the Linux Foundation</h2>
+          <p class="feature__desc">
+            x402 is an open standard under the Linux Foundation with 22+ member organizations.
+            This isn't a startup's proprietary protocol -- it's a shared infrastructure layer
+            for the future of machine-to-machine commerce.
+          </p>
+          <div class="member-badges">
+            <span class="badge badge--gold">Coinbase</span>
+            <span class="badge badge--gold">Cloudflare</span>
+            <span class="badge badge--gold">Stripe</span>
+            <span class="badge badge--gold">Visa</span>
+            <span class="badge badge--gold">AWS</span>
+            <span class="badge badge--gold">22+ Members</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="card">
+            <h3 class="card__title">Open Standard Benefits</h3>
+            <ul class="feature-list">
+              <li>Vendor-neutral -- no single company controls the spec</li>
+              <li>Interoperable -- any client, any server, any chain</li>
+              <li>Auditable -- every payment is on-chain and verifiable</li>
+              <li>Extensible -- supports any token, any L2, any pricing model</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why it matters for AI agents -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <h2 class="section__title reveal">Why AI Agents Need x402</h2>
+      <p class="section__subtitle reveal">
+        API keys don't work when machines are the customers.
+      </p>
+      <div class="grid-3">
+        <div class="card reveal">
+          <h3 class="card__title">No Credentials to Manage</h3>
+          <p class="card__desc">
+            Agents don't need API keys, OAuth tokens, or service accounts.
+            The payment receipt is the only credential. Rotate keys? Never heard of it.
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3 class="card__title">Agent Autonomy</h3>
+          <p class="card__desc">
+            An AI agent with a USDC balance can discover and pay for any x402 service
+            without human intervention. True machine-to-machine commerce.
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3 class="card__title">Pay for What You Use</h3>
+          <p class="card__desc">
+            No monthly subscriptions, no seat licenses, no overages. Every request has an
+            explicit price. Agents can compare costs and choose the best service.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full HTTP flow -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title reveal">The Full HTTP Flow</h2>
+      <p class="section__subtitle reveal">Here is what happens under the hood when an agent calls a 24K Labs endpoint.</p>
+      <div class="prose reveal">
+        <pre><code>{`# 1. Agent sends a request (no auth)
+curl -X POST https://api.24klabs.ai/api/explain \\
+  -H "Content-Type: application/json" \\
+  -d '{"code": "def fib(n): ...", "tier": "standard"}'
+
+# 2. Server responds 402 with payment details
+# HTTP/1.1 402 Payment Required
+# X-Payment-Amount: 1.00
+# X-Payment-Currency: USDC
+# X-Payment-Network: base
+# X-Payment-Address: 0x24KLabsVault...
+
+# 3. Agent pays USDC on Base L2 (instant, <$0.01 gas)
+# ... transaction confirmed, receipt = 0xABC123...
+
+# 4. Agent retries with the receipt
+curl -X POST https://api.24klabs.ai/api/explain \\
+  -H "Content-Type: application/json" \\
+  -H "X-Payment-Receipt: 0xABC123..." \\
+  -d '{"code": "def fib(n): ...", "tier": "standard"}'
+
+# 5. Server verifies on-chain, returns the result
+# HTTP/1.1 200 OK
+# {"result": "This function calculates the nth Fibonacci..."}`}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="coming-soon reveal">
+        <h2 class="coming-soon__title">Explore the x402 Ecosystem</h2>
+        <p class="coming-soon__desc">Browse services, tools, and projects building on x402.</p>
+        <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="/community/directory" class="btn btn--primary btn--lg">Browse the Directory</a>
+          <a href="/products/ai-services" class="btn btn--outline btn--lg">Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: var(--gold);
+    color: var(--bg);
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .card__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .card__desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .feature__title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .feature__desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .member-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+</style>

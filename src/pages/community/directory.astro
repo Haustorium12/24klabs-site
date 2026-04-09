@@ -1,0 +1,421 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const categories = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'foundation', label: 'Foundation & Governance' },
+  { id: 'infrastructure', label: 'Facilitators & Infrastructure' },
+  { id: 'payment', label: 'Payment & Settlement' },
+  { id: 'ai', label: 'AI Services' },
+  { id: 'sdk', label: 'SDKs & Tools' },
+  { id: 'discovery', label: 'Discovery & Routing' },
+  { id: 'developer', label: 'Developer Resources' },
+];
+
+const projects = [
+  // Foundation & Governance
+  {
+    name: 'Linux Foundation x402',
+    description: 'Foundation governing the x402 protocol standard and ecosystem development.',
+    category: 'foundation',
+    href: '#',
+  },
+  {
+    name: 'x402.org',
+    description: 'Official protocol specification site and canonical documentation.',
+    category: 'foundation',
+    href: '#',
+  },
+
+  // Facilitators & Infrastructure
+  {
+    name: 'Coinbase x402',
+    description: 'Original SDK and facilitator -- the reference implementation that started it all.',
+    category: 'infrastructure',
+    href: '#',
+  },
+  {
+    name: 'Cloudflare EmDash',
+    description: 'CDN-level x402 integration enabling payment-gated content at the edge.',
+    category: 'infrastructure',
+    href: '#',
+  },
+  {
+    name: 'BlockRun',
+    description: 'AI Gateway with 600+ services, trust scoring, and intelligent routing.',
+    category: 'infrastructure',
+    href: '#',
+  },
+  {
+    name: 'x402station',
+    description: 'Real-time analytics, monitoring, and uptime tracking for x402 services.',
+    category: 'infrastructure',
+    href: '#',
+  },
+
+  // Payment & Settlement
+  {
+    name: 'Coinbase Agentic Wallets',
+    description: 'Autonomous agent wallets powering 50M+ x402 transactions and counting.',
+    category: 'payment',
+    href: '#',
+  },
+  {
+    name: 'Stellar x402',
+    description: 'Stellar network facilitator enabling x402 payments on Stellar rails.',
+    category: 'payment',
+    href: '#',
+  },
+  {
+    name: 'XRPL x402',
+    description: 'Ripple/XRPL facilitator bringing x402 to the XRP Ledger ecosystem.',
+    category: 'payment',
+    href: '#',
+  },
+
+  // AI Services
+  {
+    name: '24K Labs',
+    description: 'AI-powered code analysis with 6 production services. The human layer of the machine economy.',
+    category: 'ai',
+    href: '/',
+    highlight: true,
+  },
+
+  // SDKs & Tools
+  {
+    name: 'Coinbase x402 Python SDK',
+    description: 'Official Python SDK for building x402-compatible clients and servers.',
+    category: 'sdk',
+    href: '#',
+  },
+  {
+    name: 'Coinbase x402 TypeScript SDK',
+    description: 'Official TypeScript SDK for Node.js and browser-based x402 integrations.',
+    category: 'sdk',
+    href: '#',
+  },
+  {
+    name: 'open402',
+    description: 'Open-source Python implementation of the x402 protocol for self-hosters.',
+    category: 'sdk',
+    href: '#',
+  },
+  {
+    name: 'x402-mock',
+    description: 'Mock server for testing x402 payment flows without real transactions.',
+    category: 'sdk',
+    href: '#',
+  },
+
+  // Discovery & Routing
+  {
+    name: 'Coinbase Bazaar',
+    description: 'Machine-readable service discovery indexing 251+ x402 services.',
+    category: 'discovery',
+    href: '#',
+  },
+  {
+    name: 'x402 RouteNet',
+    description: 'Smart routing layer that finds optimal paths across x402 services.',
+    category: 'discovery',
+    href: '#',
+  },
+  {
+    name: 'awesome-x402',
+    description: 'Community-curated lists of x402 projects, tools, and resources.',
+    category: 'discovery',
+    href: '#',
+  },
+
+  // Developer Resources
+  {
+    name: 'x402search-mcp',
+    description: 'MCP server enabling AI agents to search and discover x402 services.',
+    category: 'developer',
+    href: '#',
+  },
+  {
+    name: 'primer-x402',
+    description: 'Educational resources, tutorials, and guides for x402 newcomers.',
+    category: 'developer',
+    href: '#',
+  },
+];
+
+const categoryLabels: Record<string, string> = {};
+for (const cat of categories) {
+  categoryLabels[cat.id] = cat.label;
+}
+---
+
+<BaseLayout title="x402 Directory -- 24K Labs" description="The complete x402 ecosystem catalog. 300+ projects building on HTTP 402. Browse by category.">
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Ecosystem</span>
+      <h1 class="page-header__title">x402 Directory</h1>
+      <p class="page-header__desc">
+        The complete ecosystem catalog. 300+ projects building on HTTP 402. Browse by category.
+      </p>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="directory-filters reveal" id="filters">
+        {categories.map((cat) => (
+          <button
+            class={`filter-pill ${cat.id === 'all' ? 'filter-pill--active' : ''}`}
+            data-category={cat.id}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="directory-count reveal">
+        Showing <span id="project-count">{projects.length}</span> of {projects.length} projects
+      </div>
+      <div class="grid-3" id="project-grid">
+        {projects.map((project) => (
+          <a
+            href={project.href}
+            class={`card directory-card reveal ${project.highlight ? 'directory-card--highlight' : ''}`}
+            data-category={project.category}
+            target={project.href !== '/' ? '_blank' : undefined}
+            rel={project.href !== '/' ? 'noopener noreferrer' : undefined}
+          >
+            <div class="directory-card__header">
+              <h3 class="directory-card__name">{project.name}</h3>
+              <span class="badge badge--gold">{categoryLabels[project.category]}</span>
+            </div>
+            <p class="directory-card__desc">{project.description}</p>
+            <span class="directory-card__link">
+              Visit project &rarr;
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <!-- Bazaar note -->
+      <div class="directory-note reveal">
+        <p>Coinbase Bazaar currently indexes <strong>251+ services</strong> across the x402 ecosystem, with new projects launching weekly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Submit CTA -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="directory-cta reveal">
+        <p>Know a project we're missing?</p>
+        <a href="#" class="btn btn--outline">Submit it on GitHub</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ---------- Filter Pills ---------- */
+  .directory-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .filter-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 20px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .filter-pill:hover {
+    border-color: var(--gold-dim);
+    color: var(--gold);
+  }
+
+  .filter-pill--active {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ---------- Project Count ---------- */
+  .directory-count {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+
+  .directory-count span {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ---------- Directory Cards ---------- */
+  .directory-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .directory-card:hover {
+    color: var(--text);
+  }
+
+  .directory-card--highlight {
+    border-color: var(--gold-dim);
+    box-shadow: 0 0 0 1px var(--gold-dim), 0 0 24px rgba(212, 175, 55, 0.08);
+    position: relative;
+  }
+
+  .directory-card--highlight::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: var(--radius);
+    padding: 1px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dim), var(--gold));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .directory-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .directory-card__name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .directory-card--highlight .directory-card__name {
+    color: var(--gold);
+  }
+
+  .directory-card__desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .directory-card__link {
+    color: var(--gold-dim);
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .directory-card:hover .directory-card__link {
+    color: var(--gold);
+  }
+
+  /* ---------- Bazaar Note ---------- */
+  .directory-note {
+    text-align: center;
+    margin-top: 48px;
+    padding: 24px;
+    border-radius: var(--radius);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .directory-note strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ---------- Submit CTA ---------- */
+  .directory-cta {
+    text-align: center;
+    padding: 48px 24px;
+  }
+
+  .directory-cta p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  /* ---------- Hidden state for filtered cards ---------- */
+  .directory-card--hidden {
+    display: none;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 768px) {
+    .directory-filters {
+      gap: 8px;
+    }
+
+    .filter-pill {
+      padding: 6px 14px;
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const pills = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
+    const cards = document.querySelectorAll<HTMLElement>('.directory-card');
+    const countEl = document.getElementById('project-count');
+
+    pills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        // Update active pill
+        pills.forEach((p) => p.classList.remove('filter-pill--active'));
+        pill.classList.add('filter-pill--active');
+
+        const category = pill.dataset.category;
+        let visible = 0;
+
+        cards.forEach((card) => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.classList.remove('directory-card--hidden');
+            visible++;
+          } else {
+            card.classList.add('directory-card--hidden');
+          }
+        });
+
+        if (countEl) {
+          countEl.textContent = String(visible);
+        }
+      });
+    });
+  });
+</script>

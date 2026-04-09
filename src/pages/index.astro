@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="24K Labs -- AI Code Services. Pay Per Request.">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__badge">Powered by x402 Protocol</div>
+      <h1 class="hero__title">
+        AI code services.<br>
+        <span class="text-gold">Pay per request, not per seat.</span>
+      </h1>
+      <p class="hero__subtitle">
+        Six AI-powered code analysis tools from $0.50 to $50. No subscriptions, no API keys.
+        Send a request, pay in USDC, get your result. The payment <em>is</em> the auth.
+      </p>
+      <div class="hero__actions">
+        <a href="#demo" class="btn btn--primary btn--lg">Try the Demo Free</a>
+        <a href="/products/ai-services" class="btn btn--outline btn--lg">View Services</a>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <span class="hero__stat-value">6</span>
+          <span class="hero__stat-label">AI Services</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-value">$0.50</span>
+          <span class="hero__stat-label">Starting Price</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-value" id="stat-requests">--</span>
+          <span class="hero__stat-label">Requests Served</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__glow"></div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <h2 class="section__title reveal">How x402 Works</h2>
+      <p class="section__subtitle reveal">Three steps. No API keys. No OAuth. No billing portal.</p>
+      <div class="grid-3">
+        <div class="step reveal">
+          <div class="step__number">1</div>
+          <div class="step__icon">&#10132;</div>
+          <h3 class="step__title">Send a Request</h3>
+          <p class="step__desc">POST your code to any endpoint. No payment? Get a <code>402</code> with the exact price.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__number">2</div>
+          <div class="step__icon">&#9670;</div>
+          <h3 class="step__title">Pay with USDC</h3>
+          <p class="step__desc">Transfer USDC on Base L2. Instant, low-fee, on-chain. Your AI agent handles it.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__number">3</div>
+          <div class="step__icon">&#10003;</div>
+          <h3 class="step__title">Get Your Result</h3>
+          <p class="step__desc">Retry with the receipt. Verified on-chain, result delivered. No accounts needed.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="/products/x402" class="btn btn--outline">Learn more about x402 &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section" id="services" style="background: var(--bg-surface);">
+    <div class="container">
+      <h2 class="section__title reveal">Six Services, One Protocol</h2>
+      <p class="section__subtitle reveal">Every service powered by Claude. Every payment settled in USDC.</p>
+      <div class="grid-3">
+        {[
+          { badge: 'haiku', name: 'Explain Code', desc: 'Clear explanation of what code does, how it works, and why.', price: '$0.50' },
+          { badge: 'sonnet', name: 'Debug Assist', desc: 'Find bugs, explain errors, suggest fixes with severity ratings.', price: '$2.00' },
+          { badge: 'sonnet', name: 'Code Review', desc: 'Security, performance, architecture review with quality score.', price: '$10.00' },
+          { badge: 'opus', name: 'Security Audit', desc: 'OWASP Top 10, CVSS scores, attack scenarios, remediation.', price: '$25.00' },
+          { badge: 'sonnet', name: 'Automation Script', desc: 'Production-ready scripts from requirements. Complete with docs.', price: '$15.00' },
+          { badge: 'opus', name: 'MCP Blueprint', desc: 'Full MCP server architecture, schemas, and deployment guide.', price: '$50.00' },
+        ].map(s => (
+          <div class="card reveal">
+            <span class={`badge badge--${s.badge}`}>{s.badge.charAt(0).toUpperCase() + s.badge.slice(1)}</span>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin: 16px 0 12px;">{s.name}</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">{s.desc}</p>
+            <div style="color: var(--text-dim); font-size: 0.9rem;">From <span style="color: var(--gold); font-weight: 700; font-size: 1.15rem;">{s.price}</span></div>
+          </div>
+        ))}
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="/products/ai-services" class="btn btn--primary">View All Services &rarr;</a>
+        <a href="/pricing" class="btn btn--outline" style="margin-left: 12px;">See Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE DEMO -->
+  <section class="section" id="demo">
+    <div class="container">
+      <h2 class="section__title reveal">Try It Free</h2>
+      <p class="section__subtitle reveal">Paste code and get an instant explanation. 5 free requests per day.</p>
+      <div class="demo reveal">
+        <div class="demo__panel">
+          <div class="demo__bar">
+            <span class="demo__dot" style="background:#ff5f57;"></span>
+            <span class="demo__dot" style="background:#ffbd2e;"></span>
+            <span class="demo__dot" style="background:#28c840;"></span>
+            <span class="demo__label">your_code.py</span>
+          </div>
+          <textarea class="demo__textarea" id="demo-input" placeholder={"# Paste your code here...\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)"} spellcheck="false"></textarea>
+          <div class="demo__footer">
+            <select class="demo__select" id="demo-lang">
+              <option value="">Auto-detect</option>
+              <option value="python">Python</option>
+              <option value="javascript">JavaScript</option>
+              <option value="typescript">TypeScript</option>
+              <option value="rust">Rust</option>
+              <option value="go">Go</option>
+            </select>
+            <button class="btn btn--primary" id="demo-submit">Explain This Code</button>
+          </div>
+        </div>
+        <div class="demo__panel">
+          <div class="demo__bar">
+            <span class="demo__dot" style="background:#ff5f57;"></span>
+            <span class="demo__dot" style="background:#ffbd2e;"></span>
+            <span class="demo__dot" style="background:#28c840;"></span>
+            <span class="demo__label">response</span>
+          </div>
+          <div class="demo__output" id="demo-output">
+            <p style="color: var(--text-dim); font-style: italic;">Your explanation will appear here...</p>
+          </div>
+        </div>
+      </div>
+      <p style="text-align: center; color: var(--text-dim); font-size: 0.8rem; margin-top: 16px;">
+        Powered by Claude Haiku &middot; 500 character limit &middot; <span id="demo-remaining">5</span> requests remaining today
+      </p>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <h2 class="section__title reveal">The Human Layer of the x402 Economy</h2>
+      <p class="section__subtitle reveal">
+        x402 is backed by the Linux Foundation with 22+ members including
+        Coinbase, Cloudflare, Stripe, Visa, and AWS. We build the services that run on it.
+      </p>
+      <div class="grid-3">
+        <div style="text-align: center; padding: 40px 28px;" class="reveal">
+          <div style="font-size: 2.5rem; margin-bottom: 16px;">&#128274;</div>
+          <h3 style="font-weight: 700; margin-bottom: 10px;">No API Keys</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">The payment is the auth. No credential management.</p>
+        </div>
+        <div style="text-align: center; padding: 40px 28px;" class="reveal">
+          <div style="font-size: 2.5rem; margin-bottom: 16px;">&#9889;</div>
+          <h3 style="font-weight: 700; margin-bottom: 10px;">Agent-Native</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Built for AI agents. Discover, pay, consume -- no human needed.</p>
+        </div>
+        <div style="text-align: center; padding: 40px 28px;" class="reveal">
+          <div style="font-size: 2.5rem; margin-bottom: 16px;">&#9878;</div>
+          <h3 style="font-weight: 700; margin-bottom: 10px;">On-Chain Settlement</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Every payment on Base L2. Transparent, instant, final.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="/community/directory" class="btn btn--outline">Browse the x402 Directory &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="coming-soon reveal">
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 16px;">Ready to try AI code analysis?</h2>
+        <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 1.05rem;">No signup. Paste code, get answers. Start with 5 free requests.</p>
+        <a href="#demo" class="btn btn--primary btn--lg">Try the Demo</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero { position: relative; padding: 160px 0 100px; text-align: center; overflow: hidden; }
+  .hero__badge { display: inline-block; padding: 6px 16px; border-radius: 100px; border: 1px solid var(--gold-dim); color: var(--gold); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 28px; }
+  .hero__title { font-size: clamp(2.25rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 24px; }
+  .hero__subtitle { font-size: 1.2rem; color: var(--text-muted); max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+  .hero__actions { display: flex; gap: 16px; justify-content: center; margin-bottom: 60px; flex-wrap: wrap; }
+  .hero__stats { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+  .hero__stat { display: flex; flex-direction: column; align-items: center; }
+  .hero__stat-value { font-size: 2rem; font-weight: 800; color: var(--gold); }
+  .hero__stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+  .hero__glow { position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(212,175,55,0.08) 0%, transparent 70%); pointer-events: none; z-index: -1; }
+
+  .step { text-align: center; padding: 40px 24px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius); position: relative; transition: border-color 0.3s, transform 0.3s; }
+  .step:hover { border-color: var(--gold-dim); transform: translateY(-4px); }
+  .step__number { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); width: 32px; height: 32px; background: var(--gold); color: var(--bg); font-weight: 700; font-size: 0.85rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .step__icon { font-size: 2rem; margin: 12px 0 16px; color: var(--gold); }
+  .step__title { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; }
+  .step__desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+  .demo { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .demo__panel { display: flex; flex-direction: column; }
+  .demo__panel + .demo__panel { border-left: 1px solid var(--border); }
+  .demo__bar { display: flex; align-items: center; gap: 8px; padding: 14px 20px; background: var(--bg-card); border-bottom: 1px solid var(--border); }
+  .demo__dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .demo__label { color: var(--text-dim); font-size: 0.8rem; font-family: var(--mono); margin-left: 8px; }
+  .demo__textarea { width: 100%; min-height: 240px; padding: 20px; background: transparent; border: none; color: var(--text); font-family: var(--mono); font-size: 0.875rem; line-height: 1.7; resize: vertical; outline: none; }
+  .demo__textarea::placeholder { color: var(--text-dim); }
+  .demo__footer { display: flex; gap: 12px; padding: 16px 20px; border-top: 1px solid var(--border); align-items: center; }
+  .demo__select { background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 14px; font-family: var(--font); font-size: 0.85rem; cursor: pointer; outline: none; }
+  .demo__output { padding: 20px; min-height: 240px; font-size: 0.9rem; line-height: 1.7; color: var(--text-muted); overflow-y: auto; white-space: pre-wrap; }
+
+  @media (max-width: 768px) {
+    .hero { padding: 120px 0 60px; }
+    .hero__actions { flex-direction: column; align-items: center; }
+    .demo { grid-template-columns: 1fr; }
+    .demo__panel + .demo__panel { border-left: none; border-top: 1px solid var(--border); }
+  }
+</style>
+
+<script>
+  const API = 'https://api.24klabs.ai';
+  fetch(API + '/stats').then(r => r.json()).then(data => {
+    let total = 0;
+    Object.values(data).forEach((v: any) => { if (typeof v === 'number') total += v; else if (v?.total) total += v.total; });
+    const el = document.getElementById('stat-requests');
+    if (el) el.textContent = total > 0 ? total.toLocaleString() : '0';
+  }).catch(() => {});
+
+  const input = document.getElementById('demo-input') as HTMLTextAreaElement;
+  const output = document.getElementById('demo-output')!;
+  const submit = document.getElementById('demo-submit') as HTMLButtonElement;
+  const lang = document.getElementById('demo-lang') as HTMLSelectElement;
+  const remaining = document.getElementById('demo-remaining');
+  let used = 0;
+
+  submit?.addEventListener('click', async () => {
+    const code = input?.value.trim();
+    if (!code) { output.innerHTML = '<p style="color:var(--error)">Paste some code first.</p>'; return; }
+    if (code.length > 500) { output.innerHTML = '<p style="color:var(--error)">Demo limited to 500 chars (' + code.length + ' entered).</p>'; return; }
+    output.innerHTML = '<div style="display:flex;align-items:center;gap:10px;color:var(--gold)"><div style="width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite"></div>Analyzing...</div>';
+    submit.disabled = true; submit.textContent = 'Analyzing...';
+    try {
+      const res = await fetch(API + '/api/demo/explain', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code, language: lang?.value || '', context: '', tier: 'standard' }) });
+      if (res.status === 429) { output.innerHTML = '<p style="color:var(--error)">Daily limit reached. Come back tomorrow.</p>'; return; }
+      if (!res.ok) { const e = await res.json().catch(() => ({})); output.innerHTML = '<p style="color:var(--error)">' + ((e as any).error || 'Service unavailable') + '</p>'; return; }
+      const data = await res.json();
+      output.textContent = (data as any).result || 'No result.';
+      output.style.color = 'var(--text)';
+      used++; if (remaining) remaining.textContent = String(Math.max(0, 5 - used));
+    } catch { output.innerHTML = '<p style="color:var(--error)">Could not reach the API.</p>'; }
+    finally { submit.disabled = false; submit.textContent = 'Explain This Code'; }
+  });
+</script>

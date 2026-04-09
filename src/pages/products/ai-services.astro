@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    name: 'Explain Code',
+    badge: 'haiku',
+    model: 'Haiku',
+    description: 'Get a clear, structured explanation of what any code does, how it works, and why it was written that way.',
+    analyzes: [
+      'Control flow and logic paths',
+      'Data structures and transformations',
+      'Side effects and dependencies',
+      'Algorithm complexity',
+    ],
+    useCases: [
+      'Onboarding to an unfamiliar codebase',
+      'Reviewing a pull request you didn\'t write',
+      'Documenting legacy code before refactoring',
+    ],
+    pricing: { quick: '$0.50', standard: '$1.00', pro: '$2.00' },
+  },
+  {
+    name: 'Debug Assist',
+    badge: 'sonnet',
+    model: 'Sonnet',
+    description: 'Finds bugs, explains error messages, and suggests fixes ranked by severity and confidence.',
+    analyzes: [
+      'Stack traces and error output',
+      'Off-by-one and boundary errors',
+      'Null/undefined reference paths',
+      'Type mismatches and coercion issues',
+    ],
+    useCases: [
+      'Stuck on a cryptic error message',
+      'CI is red and you can\'t reproduce locally',
+      'Hunting a race condition or intermittent failure',
+    ],
+    pricing: { quick: '$2.00', standard: '$4.00', pro: '$8.00' },
+  },
+  {
+    name: 'Code Review',
+    badge: 'sonnet',
+    model: 'Sonnet',
+    description: 'Comprehensive review covering security, performance, and architecture with a quality score and prioritized findings.',
+    analyzes: [
+      'Security vulnerabilities and injection risks',
+      'Performance bottlenecks and memory leaks',
+      'Architecture patterns and anti-patterns',
+      'Code style, naming, and maintainability',
+    ],
+    useCases: [
+      'Pre-merge review for critical services',
+      'Auditing a contractor\'s deliverable',
+      'Checking your own code before it ships',
+    ],
+    pricing: { quick: '$10.00', standard: '$20.00', pro: '$40.00' },
+  },
+  {
+    name: 'Security Audit',
+    badge: 'opus',
+    model: 'Opus',
+    description: 'Deep security analysis with OWASP Top 10 mapping, CVSS scoring, attack scenarios, and detailed remediation steps.',
+    analyzes: [
+      'OWASP Top 10 vulnerabilities',
+      'Authentication and authorization flaws',
+      'Injection vectors (SQL, XSS, SSRF, etc.)',
+      'Secrets, hardcoded credentials, and misconfigurations',
+    ],
+    useCases: [
+      'Pre-launch security review',
+      'Compliance audit prep (SOC 2, PCI DSS)',
+      'Evaluating a dependency or open-source library',
+    ],
+    pricing: { quick: '$25.00', standard: '$50.00', pro: '$100.00' },
+  },
+  {
+    name: 'Automation Script',
+    badge: 'sonnet',
+    model: 'Sonnet',
+    description: 'Generates production-ready automation scripts from plain-English requirements, complete with error handling and docs.',
+    analyzes: [
+      'Your requirements and constraints',
+      'Target environment and dependencies',
+      'Error handling and edge cases',
+      'Logging, retries, and idempotency',
+    ],
+    useCases: [
+      'CI/CD pipeline scripts',
+      'Database migration and seeding scripts',
+      'Infrastructure provisioning and deployment',
+    ],
+    pricing: { quick: '$15.00', standard: '$30.00', pro: '$60.00' },
+  },
+  {
+    name: 'MCP Blueprint',
+    badge: 'opus',
+    model: 'Opus',
+    description: 'Full Model Context Protocol server architecture: tool schemas, transport layer, auth flow, and deployment guide.',
+    analyzes: [
+      'Your API surface and capabilities',
+      'Tool schema design and validation',
+      'Transport and authentication requirements',
+      'Deployment topology and scaling',
+    ],
+    useCases: [
+      'Building an MCP server from scratch',
+      'Wrapping an existing API as an MCP service',
+      'Designing a multi-tool MCP architecture',
+    ],
+    pricing: { quick: '$50.00', standard: '$100.00', pro: '$200.00' },
+  },
+];
+---
+
+<BaseLayout title="AI Services Catalog -- 24K Labs" description="Six AI-powered code analysis services. Pay per request with USDC on Base L2. No subscriptions, no API keys.">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Product Catalog</span>
+      <h1 class="page-header__title">AI Services</h1>
+      <p class="page-header__desc">
+        Six tools powered by Claude. Each one a single HTTP request.
+        Pay in USDC, get your result. No accounts, no subscriptions.
+      </p>
+    </div>
+  </section>
+
+  {services.map((s, i) => (
+    <section class={`section ${i % 2 === 1 ? 'section--alt' : ''}`} style={i % 2 === 1 ? 'background: var(--bg-surface);' : ''} id={s.name.toLowerCase().replace(/\s/g, '-')}>
+      <div class="container">
+        <div class="service-detail reveal">
+          <div class="service-detail__header">
+            <span class={`badge badge--${s.badge}`}>{s.model}</span>
+            <h2 class="service-detail__title">{s.name}</h2>
+            <p class="service-detail__desc">{s.description}</p>
+          </div>
+
+          <div class="grid-3">
+            <div class="card">
+              <h3 class="card__heading">What It Analyzes</h3>
+              <ul class="card__list">
+                {s.analyzes.map(item => <li>{item}</li>)}
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3 class="card__heading">Use Cases</h3>
+              <ul class="card__list">
+                {s.useCases.map(item => <li>{item}</li>)}
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3 class="card__heading">Pricing</h3>
+              <div class="tier-list">
+                <div class="tier">
+                  <span class="tier__label">Quick</span>
+                  <span class="tier__price">{s.pricing.quick}</span>
+                </div>
+                <div class="tier tier--highlight">
+                  <span class="tier__label">Standard</span>
+                  <span class="tier__price">{s.pricing.standard}</span>
+                </div>
+                <div class="tier">
+                  <span class="tier__label">Pro</span>
+                  <span class="tier__price">{s.pricing.pro}</span>
+                </div>
+              </div>
+              <a href="/#demo" class="btn btn--primary btn--sm" style="margin-top: 20px; width: 100%;">Try it Free</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section">
+    <div class="container">
+      <div class="coming-soon reveal">
+        <h2 class="coming-soon__title">Ready to try these services?</h2>
+        <p class="coming-soon__desc">No signup required. Paste code, get answers. 5 free demo requests per day.</p>
+        <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="/#demo" class="btn btn--primary btn--lg">Try the Demo</a>
+          <a href="/pricing" class="btn btn--outline btn--lg">See Full Pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .service-detail__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .service-detail__title {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    margin: 16px 0 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .service-detail__desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .card__heading {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .card__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .card__list li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card__list li:last-child {
+    border-bottom: none;
+  }
+
+  .tier-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tier {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+  }
+
+  .tier--highlight {
+    border-color: var(--gold-dim);
+    background: rgba(212, 175, 55, 0.05);
+  }
+
+  .tier__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .tier--highlight .tier__label {
+    color: var(--gold);
+  }
+
+  .tier__price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+</style>
