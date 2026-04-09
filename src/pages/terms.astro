@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Terms of Service -- 24K Labs" description="Terms of Service for 24K Labs AI code analysis services.">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Legal</span>
+      <h1 class="page-header__title">Terms of Service</h1>
+      <p class="page-header__desc">
+        The short version: use the service, pay for it, don't be weird about it.
+        Here's the long version.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose reveal">
+
+        <p><strong>Effective date:</strong> April 9, 2026</p>
+
+        <h2>What 24K Labs Is</h2>
+        <p>
+          24K Labs provides AI-powered code analysis services accessed via API.
+          You send us code, our AI analyzes it, you get results back. That's the product.
+        </p>
+
+        <h2>What You Get</h2>
+        <p>
+          When you make a request, you receive AI-generated analysis based on the code you submit.
+          Results vary depending on the model tier you select (Haiku, Sonnet, or Opus) and the
+          complexity of your code. Different tiers offer different depth of analysis at different price points.
+        </p>
+
+        <h2>No Warranty on AI Output</h2>
+        <p>
+          Let's be direct: AI can make mistakes. The output you receive is <strong>advisory, not guaranteed</strong>.
+          It's a tool, not a replacement for your own judgment. You are responsible for reviewing and
+          validating any results before acting on them.
+        </p>
+        <p>
+          We work hard to make the analysis useful and accurate, but we don't warrant that
+          every response will be correct, complete, or suitable for your specific use case.
+        </p>
+
+        <h2>Payment Terms</h2>
+        <p>All prices are in USD. We currently support one payment method with another on the way:</p>
+        <ul>
+          <li>
+            <strong>x402 (live now):</strong> USDC on Base L2. Payments are final on-chain and non-reversible.
+            This is the native web3 payment rail -- your wallet pays, the service responds.
+          </li>
+          <li>
+            <strong>Stripe (coming soon):</strong> Standard credit card processing for those who prefer traditional payments.
+          </li>
+        </ul>
+
+        <h2>Refund Policy</h2>
+        <p>
+          Not satisfied? Email <a href="mailto:support@24klabs.ai">support@24klabs.ai</a> within
+          <strong>24 hours</strong> of your request for a full refund.
+        </p>
+        <ul>
+          <li>Refunds are issued at 24K Labs' discretion.</li>
+          <li>x402 refunds are processed manually to the wallet address that made the payment.</li>
+          <li>Stripe refunds are processed back to the original payment method.</li>
+          <li>Demo (free) requests are not eligible for refunds -- because they're free.</li>
+        </ul>
+
+        <h2>Acceptable Use</h2>
+        <p>Don't do these things:</p>
+        <ul>
+          <li>Don't submit malicious code designed to attack our systems.</li>
+          <li>Don't use the service for illegal purposes.</li>
+          <li>Don't attempt to reverse-engineer our prompts or models.</li>
+          <li>Don't abuse the API with automated spam requests.</li>
+        </ul>
+        <p>
+          If we determine you're violating these rules, we reserve the right to block your access
+          without refund.
+        </p>
+
+        <h2>Data Handling</h2>
+        <p>
+          Code you submit is processed by Claude (Anthropic's API) and is subject to
+          <a href="https://www.anthropic.com/policies" target="_blank" rel="noopener">Anthropic's usage policies</a>.
+          We log request metadata -- timestamps, service used, tokens consumed -- but we
+          <strong>do not permanently store your submitted code</strong>.
+        </p>
+        <p>
+          See our <a href="/privacy">Privacy Policy</a> for the full picture.
+        </p>
+
+        <h2>Limitation of Liability</h2>
+        <p>
+          24K Labs' total liability is limited to the amount you paid for the specific request
+          in question. We are not liable for any indirect, incidental, or consequential damages
+          arising from your use of the service.
+        </p>
+        <p>
+          Translation: if our AI gives you bad advice and you ship it to production without reviewing it,
+          that's on you. Our maximum exposure is the cost of the request.
+        </p>
+
+        <h2>Service Availability</h2>
+        <p>
+          We aim for high availability but don't guarantee 100% uptime. Services may be
+          interrupted for maintenance, upgrades, or things outside our control. We'll do our
+          best to keep downtime minimal and communicate about planned maintenance.
+        </p>
+
+        <h2>Changes to These Terms</h2>
+        <p>
+          We may update these terms as the service evolves. We'll note the effective date at the top.
+          Continued use of the service after changes constitutes acceptance of the updated terms.
+        </p>
+
+        <h2>Governing Law</h2>
+        <p>
+          These terms are governed by the laws of the Commonwealth of Pennsylvania, United States.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about these terms? Email us at
+          <a href="mailto:support@24klabs.ai">support@24klabs.ai</a>.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy -- 24K Labs" description="Privacy policy for 24K Labs. Short, honest, and actually readable.">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Legal</span>
+      <h1 class="page-header__title">Privacy Policy</h1>
+      <p class="page-header__desc">
+        What we collect, what we don't, and why you should actually read this one.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose reveal">
+
+        <p><strong>Effective date:</strong> April 9, 2026</p>
+
+        <h2>What We Collect</h2>
+        <ul>
+          <li>Request metadata: timestamps, service type, tokens consumed</li>
+          <li>IP address (for rate limiting only)</li>
+          <li>Payment transaction hashes (x402) or Stripe payment IDs</li>
+        </ul>
+
+        <h2>What We Don't Collect</h2>
+        <ul>
+          <li>We don't create user accounts.</li>
+          <li>We don't store your submitted code permanently.</li>
+          <li>We don't track you across sessions.</li>
+          <li>We don't sell data. To anyone. Ever.</li>
+        </ul>
+
+        <h2>Code Processing</h2>
+        <p>
+          Your code is sent to Anthropic's Claude API for analysis. See
+          <a href="https://www.anthropic.com/policies" target="_blank" rel="noopener">Anthropic's privacy policy</a>
+          for how they handle API inputs. We do not train models on your code.
+          Anthropic's API data retention policies apply to data in transit through their systems.
+        </p>
+
+        <h2>Cookies</h2>
+        <p>
+          We don't use cookies. The site is static. No tracking pixels, no analytics scripts.
+          When we add analytics in the future, we'll update this policy and it'll be
+          something privacy-respecting.
+        </p>
+
+        <h2>Third Parties</h2>
+        <p>Here's the complete list of third parties that touch your data:</p>
+        <ul>
+          <li><strong>Anthropic</strong> -- Claude API for code analysis</li>
+          <li><strong>Cloudflare</strong> -- CDN and DNS</li>
+          <li><strong>Railway</strong> -- API hosting</li>
+          <li><strong>Stripe</strong> -- Payment processing (coming soon)</li>
+        </ul>
+        <p>That's it. No ad networks, no data brokers, no "partners."</p>
+
+        <h2>Data Retention</h2>
+        <p>
+          Request logs are retained for <strong>90 days</strong> for debugging and billing
+          reconciliation, then deleted. We don't keep data longer than we need it.
+        </p>
+
+        <h2>Your Rights</h2>
+        <p>
+          Want us to delete any data associated with your transactions? Email
+          <a href="mailto:support@24klabs.ai">support@24klabs.ai</a> and we'll handle it.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about privacy? Email
+          <a href="mailto:support@24klabs.ai">support@24klabs.ai</a>.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

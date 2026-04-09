@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Support -- 24K Labs" description="Need help with 24K Labs? Contact support, request refunds, or find answers to common questions.">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Help</span>
+      <h1 class="page-header__title">Support</h1>
+      <p class="page-header__desc">Need help? We're here.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Contact -->
+      <div class="support-contact reveal">
+        <div class="support-contact__email">
+          <h2 class="support-contact__heading">Get in Touch</h2>
+          <p class="support-contact__desc">
+            Email us at
+            <a href="mailto:support@24klabs.ai" class="support-contact__link">support@24klabs.ai</a>
+          </p>
+        </div>
+        <div class="support-contact__options">
+          <div class="card">
+            <h3>Refund Requests</h3>
+            <p>Email with your request ID (returned in every API response). Refunds processed within 24 hours.</p>
+          </div>
+          <div class="card">
+            <h3>Bug Reports</h3>
+            <p>
+              Email us or open an issue on
+              <a href="https://github.com/Haustorium12" target="_blank" rel="noopener">GitHub</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="support-faq reveal">
+        <h2 class="section__title">Frequently Asked Questions</h2>
+        <p class="section__subtitle">Quick answers to common questions.</p>
+
+        <div class="faq-grid">
+
+          <div class="card">
+            <h3>I paid but didn't get a result</h3>
+            <p>
+              Check the request ID in the API response. Contact us with that ID and we'll investigate.
+              If the service failed on our end, you get a full refund.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>The AI output was wrong</h3>
+            <p>
+              AI analysis is advisory. If the output was clearly broken or empty, contact us for a refund.
+              If you disagree with the analysis, that's the nature of AI -- we'll review it case by case.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>How do I get a refund?</h3>
+            <p>
+              Email <a href="mailto:support@24klabs.ai">support@24klabs.ai</a> with your request ID
+              within 24 hours. x402 refunds go to the wallet that paid. Stripe refunds go to the
+              original card.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Is my code safe?</h3>
+            <p>
+              Your code is processed by Claude's API and not permanently stored by us.
+              See our <a href="/privacy">Privacy Policy</a> for the full details.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Can I get a receipt?</h3>
+            <p>
+              Every API response includes a request ID. x402 payments have an on-chain transaction hash
+              you can verify on any Base block explorer. Stripe will email a receipt automatically.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .support-contact {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .support-contact__heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .support-contact__desc {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+  }
+  .support-contact__link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .support-contact__link:hover {
+    color: var(--gold-light);
+  }
+  .support-contact__options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .support-contact__options .card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .support-contact__options .card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .support-faq {
+    margin-top: 20px;
+  }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .faq-grid .card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--gold);
+  }
+  .faq-grid .card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .support-contact__options {
+      grid-template-columns: 1fr;
+    }
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
