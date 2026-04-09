@@ -69,7 +69,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <p>Resend the same request with the payment receipt in the header.</p>
 <pre><code>{`curl -X POST https://api.24klabs.ai/api/explain-code \\
   -H "Content-Type: application/json" \\
-  -H "X-Payment: {base64_encoded_receipt}" \\
+  -H "X-Payment-Receipt: 0xYOUR_TX_HASH..." \\
   -d '{
     "code": "const add = (a, b) => a + b;",
     "language": "javascript",
@@ -96,7 +96,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <div class="reveal" style="text-align: center; padding: 40px 0;">
         <a href="/developers/docs" class="btn btn--primary">Full API Reference</a>
-        <a href="/products/ai-services" class="btn btn--outline" style="margin-left: 12px;">View Pricing</a>
+        <a href="/pricing" class="btn btn--outline" style="margin-left: 12px;">View Pricing</a>
       </div>
 
     </div>

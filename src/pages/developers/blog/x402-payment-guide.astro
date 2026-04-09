@@ -37,7 +37,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
         <p>You send a normal HTTP request to the service endpoint. Nothing special -- just a regular POST with your payload.</p>
 
-        <pre><code>{`POST https://api.24klabs.com/v1/code-review
+        <pre><code>{`POST https://api.24klabs.ai/api/code-review
 Content-Type: application/json
 
 {
@@ -62,7 +62,7 @@ X-Payment-Address: 0x...`}</code></pre>
 
         <p>Your client signs a USDC transaction on Base, gets the receipt, and retries the original request with the payment proof attached.</p>
 
-        <pre><code>{`POST https://api.24klabs.com/v1/code-review
+        <pre><code>{`POST https://api.24klabs.ai/api/code-review
 Content-Type: application/json
 X-Payment-Receipt: 0xabc123...
 
@@ -81,7 +81,7 @@ X-Payment-Receipt: 0xabc123...
 
         <p>With x402, the payment IS the authentication. If you paid, you are authorized. No keys to leak. No accounts to manage. No credentials to rotate. An AI agent with a USDC wallet can discover, evaluate, and pay for services autonomously.</p>
 
-        <p>Think about what that enables. An AI coding assistant that needs a security audit can find the endpoint, pay $25, and get the report -- without a human ever setting up an account. A CI/CD pipeline that needs code review can pay per PR. A research agent that needs analysis can pay per query.</p>
+        <p>Think about what that enables. An AI coding assistant that needs a security audit can find the endpoint, pay $25.00, and get the report -- without a human ever setting up an account. A CI/CD pipeline that needs code review can pay per PR. A research agent that needs analysis can pay per query.</p>
 
         <h2>Python Example with the x402 SDK</h2>
 
@@ -98,7 +98,7 @@ client = Client(
 
 # Make a paid request -- the SDK handles the 402 flow
 response = client.post(
-    "https://api.24klabs.com/v1/code-review",
+    "https://api.24klabs.ai/api/code-review",
     json={
         "code": open("main.py").read(),
         "language": "python",
@@ -125,12 +125,12 @@ print(response.json())`}</code></pre>
         <p>24K Labs runs six AI-powered code analysis services on the x402 protocol. Every one of them follows the same flow described above:</p>
 
         <ul>
-          <li><strong>Code Review</strong> ($10) -- PR-level analysis with severity scoring, powered by Claude Sonnet</li>
-          <li><strong>Security Audit</strong> ($25) -- OWASP Top 10 scanning with CVSS scores and remediation steps, powered by Claude Opus</li>
-          <li><strong>Performance Audit</strong> ($15) -- Bottleneck detection, complexity analysis, and optimization recommendations</li>
-          <li><strong>Architecture Review</strong> ($50) -- System-level analysis of design patterns, coupling, and scalability</li>
-          <li><strong>Documentation Generator</strong> ($5) -- JSDoc/docstring generation from source code</li>
-          <li><strong>MCP Blueprint</strong> ($50) -- Complete MCP server architecture from a requirements description</li>
+          <li><strong>Explain Code</strong> (from $0.50) -- Clear explanation of what code does and why, powered by Claude Haiku</li>
+          <li><strong>Debug Assist</strong> (from $2.00) -- Bug detection, error explanation, and fix suggestions, powered by Claude Sonnet</li>
+          <li><strong>Code Review</strong> (from $10.00) -- PR-level analysis with severity scoring, powered by Claude Sonnet</li>
+          <li><strong>Security Audit</strong> (from $25.00) -- OWASP Top 10 scanning with CVSS scores and remediation steps, powered by Claude Opus</li>
+          <li><strong>Automation Script</strong> (from $15.00) -- Production-ready scripts from plain-English requirements, powered by Claude Sonnet</li>
+          <li><strong>MCP Blueprint</strong> (from $50.00) -- Complete MCP server architecture from a requirements description, powered by Claude Opus</li>
         </ul>
 
         <h2>Getting Started</h2>
