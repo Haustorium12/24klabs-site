@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="How to Pay for AI Services with USDC in One HTTP Call -- 24K Labs">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Tutorial</span>
+      <h1 class="page-header__title">How to Pay for AI Services with USDC in One HTTP Call</h1>
+      <p class="page-header__meta">Sean Deacon &middot; April 8, 2026 &middot; 8 min read</p>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container">
+      <div class="prose">
+
+        <p>What if paying for an API was as simple as making the request? No API keys. No OAuth tokens. No billing dashboard. No account creation. Just send a request, pay in USDC, and get your result.</p>
+
+        <p>That is exactly what the x402 protocol makes possible. And at 24K Labs, every one of our six AI services runs on it.</p>
+
+        <h2>What is HTTP 402?</h2>
+
+        <p>HTTP 402 Payment Required has been in the HTTP specification since 1991. It was reserved for "future use" -- and then ignored for thirty-five years. The idea was simple: a server should be able to say "this resource costs money" using a standard status code, the same way 401 means "you need to authenticate" and 404 means "not found."</p>
+
+        <p>The problem was that in 1991, there was no way to make that payment happen programmatically. Credit cards needed human input. PayPal did not exist yet. Micropayments were a pipe dream.</p>
+
+        <p>Then crypto happened. Specifically, stablecoins on fast L2 networks happened. USDC on Base settles in under a second for fractions of a cent in gas fees. Suddenly, a machine can pay another machine.</p>
+
+        <h2>The x402 Flow: Three Steps</h2>
+
+        <p>The x402 protocol, developed by Coinbase and backed by the Linux Foundation, turns HTTP 402 into a real payment flow. Here is how it works:</p>
+
+        <h3>Step 1: Make the Request</h3>
+
+        <p>You send a normal HTTP request to the service endpoint. Nothing special -- just a regular POST with your payload.</p>
+
+        <pre><code>{`POST https://api.24klabs.com/v1/code-review
+Content-Type: application/json
+
+{
+  "code": "def hello():\\n    print('world')",
+  "language": "python"
+}`}</code></pre>
+
+        <h3>Step 2: Receive the 402</h3>
+
+        <p>If you have not paid, the server responds with HTTP 402 and a payment requirement header. This tells you exactly what to pay, where to pay it, and on which network.</p>
+
+        <pre><code>{`HTTP/1.1 402 Payment Required
+X-Payment-Required: true
+X-Payment-Amount: 10000000
+X-Payment-Currency: USDC
+X-Payment-Network: base
+X-Payment-Address: 0x...`}</code></pre>
+
+        <p>The amount is in the token's smallest unit. For USDC, that means 10000000 = $10.00 (USDC has 6 decimals).</p>
+
+        <h3>Step 3: Pay and Retry</h3>
+
+        <p>Your client signs a USDC transaction on Base, gets the receipt, and retries the original request with the payment proof attached.</p>
+
+        <pre><code>{`POST https://api.24klabs.com/v1/code-review
+Content-Type: application/json
+X-Payment-Receipt: 0xabc123...
+
+{
+  "code": "def hello():\\n    print('world')",
+  "language": "python"
+}`}</code></pre>
+
+        <p>The server verifies the payment on-chain, processes your request, and returns the result. Done.</p>
+
+        <h2>Why This Matters for AI Agents</h2>
+
+        <p>This is not just a neat payment trick. It is a fundamental shift in how software services get consumed.</p>
+
+        <p>Traditional APIs require you to create an account, generate an API key, store it securely, rotate it periodically, and manage billing separately. Every service has its own dashboard, its own billing page, its own rate limits tied to your plan tier.</p>
+
+        <p>With x402, the payment IS the authentication. If you paid, you are authorized. No keys to leak. No accounts to manage. No credentials to rotate. An AI agent with a USDC wallet can discover, evaluate, and pay for services autonomously.</p>
+
+        <p>Think about what that enables. An AI coding assistant that needs a security audit can find the endpoint, pay $25, and get the report -- without a human ever setting up an account. A CI/CD pipeline that needs code review can pay per PR. A research agent that needs analysis can pay per query.</p>
+
+        <h2>Python Example with the x402 SDK</h2>
+
+        <p>Here is a complete working example using the Coinbase x402 Python SDK:</p>
+
+        <pre><code>{`import httpx
+from x402.client import Client
+
+# Initialize with your wallet
+client = Client(
+    private_key="0xYOUR_PRIVATE_KEY",
+    network="base"
+)
+
+# Make a paid request -- the SDK handles the 402 flow
+response = client.post(
+    "https://api.24klabs.com/v1/code-review",
+    json={
+        "code": open("main.py").read(),
+        "language": "python",
+        "options": {
+            "focus": ["security", "performance"],
+            "severity_threshold": "medium"
+        }
+    }
+)
+
+# The SDK automatically:
+# 1. Sends the initial request
+# 2. Receives the 402
+# 3. Signs and sends the USDC payment
+# 4. Retries with the receipt
+# 5. Returns the final response
+
+print(response.json())`}</code></pre>
+
+        <p>That is it. One function call. The SDK handles the entire 402 negotiation, payment signing, and retry logic under the hood.</p>
+
+        <h2>What You Can Pay For</h2>
+
+        <p>24K Labs runs six AI-powered code analysis services on the x402 protocol. Every one of them follows the same flow described above:</p>
+
+        <ul>
+          <li><strong>Code Review</strong> ($10) -- PR-level analysis with severity scoring, powered by Claude Sonnet</li>
+          <li><strong>Security Audit</strong> ($25) -- OWASP Top 10 scanning with CVSS scores and remediation steps, powered by Claude Opus</li>
+          <li><strong>Performance Audit</strong> ($15) -- Bottleneck detection, complexity analysis, and optimization recommendations</li>
+          <li><strong>Architecture Review</strong> ($50) -- System-level analysis of design patterns, coupling, and scalability</li>
+          <li><strong>Documentation Generator</strong> ($5) -- JSDoc/docstring generation from source code</li>
+          <li><strong>MCP Blueprint</strong> ($50) -- Complete MCP server architecture from a requirements description</li>
+        </ul>
+
+        <h2>Getting Started</h2>
+
+        <p>You need two things: a wallet with USDC on Base, and a way to make HTTP requests. That is literally it. No signup. No API key. No free trial that expires.</p>
+
+        <pre><code>{`# Install the x402 SDK
+pip install x402-python
+
+# Or use curl and handle the 402 manually
+# The protocol is just HTTP -- any language works`}</code></pre>
+
+        <p>The x402 protocol is open. The payment flow is standardized. Any client that speaks HTTP can participate. Your existing code just needs a thin payment layer on top.</p>
+
+        <hr />
+
+        <div class="cta-box">
+          <h3>Try It Now</h3>
+          <p>Send a request to any 24K Labs endpoint and see the x402 flow in action. No account needed -- just USDC on Base.</p>
+          <a href="/developers/quickstart" class="btn btn--primary">View Quickstart Guide</a>
+        </div>
+
+        <div class="blog-nav">
+          <a href="/developers/blog" class="btn btn--outline btn--sm">&larr; Back to Blog</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header__meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 12px;
+  }
+  .cta-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 48px 0 32px;
+  }
+  .cta-box h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .cta-box p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  .blog-nav {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+</style>

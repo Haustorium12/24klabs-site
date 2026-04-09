@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Design an MCP Server in 60 Seconds for $50 -- 24K Labs">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Product</span>
+      <h1 class="page-header__title">Design an MCP Server in 60 Seconds for $50</h1>
+      <p class="page-header__meta">Sean Deacon &middot; April 9, 2026 &middot; 6 min read</p>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container">
+      <div class="prose">
+
+        <p>Model Context Protocol (MCP) is how AI agents talk to the outside world. It is the standard for connecting Claude, GPT, and other models to databases, APIs, file systems, and services. If you want your AI assistant to do something beyond chat, you need an MCP server.</p>
+
+        <p>Building one from scratch is tedious. Not hard, exactly -- but full of boilerplate. Tool definitions with JSON schemas. Input validation. Transport configuration (stdio vs. SSE vs. streamable HTTP). Error handling. Deployment config. A README that explains what the server does. Testing harness. Client integration guide.</p>
+
+        <p>Most of this is not creative work. It is structural work. And it is exactly the kind of thing an AI should be doing for you.</p>
+
+        <h2>How It Works</h2>
+
+        <p>You describe what you want your MCP server to do. In plain English. The 24K Labs MCP Blueprint service -- powered by Claude Opus -- returns a complete, deployable architecture.</p>
+
+        <p>Here is an example request:</p>
+
+        <pre><code>{`{
+  "requirements": "An MCP server that connects to a PostgreSQL database.
+   It should have tools for: listing tables, describing table schemas,
+   running read-only SQL queries, and explaining query plans.
+   It should refuse any write operations.
+   Python with FastMCP. Deploy with Docker.",
+  "language": "python",
+  "framework": "fastmcp"
+}`}</code></pre>
+
+        <p>And here is what you get back:</p>
+
+        <h3>1. Tool Definitions</h3>
+
+        <p>Every tool your server exposes, with complete JSON schema definitions for inputs and outputs. The schemas are strict -- they specify types, required fields, descriptions, and constraints. This is the contract your MCP server offers to clients.</p>
+
+        <pre><code>{`# Example tool definition from the blueprint
+@mcp.tool()
+async def list_tables(
+    schema_name: str = "public"
+) -> list[TableInfo]:
+    """List all tables in the specified schema.
+
+    Args:
+        schema_name: Database schema to list tables from.
+                     Defaults to 'public'.
+
+    Returns:
+        List of tables with name, row count, and size.
+    """
+    ...`}</code></pre>
+
+        <h3>2. Full Implementation</h3>
+
+        <p>Not pseudocode. Not a skeleton. A complete implementation in your chosen language (Python or TypeScript) that you can run immediately. Connection pooling, error handling, input sanitization -- all included.</p>
+
+        <h3>3. Client Integration Guide</h3>
+
+        <p>Configuration snippets showing how to connect the server from Claude Desktop, Claude Code, Cursor, and other MCP clients. Copy-paste ready.</p>
+
+        <pre><code>{`// claude_desktop_config.json
+{
+  "mcpServers": {
+    "postgres-explorer": {
+      "command": "docker",
+      "args": [
+        "run", "--rm",
+        "-e", "DATABASE_URL",
+        "postgres-mcp-server:latest"
+      ],
+      "env": {
+        "DATABASE_URL": "postgresql://user:pass@host:5432/db"
+      }
+    }
+  }
+}`}</code></pre>
+
+        <h3>4. Deployment Configuration</h3>
+
+        <p>Dockerfile, docker-compose.yml, environment variable templates, and health check endpoints. If you asked for Docker deployment, you get Docker deployment. If you want systemd, you get systemd unit files.</p>
+
+        <h3>5. README</h3>
+
+        <p>Documentation that explains what the server does, how to install it, how to configure it, what each tool does, and how to extend it. Written for a developer who has never seen your code before.</p>
+
+        <h2>Why Not Just Build It Yourself?</h2>
+
+        <p>You can. MCP is well-documented and the SDKs are solid. But consider the time cost.</p>
+
+        <p>A typical MCP server with 4-6 tools takes 2-4 hours to build from scratch. That includes reading the SDK docs, writing the tool definitions, implementing the handlers, testing with a client, debugging transport issues, and writing the deployment config.</p>
+
+        <p>The 24K Labs blueprint takes about 60 seconds and gives you a complete starting point. You will still need to customize it -- add your business logic, handle your edge cases, tune the prompts. But you skip the 2 hours of boilerplate and structural decisions.</p>
+
+        <p>At $50, the economics work for anyone whose time is worth more than $25/hour.</p>
+
+        <h2>Use Cases</h2>
+
+        <p><strong>Database connectors.</strong> Give your AI assistant read access to your database. Define exactly which queries are allowed. The blueprint handles connection pooling and query sanitization.</p>
+
+        <p><strong>API wrappers.</strong> Turn any REST API into an MCP server. Your assistant gets typed tools instead of raw HTTP. Authentication, pagination, and rate limiting are handled in the server.</p>
+
+        <p><strong>Internal tools.</strong> Company wiki search, Jira ticket lookup, deployment triggers, log queries. Things your team does manually that an AI could do if it had the right interface.</p>
+
+        <p><strong>Data pipelines.</strong> ETL monitoring, data quality checks, metric queries. Give your assistant access to your data infrastructure through well-defined, read-only tools.</p>
+
+        <h2>Powered by Opus</h2>
+
+        <p>The blueprint service runs on Claude Opus -- the most capable model available. This matters because MCP server architecture has subtleties that lighter models miss: proper error propagation, secure input handling, idiomatic use of the SDK, sensible transport choices, and deployment patterns that actually work in production.</p>
+
+        <p>Opus generates production-quality code, not demo-quality code. The blueprints include connection retry logic, graceful shutdown handlers, structured logging, and health check endpoints. Details that take experience to know you need.</p>
+
+        <h2>Try It</h2>
+
+        <pre><code>{`curl -X POST https://api.24klabs.com/v1/mcp-blueprint \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "requirements": "Describe your MCP server here",
+    "language": "python",
+    "framework": "fastmcp"
+  }'`}</code></pre>
+
+        <p>First request returns 402. Pay $50 in USDC on Base. Get your complete MCP server blueprint. No account. No API key.</p>
+
+        <hr />
+
+        <div class="cta-box">
+          <h3>Build Your MCP Server</h3>
+          <p>Describe what you need. Get a complete, deployable blueprint in 60 seconds.</p>
+          <a href="/developers/quickstart" class="btn btn--primary">Get Started</a>
+        </div>
+
+        <div class="blog-nav">
+          <a href="/developers/blog" class="btn btn--outline btn--sm">&larr; Back to Blog</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header__meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 12px;
+  }
+  .cta-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 48px 0 32px;
+  }
+  .cta-box h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .cta-box p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  .blog-nav {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+</style>

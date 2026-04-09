@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Building 24K Labs: From a Pawn Shop to the x402 Economy -- 24K Labs">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Story</span>
+      <h1 class="page-header__title">Building 24K Labs: From a Pawn Shop to the x402 Economy</h1>
+      <p class="page-header__meta">Sean Deacon &middot; April 9, 2026 &middot; 6 min read</p>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container">
+      <div class="prose">
+
+        <p>I run a pawn shop in Kensington, Philadelphia. Gold chains, power tools, test strips, the occasional guitar. It is not where you would expect an AI company to start. But that is where 24K Labs started.</p>
+
+        <h2>The Shop Problem</h2>
+
+        <p>Pawn shops are data businesses pretending to be retail. Every transaction involves valuation -- what is this worth, what can I sell it for, what is my margin? Precious metals need live spot prices and melt value calculations. eBay listings need market research and SEO. Compliance requires police reporting and state paperwork. Customer management means tracking hundreds of loans and their redemption dates.</p>
+
+        <p>I started building AI tools to handle all of this. Not because I wanted to be a tech founder, but because I was drowning in spreadsheets and manual lookups. First it was a metal price calculator. Then an eBay listing optimizer. Then a memory system so my AI assistant could remember customer preferences and pricing history across sessions.</p>
+
+        <p>One tool became ten. Ten became a system. The system became something that worked.</p>
+
+        <h2>Discovering x402</h2>
+
+        <p>I heard about x402 when Coinbase published the specification. The idea clicked immediately: an HTTP protocol where payment is authentication. No accounts, no API keys, no billing dashboards. A machine sends money, gets a service.</p>
+
+        <p>I looked at the ecosystem. There was plenty of infrastructure -- wallets, SDKs, payment facilitators. What there was not, was services. The x402 highway existed, but nobody had built the rest stops. The protocol needed real things to buy.</p>
+
+        <p>I had been building AI tools for months. I had code review workflows, security scanning pipelines, documentation generators. All running locally, all built for my own use. What if I put them behind x402 endpoints and let anyone pay to use them?</p>
+
+        <h2>One Day</h2>
+
+        <p>I am not exaggerating when I say 24K Labs went from a 404 page to a production platform in one day. The tools already existed. The AI pipelines were already built. What I needed was an API layer, a payment facilitator, and a website.</p>
+
+        <p>The API gateway routes requests to the right Claude model. The x402 facilitator handles payment verification. Six endpoints went live: code review, security audit, performance audit, architecture review, documentation generation, and MCP server blueprints.</p>
+
+        <p>No VC pitch. No three-month runway calculation. No MVP focus group. Just: I built tools, there is a protocol, people can pay to use them.</p>
+
+        <h2>Why Code Analysis</h2>
+
+        <p>People ask why I chose code analysis specifically. Two reasons.</p>
+
+        <p>First, it is valuable and well-scoped. A code review has a clear input (code), a clear output (analysis), and a clear price point. There is no ambiguity about what you are getting. It is not a chatbot conversation that might go anywhere -- it is a defined service with a defined result.</p>
+
+        <p>Second, developers are the people most likely to have a crypto wallet and least likely to want another SaaS subscription. The audience and the payment method align perfectly.</p>
+
+        <p>Every service is powered by Claude -- Haiku for lightweight tasks, Sonnet for standard analysis, Opus for deep security and architecture work. The model tier maps to the complexity and the price. You are not paying for infrastructure. You are paying for intelligence applied to your code.</p>
+
+        <h2>The Human Layer</h2>
+
+        <p>The x402 economy will be mostly machines talking to machines. AI agents paying for AI services. Automated pipelines spending USDC on API calls. That is the future, and it is coming fast.</p>
+
+        <p>But right now, in April 2026, the economy needs a human layer. Someone needs to build the services that agents want to buy. Someone needs to define what "good code review" means and build the prompts and pipelines that deliver it. Someone needs to test the output quality and iterate on it.</p>
+
+        <p>That is what 24K Labs is. The human layer of the machine economy. I built these services because I used them myself, I know they work, and I know developers need them. The x402 protocol makes it possible to sell them without building a billing system, a user database, or a subscription management platform.</p>
+
+        <h2>What Comes Next</h2>
+
+        <p>The six services live today are the beginning. The x402 ecosystem is growing fast. More services will come online -- from us and from others. The protocol makes it trivially easy to monetize any API endpoint.</p>
+
+        <p>I am building this from a pawn shop in Kensington. The shop opens at 10. I write code before and after. The gold counter is ten feet from my development machine. It is not the typical founder story, and that is exactly the point.</p>
+
+        <p>x402 lowers the barrier to building and selling services to nearly zero. You do not need venture capital. You do not need a payment processing agreement. You do not need a sales team. You need a service that works and an x402 endpoint.</p>
+
+        <p>The rest is just HTTP.</p>
+
+        <hr />
+
+        <div class="cta-box">
+          <h3>See What We Built</h3>
+          <p>Six AI code analysis services. Pay per request. No account required.</p>
+          <a href="/" class="btn btn--primary">Explore 24K Labs</a>
+        </div>
+
+        <div class="blog-nav">
+          <a href="/developers/blog" class="btn btn--outline btn--sm">&larr; Back to Blog</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header__meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 12px;
+  }
+  .cta-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 48px 0 32px;
+  }
+  .cta-box h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .cta-box p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  .blog-nav {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+</style>

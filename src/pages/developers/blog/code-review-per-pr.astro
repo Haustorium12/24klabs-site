@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Code Review API: Pay Per PR, Not Per Seat -- 24K Labs">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Product</span>
+      <h1 class="page-header__title">Code Review API: Pay Per PR, Not Per Seat</h1>
+      <p class="page-header__meta">Sean Deacon &middot; April 8, 2026 &middot; 7 min read</p>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container">
+      <div class="prose">
+
+        <p>Every AI code review tool on the market charges you per seat, per month. GitHub Copilot is $19/seat/month. CodeRabbit starts at $15/seat/month. Codacy, Sourcery, Qodana -- all subscriptions. You pay whether you use them or not.</p>
+
+        <p>24K Labs charges $10 per review. That is it. No seats. No monthly bill. No annual commitment. You pay when you want a review. You do not pay when you do not.</p>
+
+        <h2>The Math That Matters</h2>
+
+        <p>Let us run the numbers for a five-person team using GitHub Copilot for code review.</p>
+
+        <p><strong>Seat-based pricing:</strong></p>
+        <ul>
+          <li>5 developers x $19/month = <strong>$95/month</strong></li>
+          <li>That is $1,140/year, paid regardless of usage</li>
+        </ul>
+
+        <p><strong>24K Labs per-request pricing:</strong></p>
+        <ul>
+          <li>$10 per code review</li>
+          <li>$95/month buys you <strong>9.5 reviews</strong></li>
+        </ul>
+
+        <p>The breakeven point is fewer than 10 reviews per month for a five-person team. If your team merges fewer than 10 PRs a month, you are overpaying for seat-based tools. And many teams do -- especially early-stage startups, small agencies, and solo developers working on side projects.</p>
+
+        <p>But here is the thing: even teams that merge 50 PRs a month do not need every single one reviewed by AI. You probably want AI review on complex PRs, security-sensitive changes, and code from junior developers. The 15-line config change? Skip it.</p>
+
+        <h2>What You Actually Get</h2>
+
+        <p>Each $10 code review from 24K Labs is powered by Claude Sonnet 4 and returns:</p>
+
+        <ul>
+          <li><strong>Issue-level analysis</strong> -- every problem identified with file, line number, and severity (critical/high/medium/low)</li>
+          <li><strong>Security scanning</strong> -- injection risks, auth issues, data exposure</li>
+          <li><strong>Performance flags</strong> -- N+1 queries, unnecessary allocations, blocking calls</li>
+          <li><strong>Style and consistency</strong> -- naming conventions, dead code, unclear logic</li>
+          <li><strong>Suggested fixes</strong> -- actual code suggestions, not just descriptions of problems</li>
+          <li><strong>Overall risk score</strong> -- a 1-100 score so you can triage quickly</li>
+        </ul>
+
+        <p>This is not a linter. It is a full contextual review that understands what your code is trying to do.</p>
+
+        <h2>Automate It with GitHub Actions</h2>
+
+        <p>The real power is automation. Drop this GitHub Action into your repo and every PR gets reviewed automatically. You only pay for the PRs that actually trigger a review.</p>
+
+        <pre><code>{`name: 24K Labs Code Review
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get PR diff
+        id: diff
+        run: |
+          git diff origin/\${{ github.base_ref }}...HEAD > diff.patch
+          echo "lines=$(wc -l < diff.patch)" >> $GITHUB_OUTPUT
+
+      - name: Run 24K Labs Review
+        if: steps.diff.outputs.lines > 20
+        run: |
+          curl -X POST https://api.24klabs.com/v1/code-review \\
+            -H "Content-Type: application/json" \\
+            -H "X-Payment-Receipt: \${{ secrets.X402_RECEIPT }}" \\
+            -d '{
+              "code": "'$(cat diff.patch | base64)'",
+              "language": "auto",
+              "options": {
+                "focus": ["security", "performance", "bugs"],
+                "context": "PR review for \${{ github.repository }}"
+              }
+            }' > review.json
+
+      - name: Post Review Comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const review = require('./review.json');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: review.summary
+            });`}</code></pre>
+
+        <p>Notice the conditional: we only run the review if the diff is more than 20 lines. That means trivial changes skip the review (and the cost) entirely. You control exactly when you pay.</p>
+
+        <h2>No Account. No API Key. Just USDC.</h2>
+
+        <p>This is the part that confuses people at first, and then delights them. There is no 24K Labs account to create. There is no API key to generate and store in your secrets. The x402 protocol means payment IS authentication.</p>
+
+        <p>You need a USDC balance on Base. That is your credential. If you can pay, you can use the service. When the payment clears, you get your result.</p>
+
+        <p>For CI/CD pipelines, you fund a wallet and store the private key as a GitHub secret. The x402 SDK handles the payment flow automatically. No API key rotation. No token expiration. No billing alerts.</p>
+
+        <h2>When Per-Seat Still Wins</h2>
+
+        <p>Full transparency: if your team has 20 developers merging 200 PRs a month and you want every single one reviewed, a $19/seat subscription is cheaper. At $10/review, 200 reviews is $2,000 vs. $380 for seats.</p>
+
+        <p>But that is not the comparison that matters for most teams. The question is: how many reviews do you actually need? And do you want to pay for the months when you ship nothing?</p>
+
+        <p>Per-request pricing means you pay for value delivered. Nothing more.</p>
+
+        <h2>The Bottom Line</h2>
+
+        <ul>
+          <li><strong>Solo developers:</strong> $10 per review beats any subscription</li>
+          <li><strong>Small teams (2-5):</strong> breakeven at ~10-50 reviews/month depending on tool</li>
+          <li><strong>Occasional use:</strong> no subscription to cancel when you do not need it</li>
+          <li><strong>CI/CD integration:</strong> pay only for PRs that meet your criteria</li>
+        </ul>
+
+        <hr />
+
+        <div class="cta-box">
+          <h3>Try a Code Review</h3>
+          <p>Send your first PR for review. $10, no account required.</p>
+          <a href="/developers/quickstart" class="btn btn--primary">Get Started</a>
+        </div>
+
+        <div class="blog-nav">
+          <a href="/developers/blog" class="btn btn--outline btn--sm">&larr; Back to Blog</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header__meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 12px;
+  }
+  .cta-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 48px 0 32px;
+  }
+  .cta-box h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .cta-box p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  .blog-nav {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+</style>

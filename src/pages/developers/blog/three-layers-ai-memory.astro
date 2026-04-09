@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="The Three Layers of AI Memory: Why Your Coding Assistant Forgets Everything -- 24K Labs">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Research</span>
+      <h1 class="page-header__title">The Three Layers of AI Memory: Why Your Coding Assistant Forgets Everything</h1>
+      <p class="page-header__meta">Sean Deacon &middot; April 8, 2026 &middot; 8 min read</p>
+    </div>
+  </section>
+
+  <section class="section--sm">
+    <div class="container">
+      <div class="prose">
+
+        <p>You have been working with an AI coding assistant for two weeks. It has helped you refactor three modules, set up a new database schema, and debug a gnarly race condition. Then you open a new session and it asks you what language your project uses.</p>
+
+        <p>This is the fundamental failure of current AI assistants: they have no persistent memory. Every session starts from zero. Every conversation is a clean slate. The context window is their entire universe, and when it fills up, knowledge falls off the edge.</p>
+
+        <p>We have been building memory systems at 24K Labs for over a year. We migrated 11,637 memories across three architectures. Here is what we learned about making AI actually remember.</p>
+
+        <h2>The Session 12 Problem</h2>
+
+        <p>By session 12 with a coding assistant, it should know things. It should know your project uses FastAPI, not Flask. It should know you prefer composition over inheritance. It should know that the payments module is the most fragile part of the codebase and needs extra care.</p>
+
+        <p>But it does not. Session 12 looks exactly like session 1. You re-explain the same context. You re-describe the same constraints. You re-state the same preferences. The assistant is competent but amnesiac.</p>
+
+        <p>The problem is not intelligence. The models are smart enough. The problem is memory. And memory, it turns out, is not one problem -- it is three.</p>
+
+        <h2>Layer 1: Capture</h2>
+
+        <p>Before you can remember anything, you have to notice it. The first layer of AI memory is pure capture -- recording everything that happens in a session so it exists somewhere outside the context window.</p>
+
+        <p>This is what tools like claude-brain do. Every conversation turn, every code change, every decision gets logged to a persistent store. It is the equivalent of writing everything down in a notebook without worrying about organization.</p>
+
+        <p>Capture is necessary but not sufficient. If you record everything, you have a log, not a memory. A 50,000-line session log is useless if you cannot find the one decision that matters for today's work. You traded one problem (forgetting) for another (drowning in noise).</p>
+
+        <p>The challenge with pure capture is retrieval. Semantic search helps, but it only works when you know what to ask for. The assistant does not know what it does not know.</p>
+
+        <h2>Layer 2: Cognition</h2>
+
+        <p>The second layer is where raw captures become actual memories. This is the hard part.</p>
+
+        <p>In our memory-v2 system, every stored memory has metadata beyond its content: a relevance score, a decay rate, access frequency, and connection weights to related memories. When the system retrieves context for a new session, it does not just do a keyword search. It runs a scoring model that considers:</p>
+
+        <ul>
+          <li><strong>Recency</strong> -- when was this memory last relevant?</li>
+          <li><strong>Frequency</strong> -- how often does this come up?</li>
+          <li><strong>Connections</strong> -- what other memories link to this one?</li>
+          <li><strong>Decay</strong> -- has this memory gone stale? (Code patterns from six months ago may be obsolete)</li>
+          <li><strong>Context match</strong> -- does this memory relate to what the user is doing right now?</li>
+        </ul>
+
+        <p>This is inspired by how human memory actually works. You do not remember everything equally. Recent, frequently-accessed, emotionally-significant memories surface faster. Unused memories fade. Connections between memories create retrieval paths.</p>
+
+        <p>The decay model is especially important for coding assistants. A memory that says "the API uses JWT tokens" should persist. A memory that says "we are debugging the login endpoint" should fade after a week. Context-dependent knowledge has a shelf life.</p>
+
+        <h2>Layer 3: Reinforcement</h2>
+
+        <p>The third layer is the one nobody is building yet. Reinforcement uses economic and behavioral signals to tell the memory system what actually matters.</p>
+
+        <p>Consider two interactions with a coding assistant:</p>
+
+        <ol>
+          <li>You ask it to explain a function. It explains it. You move on.</li>
+          <li>You ask it to refactor a module. It suggests an approach. You use that approach across three more files over the next week.</li>
+        </ol>
+
+        <p>Interaction 2 is far more valuable. The assistant's suggestion was load-bearing -- it influenced real decisions. But without reinforcement, the memory system treats both interactions equally.</p>
+
+        <p>Reinforcement signals can come from many places: did the user accept the suggestion? Did they come back to it? Did downstream code reference the pattern? In a paid-per-request model like x402, you even have an economic signal -- the user literally paid for this result, which means it had value.</p>
+
+        <p>This is where memory gets interesting. Instead of treating all knowledge as equal, the system learns what knowledge produces outcomes. Memories that lead to accepted code suggestions get reinforced. Memories that the user constantly corrects get weakened.</p>
+
+        <h2>The Three Layers Compose</h2>
+
+        <p>These layers are not competing approaches. They compose.</p>
+
+        <p>Layer 1 (Capture) ensures nothing is lost. Layer 2 (Cognition) ensures the right things are found. Layer 3 (Reinforcement) ensures the system gets better at knowing what "right" means over time.</p>
+
+        <p>Without capture, there is nothing to process. Without cognition, capture is just a growing pile of text. Without reinforcement, the system never learns from its own performance.</p>
+
+        <p>Most current memory systems stop at Layer 1. A few ambitious ones reach Layer 2. Nobody has cracked Layer 3 at scale.</p>
+
+        <h2>What This Means for the Future</h2>
+
+        <p>The coding assistant that solves the Session 12 Problem will not just be smarter. It will be different. It will start a new session by loading the 50 most relevant memories from your project -- not the 50 most recent, but the 50 most useful, ranked by a model that has learned from months of your actual work.</p>
+
+        <p>It will know your coding style because it has been reinforced by hundreds of accepted suggestions. It will know the fragile parts of your codebase because it has seen you spend disproportionate time there. It will know your preferences because it has tracked which of its suggestions you keep and which you discard.</p>
+
+        <p>This is not artificial general intelligence. It is artificial memory -- and it is a prerequisite for AI assistants that are actually assistants, not just very smart autocomplete.</p>
+
+        <blockquote>
+          <p>Memory is the difference between a tool you use and an assistant you work with.</p>
+        </blockquote>
+
+        <p>We are building this at 24K Labs. The capture layer is done. The cognition layer is in production with 11,637 migrated memories. The reinforcement layer is in research.</p>
+
+        <p>If you are building memory systems, we would love to talk. The problem is hard enough that collaboration beats competition.</p>
+
+        <hr />
+
+        <div class="cta-box">
+          <h3>Follow Our Research</h3>
+          <p>We publish our memory system research and tools on GitHub.</p>
+          <a href="https://github.com/24klabs" target="_blank" rel="noopener" class="btn btn--primary">24K Labs on GitHub</a>
+        </div>
+
+        <div class="blog-nav">
+          <a href="/developers/blog" class="btn btn--outline btn--sm">&larr; Back to Blog</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header__meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 12px;
+  }
+  .cta-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 48px 0 32px;
+  }
+  .cta-box h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .cta-box p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  .blog-nav {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+</style>
