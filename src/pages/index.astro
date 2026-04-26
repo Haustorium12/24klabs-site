@@ -13,7 +13,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="text-gold">Pay per request, not per seat.</span>
       </h1>
       <p class="hero__subtitle">
-        Six AI-powered code analysis tools from $0.50 to $50.00. No subscriptions, no API keys.
+        Six AI-powered code analysis tools from $0.01 to $1.50. No subscriptions, no API keys.
         Send a request, pay in USDC, get your result. The payment <em>is</em> the auth.
       </p>
       <div class="hero__actions">
@@ -26,7 +26,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="hero__stat-label">AI Services</span>
         </div>
         <div class="hero__stat">
-          <span class="hero__stat-value">$0.50</span>
+          <span class="hero__stat-value">$0.01</span>
           <span class="hero__stat-label">Starting Price</span>
         </div>
         <div class="hero__stat">
@@ -76,12 +76,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="section__subtitle reveal">Every service powered by Claude. Every payment settled in USDC.</p>
       <div class="grid-3">
         {[
-          { badge: 'haiku', name: 'Explain Code', desc: 'Clear explanation of what code does, how it works, and why.', price: '$0.50' },
-          { badge: 'sonnet', name: 'Debug Assist', desc: 'Find bugs, explain errors, suggest fixes with severity ratings.', price: '$2.00' },
-          { badge: 'sonnet', name: 'Code Review', desc: 'Security, performance, architecture review with quality score.', price: '$10.00' },
-          { badge: 'opus', name: 'Security Audit', desc: 'OWASP Top 10, CVSS scores, attack scenarios, remediation.', price: '$25.00' },
-          { badge: 'sonnet', name: 'Automation Script', desc: 'Production-ready scripts from requirements. Complete with docs.', price: '$15.00' },
-          { badge: 'opus', name: 'MCP Blueprint', desc: 'Full MCP server architecture, schemas, and deployment guide.', price: '$50.00' },
+          { badge: 'haiku', name: 'Explain Code', desc: 'Clear explanation of what code does, how it works, and why.', price: '$0.02' },
+          { badge: 'sonnet', name: 'Debug Assist', desc: 'Find bugs, explain errors, suggest fixes with severity ratings.', price: '$0.05' },
+          { badge: 'sonnet', name: 'Code Review', desc: 'Security, performance, architecture review with quality score.', price: '$0.10' },
+          { badge: 'opus', name: 'Security Audit', desc: 'OWASP Top 10, CVSS scores, attack scenarios, remediation.', price: '$0.50' },
+          { badge: 'sonnet', name: 'Automation Script', desc: 'Production-ready scripts from requirements. Complete with docs.', price: '$0.10' },
+          { badge: 'opus', name: 'MCP Blueprint', desc: 'Full MCP server architecture, schemas, and deployment guide.', price: '$0.75' },
         ].map(s => (
           <div class="card reveal">
             <span class={`badge badge--${s.badge}`}>{s.badge.charAt(0).toUpperCase() + s.badge.slice(1)}</span>
