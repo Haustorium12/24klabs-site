@@ -16,61 +16,61 @@ const projects = [
   // Foundation & Governance
   {
     name: 'Linux Foundation x402',
-    description: 'Foundation governing the x402 protocol standard and ecosystem development.',
+    description: 'Foundation governing the x402 protocol standard and ecosystem development. 22+ founding members including Coinbase, Cloudflare, Stripe, Visa, and AWS.',
     category: 'foundation',
-    href: '#',
+    href: 'https://x402.org',
   },
   {
     name: 'x402.org',
-    description: 'Official protocol specification site and canonical documentation.',
+    description: 'Official protocol specification site, whitepaper, and canonical documentation for the x402 standard.',
     category: 'foundation',
-    href: '#',
+    href: 'https://x402.org',
   },
 
   // Facilitators & Infrastructure
   {
     name: 'Coinbase x402',
-    description: 'Original SDK and facilitator -- the reference implementation that started it all.',
+    description: 'Original SDK and facilitator -- the reference implementation that started it all. Go + TypeScript, multi-chain support.',
     category: 'infrastructure',
-    href: '#',
+    href: 'https://github.com/coinbase/x402',
   },
   {
-    name: 'Cloudflare EmDash',
-    description: 'CDN-level x402 integration enabling payment-gated content at the edge.',
+    name: 'Cloudflare x402',
+    description: 'CDN-level x402 integration enabling payment-gated content at the edge via Cloudflare Workers.',
     category: 'infrastructure',
-    href: '#',
+    href: 'https://docs.cdp.coinbase.com/x402',
   },
   {
     name: 'BlockRun',
-    description: 'AI Gateway with 600+ services, trust scoring, and intelligent routing.',
+    description: 'AI Gateway with 600+ x402 services, trust scoring, and intelligent routing across the ecosystem.',
     category: 'infrastructure',
-    href: '#',
+    href: 'https://docs.cdp.coinbase.com/x402/bazaar',
   },
   {
     name: 'x402station',
     description: 'Real-time analytics, monitoring, and uptime tracking for x402 services.',
     category: 'infrastructure',
-    href: '#',
+    href: 'https://x402.org/ecosystem',
   },
 
   // Payment & Settlement
   {
-    name: 'Coinbase Agentic Wallets',
-    description: 'Autonomous agent wallets powering 50M+ x402 transactions and counting.',
+    name: 'Coinbase AgentKit',
+    description: 'Autonomous agent wallets for AI agents. Enables agents to hold, send, and receive USDC on Base for x402 payments.',
     category: 'payment',
-    href: '#',
+    href: 'https://docs.cdp.coinbase.com/agentkit/docs/welcome',
   },
   {
-    name: 'Stellar x402',
-    description: 'Stellar network facilitator enabling x402 payments on Stellar rails.',
+    name: 'Spillway (Stellar)',
+    description: 'Subscription payment channels on Stellar using x402. Stream payments, not transactions -- 1,000 API calls = 2 on-chain transactions.',
     category: 'payment',
-    href: '#',
+    href: 'https://github.com/openledger-labs/Spillway',
   },
   {
-    name: 'XRPL x402',
-    description: 'Ripple/XRPL facilitator bringing x402 to the XRP Ledger ecosystem.',
+    name: 'x402-rs (Rust)',
+    description: 'Production-grade Rust implementation with Axum middleware, Reqwest client wrapper, and self-hostable facilitator.',
     category: 'payment',
-    href: '#',
+    href: 'https://github.com/x402-rs/x402-rs',
   },
 
   // AI Services
@@ -84,62 +84,62 @@ const projects = [
 
   // SDKs & Tools
   {
-    name: 'Coinbase x402 Python SDK',
-    description: 'Official Python SDK for building x402-compatible clients and servers.',
+    name: 'x402 Python SDK',
+    description: 'Official Python SDK on PyPI for building x402-compatible clients and servers. FastAPI middleware + requests session with auto-payments.',
     category: 'sdk',
-    href: '#',
+    href: 'https://pypi.org/project/x402/',
   },
   {
-    name: 'Coinbase x402 TypeScript SDK',
-    description: 'Official TypeScript SDK for Node.js and browser-based x402 integrations.',
+    name: 'x402 TypeScript SDK',
+    description: 'Official TypeScript SDK for Node.js and browser-based x402 integrations. Core protocol types, verification, and settlement.',
     category: 'sdk',
-    href: '#',
+    href: 'https://github.com/coinbase/x402/tree/main/typescript',
   },
   {
     name: 'open402',
-    description: 'Open-source Python implementation of the x402 protocol for self-hosters.',
+    description: 'Wire-compatible Python protocol layer. Can be used standalone for protocol parsing or with ag402-core for a full payment engine.',
     category: 'sdk',
-    href: '#',
+    href: 'https://pypi.org/project/open402/',
   },
   {
     name: 'x402-mock',
-    description: 'Mock server for testing x402 payment flows without real transactions.',
+    description: 'Test/mock implementation of x402 for EVM blockchains. Test payment flows without live transactions.',
     category: 'sdk',
-    href: '#',
+    href: 'https://pypi.org/project/x402-mock/',
   },
 
   // Discovery & Routing
   {
     name: 'Coinbase Bazaar',
-    description: 'Machine-readable service discovery indexing 251+ x402 services.',
+    description: 'Machine-readable service discovery indexing 251+ x402 services. The authoritative registry for the ecosystem.',
     category: 'discovery',
-    href: '#',
+    href: 'https://docs.cdp.coinbase.com/x402/bazaar',
   },
   {
-    name: 'x402 RouteNet',
-    description: 'Smart routing layer that finds optimal paths across x402 services.',
+    name: '402index.io',
+    description: 'The largest x402 directory with 17K+ listings. Human-browsable index of services, tools, and projects.',
     category: 'discovery',
-    href: '#',
+    href: 'https://402index.io',
   },
   {
-    name: 'awesome-x402',
-    description: 'Community-curated lists of x402 projects, tools, and resources.',
+    name: 'gold-402',
+    description: 'Community-curated list of x402 projects, SDKs, tools, facilitators, and ecosystem data. 300+ resources. Maintained by 24K Labs.',
     category: 'discovery',
-    href: '#',
+    href: 'https://github.com/Haustorium12/gold-402',
   },
 
   // Developer Resources
   {
-    name: 'x402search-mcp',
-    description: 'MCP server enabling AI agents to search and discover x402 services.',
+    name: 'Coinbase x402 Docs',
+    description: 'Complete implementation guide, API reference, quickstarts, and network support documentation from Coinbase Developer Platform.',
     category: 'developer',
-    href: '#',
+    href: 'https://docs.cdp.coinbase.com/x402',
   },
   {
     name: 'primer-x402',
-    description: 'Educational resources, tutorials, and guides for x402 newcomers.',
+    description: 'Python SDK for x402 payments -- pay and charge for APIs with stablecoins. pip installable, OpenClaw compatible.',
     category: 'developer',
-    href: '#',
+    href: 'https://pypi.org/project/primer-x402/',
   },
 ];
 
@@ -216,7 +216,7 @@ for (const cat of categories) {
     <div class="container">
       <div class="directory-cta reveal">
         <p>Know a project we're missing?</p>
-        <a href="#" class="btn btn--outline">Submit it on GitHub</a>
+        <a href="https://github.com/Haustorium12/gold-402/issues/new" target="_blank" rel="noopener" class="btn btn--outline">Submit it on GitHub &#8599;</a>
       </div>
     </div>
   </section>
