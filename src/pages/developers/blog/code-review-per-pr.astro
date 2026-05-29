@@ -19,7 +19,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
         <p>Every AI code review tool on the market charges you per seat, per month. GitHub Copilot is $19.00/seat/month. CodeRabbit starts at $15.00/seat/month. Codacy, Sourcery, Qodana -- all subscriptions. You pay whether you use them or not.</p>
 
-        <p>24K Labs charges $10.00 per review. That is it. No seats. No monthly bill. No annual commitment. You pay when you want a review. You do not pay when you do not.</p>
+        <p>24K Labs charges $0.15 per quick review, $0.40 standard, $0.80 pro. That is it. No seats. No monthly bill. No annual commitment. You pay when you want a review. You do not pay when you do not.</p>
 
         <h2>The Math That Matters</h2>
 
@@ -33,17 +33,17 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
         <p><strong>24K Labs per-request pricing:</strong></p>
         <ul>
-          <li>$10.00 per code review</li>
-          <li>$95.00/month buys you <strong>9.5 reviews</strong></li>
+          <li>$0.40 per standard code review</li>
+          <li>$95.00/month buys you <strong>237 reviews</strong></li>
         </ul>
 
-        <p>The breakeven point is fewer than 10 reviews per month for a five-person team. If your team merges fewer than 10 PRs a month, you are overpaying for seat-based tools. And many teams do -- especially early-stage startups, small agencies, and solo developers working on side projects.</p>
+        <p>That is not a typo. At $0.40 per review, the same monthly budget that buys you 5 GitHub Copilot seats covers over 200 individual PR reviews. For a team merging 40 PRs a month, that is five months of coverage for the price of one month of seats.</p>
 
-        <p>But here is the thing: even teams that merge 50 PRs a month do not need every single one reviewed by AI. You probably want AI review on complex PRs, security-sensitive changes, and code from junior developers. The 15-line config change? Skip it.</p>
+        <p>And even teams that merge 50 PRs a month do not need every single one reviewed. You probably want AI review on complex PRs, security-sensitive changes, and code from junior developers. The 15-line config change? Skip it.</p>
 
         <h2>What You Actually Get</h2>
 
-        <p>Each $10.00 code review from 24K Labs is powered by Claude Sonnet and returns:</p>
+        <p>Each code review from 24K Labs is powered by Claude Sonnet and returns:</p>
 
         <ul>
           <li><strong>Issue-level analysis</strong> -- every problem identified with file, line number, and severity (critical/high/medium/low)</li>
@@ -118,17 +118,17 @@ jobs:
 
         <h2>When Per-Seat Still Wins</h2>
 
-        <p>Full transparency: if your team has 20 developers merging 200 PRs a month and you want every single one reviewed, a $19.00/seat subscription is cheaper. At $10.00/review, 200 reviews is $2,000.00 vs. $380.00 for seats.</p>
+        <p>The one case where per-seat wins: if you need real-time, inline AI suggestions as you type in the IDE. That is a different product -- think GitHub Copilot autocomplete. For async PR review, per-request wins at essentially any volume. At $0.40/review, even 500 reviews a month is $200.00 -- cheaper than 11 seats at $19.00.</p>
 
-        <p>But that is not the comparison that matters for most teams. The question is: how many reviews do you actually need? And do you want to pay for the months when you ship nothing?</p>
+        <p>The question is: how many reviews do you actually need? And do you want to pay for the months when you ship nothing?</p>
 
         <p>Per-request pricing means you pay for value delivered. Nothing more.</p>
 
         <h2>The Bottom Line</h2>
 
         <ul>
-          <li><strong>Solo developers:</strong> $10.00 per review beats any subscription</li>
-          <li><strong>Small teams (2-5):</strong> breakeven at ~10-50 reviews/month depending on tool</li>
+          <li><strong>Solo developers:</strong> $0.15-$0.80 per review beats any subscription</li>
+          <li><strong>Small teams (2-5):</strong> per-request wins at any realistic review volume</li>
           <li><strong>Occasional use:</strong> no subscription to cancel when you do not need it</li>
           <li><strong>CI/CD integration:</strong> pay only for PRs that meet your criteria</li>
         </ul>
@@ -137,7 +137,7 @@ jobs:
 
         <div class="cta-box">
           <h3>Try a Code Review</h3>
-          <p>Send your first PR for review. $10.00, no account required.</p>
+          <p>Send your first PR for review. From $0.15, no account required.</p>
           <a href="/developers/quickstart" class="btn btn--primary">Get Started</a>
         </div>
 

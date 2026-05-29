@@ -56,7 +56,7 @@ X-Payment-Currency: USDC
 X-Payment-Network: base
 X-Payment-Address: 0x...`}</code></pre>
 
-        <p>The amount is in the token's smallest unit. For USDC, that means 10000000 = $10.00 (USDC has 6 decimals).</p>
+        <p>The amount is in the token's smallest unit. For USDC, that means 150000 = $0.15 (USDC has 6 decimals).</p>
 
         <h3>Step 3: Pay and Retry</h3>
 
@@ -81,7 +81,7 @@ X-Payment-Receipt: 0xabc123...
 
         <p>With x402, the payment IS the authentication. If you paid, you are authorized. No keys to leak. No accounts to manage. No credentials to rotate. An AI agent with a USDC wallet can discover, evaluate, and pay for services autonomously.</p>
 
-        <p>Think about what that enables. An AI coding assistant that needs a security audit can find the endpoint, pay $25.00, and get the report -- without a human ever setting up an account. A CI/CD pipeline that needs code review can pay per PR. A research agent that needs analysis can pay per query.</p>
+        <p>Think about what that enables. An AI coding assistant that needs a security audit can find the endpoint, pay $0.35, and get the report -- without a human ever setting up an account. A CI/CD pipeline that needs code review can pay $0.15 per PR. A research agent that needs analysis can pay per query.</p>
 
         <h2>Python Example with the x402 SDK</h2>
 
@@ -125,12 +125,12 @@ print(response.json())`}</code></pre>
         <p>24K Labs runs six AI-powered code analysis services on the x402 protocol. Every one of them follows the same flow described above:</p>
 
         <ul>
-          <li><strong>Explain Code</strong> (from $0.50) -- Clear explanation of what code does and why, powered by Claude Haiku</li>
-          <li><strong>Debug Assist</strong> (from $2.00) -- Bug detection, error explanation, and fix suggestions, powered by Claude Sonnet</li>
-          <li><strong>Code Review</strong> (from $10.00) -- PR-level analysis with severity scoring, powered by Claude Sonnet</li>
-          <li><strong>Security Audit</strong> (from $25.00) -- OWASP Top 10 scanning with CVSS scores and remediation steps, powered by Claude Opus</li>
-          <li><strong>Automation Script</strong> (from $15.00) -- Production-ready scripts from plain-English requirements, powered by Claude Sonnet</li>
-          <li><strong>MCP Blueprint</strong> (from $50.00) -- Complete MCP server architecture from a requirements description, powered by Claude Opus</li>
+          <li><strong>Explain Code</strong> (from $0.01) -- Clear explanation of what code does and why, powered by Claude Haiku</li>
+          <li><strong>Debug Assist</strong> (from $0.08) -- Bug detection, error explanation, and fix suggestions, powered by Claude Sonnet</li>
+          <li><strong>Code Review</strong> (from $0.15) -- PR-level analysis with severity scoring, powered by Claude Sonnet</li>
+          <li><strong>Security Audit</strong> (from $0.35) -- OWASP Top 10 scanning with CVSS scores and remediation steps, powered by Claude Opus</li>
+          <li><strong>Automation Script</strong> (from $0.12) -- Production-ready scripts from plain-English requirements, powered by Claude Sonnet</li>
+          <li><strong>MCP Blueprint</strong> (from $0.50) -- Complete MCP server architecture from a requirements description, powered by Claude Opus</li>
         </ul>
 
         <h2>Getting Started</h2>
