@@ -110,10 +110,100 @@ const services = [
     ],
     pricing: { quick: '$0.50', standard: '$1.50', pro: '$3.00' },
   },
+  {
+    name: 'Web Reader',
+    badge: 'flat',
+    model: 'No LLM',
+    description: 'Fetch any public URL and return clean readable text. Zero AI cost, flat rate. Use it to feed page content into analysis tools.',
+    analyzes: [
+      'Page text and headings',
+      'Articles, docs, and blog posts',
+      'HTML noise removal (nav, scripts, ads)',
+      'Main content extraction',
+    ],
+    useCases: [
+      'Pre-fetch before summarization',
+      'Read documentation or changelogs',
+      'Agent web browsing workflows',
+    ],
+    pricing: { quick: '--', standard: '$0.005', pro: '--' },
+  },
+  {
+    name: 'Document Extractor',
+    badge: 'haiku',
+    model: 'Haiku',
+    description: 'Extract and structure key information from any document: titles, dates, entities, key facts, and action items.',
+    analyzes: [
+      'Titles, headings, and structure',
+      'Key facts and data points',
+      'Entities: people, dates, organizations',
+      'Action items and conclusions',
+    ],
+    useCases: [
+      'Processing contracts and reports',
+      'Extracting structured data from PDFs',
+      'Organizing meeting notes and briefs',
+    ],
+    pricing: { quick: '$0.02', standard: '$0.05', pro: '$0.10' },
+  },
+  {
+    name: 'Image Analyzer',
+    badge: 'haiku',
+    model: 'Haiku',
+    description: 'Analyze any public image URL. Describes objects, scenes, and diagrams. Transcribes all visible text exactly.',
+    analyzes: [
+      'Scene description and objects',
+      'Text transcription (exact)',
+      'Charts, diagrams, and UI layouts',
+      'Context and image purpose',
+    ],
+    useCases: [
+      'Agent vision workflows',
+      'Extracting text from screenshots',
+      'Analyzing UI mockups and designs',
+    ],
+    pricing: { quick: '$0.03', standard: '$0.08', pro: '$0.15' },
+  },
+  {
+    name: 'Session Summarizer',
+    badge: 'haiku',
+    model: 'Haiku',
+    description: 'Summarize conversation and meeting transcripts into decisions, action items, open questions, and key exchanges.',
+    analyzes: [
+      'Key decisions and commitments',
+      'Action items and owners',
+      'Open questions and blockers',
+      'Session timeline and flow',
+    ],
+    useCases: [
+      'Processing meeting recordings',
+      'Summarizing long chat threads',
+      'Extracting follow-ups from calls',
+    ],
+    pricing: { quick: '$0.02', standard: '$0.05', pro: '$0.10' },
+  },
+  {
+    name: 'Content Summarizer',
+    badge: 'haiku',
+    model: 'Haiku',
+    description: 'Summarize articles, reports, and long-form text into key takeaways. Preserves specific facts and quotes exactly.',
+    analyzes: [
+      'Main argument and thesis',
+      'Supporting evidence and data',
+      'Key quotes and specific claims',
+      'Conclusions and recommendations',
+    ],
+    useCases: [
+      'Summarizing research papers',
+      'Creating TL;DRs for articles',
+      'Condensing long reports for agents',
+    ],
+    pricing: { quick: '$0.02', standard: '$0.05', pro: '$0.10' },
+  },
 ];
 ---
 
-<BaseLayout title="AI Services Catalog -- 24K Labs" description="Six AI-powered code analysis services. Pay per request with USDC on Base L2. No subscriptions, no API keys.">
+<BaseLayout title="AI Services -- 24K Labs" description="Eleven AI-powered services. Pay per request with USDC on Base L2. No subscriptions, no API keys.">
 
   <section class="page-header">
     <div class="page-header__glow"></div>
@@ -121,7 +211,7 @@ const services = [
       <span class="page-header__badge">Product Catalog</span>
       <h1 class="page-header__title">AI Services</h1>
       <p class="page-header__desc">
-        Six tools powered by Claude. Each one a single HTTP request.
+        Eleven services. Each one a single HTTP request.
         Pay in USDC, get your result. No accounts, no subscriptions.
       </p>
     </div>
