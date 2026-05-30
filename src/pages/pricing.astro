@@ -8,6 +8,7 @@ const services = [
   { name: 'Security Audit', badge: 'opus', model: 'Opus', quick: '$0.35', standard: '$1.00', pro: '$2.50' },
   { name: 'Automation Script', badge: 'sonnet', model: 'Sonnet', quick: '$0.12', standard: '$0.35', pro: '$0.75' },
   { name: 'MCP Blueprint', badge: 'opus', model: 'Opus', quick: '$0.50', standard: '$1.50', pro: '$3.00' },
+  { name: 'Web Reader', badge: 'flat', model: 'No LLM', quick: '--', standard: '$0.005', pro: '--' },
 ];
 ---
 
@@ -138,6 +139,12 @@ const services = [
 </BaseLayout>
 
 <style>
+  :global(.badge--flat) {
+    background: rgba(120, 120, 140, 0.15);
+    color: var(--text-muted);
+    border-color: rgba(120, 120, 140, 0.25);
+  }
+
   .free-banner {
     display: flex;
     align-items: center;
