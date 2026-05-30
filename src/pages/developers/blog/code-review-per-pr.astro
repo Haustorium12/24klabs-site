@@ -81,18 +81,28 @@ jobs:
 
       - name: Run 24K Labs Review
         if: steps.diff.outputs.lines > 20
+        env:
+          WALLET_KEY: \${{ secrets.TWENTYFOURK_WALLET_KEY }}
         run: |
-          curl -X POST https://api.24klabs.ai/api/code-review \\
-            -H "Content-Type: application/json" \\
-            -H "X-Payment-Receipt: \${{ secrets.X402_RECEIPT }}" \\
-            -d '{
-              "code": "'$(cat diff.patch | base64)'",
-              "language": "auto",
-              "options": {
-                "focus": ["security", "performance", "bugs"],
-                "context": "PR review for \${{ github.repository }}"
-              }
-            }' > review.json
+          pip install -q x402 eth-account
+          python3 - <<'PYEOF'
+          import os, json
+          from eth_account import Account
+          from x402 import x402ClientSync
+          from x402.mechanisms.evm.exact import ExactEvmScheme
+          from x402.http.clients.requests import x402_requests
+          acct = Account.from_key(os.environ["WALLET_KEY"])
+          client = x402ClientSync()
+          client.register("eip155:8453", ExactEvmScheme(signer=acct))
+          session = x402_requests(client)
+          diff = open("diff.patch").read()
+          resp = session.post(
+              "https://api.24klabs.ai/api/code-review?tier=standard",
+              json={"code": diff, "context": "GitHub PR diff"},
+              timeout=120,
+          )
+          json.dump(resp.json(), open("review.json", "w"))
+          PYEOF
 
       - name: Post Review Comment
         uses: actions/github-script@v7
@@ -103,7 +113,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: review.summary
+              body: review.result || review.error || 'Review complete.'
             });`}</code></pre>
 
         <p>Notice the conditional: we only run the review if the diff is more than 20 lines. That means trivial changes skip the review (and the cost) entirely. You control exactly when you pay.</p>

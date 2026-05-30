@@ -131,6 +131,11 @@ print(response.json())`}</code></pre>
           <li><strong>Security Audit</strong> (from $0.35) -- OWASP Top 10 scanning with CVSS scores and remediation steps, powered by Claude Opus</li>
           <li><strong>Automation Script</strong> (from $0.12) -- Production-ready scripts from plain-English requirements, powered by Claude Sonnet</li>
           <li><strong>MCP Blueprint</strong> (from $0.50) -- Complete MCP server architecture from a requirements description, powered by Claude Opus</li>
+          <li><strong>Web Reader</strong> ($0.005 flat) -- Fetch any URL and return clean readable text. No AI involved.</li>
+          <li><strong>Document Extractor</strong> (from $0.02) -- Extract titles, facts, entities, and action items from any document</li>
+          <li><strong>Image Analyzer</strong> (from $0.03) -- Analyze images via URL: objects, text, charts, and context</li>
+          <li><strong>Session Summarizer</strong> (from $0.02) -- Summarize conversation transcripts into decisions and action items</li>
+          <li><strong>Content Summarizer</strong> (from $0.02) -- Summarize articles and long-form text into key takeaways</li>
         </ul>
 
         <h2>Getting Started</h2>
@@ -138,7 +143,7 @@ print(response.json())`}</code></pre>
         <p>You need two things: a wallet with USDC on Base, and a way to make HTTP requests. That is literally it. No signup. No API key. No free trial that expires.</p>
 
         <pre><code>{`# Install the x402 SDK
-pip install x402-python
+pip install x402 eth-account
 
 # Or use curl and handle the 402 manually
 # The protocol is just HTTP -- any language works`}</code></pre>

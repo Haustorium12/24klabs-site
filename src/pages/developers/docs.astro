@@ -125,13 +125,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="reveal prose" style="margin-bottom: 48px;">
         <h2 class="docs-heading">Request Body</h2>
         <p>All POST endpoints accept the same JSON body schema.</p>
-<pre><code>{`{
-  "code": "string",         // Required. The code to analyze.
-  "language": "string",     // Optional. Language hint (auto-detected if omitted).
-  "context": "string",      // Optional. Additional context for the analysis.
-  "tier": "quick" | "standard" | "pro"  // Required. Analysis depth.
-}`}</code></pre>
-        <p>Tiers map to different models and depths of analysis. Quick uses Haiku, Standard uses Sonnet, Pro uses Opus.</p>
+<pre><code>{`// Request body (JSON)
+{
+  "code": "string",      // Required. Content to process (code, URL, or text).
+  "language": "string",  // Optional. Language hint (auto-detected if omitted).
+  "context": "string"    // Optional. Additional context or instructions.
+}
+
+// Query parameter
+?tier=quick|standard|pro   // Analysis depth and price tier. Default: standard.`}</code></pre>
+        <p>The AI model is fixed per service -- see the <a href="/pricing">pricing page</a> for which model each service uses. Tiers control output depth and token budget, not the model.</p>
       </div>
 
       <div class="reveal prose" style="margin-bottom: 48px;">
@@ -140,7 +143,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   "service": "explain-code",
   "tier": "quick",
   "result": "...",            // The AI-generated analysis
-  "model": "claude-3-haiku",
+  "model": "claude-haiku-4-5",
   "tokens_used": 1247,
   "request_id": "req_abc123"
 }`}</code></pre>
