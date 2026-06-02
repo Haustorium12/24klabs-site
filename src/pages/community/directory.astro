@@ -278,6 +278,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .empty-state { text-align: center; padding: 60px 0; color: var(--text-dim); }
   .empty-state p { margin-bottom: 20px; }
 
+  .prompt-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 24px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-surface);
+  }
+
   .pagination {
     display: flex; align-items: center; justify-content: center;
     gap: 20px; margin-top: 48px;
@@ -295,17 +306,38 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 </style>
 
 <script>
-const DATA_URL = 'https://raw.githubusercontent.com/Haustorium12/gold-402/main/directory/services.json';
+// Gold-402 directory frontend -- uses pre-sliced JSON via manifest.json.
+// Slicer + manifest spec: gold-402/scripts/slice_services.py, comms/gold-402/REPLY_FROM_WEB_TO_NOX_PAGINATION_2.md.
+// Loads slices on demand based on type+tag filter; never loads the full 25MB services.json.
+const BASE_URL = 'https://raw.githubusercontent.com/Haustorium12/gold-402/main/directory/by_type/';
+const MANIFEST_URL = BASE_URL + 'manifest.json';
+const FEATURED_URL = BASE_URL + 'featured.json';
 const PAGE_SIZE = 20;
-const IS_24K_IDS = ['24klabs', '24klabs-code-review', '24klabs-api'];
 
-let allServices = [];
-let filtered = [];
+// Map UI type-pill values to the type strings used in manifest entries
+const TYPE_TO_SLUG = {
+  'API / Service': 'api-service',
+  'Facilitator': 'facilitator',
+  'SDK / Library': 'sdk-library',
+  'MCP Server': 'mcp-server',
+  'Tool': 'tool',
+  'Wallet': 'wallet',
+  'Directory / Aggregator': 'directory-aggregator',
+  'Learning Resource': 'learning-resource',
+};
+const SMALL_TYPES = new Set(['Facilitator', 'SDK / Library', 'MCP Server', 'Tool', 'Wallet', 'Directory / Aggregator', 'Learning Resource']);
+
+let manifest = null;
+let featured = [];
+let sliceCache = new Map();   // filename -> services array
+let currentServices = [];     // services currently in scope before search/verified filters
+let filtered = [];            // after applying search/verified
 let currentPage = 1;
 let activeType = 'all';
 let activeDomain = 'all';
 let verifiedOnly = false;
 let searchQuery = '';
+let loadToken = 0;            // bumped on each filter change to cancel stale loads
 
 function formatPrice(min, max) {
   if (min == null && max == null) return null;
@@ -366,21 +398,8 @@ function buildCard(s, featured) {
   `;
 }
 
-function applyFilters() {
-  const q = searchQuery.toLowerCase();
-  filtered = allServices.filter(s => {
-    if (activeType !== 'all' && s.type !== activeType) return false;
-    if (activeDomain !== 'all' && !(s.domain_tags || []).includes(activeDomain)) return false;
-    if (verifiedOnly && !s.verified) return false;
-    if (q) {
-      const haystack = [s.name, s.short_desc, ...(s.domain_tags || [])].join(' ').toLowerCase();
-      if (!haystack.includes(q)) return false;
-    }
-    return true;
-  });
-  currentPage = 1;
-  render();
-}
+// Search and verified toggle filter the loaded slice client-side -- no re-fetch.
+// Type/domain pill changes call loadCurrentView() which fetches new slices as needed.
 
 function render() {
   const grid = document.getElementById('services-grid');
@@ -428,51 +447,183 @@ function triggerReveal() {
   });
 }
 
+async function fetchSlice(filename) {
+  if (sliceCache.has(filename)) return sliceCache.get(filename);
+  const res = await fetch(BASE_URL + filename);
+  if (!res.ok) throw new Error('Failed to load ' + filename + ': ' + res.status);
+  const data = await res.json();
+  const services = data.services || [];
+  sliceCache.set(filename, services);
+  return services;
+}
+
+function matchingSlices(type, domain) {
+  // Returns array of {filename, count} that should be loaded for the given filter combo.
+  // Manifest 'kind: featured' entries are excluded -- featured is handled separately.
+  if (!manifest) return [];
+  const slices = manifest.slices.filter(s => s.kind !== 'featured');
+
+  if (type === 'all' && domain === 'all') {
+    return [];  // shows featured + prompt
+  }
+  if (type === 'all' && domain !== 'all') {
+    // All types with a tag filter: API/Service tag sub-slices + small type slices (filter client-side)
+    return slices.filter(s =>
+      (s.type === 'API / Service' && s.tag === domain) ||
+      (s.type !== 'API / Service' && s.tag === null)
+    );
+  }
+  if (type !== 'all' && domain === 'all') {
+    // Specific type, no tag
+    if (SMALL_TYPES.has(type)) {
+      return slices.filter(s => s.type === type && s.tag === null);
+    }
+    // API / Service with no tag -- too big to load; prompt user to narrow
+    return [];
+  }
+  // Specific type AND tag
+  if (type === 'API / Service') {
+    return slices.filter(s => s.type === 'API / Service' && s.tag === domain);
+  }
+  // Small type with a tag -- load the small type slice, filter client-side
+  return slices.filter(s => s.type === type && s.tag === null);
+}
+
+async function loadCurrentView() {
+  const myToken = ++loadToken;
+  const targets = matchingSlices(activeType, activeDomain);
+
+  // Show loading state for non-trivial loads
+  const grid = document.getElementById('services-grid');
+  const loadingEl = document.getElementById('loading-state');
+
+  // Special case 1: All + All --> featured
+  if (activeType === 'all' && activeDomain === 'all') {
+    currentServices = featured.slice();
+    loadingEl.style.display = 'none';
+    applySearchAndVerified();
+    return;
+  }
+  // Special case 2: API / Service + no tag --> prompt
+  if (activeType === 'API / Service' && activeDomain === 'all') {
+    currentServices = [];
+    loadingEl.style.display = 'none';
+    grid.innerHTML = '<div class="prompt-msg">API / Service has 37,000+ entries. Pick a domain to narrow.</div>';
+    document.getElementById('total-count').textContent = '37,899';
+    document.getElementById('showing-count').textContent = '0';
+    document.getElementById('pagination').style.display = 'none';
+    document.getElementById('empty-state').style.display = 'none';
+    return;
+  }
+
+  if (targets.length === 0) {
+    currentServices = [];
+    applySearchAndVerified();
+    return;
+  }
+
+  const uncached = targets.filter(t => !sliceCache.has(t.filename));
+  if (uncached.length > 0) {
+    loadingEl.style.display = 'block';
+  }
+
+  try {
+    const results = await Promise.all(targets.map(t => fetchSlice(t.filename)));
+    if (myToken !== loadToken) return;  // stale -- another filter change is in flight
+
+    // Concatenate, then dedupe by id (chunks of same tag don't overlap, but cross-type tag query can)
+    const seen = new Set();
+    const merged = [];
+    for (const slice of results) {
+      for (const s of slice) {
+        const id = s.id || (s.name + '|' + (s.api_base_url || ''));
+        if (!seen.has(id)) {
+          seen.add(id);
+          merged.push(s);
+        }
+      }
+    }
+
+    // For "All type + tag", also need to client-side filter the small type slices for the tag
+    if (activeType === 'all' && activeDomain !== 'all') {
+      currentServices = merged.filter(s =>
+        s.type === 'API / Service' || (s.domain_tags || []).includes(activeDomain)
+      );
+    } else if (SMALL_TYPES.has(activeType) && activeDomain !== 'all') {
+      // Small type with tag: filter the type slice for the tag
+      currentServices = merged.filter(s => (s.domain_tags || []).includes(activeDomain));
+    } else {
+      currentServices = merged;
+    }
+
+    loadingEl.style.display = 'none';
+    applySearchAndVerified();
+  } catch (e) {
+    if (myToken !== loadToken) return;
+    loadingEl.innerHTML = '<div class="loading-msg">Failed to load. <a href="https://github.com/Haustorium12/gold-402" target="_blank">View on GitHub &#8599;</a></div>';
+  }
+}
+
+function applySearchAndVerified() {
+  const q = searchQuery.toLowerCase();
+  filtered = currentServices.filter(s => {
+    if (verifiedOnly && !s.verified) return false;
+    if (q) {
+      const haystack = [s.name, s.short_desc, ...(s.domain_tags || [])].join(' ').toLowerCase();
+      if (!haystack.includes(q)) return false;
+    }
+    return true;
+  });
+  currentPage = 1;
+  render();
+}
+
 async function init() {
   try {
-    const res = await fetch(DATA_URL);
-    const data = await res.json();
-    allServices = data.services || [];
+    const [manifestRes, featuredRes] = await Promise.all([
+      fetch(MANIFEST_URL).then(r => r.json()),
+      fetch(FEATURED_URL).then(r => r.json()),
+    ]);
+    manifest = manifestRes;
+    featured = featuredRes.services || [];
 
     document.getElementById('loading-state').style.display = 'none';
-    document.getElementById('stat-total').textContent = allServices.length.toLocaleString();
+    document.getElementById('stat-total').textContent = manifest.total_services.toLocaleString();
 
-    const verifiedCount = allServices.filter(s => s.verified).length;
-    document.getElementById('stat-verified').textContent = verifiedCount > 0 ? verifiedCount.toLocaleString() : '—';
+    const verifiedTotal = featured.filter(s => s.verified).length;
+    document.getElementById('stat-verified').textContent = verifiedTotal > 0 ? '—' : '—';  // unknown without full scan
 
-    if (data.generated_at) {
-      const d = new Date(data.generated_at);
+    if (manifest.generated_at) {
+      const d = new Date(manifest.generated_at);
       document.getElementById('stat-updated').textContent = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
     }
 
-    const featured = allServices
-      .filter(s => s.quality_payers_30d > 0)
-      .sort((a, b) => b.quality_payers_30d - a.quality_payers_30d)
-      .slice(0, 6);
-
-    if (featured.length > 0) {
+    // Featured section: top 6 from featured.json
+    const top6 = featured.slice(0, 6);
+    if (top6.length > 0) {
       document.getElementById('featured-section').style.display = 'block';
-      document.getElementById('featured-grid').innerHTML = featured.map(s => buildCard(s, true)).join('');
+      document.getElementById('featured-grid').innerHTML = top6.map(s => buildCard(s, true)).join('');
     }
 
-    filtered = [...allServices];
-    render();
+    // Default view: full featured (100 services) as the initial scope
+    currentServices = featured.slice();
+    applySearchAndVerified();
   } catch (e) {
-    document.getElementById('loading-state').innerHTML = '<div class="loading-msg">Failed to load directory. <a href="https://github.com/Haustorium12/gold-402" target="_blank">View on GitHub →</a></div>';
+    document.getElementById('loading-state').innerHTML = '<div class="loading-msg">Failed to load directory. <a href="https://github.com/Haustorium12/gold-402" target="_blank">View on GitHub &#8599;</a></div>';
   }
 }
 
 document.getElementById('search').addEventListener('input', e => {
   searchQuery = e.target.value;
   document.getElementById('search-clear').style.display = searchQuery ? 'block' : 'none';
-  applyFilters();
+  applySearchAndVerified();
 });
 
 document.getElementById('search-clear').addEventListener('click', () => {
   document.getElementById('search').value = '';
   searchQuery = '';
   document.getElementById('search-clear').style.display = 'none';
-  applyFilters();
+  applySearchAndVerified();
 });
 
 document.getElementById('type-pills').addEventListener('click', e => {
@@ -481,7 +632,7 @@ document.getElementById('type-pills').addEventListener('click', e => {
   document.querySelectorAll('#type-pills .pill').forEach(p => p.classList.remove('active'));
   pill.classList.add('active');
   activeType = pill.dataset.value;
-  applyFilters();
+  loadCurrentView();
 });
 
 document.getElementById('domain-pills').addEventListener('click', e => {
@@ -490,12 +641,12 @@ document.getElementById('domain-pills').addEventListener('click', e => {
   document.querySelectorAll('#domain-pills .pill').forEach(p => p.classList.remove('active'));
   pill.classList.add('active');
   activeDomain = pill.dataset.value;
-  applyFilters();
+  loadCurrentView();
 });
 
 document.getElementById('verified-only').addEventListener('change', e => {
   verifiedOnly = e.target.checked;
-  applyFilters();
+  applySearchAndVerified();
 });
 
 document.getElementById('prev-page').addEventListener('click', () => {
@@ -516,7 +667,7 @@ document.getElementById('clear-filters').addEventListener('click', () => {
   document.getElementById('verified-only').checked = false;
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.pill[data-value="all"]').forEach(p => p.classList.add('active'));
-  applyFilters();
+  loadCurrentView();
 });
 
 init();
