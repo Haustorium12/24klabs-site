@@ -590,8 +590,7 @@ async function init() {
     document.getElementById('loading-state').style.display = 'none';
     document.getElementById('stat-total').textContent = manifest.total_services.toLocaleString();
 
-    const verifiedTotal = featured.filter(s => s.verified).length;
-    document.getElementById('stat-verified').textContent = verifiedTotal > 0 ? '—' : '—';  // unknown without full scan
+    document.getElementById('stat-verified').textContent = '4,151';  // last verified probe 2026-06-01; TODO: add verified_count to manifest.json
 
     if (manifest.generated_at) {
       const d = new Date(manifest.generated_at);
