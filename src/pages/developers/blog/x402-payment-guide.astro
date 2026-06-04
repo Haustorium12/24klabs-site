@@ -50,11 +50,11 @@ Content-Type: application/json
         <p>If you have not paid, the server responds with HTTP 402 and a payment requirement header. This tells you exactly what to pay, where to pay it, and on which network.</p>
 
         <pre><code>{`HTTP/1.1 402 Payment Required
-X-Payment-Required: true
-X-Payment-Amount: 10000000
-X-Payment-Currency: USDC
-X-Payment-Network: base
-X-Payment-Address: 0x...`}</code></pre>
+PAYMENT-REQUIRED: <base64 encoded PaymentRequired>
+# Decoded: {"x402Version":2,"accepts":[{"scheme":"exact",
+#   "network":"eip155:8453","amount":"10000000",
+#   "asset":"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+#   "payTo":"0xe73D86f185bE79a33b0318d881B71f2a24371114"}]}`}</code></pre>
 
         <p>The amount is in the token's smallest unit. For USDC, that means 150000 = $0.15 (USDC has 6 decimals).</p>
 
@@ -64,7 +64,7 @@ X-Payment-Address: 0x...`}</code></pre>
 
         <pre><code>{`POST https://api.24klabs.ai/api/code-review
 Content-Type: application/json
-X-Payment-Receipt: 0xabc123...
+PAYMENT-SIGNATURE: <base64 encoded PaymentPayload>
 
 {
   "code": "def hello():\\n    print('world')",

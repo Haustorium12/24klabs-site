@@ -160,7 +160,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   "wallet": "0x...",
   "paymentMethods": ["x402"],
   "x402": {
-    "version": 1,
+    "x402Version": 2,
     "scheme": "exact",
     "mimeType": "application/json"
   }
@@ -174,7 +174,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <li>Send a request to any paid endpoint without payment.</li>
           <li>Receive a <code>402</code> response with price, wallet, and payment details.</li>
           <li>Transfer the exact USDC amount on Base L2 to the provided wallet.</li>
-          <li>Resend the original request with the <code>X-Payment-Receipt</code> header containing the transaction hash.</li>
+          <li>Resend the original request with the <code>PAYMENT-SIGNATURE</code> header containing the Base64-encoded signed payment payload.</li>
           <li>The server verifies the on-chain transaction and returns the result.</li>
         </ol>
         <p>AI agents using x402-compatible SDKs handle this loop automatically.</p>
