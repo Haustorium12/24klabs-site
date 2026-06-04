@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Gold-402 Directory — 24K Labs" description="The open x402 service directory. 40,000+ verified endpoints. Curated by 24K Labs.">
+<BaseLayout title="Gold-402 Directory — 24K Labs" description="The open x402 service directory. 40,000+ x402 endpoints. Curated by 24K Labs.">
 
   <section class="page-header">
     <div class="page-header__glow"></div>
@@ -17,7 +17,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="stats-bar" id="stats-bar">
         <div class="stat"><span class="stat-value" id="stat-total">—</span><span class="stat-label">Services</span></div>
         <div class="stat"><span class="stat-value" id="stat-networks">8</span><span class="stat-label">Networks</span></div>
-        <div class="stat"><span class="stat-value" id="stat-verified">—</span><span class="stat-label">Verified</span></div>
+        <div class="stat"><span class="stat-value" id="stat-active">—</span><span class="stat-label">Active</span></div>
         <div class="stat"><span class="stat-value" id="stat-updated">—</span><span class="stat-label">Updated</span></div>
       </div>
     </div>
@@ -86,7 +86,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <label class="verified-toggle">
       <input type="checkbox" id="verified-only" />
       <span class="toggle-track"><span class="toggle-thumb"></span></span>
-      <span class="toggle-label">Verified only</span>
+      <span class="toggle-label">Active only</span>
     </label>
   </div>
 
@@ -596,7 +596,7 @@ async function init() {
     document.getElementById('loading-state').style.display = 'none';
     document.getElementById('stat-total').textContent = manifest.total_services.toLocaleString();
 
-    document.getElementById('stat-verified').textContent = '4,151';  // last verified probe 2026-06-01; TODO: add verified_count to manifest.json
+    document.getElementById('stat-active').textContent = manifest.active_count ? manifest.active_count.toLocaleString() : '—';
 
     if (manifest.generated_at) {
       const d = new Date(manifest.generated_at);
