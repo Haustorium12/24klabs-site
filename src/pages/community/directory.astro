@@ -371,26 +371,32 @@ function buildCard(s, featured) {
   const tags = (s.domain_tags || []).slice(0, 2);
   const twentyk = is24k(s);
 
+  // RT-010: escape user-supplied fields before innerHTML injection
+  function esc(str) {
+    return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
   return `
-    <a href="${s.website_url || '#'}" target="_blank" rel="noopener noreferrer"
+    <a href="${esc(s.website_url) || '#'}" target="_blank" rel="noopener noreferrer"
        class="service-card${twentyk ? ' is-24k' : ''}${featured ? ' reveal' : ' reveal'}">
       <div class="card-header">
-        <div class="card-name">${s.name || 'Unnamed Service'}</div>
+        <div class="card-name">${esc(s.name) || 'Unnamed Service'}</div>
         <div class="card-badges">
           ${s.verified ? '<span class="badge badge-verified">✓ Verified</span>' : ''}
           ${twentyk ? '<span class="badge badge-24k">24K Labs</span>' : ''}
         </div>
       </div>
       <div class="card-badges">
-        <span class="badge badge-type">${s.type || 'Service'}</span>
-        ${tags.map(t => `<span class="badge badge-domain">${t}</span>`).join('')}
+        <span class="badge badge-type">${esc(s.type) || 'Service'}</span>
+        ${tags.map(t => `<span class="badge badge-domain">${esc(t)}</span>`).join('')}
       </div>
-      <div class="card-desc">${s.short_desc || 'x402-enabled service.'}</div>
+      <div class="card-desc">${esc(s.short_desc) || 'x402-enabled service.'}</div>
       <div class="card-footer">
         <span class="card-price">${price || ''}</span>
         <div class="card-meta">
           ${activity ? `<span class="card-activity">${activity}</span>` : ''}
-          <span class="card-network">${s.network || 'Base'}</span>
+          <span class="card-network">${esc(s.network) || 'Base'}</span>
         </div>
         <span class="card-link">Visit →</span>
       </div>
