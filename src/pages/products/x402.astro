@@ -2,195 +2,233 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="x402 Protocol -- 24K Labs" description="HTTP 402 Payment Required. The open protocol for machine-to-machine payments. Pay for AI services with USDC -- no API keys, no accounts.">
+<BaseLayout title="x402 Protocol — 24K Labs" description="HTTP 402 Payment Required. The open protocol for machine-to-machine payments. Pay for AI services with USDC — no API keys, no accounts.">
 
-  <section class="page-header">
-    <div class="page-header__glow"></div>
+  <!-- HERO -->
+  <section class="x-hero">
+    <div class="x-hero__glow"></div>
     <div class="container">
-      <span class="page-header__badge">Protocol</span>
-      <h1 class="page-header__title">x402</h1>
-      <p class="page-header__desc">
-        The HTTP payment protocol that lets AI agents discover, pay for, and consume services autonomously.
+      <div class="x-hero__badge">
+        <span class="x-hero__badge-dot"></span>
+        Open Standard · Linux Foundation
+      </div>
+      <h1 class="x-hero__title">
+        HTTP has a payment code.<br>
+        <span class="text-gold">Now it works.</span>
+      </h1>
+      <p class="x-hero__desc">
+        x402 turns <code>402 Payment Required</code> into a real protocol. 
+        AI agents discover services, pay in USDC, and get results — 
+        no API keys, no accounts, no humans in the loop.
       </p>
-    </div>
-  </section>
-
-  <!-- What is x402 -->
-  <section class="section">
-    <div class="container">
-      <div class="prose reveal">
-        <h2>What is x402?</h2>
-        <p>
-          x402 brings HTTP status code <code>402 Payment Required</code> to life. Originally reserved in the HTTP spec decades ago,
-          it was never standardized -- until now. x402 turns it into a real, interoperable payment protocol for the web.
-        </p>
-        <p>
-          Instead of API keys, OAuth tokens, or billing portals, x402 uses the payment itself as authentication.
-          Any HTTP client -- human or AI agent -- can discover a service, see the price, pay in USDC, and get the result.
-          All in a single request-response cycle.
-        </p>
+      <div class="x-hero__actions">
+        <a href="/developers/quickstart" class="btn btn--primary btn--lg">Start Building</a>
+        <a href="/community/directory" class="btn btn--outline btn--lg">Browse Directory</a>
       </div>
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="section bg-surface">
+  <!-- THE THREE STEPS -->
+  <section class="section">
     <div class="container">
-      <h2 class="section__title reveal">How It Works</h2>
-      <p class="section__subtitle reveal">Three HTTP exchanges. No signup. No dashboard.</p>
+      <h2 class="section__title reveal">Three exchanges. Zero friction.</h2>
+      <p class="section__subtitle reveal">No signup. No dashboard. No API key rotation.</p>
 
-      <div class="grid-3">
-        <div class="card reveal">
-          <div class="step-num">1</div>
-          <h3 class="card__title">Request the Service</h3>
-          <p class="card__desc">
-            Send a normal HTTP request to any x402-enabled endpoint. No auth headers needed.
-          </p>
-          <pre><code>{`POST /api/explain
+      <div class="x-flow reveal">
+        <div class="x-flow__step">
+          <div class="x-flow__num">1</div>
+          <div class="x-flow__content">
+            <h3 class="x-flow__title">Request</h3>
+            <p class="x-flow__desc">Send a normal HTTP request. No auth headers.</p>
+            <div class="x-code">
+              <div class="x-code__bar">
+                <span class="x-code__dot" style="background:#ff5f57"></span>
+                <span class="x-code__dot" style="background:#ffbd2e"></span>
+                <span class="x-code__dot" style="background:#28c840"></span>
+                <span class="x-code__label">agent → server</span>
+              </div>
+              <pre class="x-code__body"><code>POST /api/v1/explain-code
 Content-Type: application/json
 
-{"code": "def fib(n): ..."}`}</code></pre>
+{"code": "def fib(n): ..."}</code></pre>
+            </div>
+          </div>
         </div>
 
-        <div class="card reveal">
-          <div class="step-num">2</div>
-          <h3 class="card__title">Receive 402 + Price</h3>
-          <p class="card__desc">
-            The server responds with <code>402 Payment Required</code> and tells you exactly what to pay.
-          </p>
-          <pre><code>{`HTTP/1.1 402 Payment Required
-PAYMENT-REQUIRED: <base64(PaymentRequired)>
-# Decoded: {"x402Version":2,"accepts":[{"scheme":"exact",
-#   "network":"eip155:8453","amount":"50000",
-#   "asset":"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-#   "payTo":"0xe73D86f185bE79a33b0318d881B71f2a24371114"}]}`}</code></pre>
+        <div class="x-flow__arrow">→</div>
+
+        <div class="x-flow__step">
+          <div class="x-flow__num">2</div>
+          <div class="x-flow__content">
+            <h3 class="x-flow__title">402 + Price</h3>
+            <p class="x-flow__desc">Server returns the exact price. Agent reads it.</p>
+            <div class="x-code">
+              <div class="x-code__bar">
+                <span class="x-code__dot" style="background:#ff5f57"></span>
+                <span class="x-code__dot" style="background:#ffbd2e"></span>
+                <span class="x-code__dot" style="background:#28c840"></span>
+                <span class="x-code__label">server → agent</span>
+              </div>
+              <pre class="x-code__body"><code>HTTP/1.1 402 Payment Required
+PAYMENT-REQUIRED: &lt;base64&gt;
+
+# Decoded:
+# amount: 50000 (USDC micro)
+# network: eip155:8453 (Base)</code></pre>
+            </div>
+          </div>
         </div>
 
-        <div class="card reveal">
-          <div class="step-num">3</div>
-          <h3 class="card__title">Pay + Retry</h3>
-          <p class="card__desc">
-            Sign the payment with your wallet, then retry with the signed payload in the header.
-          </p>
-          <pre><code>{`POST /api/explain
-PAYMENT-SIGNATURE: <base64(PaymentPayload)>
-Content-Type: application/json
+        <div class="x-flow__arrow">→</div>
 
-{"code": "def fib(n): ..."}`}</code></pre>
+        <div class="x-flow__step">
+          <div class="x-flow__num">3</div>
+          <div class="x-flow__content">
+            <h3 class="x-flow__title">Pay + Result</h3>
+            <p class="x-flow__desc">Agent signs USDC transfer. Server verifies and responds.</p>
+            <div class="x-code">
+              <div class="x-code__bar">
+                <span class="x-code__dot" style="background:#ff5f57"></span>
+                <span class="x-code__dot" style="background:#ffbd2e"></span>
+                <span class="x-code__dot" style="background:#28c840"></span>
+                <span class="x-code__label">agent → server → agent</span>
+              </div>
+              <pre class="x-code__body"><code>POST /api/v1/explain-code
+PAYMENT-SIGNATURE: &lt;base64&gt;
+
+HTTP/1.1 200 OK
+PAYMENT-RESPONSE: &lt;base64&gt;
+{"result": "This function..."}</code></pre>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Linux Foundation -->
+  <!-- WHY IT MATTERS -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <h2 class="section__title reveal">API keys don't scale to agents.</h2>
+      <p class="section__subtitle reveal">x402 is how machine-to-machine commerce actually works.</p>
+
+      <div class="x-why reveal">
+        <div class="x-why__item">
+          <div class="x-why__icon">🔑</div>
+          <div>
+            <h3 class="x-why__title">No credentials to manage</h3>
+            <p class="x-why__desc">The payment receipt is the credential. An agent with a USDC balance can call any x402 service in the world without a single API key.</p>
+          </div>
+        </div>
+        <div class="x-why__item">
+          <div class="x-why__icon">🤖</div>
+          <div>
+            <h3 class="x-why__title">Built for autonomous agents</h3>
+            <p class="x-why__desc">Agents discover services, evaluate prices, and pay — all without human intervention. The protocol was designed for this. OAuth wasn't.</p>
+          </div>
+        </div>
+        <div class="x-why__item">
+          <div class="x-why__icon">⛓</div>
+          <div>
+            <h3 class="x-why__title">Every payment on-chain</h3>
+            <p class="x-why__desc">Settled in USDC on Base L2. Instant, auditable, final. No chargebacks, no billing disputes, no monthly invoices.</p>
+          </div>
+        </div>
+        <div class="x-why__item">
+          <div class="x-why__icon">📡</div>
+          <div>
+            <h3 class="x-why__title">Discovery built in</h3>
+            <p class="x-why__desc">Any x402 service exposes <code>/.well-known/x402.json</code> — a machine-readable manifest of what it does, what it costs, and where to pay.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM -->
   <section class="section">
     <div class="container">
-      <div class="grid-2">
-        <div class="reveal">
-          <h2 class="feature__title">Backed by the Linux Foundation</h2>
-          <p class="feature__desc">
-            x402 is an open standard under the Linux Foundation with 22+ member organizations.
-            This isn't a startup's proprietary protocol -- it's a shared infrastructure layer
-            for the future of machine-to-machine commerce.
+      <div class="x-foundation reveal">
+        <div class="x-foundation__left">
+          <div class="x-foundation__label">Open Standard</div>
+          <h2 class="x-foundation__title">Backed by the Linux Foundation</h2>
+          <p class="x-foundation__desc">
+            x402 is a vendor-neutral open standard with 50+ member organizations. 
+            Not a startup's proprietary protocol — shared infrastructure for the 
+            future of machine commerce.
           </p>
-          <div class="member-badges">
+          <div class="x-members">
             <span class="badge badge--gold">Coinbase</span>
             <span class="badge badge--gold">Cloudflare</span>
             <span class="badge badge--gold">Stripe</span>
             <span class="badge badge--gold">Visa</span>
             <span class="badge badge--gold">AWS</span>
-            <span class="badge badge--gold">22+ Members</span>
+            <span class="badge badge--gold">Adyen</span>
+            <span class="badge badge--gold">Shopify</span>
+            <span class="badge badge--gold">50+ members</span>
           </div>
         </div>
-        <div class="reveal">
-          <div class="card">
-            <h3 class="card__title">Open Standard Benefits</h3>
-            <ul class="feature-list">
-              <li>Vendor-neutral -- no single company controls the spec</li>
-              <li>Interoperable -- any client, any server, any chain</li>
-              <li>Auditable -- every payment is on-chain and verifiable</li>
-              <li>Extensible -- supports any token, any L2, any pricing model</li>
-            </ul>
+        <div class="x-foundation__right">
+          <div class="x-stat-grid">
+            <div class="x-stat">
+              <div class="x-stat__value text-gold">75M+</div>
+              <div class="x-stat__label">Transactions / 30 days</div>
+            </div>
+            <div class="x-stat">
+              <div class="x-stat__value text-gold">$24M+</div>
+              <div class="x-stat__label">Volume / 30 days</div>
+            </div>
+            <div class="x-stat">
+              <div class="x-stat__value text-gold">26,000+</div>
+              <div class="x-stat__label">Live services</div>
+            </div>
+            <div class="x-stat">
+              <div class="x-stat__value text-gold">Base L2</div>
+              <div class="x-stat__label">Primary network</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why it matters for AI agents -->
+  <!-- 24K LABS POSITION -->
   <section class="section" style="background: var(--bg-surface);">
     <div class="container">
-      <h2 class="section__title reveal">Why AI Agents Need x402</h2>
-      <p class="section__subtitle reveal">
-        API keys don't work when machines are the customers.
-      </p>
+      <h2 class="section__title reveal">Where 24K Labs fits</h2>
+      <p class="section__subtitle reveal">We don't own the protocol. We build what runs on it.</p>
       <div class="grid-3">
         <div class="card reveal">
-          <h3 class="card__title">No Credentials to Manage</h3>
-          <p class="card__desc">
-            Agents don't need API keys, OAuth tokens, or service accounts.
-            The payment receipt is the only credential. Rotate keys? Never heard of it.
-          </p>
+          <div class="x-layer__num">Layer 1</div>
+          <h3 class="card__title">The Protocol</h3>
+          <p class="card__desc">x402 spec, facilitators, SDKs. Owned by the Linux Foundation. We use it, we don't build it.</p>
+          <div class="x-layer__who">Linux Foundation · Coinbase · Cloudflare</div>
+        </div>
+        <div class="card reveal card--gold">
+          <div class="x-layer__num x-layer__num--gold">Layer 2</div>
+          <h3 class="card__title">Discovery & Authority</h3>
+          <p class="card__desc">Gold-402 directory. 26,000+ services. The editorial layer that tells agents what's worth using.</p>
+          <div class="x-layer__who" style="color: var(--gold);">24K Labs ← We are here</div>
         </div>
         <div class="card reveal">
-          <h3 class="card__title">Agent Autonomy</h3>
-          <p class="card__desc">
-            An AI agent with a USDC balance can discover and pay for any x402 service
-            without human intervention. True machine-to-machine commerce.
-          </p>
+          <div class="x-layer__num">Layer 3</div>
+          <h3 class="card__title">Services</h3>
+          <p class="card__desc">The AI tools agents actually pay for. Code analysis, time context, and more. Also 24K Labs.</p>
+          <div class="x-layer__who">24K Labs · 26,000+ others</div>
         </div>
-        <div class="card reveal">
-          <h3 class="card__title">Pay for What You Use</h3>
-          <p class="card__desc">
-            No monthly subscriptions, no seat licenses, no overages. Every request has an
-            explicit price. Agents can compare costs and choose the best service.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Full HTTP flow -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section__title reveal">The Full HTTP Flow</h2>
-      <p class="section__subtitle reveal">Here is what happens under the hood when an agent calls a 24K Labs endpoint.</p>
-      <div class="prose reveal">
-        <pre><code>{`# 1. Agent sends a request (no auth)
-curl -X POST https://api.24klabs.ai/api/explain \\
-  -H "Content-Type: application/json" \\
-  -d '{"code": "def fib(n): ...", "tier": "standard"}'
-
-# 2. Server responds 402 — payment details in header
-# HTTP/1.1 402 Payment Required
-# PAYMENT-REQUIRED: <base64 encoded PaymentRequired object>
-# Decoded: {"x402Version":2,"accepts":[{"scheme":"exact",
-#   "network":"eip155:8453","amount":"50000",
-#   "asset":"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-#   "payTo":"0xe73D86f185bE79a33b0318d881B71f2a24371114"}]}
-
-# 3. Agent signs a USDC transfer and retries with signed payload
-curl -X POST https://api.24klabs.ai/api/explain \\
-  -H "Content-Type: application/json" \\
-  -H "PAYMENT-SIGNATURE: <base64 encoded PaymentPayload>" \\
-  -d '{"code": "def fib(n): ...", "tier": "standard"}'
-
-# 4. Facilitator verifies + settles on-chain. Server returns result.
-# HTTP/1.1 200 OK
-# PAYMENT-RESPONSE: <base64 encoded SettlementResponse>
-# {"result": "This function calculates the nth Fibonacci..."}`}</code></pre>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section" style="background: var(--bg-surface);">
+  <section class="section">
     <div class="container">
       <div class="coming-soon reveal">
-        <h2 class="coming-soon__title">Explore the x402 Ecosystem</h2>
-        <p class="coming-soon__desc">Browse services, tools, and projects building on x402.</p>
-        <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <a href="/community/directory" class="btn btn--primary btn--lg">Browse the Directory</a>
+        <h2 class="coming-soon__title">Start building on x402.</h2>
+        <p class="coming-soon__desc">Use our services, list in our directory, or build your own x402 endpoint.</p>
+        <div style="margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="/developers/quickstart" class="btn btn--primary btn--lg">Quickstart Guide</a>
+          <a href="/community/directory" class="btn btn--outline btn--lg">Browse Directory</a>
           <a href="/products/ai-services" class="btn btn--outline btn--lg">Our Services</a>
         </div>
       </div>
@@ -200,67 +238,278 @@ curl -X POST https://api.24klabs.ai/api/explain \\
 </BaseLayout>
 
 <style>
-  .step-num {
-    width: 36px;
-    height: 36px;
+  /* Hero */
+  .x-hero {
+    position: relative;
+    padding: 160px 0 100px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .x-hero__glow {
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(ellipse, rgba(212,175,55,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .x-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+  .x-hero__badge-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .x-hero__title {
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .x-hero__desc {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+  .x-hero__actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Flow */
+  .x-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 16px;
+    align-items: start;
+    margin-top: 48px;
+  }
+  .x-flow__arrow {
+    font-size: 1.5rem;
+    color: var(--gold-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 48px;
+  }
+  .x-flow__step {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .x-flow__num {
+    width: 36px; height: 36px;
     background: var(--gold);
     color: var(--bg);
-    font-weight: 700;
+    font-weight: 800;
     font-size: 0.9rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 16px;
   }
-
-  .card__title {
-    font-size: 1.15rem;
+  .x-flow__title {
+    font-size: 1.1rem;
     font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .x-flow__desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
     margin-bottom: 12px;
   }
 
-  .card__desc {
-    color: var(--text-muted);
-    font-size: 0.9rem;
+  /* Code blocks */
+  .x-code {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .x-code__bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .x-code__dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .x-code__label {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    font-family: var(--mono);
+    margin-left: 6px;
+  }
+  .x-code__body {
+    margin: 0;
+    padding: 16px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
     line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .feature__title {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 800;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
-  }
-
-  .feature__desc {
     color: var(--text-muted);
-    font-size: 1rem;
+    overflow-x: auto;
+  }
+  .x-code__body code {
+    font-family: inherit;
+  }
+
+  /* Why */
+  .x-why {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .x-why__item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .x-why__icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .x-why__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .x-why__desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Foundation */
+  .x-foundation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .x-foundation__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .x-foundation__title {
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .x-foundation__desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
     line-height: 1.7;
     margin-bottom: 24px;
   }
-
-  .member-badges {
+  .x-members {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
   }
-
-  .feature-list {
-    list-style: none;
-    padding: 0;
+  .x-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
-
-  .feature-list li {
+  .x-stat {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+  }
+  .x-stat__value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .x-stat__label {
+    font-size: 0.8rem;
     color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
   }
 
-  .feature-list li:last-child {
-    border-bottom: none;
+  /* Layer cards */
+  .card--gold {
+    border-color: var(--gold-dim);
+    background: rgba(212, 175, 55, 0.04);
+  }
+  .x-layer__num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+  .x-layer__num--gold {
+    color: var(--gold);
+  }
+  .x-layer__who {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-top: 12px;
+    font-family: var(--mono);
+  }
+  .card__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .card__desc {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .x-flow {
+      grid-template-columns: 1fr;
+    }
+    .x-flow__arrow { display: none; }
+    .x-why { grid-template-columns: 1fr; }
+    .x-foundation { grid-template-columns: 1fr; gap: 32px; }
+  }
+  @media (max-width: 600px) {
+    .x-hero { padding: 120px 0 60px; }
+    .x-hero__actions { flex-direction: column; align-items: center; }
+    .x-stat-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>

@@ -246,6 +246,12 @@ img { max-width: 100%; display: block; }
   border: 1px solid rgba(144, 144, 168, 0.25);
 }
 
+
+.badge--soon {
+  background: rgba(85, 85, 102, 0.2);
+  color: var(--text-dim);
+  border: 1px solid rgba(85, 85, 102, 0.3);
+}
 .badge--gold {
   background: rgba(212, 175, 55, 0.1);
   color: var(--gold);

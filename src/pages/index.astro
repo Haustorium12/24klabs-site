@@ -13,7 +13,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="text-gold">Pay per request, not per seat.</span>
       </h1>
       <p class="hero__subtitle">
-        Eleven AI-powered services from $0.005 to $3.00. No subscriptions, no API keys.
+        Six live AI services from $0.005 to $3.00. Five more coming. No subscriptions, no API keys.
         Send a request, pay in USDC, get your result. The payment <em>is</em> the auth.
       </p>
       <div class="hero__actions">
@@ -22,7 +22,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
       <div class="hero__stats">
         <div class="hero__stat">
-          <span class="hero__stat-value">11</span>
+          <span class="hero__stat-value">6</span>
           <span class="hero__stat-label">AI Services</span>
         </div>
         <div class="hero__stat">
@@ -72,8 +72,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- SERVICES PREVIEW -->
   <section class="section" id="services" style="background: var(--bg-surface);">
     <div class="container">
-      <h2 class="section__title reveal">Eleven Services, One Protocol</h2>
-      <p class="section__subtitle reveal">Every request settled in USDC on Base L2.</p>
+      <h2 class="section__title reveal">Six Services, One Protocol</h2>
+      <p class="section__subtitle reveal">Six live services. Five more in development. Every request settled in USDC on Base L2.</p>
       <div class="grid-3">
         {[
           { badge: 'haiku', model: 'Haiku', name: 'Explain Code', desc: 'Clear explanation of what code does, how it works, and why.', price: '$0.01' },
@@ -82,11 +82,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           { badge: 'opus', model: 'Opus', name: 'Security Audit', desc: 'OWASP Top 10, CVSS scores, attack scenarios, remediation.', price: '$0.35' },
           { badge: 'sonnet', model: 'Sonnet', name: 'Automation Script', desc: 'Production-ready scripts from requirements. Complete with docs.', price: '$0.12' },
           { badge: 'opus', model: 'Opus', name: 'MCP Blueprint', desc: 'Full MCP server architecture, schemas, and deployment guide.', price: '$0.50' },
-          { badge: 'flat', model: 'No LLM', name: 'Web Reader', desc: 'Fetch any URL and return clean readable text. Zero AI cost, flat rate.', price: '$0.005' },
-          { badge: 'haiku', model: 'Haiku', name: 'Document Extractor', desc: 'Extract titles, facts, entities, and action items from any document.', price: '$0.02' },
-          { badge: 'haiku', model: 'Haiku', name: 'Image Analyzer', desc: 'Analyze images: objects, text, charts, diagrams. Transcribes visible text.', price: '$0.03' },
-          { badge: 'haiku', model: 'Haiku', name: 'Session Summarizer', desc: 'Summarize conversation transcripts into decisions, actions, and open questions.', price: '$0.02' },
-          { badge: 'haiku', model: 'Haiku', name: 'Content Summarizer', desc: 'Summarize articles and long-form text into key takeaways.', price: '$0.02' },
+          { badge: 'soon', model: 'Soon', name: 'Web Reader', desc: 'Fetch any URL and return clean readable text. Zero AI cost, flat rate.', price: '$0.005' },
+          { badge: 'soon', model: 'Coming Soon', name: 'Document Extractor', desc: 'Extract titles, facts, entities, and action items from any document.', price: '$0.02' },
+          { badge: 'soon', model: 'Coming Soon', name: 'Image Analyzer', desc: 'Analyze images: objects, text, charts, diagrams. Transcribes visible text.', price: '$0.03' },
+          { badge: 'soon', model: 'Coming Soon', name: 'Session Summarizer', desc: 'Summarize conversation transcripts into decisions, actions, and open questions.', price: '$0.02' },
+          { badge: 'soon', model: 'Coming Soon', name: 'Content Summarizer', desc: 'Summarize articles and long-form text into key takeaways.', price: '$0.02' },
         ].map(s => (
           <div class="card reveal">
             <span class={`badge badge--${s.badge}`}>{s.model}</span>
@@ -152,7 +152,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <h2 class="section__title reveal">The Human Layer of the x402 Economy</h2>
       <p class="section__subtitle reveal">
-        x402 is backed by the Linux Foundation with 22+ members including
+        x402 is backed by the Linux Foundation with 50+ member organizations including
         Coinbase, Cloudflare, Stripe, Visa, and AWS. We build the services that run on it.
       </p>
       <div class="grid-3">
