@@ -545,145 +545,139 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .dir-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px;
   }
 
   .service-card {
     background: var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 16px;
+    padding: 18px 18px 14px;
     display: flex;
     flex-direction: column;
-    gap: 0;
     transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     text-decoration: none;
     color: var(--text);
     position: relative;
     overflow: hidden;
   }
-  /* Top accent line */
   .service-card::after {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
     opacity: 0;
-    transition: opacity 0.25s;
+    transition: opacity 0.2s;
   }
   .service-card:hover {
-    border-color: rgba(212,175,55,0.3);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.35), 0 0 0 1px rgba(212,175,55,0.1);
-    transform: translateY(-2px);
+    border-color: rgba(212,175,55,0.25);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    transform: translateY(-1px);
     color: var(--text);
   }
   .service-card:hover::after { opacity: 1; }
-
-  /* 24K Labs own services */
   .service-card.is-24k {
-    border-color: rgba(212,175,55,0.25);
-    background: linear-gradient(135deg, rgba(212,175,55,0.04) 0%, var(--bg-surface) 50%);
+    border-color: rgba(212,175,55,0.2);
   }
-  .service-card.is-24k::after { opacity: 1; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent); }
+  .service-card.is-24k::after { opacity: 1; }
 
-  /* Card layout */
-  .card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
+  /* Name row */
   .card-name {
-    font-size: 0.88rem;
+    font-size: 0.93rem;
     font-weight: 700;
     line-height: 1.3;
     color: var(--text);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .is-24k .card-name { color: var(--gold); }
-  .card-badges {
-    display: flex;
-    gap: 4px;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-  }
-  .badge {
-    padding: 2px 7px;
-    border-radius: 100px;
-    font-size: 0.6rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    line-height: 1.6;
-  }
-  .badge-type { background: rgba(124,109,240,0.1); color: #9d8ff5; border: 1px solid rgba(124,109,240,0.2); }
-  .badge-verified { background: rgba(78,205,196,0.1); color: #4ecdc4; border: 1px solid rgba(78,205,196,0.2); }
-  .badge-24k { background: rgba(212,175,55,0.12); color: var(--gold); border: 1px solid rgba(212,175,55,0.25); }
-  .badge-domain { background: rgba(255,255,255,0.03); color: var(--text-dim); border: 1px solid var(--border); }
-  .badge-source { background: rgba(255,255,255,0.03); color: var(--text-dim); border: 1px solid var(--border); font-variant-numeric: tabular-nums; }
 
+  /* Tag row — single compact line */
   .card-tags {
     display: flex;
-    gap: 4px;
-    flex-wrap: wrap;
-    margin-bottom: 8px;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+  .card-tag {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .card-tag--type {
+    background: rgba(124,109,240,0.1);
+    color: #9d8ff5;
+    border: 1px solid rgba(124,109,240,0.18);
+  }
+  .card-tag--domain {
+    background: rgba(255,255,255,0.04);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
+  .card-tag--verified {
+    background: rgba(78,205,196,0.08);
+    color: #4ecdc4;
+    border: 1px solid rgba(78,205,196,0.18);
   }
 
+  /* Description */
   .card-desc {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
-    line-height: 1.55;
+    line-height: 1.5;
     flex: 1;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
-  /* Card footer with separator line */
+  /* Footer */
   .card-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
+    padding-top: 11px;
     border-top: 1px solid var(--border);
     margin-top: auto;
+    gap: 8px;
   }
   .card-price {
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-size: 0.85rem;
+    font-weight: 800;
     color: var(--gold);
     font-family: var(--mono);
-  }
-  .card-meta { display: flex; gap: 8px; align-items: center; }
-  .card-network {
-    font-size: 0.62rem;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    background: var(--bg-card);
-    padding: 2px 6px;
-    border-radius: 4px;
-    border: 1px solid var(--border);
-  }
-  .card-activity { font-size: 0.63rem; color: var(--text-dim); }
-  .card-link {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.65rem;
-    color: var(--text-dim);
-    transition: all 0.2s;
+    letter-spacing: -0.02em;
     flex-shrink: 0;
   }
-  .service-card:hover .card-link {
-    border-color: var(--gold-dim);
-    color: var(--gold);
-    background: rgba(212,175,55,0.08);
+  .card-activity {
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
+  .card-link {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    transition: color 0.15s;
+    flex-shrink: 0;
+    letter-spacing: 0.03em;
+  }
+  .service-card:hover .card-link { color: var(--gold); }
 
   /* Prompt card */
   .prompt-msg {
@@ -817,32 +811,22 @@ function sourceLabel(s) {
 function buildCard(s) {
   const price = formatPrice(s.price_min, s.price_max);
   const activity = formatActivity(s.quality_calls_30d, s.quality_payers_30d);
-  const tags = (s.domain_tags || []).slice(0, 1);
+  const domain = (s.domain_tags || [])[0];
   const twentyk = is24k(s);
-  const src = sourceLabel(s);
   return `
     <a href="${esc(s.website_url) || '#'}" target="_blank" rel="noopener noreferrer"
        class="service-card${twentyk ? ' is-24k' : ''} reveal">
-      <div class="card-top">
-        <div class="card-name">${esc(s.name) || 'Unnamed Service'}</div>
-        <div class="card-badges">
-          ${s.verified ? '<span class="badge badge-verified">✓ Active</span>' : ''}
-          ${twentyk ? '<span class="badge badge-24k">24K</span>' : ''}
-        </div>
-      </div>
+      <div class="card-name">${esc(s.name) || 'Unnamed'}</div>
       <div class="card-tags">
-        <span class="badge badge-type">${esc(s.type) || 'Service'}</span>
-        ${tags.map(t => `<span class="badge badge-domain">${esc(t)}</span>`).join('')}
-        ${src ? `<span class="badge badge-source">${esc(src)}</span>` : ''}
+        <span class="card-tag card-tag--type">${esc(s.type) || 'Service'}</span>
+        ${domain ? `<span class="card-tag card-tag--domain">${esc(domain)}</span>` : ''}
+        ${s.verified ? '<span class="card-tag card-tag--verified">● Active</span>' : ''}
       </div>
       <div class="card-desc">${esc(s.short_desc) || 'x402-enabled service.'}</div>
       <div class="card-footer">
         <span class="card-price">${price || '—'}</span>
-        <div class="card-meta">
-          ${activity ? `<span class="card-activity">${activity}</span>` : ''}
-          <span class="card-network">${esc(s.network) || 'base'}</span>
-        </div>
-        <span class="card-link">↗</span>
+        ${activity ? `<span class="card-activity">${activity}</span>` : ''}
+        <span class="card-link">Visit ↗</span>
       </div>
     </a>`;
 }
