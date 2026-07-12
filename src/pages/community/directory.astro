@@ -416,6 +416,8 @@ const EDITORIAL_JSON = JSON.stringify(editorialRaw);
   .card-tag--section { background: rgba(124,109,240,0.1); color: #9d8ff5; border: 1px solid rgba(124,109,240,0.18); }
   .card-tag--category { background: rgba(255,255,255,0.04); color: var(--text-dim); border: 1px solid var(--border); }
   .card-tag--verified { background: rgba(212,175,55,0.1); color: var(--gold); border: 1px solid rgba(212,175,55,0.2); }
+  .card-grade { height: 20px; width: auto; vertical-align: middle;
+    border-radius: 999px; display: inline-block; }
 
   .card-desc {
     font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; flex: 1;
@@ -552,6 +554,23 @@ function esc(str) {
   return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+const NON_ENDPOINT_HOSTS = new Set([
+  'github.com','www.github.com','gitlab.com',
+  'npmjs.com','www.npmjs.com','pypi.org','crates.io',
+  'medium.com','etherworld.co','mirror.xyz'
+]);
+function isGradeable(e) {
+  try {
+    const u = new URL(e.url);
+    const h = u.hostname.toLowerCase();
+    if (NON_ENDPOINT_HOSTS.has(h)) return false;
+    const p = u.pathname.toLowerCase();
+    if (h === 'x402.org' || h === 'www.x402.org') return false;
+    if (p.includes('/writing/') || p.includes('/blog/')) return false;
+    return true;
+  } catch { return false; }
+}
+
 function buildCard(e) {
   return `
     <a href="${esc(e.url) || '#'}" target="_blank" rel="noopener noreferrer"
@@ -561,6 +580,8 @@ function buildCard(e) {
         <span class="card-tag card-tag--section">${esc(e.section_label)}</span>
         ${e.category ? `<span class="card-tag card-tag--category">${esc(e.category)}</span>` : ''}
         ${e.verified ? '<span class="card-tag card-tag--verified">24K Verified</span>' : ''}
+        ${isGradeable(e) ? `<img class="card-grade" loading="lazy" alt="x402 trust grade"
+          src="https://x402.fuchss.app/badge.svg?resource=${encodeURIComponent(e.url)}">` : ''}
       </div>
       <div class="card-desc">${esc(e.desc) || 'x402-enabled service.'}</div>
       <div class="card-footer">
