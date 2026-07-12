@@ -47,7 +47,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                 <span class="x-code__dot" style="background:#28c840"></span>
                 <span class="x-code__label">agent → server</span>
               </div>
-              <pre class="x-code__body"><code>POST /api/v1/explain-code
+              <pre class="x-code__body"><code is:raw>POST /api/v1/explain-code
 Content-Type: application/json
 
 {"code": "def fib(n): ..."}</code></pre>
@@ -93,7 +93,7 @@ PAYMENT-REQUIRED: &lt;base64&gt;
                 <span class="x-code__dot" style="background:#28c840"></span>
                 <span class="x-code__label">agent → server → agent</span>
               </div>
-              <pre class="x-code__body"><code>POST /api/v1/explain-code
+              <pre class="x-code__body"><code is:raw>POST /api/v1/explain-code
 PAYMENT-SIGNATURE: &lt;base64&gt;
 
 HTTP/1.1 200 OK
