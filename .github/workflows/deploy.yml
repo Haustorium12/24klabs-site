@@ -9,6 +9,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
+      issues: write
     name: Deploy to Cloudflare Pages
     steps:
       - name: Checkout
@@ -29,3 +30,27 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=24klabs
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      # Deploy-failure alarm. Wired 2026-07-13 after deploys failed SILENTLY from
+      # Jun 5 to Jul 12 (raw JSON braces in x402.astro) — five weeks of shipped work
+      # that never went live because a failed build makes no noise. Fires if ANY prior
+      # step in this job failed (build or deploy) and files/updates a loud, durable
+      # GitHub issue so a failure can't hide again. Zero new secrets (built-in token).
+      - name: Alarm on deploy failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHA: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Deploy to Cloudflare Pages FAILED"
+          body="Deploy failed on \`main\` at commit $SHA.
+          Run: $RUN_URL
+          The live site was NOT updated — do NOT assume repo == live until this run is green.
+          (Auto-filed by the deploy.yml failure alarm.)"
+          existing=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "$title" --body "$body"
+          fi
