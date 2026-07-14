@@ -3738,16 +3738,6 @@
     "verified": false
   },
   {
-    "name": "24K Labs Jobs",
-    "url": "https://24klabs.ai/community/jobs",
-    "section": "community",
-    "section_label": "Community",
-    "type": "Community",
-    "category": "Jobs & Career",
-    "desc": "x402 ecosystem job board. Developer, DevRel, and infrastructure roles across the x402 ecosystem.",
-    "verified": false
-  },
-  {
     "name": "Human Pages",
     "url": "https://humanpages.ai",
     "section": "community",

@@ -1,539 +1,100 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const STATS = {
-  curated: '385+',
-  catalog: '27,000+',
-  categories: 11,
-  updated: 'Daily'
-};
-
-const CATEGORIES = [
-  { icon: '◈', name: 'APIs & Services', desc: 'Pay-per-call AI, data, and compute endpoints' },
-  { icon: '⬡', name: 'MCP Servers', desc: 'x402-gated tools for Claude, Cursor, and any MCP client' },
-  { icon: '⚙', name: 'SDKs & Libraries', desc: 'Client and server implementations in every language' },
-  { icon: '⬢', name: 'Frameworks', desc: 'Server middleware and payment-native app frameworks' },
-  { icon: '◉', name: 'Facilitators', desc: 'The infrastructure layer settling x402 transactions' },
-  { icon: '⊕', name: 'Tools & CLI', desc: 'Dev tooling, proxies, and agent utilities' },
-  { icon: '◎', name: 'Ecosystem', desc: 'Directories, explorers, and discovery infrastructure' },
-  { icon: '⊡', name: 'Security', desc: 'Identity, trust scoring, and threat detection' },
-  { icon: '▣', name: 'Learning', desc: 'Tutorials, starter kits, and reference implementations' },
-  { icon: '⊞', name: 'Community', desc: 'Projects, showcases, and the builders behind x402' },
-  { icon: '◫', name: 'Market Data', desc: 'Protocol analytics, transaction intelligence, and metrics' },
-];
-
-const WHY = [
+// Phase 1 (2026-07-13): /gold-402 is no longer a second directory surface — the directory
+// is the homepage now. This is the single "Get Listed" page: how a service earns a spot on
+// the hand-verified list. The bar is curation itself.
+const BAR = [
   {
     title: 'Editorial, not algorithmic',
-    desc: 'Every curated entry earned its place. We read the code, probe the endpoint, and write the annotation ourselves. No auto-generated descriptions, no pay-to-list.'
+    desc: 'Every listing earns its place. We read the code, probe the endpoint, and write the annotation ourselves. No auto-generated descriptions, no pay-to-list.'
   },
   {
     title: 'The pawnbroker standard',
-    desc: '15 years separating real gold from fake at a counter. The same eye runs this directory. If it ships nothing real, it ships nothing. If the badge doesn\'t match the repo, we catch it.'
+    desc: '15 years separating real gold from fake at a counter. The same eye runs this list. If it ships nothing real, it ships nothing. If the badge doesn\'t match the repo, we catch it.'
   },
   {
-    title: 'A moat, not a moment',
-    desc: 'We\'ve been watching the x402 ecosystem longer than anyone else running a directory. Every entry carries the date we first indexed it. That time-series is ours and nobody else\'s.'
+    title: 'It has to actually work',
+    desc: 'A reachable x402 endpoint that does what it claims. Live, honestly priced, honestly labeled. "24K Verified" means a human checked it and stands behind it.'
   },
+];
+
+const STEPS = [
+  { n: '1', title: 'Open a submission', desc: 'File a PR against the gold-402 repo with your service — name, endpoint, category, and a one-line description.' },
+  { n: '2', title: 'We verify it', desc: 'We probe the endpoint, read the manifest, and confirm it delivers. Independent rater grades (fuchss and more) get pulled in automatically.' },
+  { n: '3', title: 'It goes on the list', desc: 'Approved services render on the directory with the 24K Verified badge and any aggregated trust grades. That\'s the whole bar.' },
 ];
 ---
 
 <BaseLayout
-  title="Gold-402 — The x402 Ecosystem Directory"
-  description="The curated x402 service directory. 385+ verified entries, 27,000+ in the full catalog. Editorial authority for the agentic payment economy."
+  title="Get Listed — Gold-402 Directory"
+  description="How to get your x402 service onto the hand-verified Gold-402 Directory. Curation is the bar."
 >
 
   <!-- HERO -->
-  <section class="g4-hero">
-    <div class="g4-hero__glow"></div>
+  <section class="page-header">
+    <div class="page-header__glow"></div>
     <div class="container">
-      <div class="g4-hero__badge">
-        <span class="live-dot"></span>
-        Live · Updated Daily
-      </div>
-      <h1 class="g4-hero__title">
-        The x402 Ecosystem<br>
-        <span class="text-gold">Directory.</span>
-      </h1>
-      <p class="g4-hero__subtitle">
-        Not a scrape. Not a list. A standard.<br>
-        {STATS.curated} hand-curated entries. {STATS.catalog} in the full catalog. Editorial authority for the agentic payment economy.
+      <span class="page-header__badge">Get Listed</span>
+      <h1 class="page-header__title">Get on the <span class="text-gold">Gold-402</span> list</h1>
+      <p class="page-header__desc">
+        The directory is hand-verified — being on the list is the badge. Here's how a service earns its place.
       </p>
-      <div class="g4-hero__actions">
-        <a href="/community/directory" class="btn btn--primary btn--lg">Browse the Directory</a>
+      <div style="margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <a href="https://github.com/Haustorium12/gold-402/blob/main/CONTRIBUTING.md"
-           target="_blank" rel="noopener"
-           class="btn btn--outline btn--lg">Get Listed ↗</a>
-      </div>
-
-      <!-- Stats strip -->
-      <div class="g4-stats">
-        <div class="g4-stat">
-          <span class="g4-stat__value">{STATS.curated}</span>
-          <span class="g4-stat__label">Curated Entries</span>
-        </div>
-        <div class="g4-stat-div"></div>
-        <div class="g4-stat">
-          <span class="g4-stat__value">{STATS.catalog}</span>
-          <span class="g4-stat__label">Full Catalog</span>
-        </div>
-        <div class="g4-stat-div"></div>
-        <div class="g4-stat">
-          <span class="g4-stat__value">{STATS.categories}</span>
-          <span class="g4-stat__label">Categories</span>
-        </div>
-        <div class="g4-stat-div"></div>
-        <div class="g4-stat">
-          <span class="g4-stat__value">{STATS.updated}</span>
-          <span class="g4-stat__label">Harvest Cadence</span>
-        </div>
+           target="_blank" rel="noopener" class="btn btn--primary btn--lg">Submit a Service ↗</a>
+        <a href="/" class="btn btn--outline btn--lg">Browse the Directory</a>
       </div>
     </div>
   </section>
 
-  <!-- WHAT IS GOLD-402 -->
-  <section class="section bg-surface">
+  <!-- THE BAR -->
+  <section class="section">
     <div class="container">
-      <h2 class="section__title reveal">What is Gold-402?</h2>
-      <p class="section__subtitle reveal">
-        Gold-402 is 24K Labs' editorial layer for the x402 protocol ecosystem —
-        the discovery and trust infrastructure that separates real services from noise.
-      </p>
-      <div class="g4-what-grid">
-        {WHY.map(item => (
-          <div class="g4-what-card reveal">
-            <div class="g4-what-card__line"></div>
-            <h3 class="g4-what-card__title">{item.title}</h3>
-            <p class="g4-what-card__desc">{item.desc}</p>
+      <h2 class="section__title reveal">The bar</h2>
+      <p class="section__subtitle reveal">There's no tier and no algorithm. Curation is the bar.</p>
+      <div class="grid-3">
+        {BAR.map(item => (
+          <div class="card reveal">
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 12px;">{item.title}</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">{item.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CATEGORIES -->
-  <section class="section">
+  <!-- HOW -->
+  <section class="section" style="background: var(--bg-surface);">
     <div class="container">
-      <h2 class="section__title reveal">11 Categories</h2>
-      <p class="section__subtitle reveal">
-        Every corner of the x402 ecosystem, mapped and maintained.
-      </p>
-      <div class="g4-cat-grid">
-        {CATEGORIES.map(cat => (
-          <a href="/community/directory" class="g4-cat-card reveal">
-            <span class="g4-cat-card__icon">{cat.icon}</span>
-            <div>
-              <div class="g4-cat-card__name">{cat.name}</div>
-              <div class="g4-cat-card__desc">{cat.desc}</div>
-            </div>
-          </a>
+      <h2 class="section__title reveal">How to get listed</h2>
+      <div class="grid-3">
+        {STEPS.map(s => (
+          <div class="card reveal">
+            <div style="color: var(--gold); font-weight: 800; font-size: 1.5rem; margin-bottom: 8px;">{s.n}</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 10px;">{s.title}</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">{s.desc}</p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- TWO TIERS -->
-  <section class="section bg-surface">
-    <div class="container">
-      <h2 class="section__title reveal">Two Tiers, One Standard</h2>
-      <p class="section__subtitle reveal">
-        Free editorial curation up front. The full catalog unlocked via x402.
-      </p>
-      <div class="g4-tiers">
-        <div class="g4-tier reveal">
-          <div class="g4-tier__header">
-            <span class="g4-tier__badge g4-tier__badge--free">Free</span>
-            <h3 class="g4-tier__name">{STATS.curated} Curated Entries</h3>
-          </div>
-          <p class="g4-tier__desc">
-            Hand-picked by 24K Labs. Every entry is read, probed, and annotated.
-            Verified badges, editorial notes, and category placement earned — never purchased.
-          </p>
-          <ul class="g4-tier__list">
-            <li>Full editorial annotations</li>
-            <li>24K Verified badges</li>
-            <li>GitHub star counts & repo links</li>
-            <li>Category + type classification</li>
-            <li>Updated as the ecosystem moves</li>
-          </ul>
-          <a href="/community/directory" class="btn btn--outline" style="margin-top: 24px;">Browse Free Tier →</a>
-        </div>
-        <div class="g4-tier g4-tier--gold reveal">
-          <div class="g4-tier__glow"></div>
-          <div class="g4-tier__header">
-            <span class="g4-tier__badge g4-tier__badge--gold">x402</span>
-            <h3 class="g4-tier__name">{STATS.catalog} Full Catalog</h3>
-          </div>
-          <p class="g4-tier__desc">
-            The complete harvested catalog from CDP Bazaar and live on-chain data.
-            Unlock with a single USDC micropayment via x402 — no account, no subscription.
-          </p>
-          <ul class="g4-tier__list">
-            <li>Full {STATS.catalog}+ service index</li>
-            <li>Verification status on every entry</li>
-            <li>Type, category, and domain tags</li>
-            <li>Daily harvest from CDP Bazaar</li>
-            <li>Payment is authentication</li>
-          </ul>
-          <a href="/community/directory" class="btn btn--primary" style="margin-top: 24px;">Unlock via x402 →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GET LISTED -->
+  <!-- CTA -->
   <section class="section">
     <div class="container">
-      <div class="g4-cta reveal">
-        <div class="g4-cta__glow"></div>
-        <h2 class="g4-cta__title">Built something on x402?</h2>
-        <p class="g4-cta__desc">
-          Submit your project to gold-402. We review every submission manually.
-          If it's real, it ships. If not, we'll tell you why.
+      <div class="coming-soon reveal">
+        <h2 class="coming-soon__title">Ready to submit?</h2>
+        <p class="coming-soon__desc">
+          Open a pull request with your service. If it's real, it gets on the list.
         </p>
-        <div class="g4-cta__actions">
+        <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
           <a href="https://github.com/Haustorium12/gold-402/blob/main/CONTRIBUTING.md"
-             target="_blank" rel="noopener"
-             class="btn btn--primary btn--lg">Submit via GitHub ↗</a>
-          <a href="https://github.com/Haustorium12/gold-402"
-             target="_blank" rel="noopener"
-             class="btn btn--outline btn--lg">View the Repo ↗</a>
+             target="_blank" rel="noopener" class="btn btn--primary">Submit on GitHub ↗</a>
+          <a href="/" class="btn btn--outline">Browse the Directory</a>
         </div>
-        <p class="g4-cta__note">
-          Open source · No listing fees · Editorial review within 48h
-        </p>
       </div>
     </div>
   </section>
 
 </BaseLayout>
-
-<style>
-  /* ---- Hero ---- */
-  .g4-hero {
-    padding: 160px 0 100px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .g4-hero__glow {
-    position: absolute;
-    top: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    height: 600px;
-    background: radial-gradient(ellipse at center, rgba(212,175,55,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .g4-hero__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    border-radius: 100px;
-    border: 1px solid var(--gold-dim);
-    color: var(--gold);
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 32px;
-  }
-  .live-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--gold);
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-  .g4-hero__title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 24px;
-  }
-  .g4-hero__subtitle {
-    font-size: 1.15rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 40px;
-    line-height: 1.7;
-  }
-  .g4-hero__actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 64px;
-  }
-
-  /* Stats strip */
-  .g4-stats {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 28px 40px;
-    max-width: 700px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-  }
-  .g4-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 32px;
-  }
-  .g4-stat__value {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--gold);
-    letter-spacing: -0.02em;
-  }
-  .g4-stat__label {
-    font-size: 0.75rem;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-top: 4px;
-  }
-  .g4-stat-div {
-    width: 1px;
-    height: 40px;
-    background: var(--border);
-  }
-
-  /* ---- Why / What ---- */
-  .g4-what-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 16px;
-  }
-  .g4-what-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 32px;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .g4-what-card:hover {
-    border-color: var(--gold-dim);
-    transform: translateY(-2px);
-  }
-  .g4-what-card__line {
-    width: 32px;
-    height: 3px;
-    background: var(--gold);
-    border-radius: 2px;
-    margin-bottom: 20px;
-  }
-  .g4-what-card__title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--text);
-  }
-  .g4-what-card__desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-  }
-
-  /* ---- Categories ---- */
-  .g4-cat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
-  }
-  .g4-cat-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px 24px;
-    text-decoration: none;
-    transition: border-color 0.2s, background 0.2s, transform 0.2s;
-  }
-  .g4-cat-card:hover {
-    border-color: var(--gold-dim);
-    background: var(--bg-card-hover);
-    transform: translateY(-1px);
-  }
-  .g4-cat-card__icon {
-    font-size: 1.4rem;
-    color: var(--gold);
-    flex-shrink: 0;
-    line-height: 1;
-    margin-top: 2px;
-  }
-  .g4-cat-card__name {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .g4-cat-card__desc {
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    line-height: 1.5;
-  }
-
-  /* ---- Two tiers ---- */
-  .g4-tiers {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    align-items: start;
-  }
-  .g4-tier {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-    position: relative;
-  }
-  .g4-tier--gold {
-    border-color: var(--gold-dim);
-    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(212,175,55,0.05) 100%);
-    overflow: hidden;
-  }
-  .g4-tier__glow {
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .g4-tier__header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .g4-tier__badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 100px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  .g4-tier__badge--free {
-    background: rgba(78,205,196,0.15);
-    color: var(--success);
-    border: 1px solid rgba(78,205,196,0.3);
-  }
-  .g4-tier__badge--gold {
-    background: rgba(212,175,55,0.15);
-    color: var(--gold);
-    border: 1px solid var(--gold-dim);
-  }
-  .g4-tier__name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text);
-  }
-  .g4-tier__desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-    margin-bottom: 24px;
-  }
-  .g4-tier__list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .g4-tier__list li {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    padding-left: 20px;
-    position: relative;
-  }
-  .g4-tier__list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-weight: 700;
-  }
-
-  /* ---- CTA ---- */
-  .g4-cta {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 80px 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .g4-cta__glow {
-    position: absolute;
-    bottom: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 300px;
-    background: radial-gradient(ellipse, rgba(212,175,55,0.1) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .g4-cta__title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 800;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
-  }
-  .g4-cta__desc {
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    max-width: 540px;
-    margin: 0 auto 36px;
-    line-height: 1.7;
-  }
-  .g4-cta__actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-  .g4-cta__note {
-    font-size: 0.8rem;
-    color: var(--text-dim);
-  }
-
-  /* ---- Responsive ---- */
-  @media (max-width: 768px) {
-    .g4-what-grid { grid-template-columns: 1fr; }
-    .g4-tiers { grid-template-columns: 1fr; }
-    .g4-stats { padding: 20px; gap: 0; }
-    .g4-stat { padding: 12px 20px; }
-    .g4-stat-div { width: 40px; height: 1px; }
-    .g4-cta { padding: 48px 24px; }
-  }
-
-  /* ---- Shared btn--gold ---- */
-  .btn--gold {
-    background: var(--gold);
-    color: #000;
-    font-weight: 700;
-  }
-  .btn--gold:hover { background: var(--gold-light); color: #000; }
-</style>
