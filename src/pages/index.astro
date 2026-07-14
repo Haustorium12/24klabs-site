@@ -360,11 +360,11 @@ const EDITORIAL_JSON = JSON.stringify(editorialRaw);
   /* ================================================================
      GRID + CARDS
   ================================================================ */
-  .dir-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .dir-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 
   .service-card {
     background: var(--bg-surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 18px 18px 14px;
+    border-radius: var(--radius); padding: 20px 20px 15px;
     display: flex; flex-direction: column;
     transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     text-decoration: none; color: var(--text);
@@ -384,41 +384,58 @@ const EDITORIAL_JSON = JSON.stringify(editorialRaw);
   .service-card.is-verified { border-color: rgba(212,175,55,0.2); }
   .service-card.is-verified::after { opacity: 1; }
 
-  .card-name {
-    font-size: 0.93rem; font-weight: 700; line-height: 1.3; color: var(--text);
-    margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  /* Trust row — badges up front, the first thing you see */
+  .card-trust {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 14px; flex-wrap: wrap; min-height: 22px;
   }
-  .is-verified .card-name { color: var(--gold); }
+  .card-verified {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.01em;
+    color: var(--gold);
+    background: rgba(212,175,55,0.12);
+    border: 1px solid rgba(212,175,55,0.34);
+    padding: 4px 11px 4px 5px; border-radius: 999px; white-space: nowrap;
+  }
+  .card-verified__check {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--gold); color: var(--bg);
+    font-size: 0.68rem; font-weight: 900; line-height: 1;
+  }
+  .card-grade { height: 22px; width: auto; display: inline-block; border-radius: 4px; }
 
-  .card-tags {
-    display: flex; gap: 5px; align-items: center;
-    margin-bottom: 10px; overflow: hidden;
+  /* Head — monogram anchor + name + category */
+  .card-head { display: flex; align-items: center; gap: 11px; margin-bottom: 13px; }
+  .card-logo {
+    flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(212,175,55,0.09);
+    border: 1px solid rgba(212,175,55,0.18);
+    color: var(--gold); font-weight: 800; font-size: 1.05rem;
   }
-  .card-tag {
-    font-size: 0.6rem; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 0.05em; padding: 2px 6px; border-radius: 3px;
-    white-space: nowrap; flex-shrink: 0;
+  .card-head__text { min-width: 0; }
+  .card-name {
+    font-size: 1rem; font-weight: 700; line-height: 1.25; color: var(--text);
+    margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .card-tag--section { background: rgba(124,109,240,0.1); color: #9d8ff5; border: 1px solid rgba(124,109,240,0.18); }
-  .card-tag--category { background: rgba(255,255,255,0.04); color: var(--text-dim); border: 1px solid var(--border); }
-  .card-tag--verified { background: rgba(212,175,55,0.1); color: var(--gold); border: 1px solid rgba(212,175,55,0.2); }
-  .card-grade { height: 20px; width: auto; vertical-align: middle;
-    border-radius: 999px; display: inline-block; }
-  .card-raters { display: flex; align-items: center; gap: 8px; margin: 10px 0 2px; flex-wrap: wrap; }
-  .card-raters__label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); }
-  .card-raters__more { font-size: 0.7rem; color: var(--text-dim); border: 1px dashed var(--border); border-radius: 999px; padding: 2px 8px; }
-  .card-raters__soon { font-size: 0.72rem; color: var(--text-dim); font-style: italic; }
+  .service-card:hover .card-name { color: var(--gold); }
+  .card-cat {
+    font-size: 0.68rem; color: var(--text-dim); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
   .card-billboard:not(:empty) { margin-bottom: 12px; }
 
   .card-desc {
-    font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; flex: 1;
+    font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; flex: 1;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-    overflow: hidden; margin-bottom: 14px;
+    overflow: hidden; margin-bottom: 15px;
   }
 
   .card-footer {
     display: flex; align-items: center; justify-content: space-between;
-    padding-top: 11px; border-top: 1px solid var(--border);
+    padding-top: 12px; border-top: 1px solid var(--border);
     margin-top: auto; gap: 8px;
   }
   .card-section-label {
@@ -427,7 +444,7 @@ const EDITORIAL_JSON = JSON.stringify(editorialRaw);
     font-family: var(--mono);
   }
   .card-link {
-    font-size: 0.7rem; color: var(--text-dim);
+    font-size: 0.72rem; color: var(--text-dim); font-weight: 600;
     transition: color 0.15s; flex-shrink: 0;
   }
   .service-card:hover .card-link { color: var(--gold); }
@@ -544,35 +561,36 @@ function esc(str) {
   return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// Every listing carries the uniform "24K Verified" badge (Phase 1: on the list IS the
-// badge, single tier). Independent rater grades aggregate onto each row — fuchss first,
-// via the baked `badge_resource` (the x402 ENDPOINT, mapped from the gold-402 catalog, so
-// the grade is real telemetry, never a 404 "unknown") — with a "+N raters" slot for more.
-// The billboard slot is reserved for the Phase 2 pay rail so the row never gets re-cut.
+// Card layout: trust signals UP FRONT (a prominent "24K Verified" pill + the fuchss trust
+// grade, top of card), then a monogram + name + category, description, footer. Every listing
+// is verified (Phase 1 single tier). The fuchss grade renders where we have real telemetry
+// (baked `badge_resource` = the x402 endpoint); no filler on the rest. The billboard slot is
+// reserved (empty) for the Phase 2 pay rail so the row never needs re-cutting.
 function buildCard(e) {
-  const raters = e.badge_resource
+  const grade = e.badge_resource
     ? `<img class="card-grade" loading="lazy" alt="x402 trust grade — fuchss"
-         src="https://x402.fuchss.app/badge.svg?resource=${encodeURIComponent(e.badge_resource)}">
-       <span class="card-raters__more" title="More independent raters aggregating here soon">+ raters</span>`
-    : `<span class="card-raters__soon">Rater grades aggregating</span>`;
+         src="https://x402.fuchss.app/badge.svg?resource=${encodeURIComponent(e.badge_resource)}">`
+    : '';
+  const initial = esc((e.name || '?').trim().charAt(0).toUpperCase()) || '#';
   return `
     <a href="${esc(e.url) || '#'}" target="_blank" rel="noopener noreferrer"
        class="service-card is-verified reveal">
       <div class="card-billboard" aria-hidden="true"></div>
-      <div class="card-name">${esc(e.name)}</div>
-      <div class="card-tags">
-        <span class="card-tag card-tag--section">${esc(e.section_label)}</span>
-        ${e.category ? `<span class="card-tag card-tag--category">${esc(e.category)}</span>` : ''}
-        <span class="card-tag card-tag--verified">24K Verified</span>
+      <div class="card-trust">
+        <span class="card-verified"><span class="card-verified__check">&#10003;</span>24K Verified</span>
+        ${grade}
       </div>
-      <div class="card-raters">
-        <span class="card-raters__label">Ratings</span>
-        ${raters}
+      <div class="card-head">
+        <div class="card-logo" aria-hidden="true">${initial}</div>
+        <div class="card-head__text">
+          <h3 class="card-name">${esc(e.name)}</h3>
+          ${e.category ? `<div class="card-cat">${esc(e.category)}</div>` : ''}
+        </div>
       </div>
-      <div class="card-desc">${esc(e.desc) || 'x402-enabled service.'}</div>
+      <p class="card-desc">${esc(e.desc) || 'x402-enabled service.'}</p>
       <div class="card-footer">
         <span class="card-section-label">${esc(e.section_label)}</span>
-        <span class="card-link">Visit ↗</span>
+        <span class="card-link">Visit &#8599;</span>
       </div>
     </a>`;
 }
