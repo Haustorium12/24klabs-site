@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import editorialRaw from '../data/editorial.json';
+import { listings } from '../lib/listings.js';
 
-// Build section list for filter
-const sections = [...new Set(editorialRaw.map(e => e.section_label))];
-const totalEditorial = editorialRaw.length;
+// Cards carry their stable slug so a click lands on the snapshot page (/listing/<slug>),
+// not off-site. Same enriched list the snapshot pages + API resolve against.
+const sections = [...new Set(listings.map(e => e.section_label))];
+const totalEditorial = listings.length;
 const FULL_CATALOG_COUNT = '29,800+';
-const EDITORIAL_JSON = JSON.stringify(editorialRaw);
+const EDITORIAL_JSON = JSON.stringify(listings);
 ---
 
 <BaseLayout title="24K Labs — The Truth Layer for the x402 Ecosystem" description="Every x402 service, hand-verified — with the health, uptime, and trust grades from across the ecosystem gathered in one place. Don't let your agents trade in the dark.">
@@ -580,9 +581,9 @@ function buildCard(e) {
          src="https://x402.fuchss.app/badge.svg?resource=${encodeURIComponent(e.badge_resource)}">`
     : '';
   const initial = esc((e.name || '?').trim().charAt(0).toUpperCase()) || '#';
+  const href = e.slug ? `/listing/${esc(e.slug)}` : '#';
   return `
-    <a href="${esc(e.url) || '#'}" target="_blank" rel="noopener noreferrer"
-       class="service-card is-verified reveal">
+    <a href="${href}" class="service-card is-verified reveal">
       <div class="card-billboard" aria-hidden="true"></div>
       <div class="card-trust">
         <span class="card-verified"><span class="card-verified__check">&#10003;</span>24K Verified</span>
@@ -598,7 +599,7 @@ function buildCard(e) {
       <p class="card-desc">${esc(e.desc) || 'x402-enabled service.'}</p>
       <div class="card-footer">
         <span class="card-section-label">${esc(e.section_label)}</span>
-        <span class="card-link">Visit &#8599;</span>
+        <span class="card-link">View verdict &#8594;</span>
       </div>
     </a>`;
 }

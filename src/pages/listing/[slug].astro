@@ -1,0 +1,333 @@
+---
+// Snapshot page — ONE page per verified listing. The floor of Phase 2: everything else
+// (embed storefront, billboard, verify API) sits on this. Home cards now land HERE instead of
+// pushing visitors off-site, so there is somewhere for a billboard to live and a stamp to be
+// copied. The off-site link becomes the "Visit service" button at the bottom.
+//
+// Static: getStaticPaths emits one page per editorial row (375). The billboard slot is the only
+// dynamic bit — it hydrates client-side from /api/v1/billboard/status so a static page can still
+// show a live, paid banner (or the "advertise here" state).
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { listings } from '../../lib/listings.js';
+import { ratersFor } from '../../lib/raters.js';
+
+export function getStaticPaths() {
+  return listings.map((e) => ({ params: { slug: e.slug }, props: { entry: e } }));
+}
+
+const { entry } = Astro.props;
+const raters = ratersFor(entry);
+
+// Canonical resource the badge/card/API key off of: the service's own URL. badge.svg matches on
+// url OR badge_resource, so this always resolves to this listing.
+const resource = entry.url || entry.badge_resource || '';
+const endpoint = entry.badge_resource || entry.url || '';
+
+// Absolute site origin for copy-paste embed snippets (so a partner pastes a working URL).
+const origin = (Astro.site && Astro.site.origin) || 'https://24klabs.ai';
+const badgeUrl = `${origin}/badge.svg?resource=${encodeURIComponent(resource)}`;
+const cardUrl = `${origin}/card.svg?resource=${encodeURIComponent(resource)}`;
+const listingUrl = `${origin}/listing/${entry.slug}`;
+
+const initial = (entry.name || '?').trim().charAt(0).toUpperCase() || '#';
+const pageTitle = `${entry.name} — 24K Verified | 24K Labs`;
+const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
+---
+
+<BaseLayout title={pageTitle} description={pageDesc}>
+  <section class="snap container" data-slug={entry.slug} data-resource={resource}>
+
+    <a href="/" class="snap-back">← Directory</a>
+
+    <!-- HEADER -->
+    <header class="snap-head">
+      <div class="snap-logo" aria-hidden="true">{initial}</div>
+      <div class="snap-head__text">
+        <div class="snap-trust">
+          <span class="snap-verified"><span class="snap-verified__check">&#10003;</span>24K Verified</span>
+          {entry.category && <span class="snap-cat">{entry.category}</span>}
+        </div>
+        <h1 class="snap-name">{entry.name}</h1>
+        {endpoint && (
+          <div class="snap-endpoint">
+            <code id="endpoint">{endpoint}</code>
+            <button class="snap-copy" data-copy={endpoint} aria-label="Copy endpoint">Copy</button>
+          </div>
+        )}
+      </div>
+    </header>
+
+    <!-- BILLBOARD SLOT — hydrated client-side from /api/v1/billboard/status -->
+    <div class="snap-billboard" id="billboard" aria-live="polite">
+      <div class="snap-billboard__placeholder">
+        <span class="snap-billboard__eyebrow">Billboard</span>
+        <span class="snap-billboard__msg">Advertise on this verified listing.</span>
+        <a class="btn btn--outline btn--sm" href="#advertise">Get this slot →</a>
+      </div>
+    </div>
+
+    <div class="snap-grid">
+      <div class="snap-main">
+
+        <!-- OUR VERDICT -->
+        <section class="snap-block">
+          <h2 class="snap-block__title">Our Verdict</h2>
+          <div class="snap-verdict">
+            <p class="snap-verdict__line">
+              <strong class="text-gold">24K Verified.</strong>
+              Hand-reviewed and on the curated list — curation is the bar.
+            </p>
+            {entry.desc && <p class="snap-verdict__desc">{entry.desc}</p>}
+            {entry.type && <div class="snap-verdict__meta">{entry.type} · {entry.section_label}</div>}
+          </div>
+        </section>
+
+        <!-- AGGREGATED RATER GRADES -->
+        <section class="snap-block">
+          <h2 class="snap-block__title">Rater Grades</h2>
+          {raters.length > 0 ? (
+            <div class="snap-raters">
+              {raters.map((r) => (
+                <div class="snap-rater">
+                  <span class="snap-rater__name">{r.label}</span>
+                  <img class="snap-rater__badge" loading="lazy" alt={`x402 trust grade — ${r.label}`} src={r.badgeUrl} />
+                </div>
+              ))}
+              <span class="snap-raters__more">More raters coming soon.</span>
+            </div>
+          ) : (
+            <p class="snap-raters__none">
+              No independent rater grade published for this endpoint yet. Our verdict is the
+              24K Verified stamp above.
+            </p>
+          )}
+        </section>
+
+        <!-- EMBED STOREFRONT (Piece 2) -->
+        <section class="snap-block" id="embed">
+          <h2 class="snap-block__title">Embed Your Stamp</h2>
+          <p class="snap-embed__intro">
+            Show visitors you're 24K Verified. Copy a snippet — the badge and the aggregation card
+            render live from your verdict, so they stay current.
+          </p>
+
+          <div class="snap-embed">
+            <div class="snap-embed__preview">
+              <img src={badgeUrl} alt="24K Labs verified badge preview" />
+              <img src={cardUrl} alt="24K Labs verdict card preview" class="snap-embed__card-preview" />
+            </div>
+
+            <div class="snap-snippets" id="snippets">
+              <!-- snippet rows injected client-side so the values stay in one place (data attrs) -->
+            </div>
+            <div
+              id="embed-data"
+              data-badge={badgeUrl}
+              data-card={cardUrl}
+              data-listing={listingUrl}
+              data-name={entry.name}
+              hidden
+            ></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- SIDE RAIL -->
+      <aside class="snap-rail">
+        {entry.url && (
+          <a href={entry.url} target="_blank" rel="noopener noreferrer" class="btn btn--gold snap-visit">
+            Visit service ↗
+          </a>
+        )}
+        <a href="/gold-402" class="btn btn--outline snap-getlisted">Get your service listed</a>
+        <div class="snap-rail__note">
+          Curated by 24K Labs — the truth layer for the x402 ecosystem.
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .snap { padding: 40px 0 80px; }
+  .snap-back {
+    display: inline-block; font-size: 0.8rem; color: var(--text-dim);
+    margin-bottom: 24px; transition: color 0.15s;
+  }
+  .snap-back:hover { color: var(--gold); }
+
+  .snap-head { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 24px; }
+  .snap-logo {
+    flex-shrink: 0; width: 56px; height: 56px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(212,175,55,0.09); border: 1px solid rgba(212,175,55,0.18);
+    color: var(--gold); font-weight: 800; font-size: 1.6rem;
+  }
+  .snap-head__text { min-width: 0; }
+  .snap-trust { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  .snap-verified {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.74rem; font-weight: 700; color: var(--gold);
+    background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.34);
+    padding: 4px 11px 4px 5px; border-radius: 999px;
+  }
+  .snap-verified__check {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--gold); color: var(--bg); font-size: 0.68rem; font-weight: 900; line-height: 1;
+  }
+  .snap-cat {
+    font-size: 0.68rem; color: var(--text-dim); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .snap-name { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 10px; }
+  .snap-endpoint { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .snap-endpoint code {
+    font-family: var(--mono); font-size: 0.8rem; color: var(--text-muted);
+    background: var(--bg-card); border: 1px solid var(--border);
+    padding: 4px 10px; border-radius: var(--radius-sm); word-break: break-all;
+  }
+  .snap-copy, .snip-copy {
+    font-size: 0.7rem; font-weight: 600; color: var(--text-muted);
+    background: transparent; border: 1px solid var(--border);
+    padding: 4px 10px; border-radius: var(--radius-sm); cursor: pointer;
+    font-family: var(--font); transition: all 0.15s; white-space: nowrap;
+  }
+  .snap-copy:hover, .snip-copy:hover { border-color: var(--gold-dim); color: var(--gold); }
+  .snap-copy.copied, .snip-copy.copied { color: var(--success); border-color: var(--success); }
+
+  /* Billboard slot */
+  .snap-billboard {
+    margin-bottom: 32px; border: 1px dashed var(--border); border-radius: var(--radius);
+    min-height: 96px; display: flex; align-items: center; justify-content: center;
+    background: var(--bg-surface); overflow: hidden;
+  }
+  .snap-billboard.is-live { border-style: solid; border-color: rgba(212,175,55,0.3); padding: 0; }
+  .snap-billboard__placeholder {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center;
+    padding: 20px; text-align: center;
+  }
+  .snap-billboard__eyebrow {
+    font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--gold-dim);
+  }
+  .snap-billboard__msg { font-size: 0.85rem; color: var(--text-muted); }
+
+  .snap-grid { display: grid; grid-template-columns: 1fr 260px; gap: 32px; align-items: start; }
+  .snap-main { min-width: 0; }
+
+  .snap-block { margin-bottom: 32px; }
+  .snap-block__title {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--text-dim); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  }
+  .snap-verdict__line { font-size: 1rem; line-height: 1.6; margin-bottom: 10px; }
+  .snap-verdict__desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 10px; }
+  .snap-verdict__meta { font-size: 0.72rem; color: var(--text-dim); font-family: var(--mono); }
+
+  .snap-raters { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .snap-rater { display: flex; align-items: center; gap: 8px; }
+  .snap-rater__name { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; }
+  .snap-rater__badge { height: 22px; border-radius: 4px; }
+  .snap-raters__more, .snap-raters__none { font-size: 0.78rem; color: var(--text-dim); }
+
+  .snap-embed__intro { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+  .snap-embed__preview {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    padding: 20px; background: var(--bg-surface); border: 1px solid var(--border);
+    border-radius: var(--radius); margin-bottom: 16px;
+  }
+  .snap-embed__card-preview { max-width: 100%; }
+
+  .snap-rail { position: sticky; top: calc(var(--nav-height) + 20px); display: flex; flex-direction: column; gap: 12px; }
+  .snap-visit, .snap-getlisted { width: 100%; text-align: center; }
+  .snap-rail__note { font-size: 0.72rem; color: var(--text-dim); line-height: 1.5; margin-top: 8px; }
+
+  @media (max-width: 860px) {
+    .snap-grid { grid-template-columns: 1fr; }
+    .snap-rail { position: static; }
+  }
+</style>
+
+<!-- Snippet rows + copy buttons are injected at runtime, so their styles are global. -->
+<style is:global>
+  .snap-snippet { margin-bottom: 12px; }
+  .snap-snippet__head {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;
+  }
+  .snap-snippet__label {
+    font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-dim);
+  }
+  .snap-snippet__code {
+    display: block; font-family: var(--mono); font-size: 0.74rem; color: var(--text-muted);
+    background: var(--bg-card); border: 1px solid var(--border);
+    padding: 10px 12px; border-radius: var(--radius-sm); word-break: break-all; white-space: pre-wrap;
+  }
+  .snap-billboard__banner { display: block; max-width: 100%; height: auto; }
+  .snap-billboard__link { display: block; line-height: 0; }
+</style>
+
+<script>
+  // Copy buttons (endpoint + snippets, event-delegated so injected snippet buttons work too).
+  function wireCopy(root) {
+    root.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('[data-copy]');
+      if (!btn) return;
+      navigator.clipboard.writeText(btn.getAttribute('data-copy')).then(() => {
+        const old = btn.textContent;
+        btn.classList.add('copied');
+        btn.textContent = 'Copied ✓';
+        setTimeout(() => { btn.classList.remove('copied'); btn.textContent = old; }, 1400);
+      });
+    });
+  }
+  wireCopy(document);
+
+  // Build the embed snippet rows from the data-* island (keeps the URLs defined in one place).
+  const data = document.getElementById('embed-data');
+  if (data) {
+    const badge = data.dataset.badge;
+    const card = data.dataset.card;
+    const listing = data.dataset.listing;
+    const name = data.dataset.name || 'this service';
+    const alt = `${name} is 24K Verified`;
+    const snippets = [
+      { label: 'Badge — Markdown', value: `[![${alt}](${badge})](${listing})` },
+      { label: 'Badge — HTML', value: `<a href="${listing}"><img src="${badge}" alt="${alt}"></a>` },
+      { label: 'Badge — Image URL', value: badge },
+      { label: 'Verdict card — Markdown', value: `[![${alt}](${card})](${listing})` },
+      { label: 'Verdict card — HTML', value: `<a href="${listing}"><img src="${card}" alt="${alt}"></a>` },
+      { label: 'Verdict card — Image URL', value: card },
+    ];
+    const esc = (s) => (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    document.getElementById('snippets').innerHTML = snippets.map((s) => `
+      <div class="snap-snippet">
+        <div class="snap-snippet__head">
+          <span class="snap-snippet__label">${esc(s.label)}</span>
+          <button class="snip-copy" data-copy="${esc(s.value)}">Copy</button>
+        </div>
+        <code class="snap-snippet__code">${esc(s.value)}</code>
+      </div>`).join('');
+  }
+
+  // Billboard hydration — a static page still shows a live paid banner (or the available state).
+  const bb = document.getElementById('billboard');
+  const slug = document.querySelector('.snap')?.dataset.slug;
+  if (bb && slug) {
+    fetch(`/api/v1/billboard/status?slug=${encodeURIComponent(slug)}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((state) => {
+        if (state && state.active && state.banner) {
+          const b = state.banner;
+          const img = `<img class="snap-billboard__banner" src="${b.image}" alt="${(b.alt || 'Sponsored banner').replace(/"/g, '&quot;')}">`;
+          bb.innerHTML = b.link
+            ? `<a class="snap-billboard__link" href="${b.link}" target="_blank" rel="noopener noreferrer sponsored">${img}</a>`
+            : img;
+          bb.classList.add('is-live');
+        }
+        // else: leave the default "advertise here" placeholder in the markup.
+      })
+      .catch(() => { /* keep placeholder */ });
+  }
+</script>
