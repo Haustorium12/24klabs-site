@@ -96,8 +96,10 @@ function bytesFromB64(str) {
 // Build a CDP JWT for one request. Returns the token string, or null if no key is configured.
 // method/host/path scope the token to the exact facilitator call (CDP `uri` claim).
 export async function cdpJwt(env, method, host, path) {
-  const keyId = env.CDP_API_KEY_NAME;
-  const secret = env.CDP_API_KEY_PRIVATE_KEY;
+  // Accept the SAME env-var names Pillar 2 (24klabs-api) already uses, so the existing CDP key
+  // is reused with no new key and one naming convention. Falls back to the older *_NAME/*_PRIVATE_KEY.
+  const keyId = env.CDP_API_KEY_ID || env.CDP_API_KEY_NAME;
+  const secret = env.CDP_API_KEY_SECRET || env.CDP_API_KEY_PRIVATE_KEY;
   if (!keyId || !secret) return null;
 
   // CDP Ed25519 secret is base64 of 64 bytes (32-byte seed || 32-byte public key). Take the seed.
@@ -130,7 +132,7 @@ export async function cdpJwt(env, method, host, path) {
 
 // Resolve the facilitator base URL from env (default CDP production).
 function facilitatorBase(env) {
-  return (env.FACILITATOR_URL || X402.facilitatorUrlDefault).replace(/\/+$/, '');
+  return (env.FACILITATOR_URL || env.CDP_FACILITATOR_URL || X402.facilitatorUrlDefault).replace(/\/+$/, '');
 }
 
 async function facilitatorPost(env, path, body) {
