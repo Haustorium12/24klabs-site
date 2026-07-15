@@ -1,0 +1,13 @@
+# Cloudflare Pages config for 24klabs. Exists so the Pages Functions get their D1 binding
+# (the billboard rail reads/writes `env.DB`). Static output is Astro's dist/. Secrets
+# (CDP_API_KEY_ID/SECRET, X402_PAY_TO, BILLBOARD_ADMIN_TOKEN, GITHUB_NOTIFY_*) are set on the
+# Pages project as encrypted env vars — never here.
+name = "24klabs"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-07-01"
+
+# D1 — the private paid-intelligence + billboard store (24k-intel). Bound to Functions as `DB`.
+[[d1_databases]]
+binding = "DB"
+database_name = "24k-intel"
+database_id = "5528e3dc-627f-4f62-8dcc-27dbf59fd9e0"

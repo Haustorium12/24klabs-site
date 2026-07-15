@@ -115,7 +115,11 @@ export async function cdpJwt(env, method, host, path) {
   const nonceBytes = crypto.getRandomValues(new Uint8Array(16));
   const nonce = Array.from(nonceBytes).map((b) => b.toString(16).padStart(2, '0')).join('');
 
-  const header = { alg: 'EdDSA', typ: 'JWT', kid: keyId };
+  // CDP Bearer-token JWT: the `nonce` is REQUIRED IN THE HEADER (per docs.cdp.coinbase.com
+  // authentication — header = { alg, typ, kid, nonce }). Cross-checked against Pillar 2's proven
+  // SDK path (cdp.auth.utils.jwt.generate_jwt). Omitting the header nonce makes CDP reject the
+  // token → verify fails closed (402). Kept in claims too, matching the documented Bearer payload.
+  const header = { alg: 'EdDSA', typ: 'JWT', kid: keyId, nonce };
   const claims = {
     sub: keyId,
     iss: 'cdp',
