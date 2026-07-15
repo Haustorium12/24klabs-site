@@ -112,22 +112,25 @@ export async function cdpJwt(env, method, host, path) {
   const key = await crypto.subtle.importKey('pkcs8', pkcs8, { name: 'Ed25519' }, false, ['sign']);
 
   const now = Math.floor(Date.now() / 1000);
-  const nonceBytes = crypto.getRandomValues(new Uint8Array(16));
-  const nonce = Array.from(nonceBytes).map((b) => b.toString(16).padStart(2, '0')).join('');
 
-  // CDP Bearer-token JWT: the `nonce` is REQUIRED IN THE HEADER (per docs.cdp.coinbase.com
-  // authentication — header = { alg, typ, kid, nonce }). Cross-checked against Pillar 2's proven
-  // SDK path (cdp.auth.utils.jwt.generate_jwt). Omitting the header nonce makes CDP reject the
-  // token → verify fails closed (402). Kept in claims too, matching the documented Bearer payload.
-  const header = { alg: 'EdDSA', typ: 'JWT', kid: keyId, nonce };
+  // Built to match the PROVEN CDP SDK byte-for-byte — verified against the installed
+  // cdp.auth.utils.jwt.generate_jwt (v1.39.1) that Pillar 2's cdp_auth.py uses in production:
+  //   - header carries the nonce (16 random DIGITS), alg EdDSA, kid, typ
+  //   - request scope is the `uris` claim: an ARRAY holding "METHOD host/path" (NOT a singular
+  //     "uri" string — the public docs mislead here; the SDK is ground truth)
+  //   - aud is null (the SDK emits null when no audience is passed, which cdp_auth.py doesn't)
+  //   - nonce is header-only, not in the claims
+  // Any of these wrong -> CDP rejects the token -> verify/settle fail closed (402). This is the
+  // one seam that was never exercised against a live key; now it mirrors the working signer exactly.
+  const nonce = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => String(b % 10)).join('');
+  const header = { alg: 'EdDSA', kid: keyId, typ: 'JWT', nonce };
   const claims = {
     sub: keyId,
     iss: 'cdp',
-    aud: ['cdp_service'],
+    aud: null,
     nbf: now,
     exp: now + 120,
-    uri: `${method} ${host}${path}`,
-    nonce,
+    uris: [`${method} ${host}${path}`],
   };
   const signingInput = `${b64urlFromJson(header)}.${b64urlFromJson(claims)}`;
   const sig = await crypto.subtle.sign({ name: 'Ed25519' }, key, new TextEncoder().encode(signingInput));
