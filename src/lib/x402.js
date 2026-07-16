@@ -35,7 +35,7 @@ export function paymentRequirements({ usd, payToOverride }) {
     network: X402.network,
     amount: usdToAtomic(usd),
     asset: X402.asset,
-    payTo: payToOverride || X402.payTo,
+    payTo: String(payToOverride || X402.payTo).trim(),
     maxTimeoutSeconds: X402.maxTimeoutSeconds,
     extra: { name: X402.assetName, version: X402.assetVersion },
   };
@@ -98,8 +98,11 @@ function bytesFromB64(str) {
 export async function cdpJwt(env, method, host, path) {
   // Accept the SAME env-var names Pillar 2 (24klabs-api) already uses, so the existing CDP key
   // is reused with no new key and one naming convention. Falls back to the older *_NAME/*_PRIVATE_KEY.
-  const keyId = env.CDP_API_KEY_ID || env.CDP_API_KEY_NAME;
-  const secret = env.CDP_API_KEY_SECRET || env.CDP_API_KEY_PRIVATE_KEY;
+  // Trim BOTH — a stray space/newline on the Pages binding (as already happened to X402_PAY_TO)
+  // corrupts the JWT kid/sub and CDP rejects the token with a bare 401. The secret was already
+  // trimmed downstream; the key id was not, which is exactly what bit the first live attempt.
+  const keyId = (env.CDP_API_KEY_ID || env.CDP_API_KEY_NAME || '').trim();
+  const secret = (env.CDP_API_KEY_SECRET || env.CDP_API_KEY_PRIVATE_KEY || '').trim();
   if (!keyId || !secret) return null;
 
   // CDP Ed25519 secret is base64 of 64 bytes (32-byte seed || 32-byte public key). Take the seed.
@@ -162,14 +165,35 @@ async function facilitatorPost(env, path, body) {
 // Verify + settle a payment against the facilitator. Returns { ok, settlement, reason }.
 // FAIL-CLOSED: any error, non-2xx, or falsy validity => ok:false.
 export async function verifyAndSettle(env, payload, requirements) {
+  // Distinguish "no CDP credentials configured" from "credentials present but rejected" — both
+  // otherwise collapse to a bare verify_failed_401, which cost a whole debugging cycle.
+  const hasCreds =
+    !!env.FACILITATOR_AUTH ||
+    !!((env.CDP_API_KEY_ID || env.CDP_API_KEY_NAME) && (env.CDP_API_KEY_SECRET || env.CDP_API_KEY_PRIVATE_KEY));
+  if (!hasCreds) return { ok: false, reason: 'no_cdp_credentials' };
+
+  // CDP's V2 facilitator requires the envelope { x402Version, paymentPayload, paymentRequirements }.
+  // The decoded client payload IS the paymentPayload (it already carries `accepted`); the earlier
+  // shape { payload, paymentRequirements } made CDP 400 with "property x402Version is missing" —
+  // masked until now because the 401 short-circuited before body validation.
+  const body = {
+    x402Version: (payload && payload.x402Version) || X402.version,
+    paymentPayload: payload,
+    paymentRequirements: requirements,
+  };
   try {
-    const verify = await facilitatorPost(env, '/verify', { payload, paymentRequirements: requirements });
+    const verify = await facilitatorPost(env, '/verify', body);
     if (verify.status !== 200 || !verify.json || verify.json.isValid !== true) {
       return { ok: false, reason: (verify.json && verify.json.invalidReason) || `verify_failed_${verify.status}` };
     }
-    const settle = await facilitatorPost(env, '/settle', { payload, paymentRequirements: requirements });
+    const settle = await facilitatorPost(env, '/settle', body);
     if (settle.status !== 200 || !settle.json || settle.json.success !== true) {
-      return { ok: false, reason: (settle.json && settle.json.error) || `settle_failed_${settle.status}` };
+      return {
+        ok: false,
+        reason:
+          (settle.json && (settle.json.errorReason || settle.json.errorMessage)) ||
+          `settle_failed_${settle.status}`,
+      };
     }
     return { ok: true, settlement: settle.json };
   } catch (err) {
