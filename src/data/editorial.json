@@ -7,7 +7,8 @@
     "type": "API / Service",
     "category": "AI Services",
     "desc": "Official Venice AI client for x402 micropayments. Pay-per-request AI inference with privacy-first LLMs. No account required — wallet is auth. 8★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "24K Labs",
@@ -17,7 +18,8 @@
     "type": "API / Service",
     "category": "AI Services",
     "desc": "6 AI code analysis services: explain, debug, review, security audit, automation scripts, MCP blueprints. $0.50-$50.00 per request. USDC on Base. [Live API](https://api.24klabs.ai)",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "tx402.ai",
@@ -26,8 +28,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "AI Services",
-    "desc": "Agent-native LLM inference gateway. 20+ EU-hosted models (DeepSeek, Qwen, Llama, Mixtral) via x402 USDC on Base. OpenAI-compatible, SSE streaming, GDPR-compliant, zero data retention. No API keys — wa",
-    "verified": false
+    "desc": "Agent-native LLM inference gateway. 20+ EU-hosted models (DeepSeek, Qwen, Llama, Mixtral) via x402 USDC on Base. OpenAI-compatible, SSE streaming, GDPR-compliant, zero data retention. No API keys — wallet is auth. [Models](https://tx402.ai/v1/models)",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AskClaude",
@@ -37,7 +40,8 @@
     "type": "API / Service",
     "category": "AI Services",
     "desc": "Pay-per-query Claude API. 9 endpoints: Haiku ($0.01), Sonnet ($0.03), Opus ($0.10), plus summarization, code review, translation, sentiment, crypto analysis. USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402engine",
@@ -46,8 +50,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "AI Services",
-    "desc": "74 pay-per-call API tools: 44 LLMs, image/video generation, crypto data, web search, code execution, TTS, travel, IPFS. Multi-chain: Base, MegaETH, Solana. ([GitHub](https://github.com/agentc22/x402-e",
-    "verified": false
+    "desc": "74 pay-per-call API tools: 44 LLMs, image/video generation, crypto data, web search, code execution, TTS, travel, IPFS. Multi-chain: Base, MegaETH, Solana. ([GitHub](https://github.com/agentc22/x402-engine))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 AI API — zeroreader",
@@ -56,8 +61,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "AI Services",
-    "desc": "zeroreader](https://api.zeroreader.com) — 29 Cloudflare Workers AI models (LLM, Embeddings, Image Generation, Audio, Translation) via x402. $0.001-$0.015 per request, USDC on Base. OpenAI-compatible f",
-    "verified": false
+    "desc": "29 Cloudflare Workers AI models (LLM, Embeddings, Image Generation, Audio, Translation) via x402. $0.001-$0.015 per request, USDC on Base. OpenAI-compatible format.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "GPU-Bridge",
@@ -66,8 +72,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "AI Services",
-    "desc": "30-service GPU inference: LLM, image generation, embeddings, STT, TTS, PDF processing in one API. USDC on Base L2. ([Docs](https://docs.gpubridge.xyz)) ([GitHub](https://github.com/fjnunezn75/gpu-brid",
-    "verified": false
+    "desc": "30-service GPU inference: LLM, image generation, embeddings, STT, TTS, PDF processing in one API. USDC on Base L2. ([Docs](https://docs.gpubridge.xyz)) ([GitHub](https://github.com/fjnunezn75/gpu-bridge))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MOSS Agent",
@@ -77,7 +84,8 @@
     "type": "API / Service",
     "category": "AI Services",
     "desc": "AI-powered coding services: code review ($0.005), translation ($0.003), code explanation ($0.003). A2A protocol compatible.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "SkillMint",
@@ -87,7 +95,8 @@
     "type": "API / Service",
     "category": "AI Services",
     "desc": "51 AI skills across 7 categories (dev tools, creative design, research, writing, docs). $0.01-$0.50 USDC on Base. No subscriptions.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Obol",
@@ -96,8 +105,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "AI Services",
-    "desc": "AI code generation via x402. $5 USDC per call on Base — forks your GitHub repo, generates production-ready code, opens a PR. 7 endpoints: Next.js cloning, Farcaster mini apps, OpenAPI + Hono servers, ",
-    "verified": false
+    "desc": "AI code generation via x402. $5 USDC per call on Base — forks your GitHub repo, generates production-ready code, opens a PR. 7 endpoints: Next.js cloning, Farcaster mini apps, OpenAPI + Hono servers, Vitest tests, MDX docs, GitHub Actions, TypeScript refactoring.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "agentsvc.io",
@@ -106,8 +116,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Data & Research",
-    "desc": "20 utility tools for AI agents: `ip-lookup`, `dns-lookup`, `qr-code`, `exchange-rates`, `email-validate`, `ssl-check`, `weather`, `translate`, `whois`, `crypto-prices`, `stock-prices`, `geocode`, `web",
-    "verified": true
+    "desc": "20 utility tools for AI agents: `ip-lookup`, `dns-lookup`, `qr-code`, `exchange-rates`, `email-validate`, `ssl-check`, `weather`, `translate`, `whois`, `crypto-prices`, `stock-prices`, `geocode`, `web-search`, `news-search`, `pdf-extract`, `screenshot`, `webpage-reader`, `html-to-pdf`, `ocr`. $0.001-$0.008 USDC per call on Base. ([GitHub](https://github.com/jakobautomation/agentsvc-mcp))",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "DevDrops",
@@ -116,8 +127,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Data & Research",
-    "desc": "22 pay-per-query data APIs: prediction markets (Polymarket + Manifold), property intelligence, sports odds, regulatory filings, FX rates, weather, IP geolocation, academic papers, document summarisati",
-    "verified": false
+    "desc": "22 pay-per-query data APIs: prediction markets (Polymarket + Manifold), property intelligence, sports odds, regulatory filings, FX rates, weather, IP geolocation, academic papers, document summarisation, and more. $0.001-$0.10 USDC on Base. ([OpenAPI](https://api.devdrops.run/openapi.json))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Aigregator",
@@ -127,7 +139,8 @@
     "type": "API / Service",
     "category": "Data & Research",
     "desc": "Structured data on 5,336+ AI tools via REST API and MCP server. Search, compare, retrieve tool profiles. USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Xquik",
@@ -136,8 +149,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Data & Research",
-    "desc": "Real-time X (Twitter) data API. 7 x402 endpoints: tweet lookup, tweet search, user lookup, follower check, article extraction, media download, trends. ([npm](https://www.npmjs.com/package/@xquik/tweet",
-    "verified": false
+    "desc": "Real-time X (Twitter) data API. 7 x402 endpoints: tweet lookup, tweet search, user lookup, follower check, article extraction, media download, trends. ([npm](https://www.npmjs.com/package/@xquik/tweetclaw))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Content Intelligence API",
@@ -148,7 +162,8 @@
     "category": "Data & Research",
     "desc": "AI-powered web content extraction and analysis. Clean text extraction (F1=0.909), metadata/OG tags, link classification, AI summarization, entity extraction. 5 endpoints from $0.003 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://content.hugen.tokyo/content/metadata"
+    "badge_resource": "https://content.hugen.tokyo/content/metadata",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "panevin-x402-api",
@@ -157,8 +172,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Data & Research",
-    "desc": "Web content extraction and AI processing. 8 endpoints: text extraction, link extraction, metadata, markdown conversion, AI summarization, translation, structured data extraction. $0.001-$0.008 USDC on",
-    "verified": false
+    "desc": "Web content extraction and AI processing. 8 endpoints: text extraction, link extraction, metadata, markdown conversion, AI summarization, translation, structured data extraction. $0.001-$0.008 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Scout MCP",
@@ -169,7 +185,8 @@
     "category": "Data & Research",
     "desc": "Multi-source search across code, academic, social, community platforms. From $0.01 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://scout.hugen.tokyo/scout/x"
+    "badge_resource": "https://scout.hugen.tokyo/scout/x",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AnyBrowse",
@@ -179,7 +196,8 @@
     "type": "API / Service",
     "category": "Data & Research",
     "desc": "Autonomous web browsing agent. Converts URLs to LLM-ready Markdown via real Chrome browsers. USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Fly Labs Agentic Market",
@@ -189,7 +207,8 @@
     "type": "API / Service",
     "category": "Data & Research",
     "desc": "YouTube data APIs for AI agents. Transcribe ($0.03) and engagement analytics ($0.02) with structured JSON payloads. USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "GigSoul AI Research Agent",
@@ -199,7 +218,8 @@
     "type": "API / Service",
     "category": "Data & Research",
     "desc": "23-endpoint AI research API: SEC filings, earnings calls, competitor analysis, market research, document intelligence. $0.01 USDC per call on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AgentData API",
@@ -208,8 +228,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
-    "desc": "Real-time crypto market data. 16 pay-per-request endpoints: prices, funding rates, volatility, liquidation levels, DeFi yields, cross-exchange arbitrage, technical indicators (RSI/MACD/BB/ATR), suppor",
-    "verified": false
+    "desc": "Real-time crypto market data. 16 pay-per-request endpoints: prices, funding rates, volatility, liquidation levels, DeFi yields, cross-exchange arbitrage, technical indicators (RSI/MACD/BB/ATR), support/resistance, sentiment, stablecoin health, historical OHLCV. Self-hosted facilitator.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Polybot Arb Intelligence",
@@ -219,7 +240,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "Real-time cross-platform prediction market arb data (Polymarket + Kalshi + Myriad). x402 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Tick Aggregator API",
@@ -228,9 +250,10 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
-    "desc": "Multi-source aggregated FX Best Bid/Ask from 3 institutional liquidity providers. 62-88% tighter spreads than single source. 15 pairs including EURUSD, USDJPY, XAUUSD. $0.005 USDC per call on Base and",
+    "desc": "Multi-source aggregated FX Best Bid/Ask from 3 institutional liquidity providers. 62-88% tighter spreads than single source. 15 pairs including EURUSD, USDJPY, XAUUSD. $0.005 USDC per call on Base and Solana.",
     "verified": false,
-    "badge_resource": "https://tick.hugen.tokyo/tick/symbols"
+    "badge_resource": "https://tick.hugen.tokyo/tick/symbols",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "DeFi Intelligence API",
@@ -241,7 +264,8 @@
     "category": "Crypto & DeFi Data",
     "desc": "Unified DeFi security, bridging, analytics. 26 endpoints: GoPlus Security, LI.FI bridge quotes, DeFi Llama TVL. $0.005-$0.01 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://defi.hugen.tokyo/defi/dex/volume"
+    "badge_resource": "https://defi.hugen.tokyo/defi/dex/volume",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MoonMaker API",
@@ -251,7 +275,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "AI-native crypto intelligence. 11 endpoints: signals, market context, DeFi regime, institutions, ETF flows, DeFi yields, DEX alpha. $0.02-$0.10/call USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "DeepBlue Trading API",
@@ -261,7 +286,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "AI-powered crypto intelligence from an autonomous trading team running real money on Polymarket. 21 endpoints. $0.01-$0.05 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MoltGuard",
@@ -271,7 +297,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "Agent trust scoring, Sybil detection, Polymarket integrity, Ed25519 Verifiable Credentials. 7 MCP tools. $0.005-$0.05 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Hodler DeFi Intelligence",
@@ -281,7 +308,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "Stablecoin monitoring, redeem arbitrage, cross-chain pair discovery across 10 EVM chains. 6 paid endpoints at $0.01 USDC via xpay.sh on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Rug Munch Intelligence",
@@ -290,8 +318,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
-    "desc": "AI-powered crypto risk intelligence. 19 x402 endpoints: rug pull detection, honeypot scoring, deployer tracking, holder deep-dive, KOL shill detection, social OSINT, LLM forensic analysis. $0.02-$2.00",
-    "verified": false
+    "desc": "AI-powered crypto risk intelligence. 19 x402 endpoints: rug pull detection, honeypot scoring, deployer tracking, holder deep-dive, KOL shill detection, social OSINT, LLM forensic analysis. $0.02-$2.00 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AlphaClaw",
@@ -301,7 +330,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "Autonomous alpha hunting on Polymarket and DeFi. 6 data stream microservices via x402 micropayments.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "SolSignal API",
@@ -311,7 +341,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "Solana token safety scanner. DexScreener, RugCheck, GoPlus, Jupiter simulation in one SAFE/CAUTION/AVOID/RUG verdict. 10 free scans/day, $0.01 USDC on Solana.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Automaton Oracle",
@@ -320,8 +351,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
-    "desc": "Sovereign crypto intelligence: real-time prices, global macro intelligence, pump.fun graduation radar, trading signals, meme generation. Self-hosted facilitator (no Coinbase CDP dependency). $0.005-$0",
-    "verified": false
+    "desc": "Sovereign crypto intelligence: real-time prices, global macro intelligence, pump.fun graduation radar, trading signals, meme generation. Self-hosted facilitator (no Coinbase CDP dependency). $0.005-$0.05 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "SignalFuse",
@@ -332,7 +364,8 @@
     "category": "Crypto & DeFi Data",
     "desc": "Trading intelligence + x402 API gateway. Crypto signals fusing sentiment, macro regime, market structure. Gateway proxies: web search via Tavily and Brave, code execution via E2B. USDC on Base.",
     "verified": false,
-    "badge_resource": "https://api.signalfuse.co/v1/gateway/search/brave"
+    "badge_resource": "https://api.signalfuse.co/v1/gateway/search/brave",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Sentinel",
@@ -342,7 +375,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "x402-gated trust verification for autonomous agents. Protocol trust scoring, token safety, DeFi risk assessment, OFAC screening. 5 endpoints on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-api",
@@ -352,7 +386,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "Pay-per-call DeFi & crypto data. 8 endpoints: price feeds, whale tracking, gas tracker, DEX quotes, token scanner, yield scanner, funding rates, wallet profiler. USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "CryptoSignalBot",
@@ -362,7 +397,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "x402-gated crypto volume anomaly scanner. Tokens with unusual trading volume vs 30-day average. $0.01 USDC on Ethereum via Primev facilitator.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "SIBYL",
@@ -372,7 +408,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "Crypto intelligence agent on Base. Token scoring ($0.05), rug/honeypot detection ($0.02), builder shipping velocity vs market cap ($0.10).",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Crysha Price Oracle",
@@ -382,7 +419,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "Aggregated crypto prices (multi-source BTC/others). $0.001/call on Base USDC.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Polymarket Liquidity API",
@@ -392,7 +430,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "Real-time Polymarket liquidity data. Order book depth, spread analysis, market efficiency scoring. $0.005 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Polymarket Scan API",
@@ -402,7 +441,8 @@
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
     "desc": "Automated Polymarket scanner detecting liquidity anomalies. Scans all active markets every 60s. `/scan/liquidity-anomaly` ($0.018 USDC) and `/scan/history` ($0.005 USDC). Cloudflare Workers.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Moltalyzer",
@@ -413,7 +453,8 @@
     "category": "Crypto & DeFi Data",
     "desc": "Four AI intelligence feeds: hourly Moltbook community digests, daily GitHub trending repos, Polymarket predetermined outcome detection, real-time token intelligence. x402 micropayments on Base.",
     "verified": false,
-    "badge_resource": "https://api.moltalyzer.xyz/api/moltbook/digests"
+    "badge_resource": "https://api.moltalyzer.xyz/api/moltbook/digests",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Mercury402",
@@ -423,7 +464,8 @@
     "type": "API / Service",
     "category": "Finance & FX",
     "desc": "Pay-per-call U.S. Treasury and macro data API. FRED indicators, yield curves, GDP data with USDC micropayments on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Gotobi Calendar API",
@@ -434,7 +476,8 @@
     "category": "Finance & FX",
     "desc": "Japanese FX gotobi date intelligence for trading agents. Holiday-aware USD settlement day detection. $0.01 USDC on Base and Solana.",
     "verified": false,
-    "badge_resource": "https://gotobi.hugen.tokyo/gotobi/holidays"
+    "badge_resource": "https://gotobi.hugen.tokyo/gotobi/holidays",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PreReason",
@@ -444,7 +487,8 @@
     "type": "API / Service",
     "category": "Finance & FX",
     "desc": "Financial context API. 17 pre-analyzed market briefings: BTC, macro, cross-asset regime signals. $0.01-$0.03 USDC on Base. Dual facilitator (Coinbase CDP + Dexter).",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "KR Crypto Intelligence",
@@ -455,7 +499,8 @@
     "category": "Finance & FX",
     "desc": "Korean crypto market data. 6 endpoints: Kimchi Premium, Upbit/Bithumb prices, USD/KRW FX rate. First verified Korean market data on x402. $0.001 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://api.printmoneylab.com/api/v1/kr-news/semiconductor-summary"
+    "badge_resource": "https://api.printmoneylab.com/api/v1/kr-news/semiconductor-summary",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "CrossFin",
@@ -465,7 +510,8 @@
     "type": "API / Service",
     "category": "Finance & FX",
     "desc": "15 paid Korean market data APIs (Kimchi Premium, KOSPI, Bithumb, Upbit, Coinone, FX, headlines, trading signals). First Korean financial data on x402. MCP server included.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Cross-Asset Intelligence API",
@@ -475,7 +521,8 @@
     "type": "API / Service",
     "category": "Finance & FX",
     "desc": "AI-powered cross-market financial analysis (crypto × traditional finance). 10 x402 endpoints on Base. BTC-equity correlation, risk scores, macro reports, daily briefings. Powered by Claude Haiku.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Firecrawl x402",
@@ -485,7 +532,8 @@
     "type": "API / Service",
     "category": "Web & Geospatial",
     "desc": "Web scraping and search API with x402-gated endpoints and automatic on-chain USDC settlement. Featured in Coinbase CDP case studies as a reference x402 integration.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-05-07"
   },
   {
     "name": "Visual API",
@@ -496,7 +544,8 @@
     "category": "Web & Geospatial",
     "desc": "Screenshot and PDF capture API. Full-page scroll capture, CSS element targeting, mobile device emulation (iPhone 15, Pixel 7, iPad Pro), dark mode, ad/cookie banner blocking. $0.01 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://visual.hugen.tokyo/visual/screenshot"
+    "badge_resource": "https://visual.hugen.tokyo/visual/screenshot",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "geo-gateway",
@@ -506,7 +555,8 @@
     "type": "API / Service",
     "category": "Web & Geospatial",
     "desc": "Pay-per-call Mapbox geospatial proxy. 6 endpoints: directions, isochrones, geocoding (forward + reverse), map matching, route optimization, distance matrices. $0.002-$0.0635 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PortsideLabs Places API",
@@ -516,7 +566,8 @@
     "type": "API / Service",
     "category": "Web & Geospatial",
     "desc": "Google Places API v1 proxy. Place detail lookup and full-text search. $0.001 USDC on Base and Solana.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Domain Intelligence API",
@@ -527,7 +578,8 @@
     "category": "Web & Geospatial",
     "desc": "8-endpoint domain analysis: WHOIS, multi-resolver DNS, SSL/TLS grading, Wappalyzer tech stack detection, security headers, CT log subdomains, redirect chains. $0.001-$0.02 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://domain.hugen.tokyo/domain/full"
+    "badge_resource": "https://domain.hugen.tokyo/domain/full",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Micro Data API Factory — Weather",
@@ -536,8 +588,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Web & Geospatial",
-    "desc": "Weather](https://weather-data-api.kasanegi123.workers.dev) — Cloudflare Workers edge weather for AI agents. Current conditions + 1-7 day forecasts worldwide by city name. $0.001 USDC on Base. Open-Met",
-    "verified": false
+    "desc": "Cloudflare Workers edge weather for AI agents. Current conditions + 1-7 day forecasts worldwide by city name. $0.001 USDC on Base. Open-Meteo (CC BY 4.0).",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Weather API",
@@ -548,7 +601,8 @@
     "category": "Web & Geospatial",
     "desc": "Global weather data for AI agents. Real-time conditions and 7-day forecasts. $0.01 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://weather.hugen.tokyo/weather/forecast"
+    "badge_resource": "https://weather.hugen.tokyo/weather/forecast",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Bloomfilter",
@@ -558,7 +612,8 @@
     "type": "API / Service",
     "category": "Web & Geospatial",
     "desc": "x402-powered domain registration API for AI agents. Register ICANN domains and manage DNS, paying with USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Find Domain",
@@ -568,7 +623,8 @@
     "type": "API / Service",
     "category": "Web & Geospatial",
     "desc": "Domain research API. Generates candidates from keywords with stemming, IDN normalization, geo/registrar filtering, then checks availability via DNS or registry lookup. $0.002-$0.01 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Mailcheck API",
@@ -579,7 +635,8 @@
     "category": "Web & Geospatial",
     "desc": "Email validation: syntax, MX records, disposable domain detection, free provider check, role-based address detection, typo suggestion. $0.01 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://mailcheck.hugen.tokyo/mailcheck/validate"
+    "badge_resource": "https://mailcheck.hugen.tokyo/mailcheck/validate",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ShieldAPI",
@@ -588,9 +645,10 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Security",
-    "desc": "Security intelligence for AI agents. Password breach (900M+ HIBP hashes), email breach, domain/IP reputation, URL safety, prompt injection detection, skill security analysis. $0.001-$0.02 USDC on Base",
+    "desc": "Security intelligence for AI agents. Password breach (900M+ HIBP hashes), email breach, domain/IP reputation, URL safety, prompt injection detection, skill security analysis. $0.001-$0.02 USDC on Base. [MCP Server](https://www.npmjs.com/package/shieldapi-mcp)",
     "verified": false,
-    "badge_resource": "https://shield.vainplex.dev/api/cdp/check/email"
+    "badge_resource": "https://shield.vainplex.dev/api/cdp/check/email",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Rug Scanner",
@@ -600,7 +658,8 @@
     "type": "API / Service",
     "category": "Security",
     "desc": "On-chain token risk analysis. 7 parallel checks (bytecode, holders, liquidity, deployer, trading, verification, market), deterministic scoring. $0.05 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Daizyx402 Security Research API",
@@ -610,7 +669,8 @@
     "type": "API / Service",
     "category": "Security",
     "desc": "AI-powered smart contract security analysis. $0.05 USDC per query, $0.50 USDC deep analysis on Base. No signup.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AEO Scanner (Convrgent)",
@@ -621,7 +681,8 @@
     "category": "Security",
     "desc": "AI search visibility audit for any website. Triple scoring: AEO, GEO, Agent Readiness. 55+ checks across 12 categories. Free scan via SIWX, full audit $1, fix code $5 USDC on Base & Solana.",
     "verified": false,
-    "badge_resource": "https://scan.convrgent.ai/api/aeo/audit"
+    "badge_resource": "https://scan.convrgent.ai/api/aeo/audit",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "CYBERA Compliance API",
@@ -631,7 +692,8 @@
     "type": "API / Service",
     "category": "Security",
     "desc": "Crypto compliance suite. VASP address identification (20,468 addresses, 29 chains), risk scoring, sanctions/mixer screening. $0.01 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Strale",
@@ -640,9 +702,10 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Business Intelligence",
-    "desc": "Trust layer for AI agents with 250+ independently tested business data and compliance capabilities: IBAN validation, VAT checks, sanctions screening, company lookups, SSL checks, and more. Quality-sco",
+    "desc": "Trust layer for AI agents with 250+ independently tested business data and compliance capabilities: IBAN validation, VAT checks, sanctions screening, company lookups, SSL checks, and more. Quality-scored (SQS). $0.02-$1.00 USDC. [MCP](https://api.strale.io/mcp)",
     "verified": true,
-    "badge_resource": "https://api.strale.io/x402/robots-txt-parse"
+    "badge_resource": "https://api.strale.io/x402/robots-txt-parse",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Intel API",
@@ -653,7 +716,8 @@
     "category": "Business Intelligence",
     "desc": "AI-synthesized token due diligence. Aggregates 4 GoPlus security checks + CoinGecko market data into risk-scored verdicts. One call replaces 5+ separate APIs. $0.50 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://intel.hugen.tokyo/intel/token-report"
+    "badge_resource": "https://intel.hugen.tokyo/intel/token-report",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PayAPI Market",
@@ -662,8 +726,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Business Intelligence",
-    "desc": "First marketplace for x402-powered APIs. 65 endpoints: UK property data, email verification, company enrichment, postcode lookup, currency/crypto rates, screenshots, DNS intelligence, web scraping, IP",
-    "verified": false
+    "desc": "First marketplace for x402-powered APIs. 65 endpoints: UK property data, email verification, company enrichment, postcode lookup, currency/crypto rates, screenshots, DNS intelligence, web scraping, IP geolocation, QR codes. $0.001-$0.01 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "EnrichAPI",
@@ -673,7 +738,8 @@
     "type": "API / Service",
     "category": "Business Intelligence",
     "desc": "B2B lead intelligence. POST a company URL, get tech stack, growth signals, ICP fit score, pain hypothesis, and personalized outreach angle. $0.01 USDC/call.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "DeFi Signal Agent",
@@ -683,7 +749,8 @@
     "type": "API / Service",
     "category": "Business Intelligence",
     "desc": "Real-time DeFi intelligence. New pool risk scoring (0-10) on Base + Ethereum, Solana whale alerts (>$100K), Dune Analytics enrichment. 4 endpoints from $0.01-$0.10 USDC on Base Sepolia.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Kerdos Market Intelligence",
@@ -692,9 +759,10 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Business Intelligence",
-    "desc": "AI market intelligence for agents and traders. 8 endpoints: live crypto sentiment, BTC/ETH regime direction, Hyperliquid funding rates, gold/oil signals, whale alerts, liquidation cascade risk. $0.01-",
+    "desc": "AI market intelligence for agents and traders. 8 endpoints: live crypto sentiment, BTC/ETH regime direction, Hyperliquid funding rates, gold/oil signals, whale alerts, liquidation cascade risk. $0.01-$0.05 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/btc-gold-correlation"
+    "badge_resource": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/btc-gold-correlation",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Arch Tools",
@@ -704,7 +772,8 @@
     "type": "API / Service",
     "category": "Infrastructure APIs",
     "desc": "58 production API tools for AI agents. Web scraping, AI generation, crypto data, OCR, browser automation. Patent-pending agent auth. 15+ chains. ([GitHub](https://github.com/Deesmo/Arch-AI-Tools))",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "dTelecom STT",
@@ -714,7 +783,8 @@
     "type": "API / Service",
     "category": "Infrastructure APIs",
     "desc": "Real-time speech-to-text API. Dual-engine (Parakeet-TDT + Whisper), 99+ languages, hallucination filtering. $0.005/min. Built on dTelecom DePIN.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Coinnect",
@@ -724,7 +794,8 @@
     "type": "API / Service",
     "category": "Infrastructure APIs",
     "desc": "Money transfer routing API. Finds cheapest multi-hop paths across 45+ live sources (crypto exchanges, remittance providers, P2P markets). $0.002 USDC on Base. Non-profit, MIT licensed.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "OpSpawn Screenshot API",
@@ -734,7 +805,8 @@
     "type": "API / Service",
     "category": "Infrastructure APIs",
     "desc": "Pay-per-request screenshot and document generation. $0.01/screenshot, $0.005/markdown conversion. USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Micro Data API Factory — Broker",
@@ -743,8 +815,9 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Infrastructure APIs",
-    "desc": "Broker](https://broker-entry-api.kasanegi123.workers.dev) — Wallet-free entry layer. Issues trial API key instantly, meters calls against credit, hands off to x402 when exhausted. Factory primitive — ",
-    "verified": false
+    "desc": "Wallet-free entry layer. Issues trial API key instantly, meters calls against credit, hands off to x402 when exhausted. Factory primitive — new products added by DB insert.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Banking Bodyguard",
@@ -754,7 +827,8 @@
     "type": "API / Service",
     "category": "Niche & Specialty",
     "desc": "Real-time cbBTC whale movement signals on Base. Scored sentiment (1-10), HOLD/TIGHTEN_STOP/EXIT recommendations. ~500K signals indexed. $0.10 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "mornin-agentee",
@@ -764,7 +838,8 @@
     "type": "API / Service",
     "category": "Niche & Specialty",
     "desc": "Daily Tokyo morning briefing. Top 5 Japanese news, weather, 3 focus proposals — refreshed daily 07:30 JST. $0.05 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Product Reputation API",
@@ -774,7 +849,8 @@
     "type": "API / Service",
     "category": "Niche & Specialty",
     "desc": "AI-powered product reputation intelligence from Reddit, HN & YouTube. Structured scores, dimensional analysis, competitor comparisons. $0.03-$0.08 USDC.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Know Your Human (Convrgent)",
@@ -784,7 +860,8 @@
     "type": "API / Service",
     "category": "Niche & Specialty",
     "desc": "Personality intelligence API. 36 endpoints across 11 personality frameworks (Socionics, Enneagram, Human Design, Vedic, BaZi, more). $0.10-$25 USDC on Base & Solana.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PROWL",
@@ -794,7 +871,8 @@
     "type": "API / Service",
     "category": "Niche & Specialty",
     "desc": "47 real-world data feeds (prediction markets, economics, weather, geopolitics, narrative, crypto) for AI agents. MCP server for Claude included.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "KnowMint",
@@ -804,7 +882,8 @@
     "type": "API / Service",
     "category": "Niche & Specialty",
     "desc": "Open-source knowledge marketplace. AI agents discover and purchase human expertise via MCP with autonomous x402 payment flow. Solana.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Stockfilm",
@@ -814,7 +893,8 @@
     "type": "API / Service",
     "category": "Niche & Specialty",
     "desc": "217,000+ authentic vintage 8mm home movie clips (1930s-1980s) restored in 4K. AI agents search, preview, license archival footage. $10 USDC per clip on Solana and Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AgentPay",
@@ -825,7 +905,8 @@
     "category": "Niche & Specialty",
     "desc": "Real-world service booking via x402 + Stripe. AI agents find, book, and pay for local businesses (salons, HVAC, restaurants, auto shops, medical) worldwide. 7 EVM chains + Solana.",
     "verified": false,
-    "badge_resource": "https://agentpay.tools/v1/session/create"
+    "badge_resource": "https://agentpay.tools/v1/session/create",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "CentRake",
@@ -835,7 +916,8 @@
     "type": "API / Service",
     "category": "Niche & Specialty",
     "desc": "Universal calculator with 3-layer self-correcting verification. 5-tier dynamic pricing: $0.01 basic solve to $0.15 AI action plans. 438+ problem categories. Free for humans, paid for AI agents.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AIsa",
@@ -845,7 +927,8 @@
     "type": "API / Service",
     "category": "Production Deployments (High Volume)",
     "desc": "Leading x402 payment processor. **10.5M+ cumulative transactions** on the x402 network. The benchmark for production scale.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Coinbase Developer Platform",
@@ -855,7 +938,8 @@
     "type": "API / Service",
     "category": "Production Deployments (High Volume)",
     "desc": "Official CDP implementation processing hundreds of thousands of transactions weekly. Enterprise-grade, 2-second settlement.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Cloudflare Workers",
@@ -865,7 +949,8 @@
     "type": "API / Service",
     "category": "Production Deployments (High Volume)",
     "desc": "Edge payment verification at scale across 300+ data centers globally.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402",
@@ -874,8 +959,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Foundation & Protocol",
-    "desc": "The canonical x402 protocol repository maintained by the x402 Foundation under the Linux Foundation. Reference implementations, official SDKs, spec documentation. The source of truth for the protocol.",
-    "verified": false
+    "desc": "The canonical x402 protocol repository maintained by the x402 Foundation under the Linux Foundation. Reference implementations, official SDKs, spec documentation. The source of truth for the protocol. 6,147★",
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402scan",
@@ -886,7 +972,8 @@
     "category": "Foundation & Protocol",
     "desc": "x402 Ecosystem Explorer by Merit Systems. Browse, search, and monitor the x402 service landscape. 346★",
     "verified": false,
-    "badge_resource": "https://www.x402scan.com/api/x402/resources/search"
+    "badge_resource": "https://www.x402scan.com/api/x402/resources/search",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Awesome Agentic Commerce",
@@ -896,7 +983,8 @@
     "type": "Ecosystem",
     "category": "Foundation & Protocol",
     "desc": "Curated resources for the x402 ecosystem by Merit Systems. Comprehensive listing of protocols, SDKs, and projects. 127★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "Coinbase Developer Platform",
@@ -906,7 +994,8 @@
     "type": "Ecosystem",
     "category": "Infrastructure",
     "desc": "Hosted facilitator service with enterprise-grade reliability and instant settlement. The primary x402 infrastructure layer.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Cloudflare x402",
@@ -916,7 +1005,8 @@
     "type": "Ecosystem",
     "category": "Infrastructure",
     "desc": "Edge payment processing across 300+ global data centers.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Polygon Agentic Payments",
@@ -925,8 +1015,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Infrastructure",
-    "desc": "Near-instant finality, sub-$0.001 fees, no reorgs. Coinbase CDP facilitator with gas sponsorship and KYT compliance. USDC, USDT, non-USD stablecoins. ([Docs](https://agentic-docs.polygon.technology/ge",
-    "verified": true
+    "desc": "Near-instant finality, sub-$0.001 fees, no reorgs. Coinbase CDP facilitator with gas sponsorship and KYT compliance. USDC, USDT, non-USD stablecoins. ([Docs](https://agentic-docs.polygon.technology/general/x402/intro/))",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Finance District Prism",
@@ -935,8 +1026,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Infrastructure",
-    "desc": "Payment gateway for agentic commerce. TypeScript, Python, Java SDKs. Two-layer architecture: Prism (orchestration) and Spectrum (on-chain settlement across Base, Ethereum, Arbitrum, BSC). ([Docs](http",
-    "verified": false
+    "desc": "Payment gateway for agentic commerce. TypeScript, Python, Java SDKs. Two-layer architecture: Prism (orchestration) and Spectrum (on-chain settlement across Base, Ethereum, Arbitrum, BSC). ([Docs](https://developers.fd.xyz))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "thirdweb Nebula",
@@ -946,7 +1038,8 @@
     "type": "Ecosystem",
     "category": "Infrastructure",
     "desc": "AI agent transaction framework on x402.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MoltsPay",
@@ -955,8 +1048,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Infrastructure",
-    "desc": "Open payment protocol for AI agents. One JSON file to accept x402 payments. Gasless for both providers and clients. Multi-chain. CLI, TypeScript/Python SDKs, testnet faucet. ([Docs](https://moltspay.c",
-    "verified": false
+    "desc": "Open payment protocol for AI agents. One JSON file to accept x402 payments. Gasless for both providers and clients. Multi-chain. CLI, TypeScript/Python SDKs, testnet faucet. ([Docs](https://moltspay.com/docs))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Bermuda",
@@ -966,7 +1060,8 @@
     "type": "Ecosystem",
     "category": "Infrastructure",
     "desc": "ZK-private HTTP payments for x402. Adds sender privacy via Noir zero-knowledge proofs on Base. Agents pay without exposing wallet balances or transaction history.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "XyncPay",
@@ -976,7 +1071,8 @@
     "type": "Ecosystem",
     "category": "Infrastructure",
     "desc": "Protocol translation layer bridging x402, MPP, and AP2. One integration, every AI agent payment protocol. Atomic fee-split settlement via on-chain FeeSplit contract on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "RustChain",
@@ -986,7 +1082,8 @@
     "type": "Ecosystem",
     "category": "Infrastructure",
     "desc": "Decentralized PoS blockchain with native x402 for AI agent micropayments. Attestation-based consensus, hardware-bound validators, RTC token economy.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "EntRoute",
@@ -995,8 +1092,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Infrastructure",
-    "desc": "Machine-first API discovery for AI agents. 110+ capabilities, semantic intent resolution, continuous 402 verification probes, quality ranking. MCP server, TypeScript SDK, REST API. ([Docs](https://ent",
-    "verified": true
+    "desc": "Machine-first API discovery for AI agents. 110+ capabilities, semantic intent resolution, continuous 402 verification probes, quality ranking. MCP server, TypeScript SDK, REST API. ([Docs](https://entroute.com/docs))",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "CardZero",
@@ -1005,8 +1103,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Agent Wallets",
-    "desc": "ERC-4337 smart contract wallets for AI agents. Owner-controlled spending rules (per-tx limits, daily caps, whitelist, freeze). x402 buyer support via `POST /v1/x402/pay`. [GitHub](https://github.com/m",
-    "verified": false
+    "desc": "ERC-4337 smart contract wallets for AI agents. Owner-controlled spending rules (per-tx limits, daily caps, whitelist, freeze). x402 buyer support via `POST /v1/x402/pay`. [GitHub](https://github.com/mrocker/CardZero)",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Coinbase Agentic Wallets",
@@ -1016,7 +1115,8 @@
     "type": "Ecosystem",
     "category": "Agent Wallets",
     "desc": "Wallet infrastructure purpose-built for autonomous AI agents. 50M+ transactions processed since protocol launch.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ATXP",
@@ -1025,8 +1125,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Agent Wallets",
-    "desc": "Agent identity and funding platform. One command gives an agent a USDC wallet, `@atxp.email` inbox, phone number, and 100+ paid tools. x402-compatible, $5 free credit, no KYC. ([Docs](https://docs.atx",
-    "verified": false
+    "desc": "Agent identity and funding platform. One command gives an agent a USDC wallet, `@atxp.email` inbox, phone number, and 100+ paid tools. x402-compatible, $5 free credit, no KYC. ([Docs](https://docs.atxp.ai))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "OpenVPS",
@@ -1035,8 +1136,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Agent Wallets",
-    "desc": "AI-agent VPS hosting. Pay USDC on Base, Celo, or Tempo — get root SSH to Ubuntu 24.04 Firecracker microVMs in seconds. x402 + MPP dual-protocol. From $0.005/hr. ([GitHub](https://github.com/kartojal/o",
-    "verified": false
+    "desc": "AI-agent VPS hosting. Pay USDC on Base, Celo, or Tempo — get root SSH to Ubuntu 24.04 Firecracker microVMs in seconds. x402 + MPP dual-protocol. From $0.005/hr. ([GitHub](https://github.com/kartojal/openvps))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Franklin",
@@ -1046,7 +1148,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "The AI agent with a wallet — spends USDC autonomously to get real work done. Agentic payment-native framework by BlockRun. 636★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "Daydreams",
@@ -1056,7 +1159,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Tools for building agents for commerce. x402-native agent framework with built-in payment primitives. 606★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "Lucid Agents",
@@ -1066,7 +1170,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Commerce SDK by Daydreams. Bootstrap AI agents in 60 seconds that can pay, sell, and transact autonomously via x402. 188★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "Agenti",
@@ -1076,7 +1181,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Give any AI agent a crypto wallet. Agents pay x402 APIs with USDC on Base. Simple drop-in wallet integration. 68★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "Faremeter",
@@ -1086,7 +1192,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Universal framework for transparent API cost integration into agent workflows. Agents discover, negotiate, and pay for services via x402. 66★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "mcpay",
@@ -1096,7 +1203,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Open-source infrastructure for MCP and x402. Payment primitives for building monetized MCP servers. 90★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "use-agently",
@@ -1106,7 +1214,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Routing and settlement layer for AI agents. x402-native payment coordination for multi-agent workflows. 69★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "ProwlFi",
@@ -1116,7 +1225,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Private rails for the agentic economy on Solana. Stealth addresses + x402 payments. 324★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "Vault-0",
@@ -1126,7 +1236,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Encrypted secret vault, agent monitor, and x402 wallet for OpenClaw. Handles 402 detection, EIP-3009 signing, policy-gated auto-settlement.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Nevermined",
@@ -1135,8 +1246,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Agent Frameworks",
-    "desc": "Integrated Visa Intelligent Commerce + x402 for autonomous AI agent commerce (April 9, 2026). Agents get delegated credit card spending authority with budget limits, per-purchase caps, merchant restri",
-    "verified": false
+    "desc": "Integrated Visa Intelligent Commerce + x402 for autonomous AI agent commerce (April 9, 2026). Agents get delegated credit card spending authority with budget limits, per-purchase caps, merchant restrictions, time windows.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Phidata Agents",
@@ -1146,7 +1258,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Multi-modal agents with x402 integration.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "NEAR AI",
@@ -1156,7 +1269,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Cross-chain agent settlements.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "World AgentKit",
@@ -1166,7 +1280,8 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Integrates World's WorldID biometric identity with x402. AI agents prove they act on behalf of a verified unique human during x402 transactions. 18M+ verified humans.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Google A2A x402 Extension",
@@ -1176,7 +1291,8 @@
     "type": "Ecosystem",
     "category": "Agent-to-Agent (A2A)",
     "desc": "Agent commerce protocol. Python and TypeScript implementations. Payment-required, payment-submitted, payment-completed flow. Multi-agent payment orchestration.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Revettr",
@@ -1186,7 +1302,8 @@
     "type": "Ecosystem",
     "category": "Agent-to-Agent (A2A)",
     "desc": "Counterparty risk scoring API for x402 agentic commerce. Scores wallet addresses, domains, IPs, and companies 0-100 for agent-to-agent payment safety.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "SwarmX",
@@ -1195,8 +1312,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Multi-Agent Orchestration",
-    "desc": "Multi-agent AI orchestration with native x402 micropayments on Solana. 49 endpoints, 39 MCP tools, dual LLM, knowledge/RAG with pgvector. ElizaOS v2 plugin. ([npm](https://www.npmjs.com/package/swarms",
-    "verified": false
+    "desc": "Multi-agent AI orchestration with native x402 micropayments on Solana. 49 endpoints, 39 MCP tools, dual LLM, knowledge/RAG with pgvector. ElizaOS v2 plugin. ([npm](https://www.npmjs.com/package/swarms-x402))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Agent.market",
@@ -1204,9 +1322,10 @@
     "section": "ecosystem",
     "section_label": "Ecosystem",
     "type": "Ecosystem",
-    "category": "Multi-Agent Orchestration",
+    "category": "Marketplaces & Discovery",
     "desc": "x402 Foundation's official app store for agents. Launched April 20, 2026. Unified marketplace aggregating x402-enabled services. Find, evaluate pricing, consume services. Backed by Coinbase.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "payagent",
@@ -1216,7 +1335,8 @@
     "type": "Ecosystem",
     "category": "Multi-Agent Orchestration",
     "desc": "Drop-in `fetch` wrapper that auto-handles HTTP 402 responses. Zero agent code changes required.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AlphaClaw",
@@ -1226,7 +1346,8 @@
     "type": "Ecosystem",
     "category": "Multi-Agent Orchestration",
     "desc": "Autonomous AI agent network hunting alpha on Polymarket and DeFi. 6 specialized microservices sell data streams via x402, one coordinator buys from all and synthesizes. ACP with stake-weighted voting.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "WorkProtocol",
@@ -1236,7 +1357,8 @@
     "type": "Ecosystem",
     "category": "Marketplaces & Discovery",
     "desc": "Open job marketplace where AI agents find structured work, deliver artifacts, and get paid in USDC on Base. Escrow-backed, portable on-chain reputation, framework-agnostic.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MAXIA",
@@ -1246,7 +1368,8 @@
     "type": "Ecosystem",
     "category": "Marketplaces & Discovery",
     "desc": "AI-to-AI marketplace implementing x402 V2 micropayments on Solana and Base for autonomous agent service payments.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AgentStore",
@@ -1256,7 +1379,8 @@
     "type": "Ecosystem",
     "category": "Marketplaces & Discovery",
     "desc": "Open-source marketplace for Claude Code plugins with x402 USDC payments, 80/20 publisher revenue split, permissionless publishing via CLI.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Bazaar",
@@ -1266,7 +1390,8 @@
     "type": "Ecosystem",
     "category": "Marketplaces & Discovery",
     "desc": "Decentralized API marketplace with 69 native x402-payable endpoints. Multi-chain USDC on Base and SKALE. MCP server via `npx x402-bazaar init`. 505 passing tests.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Orbis API Marketplace",
@@ -1276,7 +1401,8 @@
     "type": "Ecosystem",
     "category": "Marketplaces & Discovery",
     "desc": "x402-native API marketplace with 1,000+ APIs at $0.01/call via USDC on Base. Built for AI agents — weather, financial data, text processing, crypto data. No API keys required.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Satring",
@@ -1286,7 +1412,8 @@
     "type": "Ecosystem",
     "category": "Marketplaces & Discovery",
     "desc": "Curated L402 + x402 API directory with human ratings, health monitoring, MCP server. Dual-protocol (Lightning + USDC on Base).",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-audio-to-audio",
@@ -1296,7 +1423,8 @@
     "type": "Ecosystem",
     "category": "Notable Implementations",
     "desc": "Transmits signed USDC payments over sound using a custom OOK audio modem with Goertzel DSP. A creative demonstration of x402's protocol flexibility. 35★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402charity",
@@ -1305,8 +1433,9 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Charity & Social Impact",
-    "desc": "Open-source micro-donation server powered by x402. Drop-in Express/Next.js middleware triggers USDC charity donations on every user action. npm package, CLI, Vercel-deployable server with dashboard. (",
-    "verified": false
+    "desc": "Open-source micro-donation server powered by x402. Drop-in Express/Next.js middleware triggers USDC charity donations on every user action. npm package, CLI, Vercel-deployable server with dashboard. ([npm](https://www.npmjs.com/package/x402charity))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Coinbase CDP",
@@ -1316,7 +1445,8 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Official facilitator on Base and Base Sepolia. Instant settlement, supports all ERC-20 tokens (not just USDC). Most widely used in the ecosystem.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Stripe x402",
@@ -1325,38 +1455,42 @@
     "section_label": "Facilitators",
     "type": "Facilitator",
     "category": "Hosted Facilitators",
-    "desc": "Stripe's Machine Payments infrastructure. Deposit addresses, automatic PaymentIntent capture on settlement, dashboard monitoring, webhooks. USDC on Base. ([Quickstart](https://docs.stripe.com/payments",
-    "verified": true
+    "desc": "Stripe's Machine Payments infrastructure. Deposit addresses, automatic PaymentIntent capture on settlement, dashboard monitoring, webhooks. USDC on Base. ([Quickstart](https://docs.stripe.com/payments/machine/x402/quickstart))",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Cloudflare x402",
-    "url": "https://blog.cloudflare.com/x402/",
+    "url": "https://developers.cloudflare.com/agents/tools/payments/x402/",
     "section": "facilitators",
     "section_label": "Facilitators",
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Edge computing facilitator on Base and Ethereum. Deferred settlement. Global distribution via 300+ data centers.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Polygon x402 Facilitator",
-    "url": "https://www.coinbase.com/developer-platform/discover/launches/x402facilitator-polygon",
+    "url": "https://docs.polygon.technology/payment-services/agentic-payments/x402/intro",
     "section": "facilitators",
     "section_label": "Facilitators",
     "type": "Facilitator",
     "category": "Hosted Facilitators",
-    "desc": "Coinbase CDP on Polygon with gas sponsorship, automated KYT compliance screening, 1,000 free transactions/month. USDC on Polygon. ([Polygon Docs](https://docs.polygon.technology/pos/payments/x402/quic",
-    "verified": true
+    "desc": "Coinbase CDP on Polygon with gas sponsorship, automated KYT compliance screening, 1,000 free transactions/month. USDC on Polygon.",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Stellar x402",
-    "url": "https://stellar.org/blog/foundation-news/x402-on-stellar",
+    "url": "https://developers.stellar.org/docs/build/agentic-payments/x402",
     "section": "facilitators",
     "section_label": "Facilitators",
     "type": "Facilitator",
     "category": "Hosted Facilitators",
-    "desc": "Official Stellar Foundation integration. Middleware for Stellar payment addresses, browser wallet support. ([Docs](https://developers.stellar.org/docs/build/agentic-payments/x402))",
-    "verified": true
+    "desc": "Official Stellar Foundation integration. Middleware for Stellar payment addresses, browser wallet support.",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AsterPay",
@@ -1366,7 +1500,8 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "European x402 facilitator with EUR off-ramp via SEPA Instant. First European-focused x402 infrastructure. ElizaOS plugin available.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Primev FastRPC",
@@ -1376,17 +1511,19 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Fee-free facilitator on Ethereum mainnet with sub-200ms settlement via [mev-commit](https://mev-commit.xyz) preconfirmations.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Bankr x402 Cloud",
-    "url": "https://chainwire.org/2026/04/02/bankr-launches-x402-cloud-on-4-02-day-as-x402-protocol-joins-the-linux-foundation/",
+    "url": "https://bankr.bot/x402",
     "section": "facilitators",
     "section_label": "Facilitators",
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Hosted platform for deploying USDC-monetized pay-per-request APIs. Includes hosting, payment processing, and agent discovery indexing. Freemium (5% revenue cut). Built on Base. Launched April 2, 2026.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Dexter DAO",
@@ -1395,8 +1532,9 @@
     "section_label": "Facilitators",
     "type": "Facilitator",
     "category": "Hosted Facilitators",
-    "desc": "Largest x402 facilitator by volume. Surpassed Coinbase in daily transaction count and now handles ~50% of x402 traffic. Chain-agnostic v2 SDK with client, server, React hooks, and Express middleware.",
-    "verified": true
+    "desc": "Open-source x402 facilitator and SDK. Chain-agnostic v2 with client, server, React hooks, and Express middleware.",
+    "verified": true,
+    "first_listed": "2026-05-07"
   },
   {
     "name": "Ultravioleta DAO",
@@ -1406,17 +1544,19 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Multi-chain hosted facilitator supporting 33+ networks including EVM, Solana, NEAR, Stellar, Algorand, and Sui. REST API with chain-specific settlement routing.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-05-07"
   },
   {
     "name": "BNB Chain Pieverse",
-    "url": "https://twitter.com/BNBChainDevs/status/1983198549039780026",
+    "url": "https://www.pieverse.io",
     "section": "facilitators",
     "section_label": "Facilitators",
     "type": "Facilitator",
     "category": "Hosted Facilitators",
-    "desc": "BNB Chain facilitator with instant settlement.",
-    "verified": false
+    "desc": "BNB Chain x402 facilitator using pieUSD (a 1:1 USDT wrapper) to enable EIP-3009 gasless payments on BNB. Generates jurisdiction-compliant receipts immutably stored on BNB Greenfield for audit purposes. ([x402b GitHub](https://github.com/Pieverse-Eng/x402b))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MERX x402 for TRON",
@@ -1426,17 +1566,19 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "First TRON facilitator. USDT, USDC, USDD on TRON mainnet. Sub-3-second confirmation. [Express middleware](https://npmjs.com/package/merx-x402).",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
-    "name": "XRPL / 54.ai Facilitator",
-    "url": "https://www.bitget.com/news/detail/12560605308861",
+    "name": "XRPL / t54.ai Facilitator",
+    "url": "https://xrpl-x402.t54.ai/",
     "section": "facilitators",
     "section_label": "Facilitators",
     "type": "Facilitator",
     "category": "Hosted Facilitators",
-    "desc": "x402 facilitator for XRP Ledger by Virtuals Protocol / 54.ai. Autonomous XRPL agent transactions with identity and compliance verification.",
-    "verified": false
+    "desc": "x402 facilitator for XRP Ledger by t54.ai, supporting native XRP and RLUSD payments. Handles on-chain verification and settlement for autonomous agent transactions without requiring API keys or custodial wallets.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Sponsor Relay",
@@ -1446,7 +1588,8 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "x402 sponsor relay for AI on Bitcoin (aibtcdev). Agents access gated endpoints without managing their own wallets — relay sponsors on their behalf. ([aibtc.dev](https://aibtc.dev))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Satoshi Facilitator",
@@ -1456,7 +1599,8 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Independent facilitator for Bitcoin-focused pay-per-call services. Base, Base Sepolia, Solana Mainnet, Solana Devnet. [Supported networks](https://facilitator.bitcoinsapi.com/supported)",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-sovereign",
@@ -1466,7 +1610,8 @@
     "type": "Facilitator",
     "category": "Self-Hosted Facilitators",
     "desc": "Self-hosted x402 facilitator. Full control over payment verification and settlement. 63★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "qntx/facilitator",
@@ -1476,7 +1621,8 @@
     "type": "Facilitator",
     "category": "Self-Hosted Facilitators",
     "desc": "Production-ready x402 facilitator server by qntx. Docker-deployable, multi-chain. 148★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "OpenZeppelin Relayer x402 Plugin",
@@ -1486,7 +1632,8 @@
     "type": "Facilitator",
     "category": "Self-Hosted Facilitators",
     "desc": "x402 facilitator plugin for OpenZeppelin Relayer. Enterprise-grade access control and gas management. 3★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402-rs Facilitator",
@@ -1496,7 +1643,8 @@
     "type": "Facilitator",
     "category": "Self-Hosted Facilitators",
     "desc": "Production-grade Rust self-hosted facilitator. Docker deployment, multi-chain config, REST API (`/verify`, `/settle`).",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "@facilitator/eip7702",
@@ -1506,7 +1654,8 @@
     "type": "Facilitator",
     "category": "Self-Hosted Facilitators",
     "desc": "Supports all EVM blockchains (BNB, Polygon, etc.), all tokens (USDT, DAI, WBTC, etc.), and native coins (POL, AVAX, etc.).",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "machi",
@@ -1514,9 +1663,10 @@
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
-    "category": "Multi-Framework",
+    "category": "Node.js / TypeScript",
     "desc": "Agent behavior that compiles. x402-native agent execution framework with payment primitives baked in. 562★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "aixyz",
@@ -1524,9 +1674,10 @@
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
-    "category": "Multi-Framework",
+    "category": "Node.js / TypeScript",
     "desc": "Next.js-like framework for building payment-native AI agents. Bootstrap agents that pay and receive via x402 out of the box. 81★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402-gateway-template",
@@ -1534,9 +1685,10 @@
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
-    "category": "Multi-Framework",
+    "category": "Node.js / TypeScript",
     "desc": "Production-ready x402 gateway template. Widely referenced starting point for new x402 server deployments. 94★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "monapi",
@@ -1544,9 +1696,10 @@
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
-    "category": "Multi-Framework",
-    "desc": "One-line API monetization SDK. Wraps x402 setup into a single function call. Express, Next.js, and MCP support. Per-route pricing, Base/Arbitrum/Polygon, gas-free agent payments via EIP-3009. ([npm](h",
-    "verified": false
+    "category": "Node.js / TypeScript",
+    "desc": "One-line API monetization SDK. Wraps x402 setup into a single function call. Express, Next.js, and MCP support. Per-route pricing, Base/Arbitrum/Polygon, gas-free agent payments via EIP-3009. ([npm](https://www.npmjs.com/package/@monapi/sdk)) ([GitHub](https://github.com/DenisTheM/monapi))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "@moltrust/x402",
@@ -1554,9 +1707,10 @@
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
-    "category": "Express / Hono",
-    "desc": "Trust score middleware for x402 endpoints. One line: `app.use(requireScore({ minScore: 60 }))`. Extracts paying wallet from X-Payment header, looks up MolTrust trust score, blocks agents below thresho",
-    "verified": false
+    "category": "Node.js / TypeScript",
+    "desc": "Trust score middleware for x402 endpoints. One line: `app.use(requireScore({ minScore: 60 }))`. Extracts paying wallet from X-Payment header, looks up MolTrust trust score, blocks agents below threshold with 403. Zero dependencies. ([GitHub](https://github.com/MoltyCel/moltrust-x402))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Azeth Provider",
@@ -1564,9 +1718,10 @@
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
-    "category": "Express / Hono",
+    "category": "Node.js / TypeScript",
     "desc": "Hono middleware for gating endpoints behind x402 with payment-agreement support for recurring agent-to-agent billing. ([npm](https://www.npmjs.com/package/@azeth/provider))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-next",
@@ -1574,19 +1729,21 @@
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
-    "category": "Next.js",
+    "category": "Node.js / TypeScript",
     "desc": "App Router middleware for Next.js.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Next.js route protection",
-    "url": "https://github.com/coinbase/x402/tree/main/examples/typescript/fullstack/next",
+    "url": "https://github.com/x402-foundation/x402/tree/main/examples/typescript/fullstack/next",
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
-    "category": "Next.js",
+    "category": "Node.js / TypeScript",
     "desc": "Official complete Next.js app example with x402 payment gates.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Zuplo x402",
@@ -1594,19 +1751,21 @@
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
-    "category": "API Gateways",
+    "category": "Node.js / TypeScript",
     "desc": "API gateway with x402 paywalls. Add pay-per-request monetization to any API or MCP server. Sub-cent transaction fees on Base and Solana. ([Docs](https://zuplo.com/docs/articles/monetization))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "FastAPI example",
-    "url": "https://github.com/coinbase/x402/tree/main/examples/python",
+    "url": "https://github.com/x402-foundation/x402/tree/main/examples/python",
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
-    "category": "FastAPI",
+    "category": "Python",
     "desc": "Official complete FastAPI implementation with x402 payment middleware.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-rails",
@@ -1616,7 +1775,8 @@
     "type": "Frameworks & Middleware",
     "category": "Ruby / Rails",
     "desc": "Accept instant blockchain micropayments in Rails applications using x402. QuickNode Labs official Rails integration. 36★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "astro-x402",
@@ -1626,7 +1786,8 @@
     "type": "Frameworks & Middleware",
     "category": "Astro",
     "desc": "Astro middleware integration for the x402 Payment Protocol. Drop into any Astro project to gate routes behind USDC micropayments. 2★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402-spring-boot-starter",
@@ -1636,7 +1797,8 @@
     "type": "Frameworks & Middleware",
     "category": "Java / Spring Boot",
     "desc": "Protect Java APIs with pay-per-call logic using a single Spring Boot annotation. Fills the Java framework gap in the official x402 ecosystem. 10★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "nero-x402",
@@ -1646,7 +1808,8 @@
     "type": "Frameworks & Middleware",
     "category": "EVM / Account Abstraction",
     "desc": "First Account Abstraction-native x402 stack on NERO Chain. Facilitator, SDK, and audited AA contracts for gasless agent payments. 47★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "Cloudflare Agents SDK v0.4.0",
@@ -1656,417 +1819,459 @@
     "type": "Frameworks & Middleware",
     "category": "Cloudflare Workers",
     "desc": "x402 v2 migration support: `ClientEvmSigner` type, auto-selection from payment requirements, dual-header support (v2 `PAYMENT-SIGNATURE` + v1 `X-PAYMENT`), lazy facilitator initialization.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-openai-python",
     "url": "https://github.com/qntx/x402-openai-python",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Drop-In OpenAI Replacements",
+    "type": "SDK / Library",
+    "category": "",
     "desc": "Drop-in OpenAI Python client with transparent x402 payment support. Swap in one line — your existing OpenAI code starts paying via x402 automatically. 260★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402-openai-typescript",
     "url": "https://github.com/qntx/x402-openai-typescript",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Drop-In OpenAI Replacements",
+    "type": "SDK / Library",
+    "category": "",
     "desc": "Drop-in OpenAI TypeScript client with transparent x402 payment support. TypeScript companion to the Python client. 151★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "a2a-x402-typescript",
     "url": "https://github.com/dabit3/a2a-x402-typescript",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "A2A + x402",
+    "type": "SDK / Library",
+    "category": "",
     "desc": "Complete TypeScript implementation combining Google's A2A protocol with x402 payments. Reference implementation for agent-to-agent payment flows. 102★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "use-agently",
     "url": "https://github.com/agentlyhq/use-agently",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Routing",
+    "type": "SDK / Library",
+    "category": "",
     "desc": "Routing and settlement layer for AI agents. Pay x402 APIs from any agent framework. 69★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402-typescript",
-    "url": "https://github.com/coinbase/x402/tree/main/typescript",
+    "url": "https://github.com/x402-foundation/x402/tree/main/typescript",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Official",
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
     "desc": "Official TypeScript implementation. Core protocol types, payment verification and settlement logic, multi-chain support (Base, Base Sepolia, Ethereum, Solana).",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "cipher-x402-client",
     "url": "https://github.com/cryptomotifs/cipher-x402-client",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "HTTP Clients",
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
     "desc": "Lightweight TS/JS x402 v2 client. Zero runtime deps, native fetch, ESM + CJS dual build. 34 tests, 89% coverage. Node 18+ / browsers. Optional `ethers` peer dep for signing.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-got",
     "url": "https://www.npmjs.com/package/x402-got",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "HTTP Clients",
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
     "desc": "Got HTTP client integration for x402.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-mcp",
     "url": "https://www.npmjs.com/package/x402-mcp",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "AI Agent SDKs",
-    "desc": "Vercel's library for adding x402 paywalls to MCP servers via the AI SDK. The `paidTool` primitive — declare a price on any MCP tool, require payment before execution. ([Blog](https://vercel.com/blog/i",
-    "verified": true
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
+    "desc": "Vercel's library for adding x402 paywalls to MCP servers via the AI SDK. The `paidTool` primitive — declare a price on any MCP tool, require payment before execution. ([Blog](https://vercel.com/blog/introducing-x402-mcp-open-protocol-payments-for-mcp-tools))",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PayBot SDK",
     "url": "https://github.com/RBKunnela/paybot-sdk",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "AI Agent SDKs",
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
     "desc": "TypeScript SDK for integrating x402 into AI agents and bots. Automatic 402 detection, wallet management, USDC on Base. ([npm](https://www.npmjs.com/package/paybot-sdk))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ClawPay MCP",
     "url": "https://www.npmjs.com/package/clawpay-mcp",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "AI Agent SDKs",
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
     "desc": "Non-custodial x402 payment layer for AI agents. Agents sign locally with their own keys. USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Azeth SDK",
     "url": "https://github.com/azeth-protocol/sdk",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "AI Agent SDKs",
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
     "desc": "TypeScript SDK with x402 client (`fetch402`), ERC-4337 smart accounts, on-chain reputation feedback, and ERC-8004 service discovery. ([npm](https://www.npmjs.com/package/@azeth/sdk))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MoltsPay",
     "url": "https://github.com/Yaqing2023/moltspay",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "AI Agent SDKs",
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
     "desc": "Payment infrastructure for AI agents. CLI, TypeScript SDK, LangChain/CrewAI integrations. Gasless payments on Base, Polygon, Solana, BNB, Tempo. ([npm](https://www.npmjs.com/package/moltspay))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PRXVT Privacy SDK",
     "url": "https://github.com/prxvt/sdk",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Privacy",
-    "desc": "Privacy layer for x402. Fresh burner wallet per payment (unlinkable), Groth16 zero-knowledge proofs, AES-256-GCM encrypted notes, cross-chain deposits (Base to Polygon). ([Website](https://www.prxvt.c",
-    "verified": false
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
+    "desc": "Privacy layer for x402. Fresh burner wallet per payment (unlinkable), Groth16 zero-knowledge proofs, AES-256-GCM encrypted notes, cross-chain deposits (Base to Polygon). ([Website](https://www.prxvt.com/))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Agent Wallet SDK",
     "url": "https://www.npmjs.com/package/agentwallet-sdk",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Wallet Integration",
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
     "desc": "Non-custodial smart contract wallets for AI agents. On-chain spend limits, operator model. Base L2.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "viem",
     "url": "https://viem.sh/",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Wallet Integration",
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
     "desc": "TypeScript library used for signing x402 payments.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ethers.js",
     "url": "https://docs.ethers.org/",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Wallet Integration",
+    "type": "SDK / Library",
+    "category": "TypeScript / JavaScript",
     "desc": "Alternative Ethereum library for signing.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402",
     "url": "https://pypi.org/project/x402/",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Official",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Official Python SDK. FastAPI middleware, `requests` session with auto-payments, payment requirement generation.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ag402",
     "url": "https://github.com/AetherCore-Dev/ag402",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Community",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Payment layer for AI agents using x402. Wrap any API or MCP server with a USDC paywall (`ag402 serve`), or let agents auto-pay (`ag402 run`). Solana USDC, ~0.5s settlement, non-custodial, 648+ tests.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "open402",
     "url": "https://pypi.org/project/open402/",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Community",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Wire-compatible protocol layer of the ag402 project. Standalone protocol parsing or full engine with `ag402-core`.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "primer-x402",
     "url": "https://pypi.org/project/primer-x402/",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Community",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Python SDK for x402 payments — pay and charge for APIs with stablecoins.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-pay",
     "url": "https://pypi.org/project/x402-pay/",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Community",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Call any x402 API with one API key. Routes through a broker that handles on-chain payment. httpx-based with optional wallet mode. ([GitHub](https://github.com/bartonguestier1725-collab/x402-pay))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MoltsPay Python",
     "url": "https://github.com/Yaqing2023/moltspay-python",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Community",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Python SDK for x402 agent payments. LangChain compatible. Auto-creates wallets, discovers services, pays via x402. Base, Polygon, Solana, BNB. ([PyPI](https://pypi.org/project/moltspay/))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Payment Harness",
     "url": "https://github.com/rplryan/x402-payment-harness",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Community",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Python library + CLI for x402 without Coinbase CDP wallet. Works with any Ethereum EOA. Full HTTP 402 -> EIP-712 sign -> X-PAYMENT header flow. `pip install x402-payment-harness`.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-mock",
     "url": "https://pypi.org/project/x402-mock/",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "Community",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Test/mock implementation of x402 for EVM blockchains. Useful for dev/testing without live payments.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "xrpl-x402-core",
     "url": "https://pypi.org/project/xrpl-x402-core/",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "XRPL",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Wire-level validation with CAIP-2 XRPL identifiers.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "xrpl-x402-client",
     "url": "https://pypi.org/project/xrpl-x402-client/",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "XRPL",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Buyer-side Python SDK with `wrap_httpx_with_xrpl_payment`.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "xrpl-x402-middleware",
     "url": "https://pypi.org/project/xrpl-x402-middleware/",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
-    "category": "XRPL",
+    "type": "SDK / Library",
+    "category": "Python",
     "desc": "Server-side middleware with `require_payment()`. Optional Coinbase x402 interop.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "r402",
     "url": "https://github.com/qntx/r402",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Rust",
     "desc": "Rust SDK for the x402 payment protocol by qntx. High-performance, type-safe implementation. 147★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "ra2a",
     "url": "https://github.com/qntx/ra2a",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Rust",
     "desc": "Rust SDK for the Agent2Agent (A2A) Protocol with x402 integration. 165★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402-rs",
     "url": "https://github.com/x402-rs/x402-rs",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Rust",
     "desc": "Production-grade Rust implementation. Axum middleware, reqwest client wrapper, self-hostable facilitator, multi-chain support.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-kit",
     "url": "https://github.com/bitrouter/x402-kit",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Rust",
     "desc": "Fully modular, framework-agnostic Rust SDK. Composable buyer (signer) and seller (server) primitives. ([crates.io](https://crates.io/crates/x402-paywall))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "alloy",
     "url": "https://github.com/alloy-rs/alloy",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Rust",
     "desc": "High-performance Ethereum library used for Rust x402 signing.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
-    "name": "coinbase/x402 (Go)",
-    "url": "https://github.com/coinbase/x402/tree/main/go",
+    "name": "x402-foundation/x402 (Go)",
+    "url": "https://github.com/x402-foundation/x402/tree/main/go",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Go",
     "desc": "Official Go implementation. Core protocol types, multi-chain support.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-go",
     "url": "https://github.com/mark3labs/x402-go",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Go",
     "desc": "Community Go implementation by Mark III Labs.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "mcp-go-x402",
     "url": "https://github.com/mark3labs/mcp-go-x402",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Go",
-    "desc": "x402 payment transport for MCP-Go clients and servers. Drop-in replacement compatible with mcp-go transport interface. Automatic 402 handling, multi-chain (EVM + Solana), mock signers for testing. ([G",
-    "verified": false
+    "desc": "x402 payment transport for MCP-Go clients and servers. Drop-in replacement compatible with mcp-go transport interface. Automatic 402 handling, multi-chain (EVM + Solana), mock signers for testing. ([Go Package](https://pkg.go.dev/github.com/mark3labs/mcp-go-x402))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Mogami",
     "url": "https://mogami.tech",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Java",
     "desc": "Production-ready Java x402 stack. Includes SDK, server, console, and a bundled MCP server for Claude and OpenAI. Fills the Java gap in the official x402 ecosystem.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-05-07"
   },
   {
     "name": "x402-dotnet",
     "url": "https://github.com/michielpost/x402-dotnet",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": ".NET",
     "desc": "x402 Payment Protocol implementation for .NET. Fills the .NET language gap in the ecosystem. 11★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "genlayer-x402",
     "url": "https://github.com/habiiyt31/genlayer-x402",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Other Languages",
     "desc": "x402 for GenLayer Intelligent Contracts. 4 production-ready on-chain contracts gating real-time web data and AI services behind trustless payments. No server, no API key, no middleman.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Spillway",
     "url": "https://github.com/openledger-labs/Spillway",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Other Languages",
     "desc": "Subscription payment channels on Stellar using x402.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Solana Foundation Pay",
     "url": "https://github.com/solana-foundation/pay",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Other Languages",
-    "desc": "Official Solana Foundation library for handling x402 and MPP payment challenges with user-authorized stablecoin signing. Updated May 2026. Stream payments, not transactions — 1,000 requests = only 2 o",
-    "verified": false
+    "desc": "Official Solana Foundation library for handling x402 and MPP payment challenges with user-authorized stablecoin signing. Updated May 2026. Stream payments, not transactions — 1,000 requests = only 2 on-chain transactions.",
+    "verified": false,
+    "first_listed": "2026-05-07"
   },
   {
     "name": "pay-kit",
     "url": "https://github.com/solana-foundation/pay-kit",
     "section": "sdks",
     "section_label": "SDKs & Libraries",
-    "type": "SDKs & Librarie",
+    "type": "SDK / Library",
     "category": "Other Languages",
     "desc": "Agentic commerce building blocks (x402, MPP, AP2) for TypeScript, Rust, Go, Python. Official Solana Foundation toolkit covering all major agent payment protocols. 63★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "blockrun-mcp",
@@ -2077,7 +2282,8 @@
     "category": "General Utility",
     "desc": "Live data MCP for AI agents: search, research, markets, crypto, X/Twitter. Pay-per-use USDC on Base and Solana via x402. 31+ AI models, 600+ services indexed. 471★",
     "verified": false,
-    "badge_resource": "https://blockrun.ai/api/v1/exa/search"
+    "badge_resource": "https://blockrun.ai/api/v1/exa/search",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MetaMask MCP x402",
@@ -2087,7 +2293,8 @@
     "type": "MCP Server",
     "category": "General Utility",
     "desc": "Official MetaMask MCP server with x402 payment integration. Creates x402 payment headers using MetaMask wallet. 4★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402-mcp",
@@ -2096,8 +2303,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "General Utility",
-    "desc": "Vercel's `paidTool` primitive — add an x402 paywall to any MCP tool with one wrapper. The foundational MCP payment SDK. ([Blog](https://vercel.com/blog/introducing-x402-mcp-open-protocol-payments-for-",
-    "verified": true
+    "desc": "Vercel's `paidTool` primitive — add an x402 paywall to any MCP tool with one wrapper. The foundational MCP payment SDK. ([Blog](https://vercel.com/blog/introducing-x402-mcp-open-protocol-payments-for-mcp-tools)) ([Starter Template](https://vercel.com/templates/next.js/x402-ai-starter))",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "agentsvc.io MCP",
@@ -2106,8 +2314,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "General Utility",
-    "desc": "20 pay-per-call utility tools: screenshots (Playwright), OCR (Tesseract), PDF generation, webpage reader, web/news search, weather, forex/crypto/stock prices, DNS, IP geolocation, geocoding, translati",
-    "verified": true
+    "desc": "20 pay-per-call utility tools: screenshots (Playwright), OCR (Tesseract), PDF generation, webpage reader, web/news search, weather, forex/crypto/stock prices, DNS, IP geolocation, geocoding, translation, QR codes, email/phone/SSL validation, WHOIS. $0.001-$0.008 USDC on Base. ([GitHub](https://github.com/jakobautomation/agentsvc-mcp))",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "IteraTools MCP",
@@ -2116,18 +2325,20 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "General Utility",
-    "desc": "80+ tool MCP server: image generation (Flux), web scraping, TTS, OCR, QR codes, browser automation, sandboxed code execution, DNS, WHOIS, weather, crypto, charts, email validation, URL shortening, and",
-    "verified": true
+    "desc": "80+ tool MCP server: image generation (Flux), web scraping, TTS, OCR, QR codes, browser automation, sandboxed code execution, DNS, WHOIS, weather, crypto, charts, email validation, URL shortening, and more. $0.001-$0.01 USDC on Base. ([GitHub](https://github.com/fredpsantos33/mcp-iteratools))",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Spraay MCP",
-    "url": "https://smithery.ai/server/@plagtech/spraay-x402-mcp",
+    "url": "https://docs.spraay.app",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "General Utility",
-    "desc": "60+ tool MCP server for multi-chain DeFi payments: batch sends, payroll, token swaps, bridge, escrow, AI inference, Robot Task Protocol (RTP). 76+ x402 endpoints across 13 chains. $0.005-$0.25 USDC. (",
-    "verified": false
+    "desc": "60+ tool MCP server for multi-chain DeFi payments: batch sends, payroll, token swaps, bridge, escrow, AI inference, Robot Task Protocol (RTP). 76+ x402 endpoints across 13 chains. $0.005-$0.25 USDC. ([GitHub](https://github.com/plagtech)) ([Smithery](https://smithery.ai/server/@plagtech/spraay-x402-mcp))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "EntRoute MCP",
@@ -2136,8 +2347,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "General Utility",
-    "desc": "Discover and call 350+ verified x402 API endpoints across 110+ capabilities. Natural language intent discovery, quality ranking (success rate, latency, price), automatic payments. `npx @entroute/mcp-s",
-    "verified": true
+    "desc": "Discover and call 350+ verified x402 API endpoints across 110+ capabilities. Natural language intent discovery, quality ranking (success rate, latency, price), automatic payments. `npx @entroute/mcp-server`. ([GitHub](https://github.com/entroute/mcp-server))",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Pylon MCP",
@@ -2147,7 +2359,8 @@
     "type": "MCP Server",
     "category": "General Utility",
     "desc": "20-tool MCP server: web extraction, search, translation, code execution, image generation, email, and more. `npx @pylonapi/mcp`. ([GitHub](https://github.com/pylon-apis/pylon-mcp))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Apollo Intelligence MCP",
@@ -2157,7 +2370,8 @@
     "type": "MCP Server",
     "category": "General Utility",
     "desc": "26-tool MCP server: intelligence feeds, crypto, OSINT, DeFi, proxy, and search. `npx @apollo_ai/mcp-proxy`. ([GitHub](https://github.com/bnmbnmai/mcp-proxy))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "APIbase.pro",
@@ -2167,7 +2381,8 @@
     "type": "MCP Server",
     "category": "General Utility",
     "desc": "MCP gateway with 263+ tools from 74 providers, x402 USDC micropayments on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402engine MCP",
@@ -2176,8 +2391,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "General Utility",
-    "desc": "74 pay-per-call API tools: 44 LLMs, image/video generation, crypto data, web search, code execution, TTS, travel, IPFS. Multi-chain USDC. `npx x402engine-mcp`. ([GitHub](https://github.com/agentc22/x4",
-    "verified": false
+    "desc": "74 pay-per-call API tools: 44 LLMs, image/video generation, crypto data, web search, code execution, TTS, travel, IPFS. Multi-chain USDC. `npx x402engine-mcp`. ([GitHub](https://github.com/agentc22/x402-engine))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "APIMesh MCP",
@@ -2186,8 +2402,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "General Utility",
-    "desc": "16-tool MCP server for web analysis: SEO, security headers, Core Web Vitals, domain availability, email security, tech stack detection, wallet spend tracking. x402 on Base. `npx @mbeato/apimesh-mcp-se",
-    "verified": false
+    "desc": "16-tool MCP server for web analysis: SEO, security headers, Core Web Vitals, domain availability, email security, tech stack detection, wallet spend tracking. x402 on Base. `npx @mbeato/apimesh-mcp-server`. ([GitHub](https://github.com/mbeato/conway))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AskClaude MCP",
@@ -2196,8 +2413,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "General Utility",
-    "desc": "Pay-per-query Claude AI. 9 x402 endpoints: Haiku/Sonnet/Opus chat, streaming, summarization, code review, translation, sentiment, crypto analysis. $0.01-$0.10 USDC on Base. `npx askclaude-mcp`. ([GitH",
-    "verified": false
+    "desc": "Pay-per-query Claude AI. 9 x402 endpoints: Haiku/Sonnet/Opus chat, streaming, summarization, code review, translation, sentiment, crypto analysis. $0.01-$0.10 USDC on Base. `npx askclaude-mcp`. ([GitHub](https://github.com/pvega23/askclaude-mcp))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "JubJub MCP",
@@ -2207,7 +2425,8 @@
     "type": "MCP Server",
     "category": "General Utility",
     "desc": "65-tool MCP server for media publishing, cross-platform analytics, automated on-chain royalty splits.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Human Pages MCP",
@@ -2217,17 +2436,19 @@
     "type": "MCP Server",
     "category": "General Utility",
     "desc": "31-tool MCP for the open directory AI agents use to hire humans for real-world tasks. x402 pay-per-use on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Cerebrus Pulse MCP",
-    "url": "https://github.com/0xsl1m/cerebrus-pulse-mcp",
+    "url": "https://cerebruspulse.xyz",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Crypto & DeFi Intelligence",
     "desc": "Real-time crypto intelligence: technical analysis (RSI, EMAs, Bollinger Bands), sentiment, funding rates for 30+ Hyperliquid perpetuals. x402 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "BotIndex MCP",
@@ -2236,8 +2457,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Crypto & DeFi Intelligence",
-    "desc": "17-tool signal intelligence: sports odds, crypto correlations, token graduations (Zora/Hyperliquid/Metaplex Genesis), DFS optimization, arbitrage detection. 50 free requests/wallet then x402 on Base. ",
-    "verified": false
+    "desc": "17-tool signal intelligence: sports odds, crypto correlations, token graduations (Zora/Hyperliquid/Metaplex Genesis), DFS optimization, arbitrage detection. 50 free requests/wallet then x402 on Base. `npx botindex-mcp-server`. ([npm](https://npmjs.com/package/botindex-mcp-server))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Harvey Intel",
@@ -2247,7 +2469,8 @@
     "type": "MCP Server",
     "category": "Crypto & DeFi Intelligence",
     "desc": "Solana token rug pull detection (DrainBrain ML ensemble), trading signals, social intelligence. 8 tools, $0.005-$0.05 USDC on Solana. ([npm](https://www.npmjs.com/package/@meltingpixels/harvey-intel))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Harvey Tools",
@@ -2257,7 +2480,8 @@
     "type": "MCP Server",
     "category": "Crypto & DeFi Intelligence",
     "desc": "Web scraping, screenshots, structured data extraction, code review, content generation, sentiment analysis. 8 tools on Solana. ([npm](https://www.npmjs.com/package/@meltingpixels/harvey-tools))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Harvey Verify",
@@ -2267,7 +2491,8 @@
     "type": "MCP Server",
     "category": "Crypto & DeFi Intelligence",
     "desc": "Post-transaction outcome verification using LLM-as-judge. Aggregated service quality scores. 5 tools on Solana.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Harvey Budget",
@@ -2277,7 +2502,8 @@
     "type": "MCP Server",
     "category": "Crypto & DeFi Intelligence",
     "desc": "Agent spending management: budget tracking, ROI analysis, spend approval. 6 tools on Solana.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "SOLx402 MCP",
@@ -2287,7 +2513,8 @@
     "type": "MCP Server",
     "category": "Crypto & DeFi Intelligence",
     "desc": "Interact with x402 on Solana. Discover/consume services, manage USDC, query protocol docs.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ShieldAPI MCP",
@@ -2296,8 +2523,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Security",
-    "desc": "9-tool security MCP: password breach, email breach, domain/IP reputation, URL safety, full security scan, prompt injection detection, skill security scanning. x402 USDC on Base or free demo mode. `npx",
-    "verified": false
+    "desc": "9-tool security MCP: password breach, email breach, domain/IP reputation, URL safety, full security scan, prompt injection detection, skill security scanning. x402 USDC on Base or free demo mode. `npx shieldapi-mcp`.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MCP Security Snapshot Server",
@@ -2307,7 +2535,8 @@
     "type": "MCP Server",
     "category": "Security",
     "desc": "Pay-per-call HTTP security header scanning. $0.05 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ZKProofport MCP",
@@ -2315,29 +2544,32 @@
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
-    "category": "Security",
-    "desc": "Zero-knowledge identity proof generation. Coinbase KYC, Country, Google OIDC proofs without revealing personal data. AWS Nitro Enclave TEE proving. NPM: `@zkproofport-ai/mcp`. Won 1st place at The Syn",
-    "verified": false
+    "category": "Identity & Trust",
+    "desc": "Zero-knowledge identity proof generation. Coinbase KYC, Country, Google OIDC proofs without revealing personal data. AWS Nitro Enclave TEE proving. NPM: `@zkproofport-ai/mcp`. Won 1st place at The Synthesis Hackathon (April 2026).",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "24K Labs MCP",
-    "url": "https://github.com/Haustorium12/24klabs-mcp",
+    "url": "https://api.24klabs.ai",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Code & Development",
     "desc": "6 AI code analysis tools: explain, debug, review, security audit, automation scripts, MCP blueprints. $0.50-$50.00 USDC on Base.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Stack AI x402",
-    "url": "https://github.com/Stack-AI-MCP/stackai-x402",
+    "url": "https://x402.stacks-ai.app",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Code & Development",
     "desc": "Platform for monetizing MCP servers. Tool calls execute inline with payment prompts.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PYTHIA Oracle",
@@ -2347,7 +2579,8 @@
     "type": "MCP Server",
     "category": "Code & Development",
     "desc": "Oracle MCP server. One tool (`consult_oracle`), one reading. 3 free per agent, then $0.025 USDC on Base via x402. [Smithery](https://smithery.ai/servers/dexigo/pythia)",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ALTER MCP",
@@ -2356,8 +2589,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Identity & Trust",
-    "desc": "Identity infrastructure MCP for the AI economy. Verified human identity via 33-trait psychometric engine. Identity Income via x402 USDC. 16 tools free. ([Docs](https://truealter.com)) ([SDK](https://g",
-    "verified": false
+    "desc": "Identity infrastructure MCP for the AI economy. Verified human identity via 33-trait psychometric engine. Identity Income via x402 USDC. 16 tools free. ([Docs](https://truealter.com)) ([SDK](https://github.com/true-alter/alter-identity))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Azeth MCP",
@@ -2367,7 +2601,8 @@
     "type": "MCP Server",
     "category": "Identity & Trust",
     "desc": "x402 payment tool (`azeth_pay`), ERC-8004 trust registry discovery, on-chain reputation scoring, payment agreements for recurring billing. ([npm](https://www.npmjs.com/package/@azeth/mcp-server))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MoltGuard",
@@ -2377,7 +2612,8 @@
     "type": "MCP Server",
     "category": "Identity & Trust",
     "desc": "Agent trust scoring (0-100), Sybil detection, Polymarket integrity, Ed25519 Verifiable Credentials. 7 MCP tools. $0.005-$0.05 USDC on Base. ([GitHub](https://github.com/moltrust/moltguard))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PayCrow",
@@ -2386,8 +2622,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Escrow & Payments",
-    "desc": "Escrow protection for autonomous agent payments. Trust scoring from 4 on-chain sources + USDC escrow with dispute resolution on Base. 10 MCP tools: `safe_pay` (trust-informed escrow) and `trust_gate` ",
-    "verified": false
+    "desc": "Escrow protection for autonomous agent payments. Trust scoring from 4 on-chain sources + USDC escrow with dispute resolution on Base. 10 MCP tools: `safe_pay` (trust-informed escrow) and `trust_gate` (go/no-go before payment). ([npm](https://www.npmjs.com/package/paycrow))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Arbitova",
@@ -2396,8 +2633,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Escrow & Payments",
-    "desc": "Escrow + transparent AI arbitration (N=3 LLM majority vote). Sub-task chained escrow for agent swarms. 0.5% success fee, 2% dispute only. 8 MCP tools. ([npm SDK](https://www.npmjs.com/package/@arbitov",
-    "verified": false
+    "desc": "Escrow + transparent AI arbitration (N=3 LLM majority vote). Sub-task chained escrow for agent swarms. 0.5% success fee, 2% dispute only. 8 MCP tools. ([npm SDK](https://www.npmjs.com/package/@arbitova/sdk)) ([MCP](https://www.npmjs.com/package/@arbitova/mcp-server))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PayBot MCP",
@@ -2407,17 +2645,19 @@
     "type": "MCP Server",
     "category": "Escrow & Payments",
     "desc": "Claude and AI agents make autonomous x402 payments. Wallet management, transaction history, configurable spending limits. ([npm](https://www.npmjs.com/package/paybot-mcp))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "agentpay-mcp",
-    "url": "https://github.com/supermemoryai/supermemory/issues/803",
+    "url": "https://github.com/up2itnow0822/agentpay-mcp",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Escrow & Payments",
-    "desc": "Native x402 client-side payment execution inside the agent loop. Detects 402 responses and completes transactions with no human handoff.",
-    "verified": false
+    "desc": "Native x402 client-side payment execution inside the agent loop. Detects 402 responses and completes transactions with no human handoff. ([npm](https://www.npmjs.com/package/agentpay-mcp))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "402-mcp",
@@ -2427,7 +2667,8 @@
     "type": "MCP Server",
     "category": "Escrow & Payments",
     "desc": "Payment-rail-agnostic x402 MCP client. No Lightning node required, multi-wallet support, encrypted credentials.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402search MCP",
@@ -2436,8 +2677,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Discovery",
-    "desc": "Search 14,000+ x402-enabled HTTP APIs by keyword. The largest x402 API index. $0.01 USDC per search on Base. ([npm](https://www.npmjs.com/package/x402search-mcp)) ([PyPI](https://pypi.org/project/x402",
-    "verified": false
+    "desc": "Search 14,000+ x402-enabled HTTP APIs by keyword. The largest x402 API index. $0.01 USDC per search on Base. ([npm](https://www.npmjs.com/package/x402search-mcp)) ([PyPI](https://pypi.org/project/x402search-mcp/))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Service Discovery MCP",
@@ -2447,7 +2689,8 @@
     "type": "MCP Server",
     "category": "Discovery",
     "desc": "MCP for discovering 251+ x402-payable services with quality signals (uptime, latency, trust scores). 6 tools. Smithery 100/100.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Intelligence Aeternum",
@@ -2456,8 +2699,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Discovery",
-    "desc": "First monetized MCP server marketplace. 2M+ museum artworks. 16 MCP tools for search, enrichment, delivery. [Live](https://data-portal-172867820131.us-west1.run.app/mcp)",
-    "verified": false
+    "desc": "Monetized MCP server marketplace. 2M+ museum artworks. 16 MCP tools for search, enrichment, delivery. [Live](https://data-portal-172867820131.us-west1.run.app/mcp)",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "InstaDomain",
@@ -2467,7 +2711,8 @@
     "type": "MCP Server",
     "category": "Domain & Web",
     "desc": "Domain registration accepting x402. AI agents search, check availability, buy domains autonomously.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Recall Kitchen",
@@ -2477,7 +2722,8 @@
     "type": "MCP Server",
     "category": "Domain & Web",
     "desc": "Search food/product/vehicle recalls. $0.025 USDC on Base per request. [Examples](https://github.com/Recall-Kitchen/rk-mcp/tree/master/examples/go)",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Wallet for Claude Desktop",
@@ -2487,7 +2733,8 @@
     "type": "MCP Server",
     "category": "Domain & Web",
     "desc": "Native Claude Desktop extension (.mcpb one-click install). USDC wallet on Stellar and Base. Three tools: check_balance, pay, x402_fetch. Configurable budget limits.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Scout MCP",
@@ -2498,7 +2745,8 @@
     "category": "Domain & Web",
     "desc": "Multi-source search across code, academic, social, community platforms. From $0.01 USDC on Base. ([Source](https://github.com/bartonguestier1725-collab/scout-mcp))",
     "verified": false,
-    "badge_resource": "https://scout.hugen.tokyo/scout/x"
+    "badge_resource": "https://scout.hugen.tokyo/scout/x",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "TweetClaw",
@@ -2508,7 +2756,8 @@
     "type": "MCP Server",
     "category": "Domain & Web",
     "desc": "Real-time X (Twitter) data. 7 pay-per-use endpoints via x402. ([GitHub](https://github.com/Xquik-dev/tweetclaw)) ([npm](https://www.npmjs.com/package/@xquik/tweetclaw))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Stockfilm MCP",
@@ -2517,18 +2766,9 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "Media & Content",
-    "desc": "217,000+ authentic vintage 8mm home movie clips (1930s-1980s) restored in 4K. AI agents search, preview, license archival footage via x402. $10 USDC per clip. 6 tools. ([Docs](https://stockfilm.com/fo",
-    "verified": false
-  },
-  {
-    "name": "MaximumSats MCP",
-    "url": "https://github.com/joelklabo/maximumsats-mcp",
-    "section": "mcp-servers",
-    "section_label": "MCP Servers",
-    "type": "MCP Server",
-    "category": "Media & Content",
-    "desc": "Lightning-native MCP tools with L402 micropayments and Nostr Web-of-Trust scoring APIs.",
-    "verified": false
+    "desc": "217,000+ authentic vintage 8mm home movie clips (1930s-1980s) restored in 4K. AI agents search, preview, license archival footage via x402. $10 USDC per clip. 6 tools. ([Docs](https://stockfilm.com/for-ai-agents))",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ToolOracle",
@@ -2536,394 +2776,433 @@
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
-    "category": "ToolOracle",
-    "desc": "x402 entitlement gateway with 10 intelligence products and 90+ MCP tools: RankOracle (SEO), ShopOracle, MemeOracle, SmartMoneyOracle (whale flows), YieldOracle (DeFi), FlightOracle, HotelOracle, NewsO",
+    "category": "Discovery",
+    "desc": "x402 entitlement gateway with 10 intelligence products and 90+ MCP tools: RankOracle (SEO), ShopOracle, MemeOracle, SmartMoneyOracle (whale flows), YieldOracle (DeFi), FlightOracle, HotelOracle, NewsOracle, JobOracle, MacroOracle. Unit-based pricing ($0.01/unit, 2-15 units per call). USDC on Base.",
     "verified": false,
-    "badge_resource": "https://tooloracle.io/v2/cve_lookup"
+    "badge_resource": "https://tooloracle.io/v2/cve_lookup",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "mcpc",
     "url": "https://github.com/apify/mcpc",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "CLI Tools",
     "desc": "Universal CLI client for MCP by Apify. Supports persistent sessions, stdio/HTTP, OAuth, and x402 micropayments. The `curl` for MCP. 679★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "portal-tunnel",
     "url": "https://github.com/gosuda/portal-tunnel",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "CLI Tools",
     "desc": "Publishes localhost services to the agentic web through self-hostable, trustless tunnels with x402 payment gating. 260★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402-payment-link",
     "url": "https://github.com/second-state/x402-payment-link",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "CLI Tools",
     "desc": "Generate shareable x402 payment links. Pay-per-access URLs for content, APIs, and digital goods. 201★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "tweazy",
     "url": "https://github.com/aaronjmars/tweazy",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "CLI Tools",
     "desc": "Monetize AI applications and MCP servers using x402, CDP Smart Wallets, and Coinbase AgentKit. Quick scaffolding for payment-gated tools. 47★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402-proxy",
     "url": "https://github.com/cascade-protocol/x402-proxy",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "CLI Tools",
     "desc": "`curl` for x402 paid APIs. Auto-pays HTTP 402 with USDC on Base and Solana. MCP stdio proxy for AI agents. `npx x402-proxy`. ([npm](https://www.npmjs.com/package/x402-proxy))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ClawRouter",
     "url": "https://github.com/BlockRunAI/ClawRouter",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "CLI Tools",
     "desc": "Agent-native LLM router. 41+ models, <1ms routing, USDC payments on Base and Solana via x402. \"Payment IS authentication.\" Part of the OpenClaw ecosystem.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "key0",
     "url": "https://github.com/key0ai/key0",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "CLI Tools",
     "desc": "Commercial gateway for AI agents. Discover, pay for, and access APIs autonomously via x402. Exposes `/discover`, `/x402/access`, `/.well-known/agent.json`, `/.well-known/mcp.json`, `/llms.txt`.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "World AgentKit",
     "url": "https://www.coindesk.com/tech/2026/03/17/sam-altman-s-world-teams-up-with-coinbase-to-prove-there-is-a-real-person-behind-every-ai-transaction",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "CLI Tools",
     "desc": "Developer toolkit integrating World's WorldID biometric identity with x402. AI agents prove they act on behalf of a verified unique human. 18M+ verified humans.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Red Team Blue Team Agent Fabric",
     "url": "https://github.com/msaleme/red-team-blue-team-agent-fabric",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "CLI Tools",
     "desc": "Security testing harness for autonomous AI agents with dedicated x402 endpoint testing. MCP, A2A, x402/L402 support. 342-test suite.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "24K Labs GitHub Action",
     "url": "https://github.com/Haustorium12/24klabs-action",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "GitHub Actions & CI/CD",
     "desc": "Automated AI code review on every PR. Runs explain, debug, review, and security audit via x402 micropayments. Drop into any GitHub Actions workflow.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Obol GitHub Actions CI/CD",
     "url": "https://api.obol.sh",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "GitHub Actions & CI/CD",
     "desc": "Obol generates GitHub Actions CI/CD pipelines via x402. $5 USDC per call on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Sentinel/Valeo",
     "url": "https://sentinel.valeocash.com",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
-    "desc": "Enterprise audit and compliance layer for x402 payments. Budget enforcement (per-call, hourly, daily), structured audit trails, real-time dashboard, public payment explorer. SDK: [`@x402sentinel/x402`",
-    "verified": true
+    "desc": "Enterprise audit and compliance layer for x402 payments. Budget enforcement (per-call, hourly, daily), structured audit trails, real-time dashboard, public payment explorer. SDK: [`@x402sentinel/x402`](https://npmjs.com/package/@x402sentinel/x402).",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ScoutScore",
     "url": "https://scoutscore.ai",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
-    "desc": "Trust scoring infrastructure for x402 services. Monitors 1,700+ services with continuous health checks and fidelity probes. 4-pillar model: Contract Clarity, Availability, Response Fidelity, Identity ",
-    "verified": true
+    "desc": "Trust scoring infrastructure for x402 services. Monitors 1,700+ services with continuous health checks and fidelity probes. 4-pillar model: Contract Clarity, Availability, Response Fidelity, Identity & Safety. [npm SDK](https://www.npmjs.com/package/@scoutscore/sdk) [MCP Server](https://www.npmjs.com/package/@scoutscore/mcp-server)",
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402scan Explorer",
     "url": "https://x402scan.com",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
     "desc": "Blockchain explorer for x402 payments. Transaction search and verification, payment requirement inspection, settlement status tracking.",
     "verified": true,
-    "badge_resource": "https://www.x402scan.com/api/x402/resources/search"
+    "badge_resource": "https://www.x402scan.com/api/x402/resources/search",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Agent Forensics",
     "url": "https://www.npmjs.com/package/agent-forensics",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
-    "desc": "Agent cost observability for Claude Code. Analyzes JSONL session logs: per-model cost breakdown, cache efficiency, waste patterns (model misallocation, debug loops, sub-agent sprawl). Free CLI: `npx a",
-    "verified": false
+    "desc": "Agent cost observability for Claude Code. Analyzes JSONL session logs: per-model cost breakdown, cache efficiency, waste patterns (model misallocation, debug loops, sub-agent sprawl). Free CLI: `npx agent-forensics analyze`. x402 API at $5/$15 tiers on Base.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Valoria",
     "url": "https://x402.valoria.net",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
     "desc": "x402 market intelligence with revenue rankings, service analysis, pricing data across 90K+ indexed services and $148M+ in tracked on-chain volume.",
     "verified": false,
-    "badge_resource": "https://x402.valoria.net/intelligence/pulse"
+    "badge_resource": "https://x402.valoria.net/intelligence/pulse",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402station",
     "url": "https://x402station.com",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
     "desc": "Real-time monitoring and discovery platform for 20,000+ x402 endpoints. Probes every 10 minutes, tracks health scores, uptime, and latency. MCP server for agent access included.",
     "verified": true,
-    "badge_resource": "https://x402station.io/api/v1/forensics"
+    "badge_resource": "https://x402station.io/api/v1/forensics",
+    "first_listed": "2026-05-07"
   },
   {
     "name": "ToolMeter",
     "url": "https://snappedai.com/toolmeter/",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
     "desc": "MCP/x402 seller-readiness tool with pricing metadata, `.well-known/x402`, OpenAPI, agent metadata, listing kit, and buyer-safety checks for paid endpoint launches.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-03"
   },
   {
     "name": "agenteconomy.to",
     "url": "https://agenteconomy.to",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
     "desc": "Real-time dashboard tracking agentic economy across x402, ERC-8004, ERC-8183, and MPP protocols on 8 chains. Refreshes every 6 hours.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Dune Analytics x402",
     "url": "https://dune.com/x402",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
     "desc": "On-chain metrics: transaction volumes, chain-by-chain analytics, facilitator comparison, revenue/fee metrics.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Paybound",
     "url": "https://github.com/pando-b/paybound",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Spending Controls & Policy",
     "desc": "Open-source governance proxy for x402 agent payments. Per-agent budgets, circuit breakers, SQLite audit trail. Drop-in `@x402/fetch` replacement. MIT licensed.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PolicyLayer",
     "url": "https://policylayer.com",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Spending Controls & Policy",
     "desc": "Non-custodial spending controls for AI agents. Daily spending limits, per-transaction caps, recipient whitelists, rate limiting — without holding private keys.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ICME Labs",
     "url": "https://docs.icme.io",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Spending Controls & Policy",
-    "desc": "Formal verification for AI agent actions. Natural language policies compile to SMT-LIB formal logic, checked by SMT solver. Wrapped in zero knowledge proofs for sub-1s verification. $0.10 USDC on Base",
-    "verified": false
+    "desc": "Formal verification for AI agent actions. Natural language policies compile to SMT-LIB formal logic, checked by SMT solver. Wrapped in zero knowledge proofs for sub-1s verification. $0.10 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PaySentry",
     "url": "https://github.com/mkmkkkkk/paysentry",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Spending Controls & Policy",
     "desc": "Control plane for AI agent payments. Spending limits, circuit breakers, anomaly detection, audit trails for x402. npm: `@paysentry/x402`.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Notary",
     "url": "https://github.com/x402notary/notary",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Spending Controls & Policy",
     "desc": "Enterprise-grade audit and compliance platform for x402. Full visibility into agent spending, policy enforcement, cryptographic audit trails.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Decision Anchor",
     "url": "https://api.decision-anchor.com",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Spending Controls & Policy",
     "desc": "External accountability proof for agent payments and delegation. Records what was authorized, when, at what scope — before x402 payment execution.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-mock",
     "url": "https://pypi.org/project/x402-mock/",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Testing & Development",
     "desc": "Test/mock implementation of x402 for EVM blockchains. Dev/testing without live payments.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AWS CloudFront x402 content monetization sample",
     "url": "https://github.com/aws-samples/sample-x402-content-monetization-with-cloudfront-and-waf",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Testing & Development",
     "desc": "AWS-published reference implementation for monetizing content behind CloudFront and WAF using x402 and USDC payments. Published March 2026.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-05-07"
   },
   {
     "name": "Base Sepolia Testnet",
     "url": "https://docs.base.org/docs/network-information",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Testing & Development",
     "desc": "Primary testnet for x402 development.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Base Sepolia USDC Faucet",
     "url": "https://faucet.circle.com/",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Testing & Development",
     "desc": "Get test USDC for development.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Base Sepolia Bridge",
     "url": "https://bridge.base.org/",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Testing & Development",
     "desc": "Bridge test ETH to Base Sepolia.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Service Discovery API",
     "url": "https://x402-discovery-api.onrender.com",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Discovery & Search",
     "desc": "Enriched directory of 251+ x402-payable services. Trust signals, uptime, latency, health scores. Auto-scans x402.org/ecosystem every 6h. 6-tool MCP server.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 RouteNet",
     "url": "https://x402-routenet.onrender.com",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Discovery & Search",
-    "desc": "Smart routing layer for x402-enabled services. Selects optimal endpoint from 251+ services based on price, latency, health, or composite trust. Four strategies: `best`, `cheapest`, `fastest`, `most_tr",
-    "verified": false
+    "desc": "Smart routing layer for x402-enabled services. Selects optimal endpoint from 251+ services based on price, latency, health, or composite trust. Four strategies: `best`, `cheapest`, `fastest`, `most_trusted`.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "OpenClaw Discovery Index",
     "url": "https://x402search.xyz",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Discovery & Search",
     "desc": "x402-gated search engine for 13,000+ x402-enabled APIs indexed from CDP Bazaar. $0.01 USDC per search on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AgentIndex",
     "url": "https://agentndx-production.up.railway.app",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Discovery & Search",
     "desc": "Unified search across 15,000+ MCP services, A2A agents, and x402 APIs from 5 registries (Smithery, official MCP, GitHub, Bazaar, A2A). x402 paid search ($0.005), analyze ($0.05), trending ($0.10).",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Cinderwright Discovery Hub",
     "url": "https://api.ideafactorylab.org",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Discovery & Search",
     "desc": "x402 service search engine. 152+ services across 9 categories with daily crawling and health checks. Paid search, free submission, free stats. Built by a production autonomous AI agent.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "BlockRun",
     "url": "https://blockrun.ai",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Discovery & Search",
     "desc": "AI Gateway + Service Directory. 600+ x402 services indexed, trust scores, 31+ AI models via pay-per-use USDC.",
     "verified": false,
-    "badge_resource": "https://blockrun.ai/api/v1/exa/search"
+    "badge_resource": "https://blockrun.ai/api/v1/exa/search",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402search MCP",
     "url": "https://github.com/x402-index/x402search-mcp",
     "section": "tools",
     "section_label": "Tools & Utilities",
-    "type": "Tools & Utilitie",
+    "type": "Tool / Utility",
     "category": "Discovery & Search",
     "desc": "Search 14,000+ x402-enabled HTTP APIs. Also live as ACP agent on Virtuals Protocol (ID 22531). ([npm](https://www.npmjs.com/package/x402search-mcp)) ([PyPI](https://pypi.org/project/x402search-mcp/))",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402-starter-kit",
@@ -2933,7 +3212,8 @@
     "type": "Learning Resource",
     "category": "Quick Start Guides",
     "desc": "Widely-referenced x402 starter kit by Nader Dabit. Full end-to-end example for getting a payment-gated API running quickly. 181★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "x402-ai-starter",
@@ -2943,7 +3223,8 @@
     "type": "Learning Resource",
     "category": "Quick Start Guides",
     "desc": "Vercel's official x402 AI starter template. Next.js + x402 + AI SDK. High-discoverability starting point for Vercel deployments. 74★",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-06-07"
   },
   {
     "name": "5-Minute Quickstart for Sellers",
@@ -2953,7 +3234,8 @@
     "type": "Learning Resource",
     "category": "Quick Start Guides",
     "desc": "Official Coinbase guide. Accept your first x402 payment in minutes.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Buyer/Client Setup",
@@ -2963,17 +3245,19 @@
     "type": "Learning Resource",
     "category": "Quick Start Guides",
     "desc": "Official guide for making automated x402 payments.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "One-Line Integration",
-    "url": "https://github.com/coinbase/x402/tree/main/examples",
+    "url": "https://github.com/x402-foundation/x402/tree/main/examples",
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
     "category": "Quick Start Guides",
     "desc": "Add payment middleware in a single line of code. Official examples repo.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Base Sepolia Testnet Setup",
@@ -2983,7 +3267,8 @@
     "type": "Learning Resource",
     "category": "Quick Start Guides",
     "desc": "Get test USDC and start testing without real money.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Solana x402 Developer Guide",
@@ -2993,7 +3278,8 @@
     "type": "Learning Resource",
     "category": "Quick Start Guides",
     "desc": "Official Solana guide for getting started with x402 payments.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "LearnAI x402 Course",
@@ -3002,8 +3288,9 @@
     "section_label": "Learning Resources",
     "type": "Learning Resource",
     "category": "Interactive Learning",
-    "desc": "Interactive AI-guided course covering the x402 payment flow, EIP-3009 gasless transfers, facilitator setup (Coinbase CDP, Cloudflare), middleware integration (Express, Next.js, FastAPI), and AI agent-",
-    "verified": false
+    "desc": "Interactive AI-guided course covering the x402 payment flow, EIP-3009 gasless transfers, facilitator setup (Coinbase CDP, Cloudflare), middleware integration (Express, Next.js, FastAPI), and AI agent-to-agent payments. Free, no account required.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Introducing x402",
@@ -3011,9 +3298,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Official",
+    "category": "Blog Posts & Articles",
     "desc": "Coinbase announcement post.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 V2 Specification",
@@ -3021,9 +3309,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Official",
+    "category": "Blog Posts & Articles",
     "desc": "Major protocol upgrade overview: standardized headers, CAIP-2 network identifiers, modular SDK architecture, Extensions framework.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Vercel: Introducing x402-mcp",
@@ -3031,9 +3320,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Official",
+    "category": "Blog Posts & Articles",
     "desc": "Open protocol payments for MCP tools using AI SDK and `paidTool` primitives.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Polygon: Agentic Payments Infrastructure",
@@ -3041,9 +3331,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Official",
+    "category": "Blog Posts & Articles",
     "desc": "Polygon's dedicated x402 agentic payments page.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "How to Pay for AI Services with USDC in One HTTP Call",
@@ -3051,9 +3342,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "24K Labs",
+    "category": "Blog Posts & Articles",
     "desc": "Walkthrough of x402 payment flow for AI code analysis.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Explained: The HTTP Status Code That Took 35 Years to Ship",
@@ -3061,9 +3353,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "24K Labs",
+    "category": "Blog Posts & Articles",
     "desc": "History and technical breakdown of HTTP 402.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Code Review API: Pay Per PR, Not Per Seat",
@@ -3071,9 +3364,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "24K Labs",
+    "category": "Blog Posts & Articles",
     "desc": "Why per-request pricing beats SaaS subscriptions.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "AWS Industries: x402 and Agentic Commerce",
@@ -3081,9 +3375,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Technical Deep Dives",
+    "category": "Blog Posts & Articles",
     "desc": "AWS deep-dive covering AgentCore + CloudFront + Lambda@Edge as a full x402 stack. With reference implementation.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Developer DAO: A Payment Standard for the Internet",
@@ -3091,9 +3386,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Technical Deep Dives",
+    "category": "Blog Posts & Articles",
     "desc": "Comprehensive tutorial using `x402-express` and `x402-fetch`.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Tangle Network: x402 Production Runway",
@@ -3101,9 +3397,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Technical Deep Dives",
+    "category": "Blog Posts & Articles",
     "desc": "Multi-part series: x402 in Rust, the facilitator trust problem, decentralized verification.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "HTX Ventures: x402 + ERC-8004 Research Report",
@@ -3111,9 +3408,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Technical Deep Dives",
+    "category": "Blog Posts & Articles",
     "desc": "Research report exploring x402 (value transfer) and ERC-8004 (trust/identity) as complementary Web3 infrastructure.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "DWF Labs: Inside x402",
@@ -3121,9 +3419,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Technical Deep Dives",
+    "category": "Blog Posts & Articles",
     "desc": "Protocol mechanics, ecosystem adoption, real-world use cases.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "WorkOS: x402 vs Stripe MPP",
@@ -3131,9 +3430,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Technical Deep Dives",
+    "category": "Blog Posts & Articles",
     "desc": "Comprehensive comparison for AI agents and MCP tools.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Lushbinary: x402 & EmDash Content Monetization",
@@ -3141,9 +3441,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Technical Deep Dives",
+    "category": "Blog Posts & Articles",
     "desc": "x402 + Cloudflare EmDash as the content monetization stack for the AI era.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "The Agentic Economy",
@@ -3151,9 +3452,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Use Case Articles",
+    "category": "Blog Posts & Articles",
     "desc": "How autonomous agents are reshaping commerce, and where x402 fits in.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Agentic Economy Timeline",
@@ -3161,9 +3463,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Use Case Articles",
+    "category": "Blog Posts & Articles",
     "desc": "Key milestones from early agent research to production x402 deployments.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Agentic Payments Are Finally Useful",
@@ -3171,9 +3474,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Use Case Articles",
+    "category": "Blog Posts & Articles",
     "desc": "What x402 means for founders in 2026.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "James Bachini: Why x402 Is An Important Opportunity For Developers",
@@ -3181,9 +3485,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Use Case Articles",
+    "category": "Blog Posts & Articles",
     "desc": "LinkedIn overview.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Calmops: x402 Protocol Complete Guide 2026",
@@ -3191,9 +3496,10 @@
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
-    "category": "Use Case Articles",
+    "category": "Blog Posts & Articles",
     "desc": "Programmable payments for AI agents guide.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Joins the Linux Foundation",
@@ -3203,7 +3509,8 @@
     "type": "Learning Resource",
     "category": "News Coverage",
     "desc": "PR Newswire, April 2, 2026. Protocol becomes a neutral open standard with 22+ institutional founding members.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Bankless: x402's Big Week",
@@ -3213,7 +3520,8 @@
     "type": "Learning Resource",
     "category": "News Coverage",
     "desc": "Recap of the April 2, 2026 Linux Foundation launch and Bankr x402 Cloud.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Sees 10,000% Growth",
@@ -3223,7 +3531,8 @@
     "type": "Learning Resource",
     "category": "News Coverage",
     "desc": "Yahoo Finance.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PYMNTS: Digital Money Has a New Payment Standard",
@@ -3233,7 +3542,8 @@
     "type": "Learning Resource",
     "category": "News Coverage",
     "desc": "Analysis of x402 as a machine-first payment standard.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Nevermined + Visa Intelligent Commerce",
@@ -3243,7 +3553,8 @@
     "type": "Learning Resource",
     "category": "News Coverage",
     "desc": "April 9, 2026. AI agents get delegated credit card spending authority via Visa + x402.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Polygon Leads Base in x402 Transactions",
@@ -3253,7 +3564,8 @@
     "type": "Learning Resource",
     "category": "News Coverage",
     "desc": "Polygon overtakes Base in daily x402 transaction count.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "KakaoPay Joins x402 Foundation",
@@ -3263,7 +3575,8 @@
     "type": "Learning Resource",
     "category": "News Coverage",
     "desc": "First South Korean payment processor in the x402 Foundation.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "CoinDesk: Demand Still Unproven",
@@ -3273,7 +3586,8 @@
     "type": "Learning Resource",
     "category": "News Coverage",
     "desc": "Honest assessment of x402's trial phase (March 2026). Worth reading.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "From Stripe to x402",
@@ -3283,7 +3597,8 @@
     "type": "Learning Resource",
     "category": "Migration Guides",
     "desc": "Migrate subscription and one-time payments from Stripe to x402.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "From API Keys to x402 Payments",
@@ -3293,7 +3608,8 @@
     "type": "Learning Resource",
     "category": "Migration Guides",
     "desc": "Replace API key-based access control with payment-per-use.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "From Subscription to Pay-Per-Use",
@@ -3303,7 +3619,8 @@
     "type": "Learning Resource",
     "category": "Migration Guides",
     "desc": "Transform monthly subscriptions into granular pay-as-you-go.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 V2 Migration Guide",
@@ -3313,17 +3630,19 @@
     "type": "Learning Resource",
     "category": "Migration Guides",
     "desc": "Official Coinbase guide from x402 v1 to v2.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Protocol Specification",
-    "url": "https://github.com/coinbase/x402",
+    "url": "https://github.com/x402-foundation/x402",
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
     "category": "Reference Documentation",
     "desc": "Official open-source protocol implementation by Coinbase.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Coinbase Developer Platform Docs",
@@ -3333,7 +3652,8 @@
     "type": "Learning Resource",
     "category": "Reference Documentation",
     "desc": "Complete implementation guide and API reference.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Whitepaper",
@@ -3343,7 +3663,8 @@
     "type": "Learning Resource",
     "category": "Reference Documentation",
     "desc": "Technical deep dive into protocol architecture.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "EIP-3009 TransferWithAuthorization",
@@ -3353,7 +3674,8 @@
     "type": "Learning Resource",
     "category": "Reference Documentation",
     "desc": "Gasless transfer standard used by x402.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "HTTP 402 Status Code",
@@ -3363,7 +3685,8 @@
     "type": "Learning Resource",
     "category": "Reference Documentation",
     "desc": "The long-dormant HTTP status code, now very much alive.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "awesome-molt-ecosystem",
@@ -3373,7 +3696,8 @@
     "type": "Learning Resource",
     "category": "Related Lists (Other Awesome Lists)",
     "desc": "200+ AI agent platforms with x402 economy analysis. Tracks 9 x402 tools, facilitator comparison, revenue data, platform ratings.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "xpaysh/awesome-x402",
@@ -3383,7 +3707,8 @@
     "type": "Learning Resource",
     "category": "Related Lists (Other Awesome Lists)",
     "desc": "The original community x402 awesome list. Accepts all contributions. gold-402 is the curated layer on top.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "sindresorhus/awesome",
@@ -3393,7 +3718,8 @@
     "type": "Learning Resource",
     "category": "Related Lists (Other Awesome Lists)",
     "desc": "The awesome list of awesome lists.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Awesome Ethereum",
@@ -3403,7 +3729,8 @@
     "type": "Learning Resource",
     "category": "Related Lists (Other Awesome Lists)",
     "desc": "Ethereum development resources.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Coinbase x402 Security Audit",
@@ -3413,7 +3740,8 @@
     "type": "Security",
     "category": "Smart Contract Audits",
     "desc": "Official security audit of x402 protocol smart contracts.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "EIP-3009 Security Analysis",
@@ -3423,17 +3751,19 @@
     "type": "Security",
     "category": "Smart Contract Audits",
     "desc": "Security considerations for TransferWithAuthorization.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "CVE Database",
-    "url": "https://github.com/coinbase/x402/security/advisories",
+    "url": "https://github.com/x402-foundation/x402/security/advisories",
     "section": "security",
     "section_label": "Security",
     "type": "Security",
     "category": "Smart Contract Audits",
     "desc": "Known vulnerabilities and patches for the x402 protocol.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Security Checklist",
@@ -3443,17 +3773,19 @@
     "type": "Security",
     "category": "Security Best Practices",
     "desc": "Production deployment security requirements: signature verification, replay attack prevention, nonce management, rate limiting.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Payment Verification Guide",
-    "url": "https://github.com/coinbase/x402/blob/main/SECURITY.md",
+    "url": "https://github.com/x402-foundation/x402/blob/main/SECURITY.md",
     "section": "security",
     "section_label": "Security",
     "type": "Security",
     "category": "Security Best Practices",
     "desc": "Proper payment verification: facilitator trust models, on-chain verification fallbacks, amount and recipient validation.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Key Management",
@@ -3463,7 +3795,8 @@
     "type": "Security",
     "category": "Security Best Practices",
     "desc": "Secure private key handling for automated payments: hardware wallet integration, key rotation, multi-sig setups.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Replay Attack Prevention",
@@ -3473,7 +3806,8 @@
     "type": "Security",
     "category": "Security Best Practices",
     "desc": "Nonce and deadline handling.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ShieldAPI",
@@ -3482,9 +3816,10 @@
     "section_label": "Security",
     "type": "Security",
     "category": "Security Monitoring Tools",
-    "desc": "x402-native security intelligence API. 9 endpoints: password/email breach check (900M+ HIBP hashes), domain/IP reputation, URL safety scanning, prompt injection detection, skill security analysis. Mic",
+    "desc": "x402-native security intelligence API. 9 endpoints: password/email breach check (900M+ HIBP hashes), domain/IP reputation, URL safety scanning, prompt injection detection, skill security analysis. Micropayments on Base. [MCP Server](https://www.npmjs.com/package/shieldapi-mcp)",
     "verified": true,
-    "badge_resource": "https://shield.vainplex.dev/api/cdp/check/email"
+    "badge_resource": "https://shield.vainplex.dev/api/cdp/check/email",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "stripe-mcps",
@@ -3493,8 +3828,9 @@
     "section_label": "Security",
     "type": "Security",
     "category": "Security Monitoring Tools",
-    "desc": "Trust verification + AML sanctions screening before Stripe/x402 payments. Agent identity (ECDSA), 75K+ sanctions entries (UK HMT + OFAC SDN), behavioural spend limits. OWASP MCP Security Cheat Sheet a",
-    "verified": false
+    "desc": "Trust verification + AML sanctions screening before Stripe/x402 payments. Agent identity (ECDSA), 75K+ sanctions entries (UK HMT + OFAC SDN), behavioural spend limits. OWASP MCP Security Cheat Sheet aligned.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "KaelAi",
@@ -3503,8 +3839,9 @@
     "section_label": "Security",
     "type": "Security",
     "category": "Security Monitoring Tools",
-    "desc": "Wallet trust scoring API for the agentic economy. Scores wallets 0-100 across 10 chains with behavioural analysis. Built for x402 servers to vet incoming/outgoing payment wallets before serving or ini",
-    "verified": false
+    "desc": "Wallet trust scoring API for the agentic economy. Scores wallets 0-100 across 10 chains with behavioural analysis. Built for x402 servers to vet incoming/outgoing payment wallets before serving or initiating requests.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PaySentry",
@@ -3514,7 +3851,8 @@
     "type": "Security",
     "category": "Security Monitoring Tools",
     "desc": "Control plane for AI agent payments. Spending limits, circuit breakers, anomaly detection, audit trails. npm: `@paysentry/x402`.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Notary",
@@ -3524,7 +3862,8 @@
     "type": "Security",
     "category": "Security Monitoring Tools",
     "desc": "Enterprise-grade audit and compliance platform. Full visibility into agent spending, policy enforcement, cryptographic audit trails.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Sentinel/Valeo",
@@ -3534,7 +3873,8 @@
     "type": "Security",
     "category": "Security Monitoring Tools",
     "desc": "Enterprise audit layer. Budget enforcement, structured audit trails, real-time dashboard, public payment explorer. SDK: `@x402sentinel/x402`.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Paybound",
@@ -3544,7 +3884,8 @@
     "type": "Security",
     "category": "Spending Controls",
     "desc": "Open-source governance proxy for x402 agent payments. Per-agent budgets, time-windowed limits, circuit breakers, full audit trail. MIT licensed.",
-    "verified": true
+    "verified": true,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "PolicyLayer",
@@ -3554,7 +3895,8 @@
     "type": "Security",
     "category": "Spending Controls",
     "desc": "Non-custodial spending controls for AI agents. Daily limits, per-transaction caps, recipient whitelists, rate limiting. No private key custody.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ICME Labs",
@@ -3564,7 +3906,8 @@
     "type": "Security",
     "category": "Spending Controls",
     "desc": "Formal verification for AI agent actions. Natural language policies compile to SMT-LIB logic, checked by SMT solver. Wrapped in zero knowledge proofs. $0.10 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Decision Anchor",
@@ -3574,7 +3917,8 @@
     "type": "Security",
     "category": "Spending Controls",
     "desc": "External accountability proof before x402 payment execution. Records what was authorized, when, and at what scope. Non-judgmental.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Revettr",
@@ -3584,7 +3928,8 @@
     "type": "Security",
     "category": "Agent Trust & Reputation",
     "desc": "Counterparty risk scoring for x402 agentic commerce. Scores wallet addresses, domains, IPs, and companies 0-100 for payment safety.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "MoltGuard",
@@ -3594,7 +3939,8 @@
     "type": "Security",
     "category": "Agent Trust & Reputation",
     "desc": "Agent trust scoring (0-100), Sybil detection with funding cluster analysis, Polymarket integrity, Ed25519 Verifiable Credentials. 7 MCP tools. $0.005-$0.05 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "DJD AgentScore",
@@ -3604,7 +3950,8 @@
     "type": "Security",
     "category": "Agent Trust & Reputation",
     "desc": "On-chain reputation scoring for AI agent wallets. 0-100 trust score across 5 dimensions (identity, behavior, reliability, viability, capability) from x402 settlement history on Base. Free tier.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ScoutScore",
@@ -3614,7 +3961,8 @@
     "type": "Security",
     "category": "Agent Trust & Reputation",
     "desc": "Trust scoring for x402 services (not agents). Monitors 1,700+ services with continuous health checks and fidelity probes.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "CYBERA Compliance API",
@@ -3624,7 +3972,8 @@
     "type": "Security",
     "category": "Compliance & Sanctions",
     "desc": "VASP address identification (20,468 addresses, 29 chains), risk scoring, sanctions/mixer screening. $0.01 USDC on Base.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "SENTINEL",
@@ -3633,9 +3982,10 @@
     "section_label": "Security",
     "type": "Security",
     "category": "Compliance & Sanctions",
-    "desc": "AML/CFT compliance intelligence. 77K+ sanctions entities (OFAC, UN, EU, PEP, Interpol, World Bank, crypto watchlists), 159-country jurisdiction risk scoring. MCP server at `/mcp`. $0.001-$0.015 USDC o",
+    "desc": "AML/CFT compliance intelligence. 77K+ sanctions entities (OFAC, UN, EU, PEP, Interpol, World Bank, crypto watchlists), 159-country jurisdiction risk scoring. MCP server at `/mcp`. $0.001-$0.015 USDC on Base.",
     "verified": false,
-    "badge_resource": "https://mru-oracle.com/snapshot"
+    "badge_resource": "https://mru-oracle.com/snapshot",
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Coinbase Bug Bounty",
@@ -3645,7 +3995,8 @@
     "type": "Security",
     "category": "Bug Bounty Programs",
     "desc": "Report x402 vulnerabilities for rewards up to $50,000.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Immunefi x402 Program",
@@ -3655,7 +4006,8 @@
     "type": "Security",
     "category": "Bug Bounty Programs",
     "desc": "Decentralized bug bounty platform with x402 listings.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Foundation Discord",
@@ -3665,17 +4017,19 @@
     "type": "Community",
     "category": "Official Channels",
     "desc": "Official community server. Best place for protocol questions and ecosystem announcements.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
-    "name": "GitHub Issues — coinbase/x402",
-    "url": "https://github.com/coinbase/x402/issues",
+    "name": "GitHub Issues — x402-foundation/x402",
+    "url": "https://github.com/x402-foundation/x402/issues",
     "section": "community",
     "section_label": "Community",
     "type": "Community",
     "category": "Official Channels",
-    "desc": "coinbase/x402](https://github.com/coinbase/x402/issues) — Technical Q&A, bug reports, and feature requests for the core protocol.",
-    "verified": false
+    "desc": "Technical Q&A, bug reports, and feature requests for the core protocol.",
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Twitter @x402org",
@@ -3685,7 +4039,8 @@
     "type": "Community",
     "category": "Official Channels",
     "desc": "Official updates and announcements.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "x402 Builders Telegram",
@@ -3695,7 +4050,8 @@
     "type": "Community",
     "category": "Developer Communities",
     "desc": "Active developer chat. Good for quick questions and sharing what you're building.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Reddit r/x402",
@@ -3705,7 +4061,8 @@
     "type": "Community",
     "category": "Developer Communities",
     "desc": "Community forum and discussions.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Dev.to #x402",
@@ -3715,7 +4072,8 @@
     "type": "Community",
     "category": "Developer Communities",
     "desc": "Tutorials and builder articles. Good for longer-form content.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Farcaster x402 Channel",
@@ -3725,7 +4083,8 @@
     "type": "Community",
     "category": "Developer Communities",
     "desc": "Decentralized social channel for x402 builders.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Agent Economy Digest",
@@ -3735,7 +4094,8 @@
     "type": "Community",
     "category": "Newsletters",
     "desc": "AI agent payments news covering x402, MPP, A2A, and the broader agentic commerce stack.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "Human Pages",
@@ -3745,7 +4105,8 @@
     "type": "Community",
     "category": "Jobs & Career",
     "desc": "Open directory for AI agents to hire humans for real-world tasks. x402 pay-per-use on Base. Also works for humans looking for gigs.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "CryptoJobsList",
@@ -3755,7 +4116,8 @@
     "type": "Community",
     "category": "Jobs & Career",
     "desc": "Crypto and Web3 job board with growing x402/agent economy listings.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "WorkProtocol",
@@ -3765,7 +4127,8 @@
     "type": "Community",
     "category": "Jobs & Career",
     "desc": "Structured work marketplace for AI agents and the humans building them. Escrow-backed jobs, on-chain reputation.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
   },
   {
     "name": "ETHDenver x402 Workshop",
@@ -3775,6 +4138,326 @@
     "type": "Community",
     "category": "Events",
     "desc": "Hands-on workshop from ETHDenver 2025.",
-    "verified": false
+    "verified": false,
+    "first_listed": "2026-04-27"
+  },
+  {
+    "name": "x402 Entity-ID Resolver",
+    "url": "https://entityresolver.xyz",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "Resolves a company or crypto name or ticker into ranked entities with verified canonical IDs across registries: SEC CIK + ticker, GLEIF LEI, Wikidata QID, CoinGecko slug. $0.005 USDC per call on Base. ([OpenAPI](https://entityresolver.xyz/openapi.json))",
+    "verified": false,
+    "first_listed": "2026-06-09"
+  },
+  {
+    "name": "_done",
+    "url": "https://underscoredone.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "Suite of x402 micropayment-gated utility APIs for AI agents (web lookups, site analysis, data and more). 18 resources, $0.01–$0.05. Pay-per-call, no API keys or subscriptions. Base + Solana mainnet.",
+    "verified": false,
+    "first_listed": "2026-07-17"
+  },
+  {
+    "name": "PulseNetwork",
+    "url": "https://pulsenetwork.theaslangroupllc.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "66 vertical intelligence APIs / 826 pay-per-call endpoints: OFAC sanctions screening, EU VAT validation (VIES), SEC XBRL fundamentals, token safety scans, tax data for 195 countries, climate, health, sports. $0.01–$2 USDC on Base; OpenAPI + llms.txt on every origin; MPP (Tempo) via [gateway](https://mpp.theaslangroupllc.com).",
+    "verified": false,
+    "first_listed": "2026-07-16"
+  },
+  {
+    "name": "JMT x402 Agent Tools",
+    "url": "https://jmt-x402-proxy.jmthomasofficial.workers.dev",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "25 endpoints: web search, AI analysis, crypto/stock data, SEC filings, company intel, news, sentiment, macro dashboard. Local LLM-powered. $0.001-$0.15 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-06"
+  },
+  {
+    "name": "Vindex",
+    "url": "https://api.vindexapi.dev",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "Vehicle-data API: VIN decode with factory warranty terms, recalls, known-issues/reliability, and US & Canada purchase-cost estimates. NHTSA and Transport Canada sources. $0.01 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-09"
+  },
+  {
+    "name": "AgentServices",
+    "url": "https://agentservices.to",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "Paid data APIs for AI agents: crypto prices, technical indicators, DeFi yields, IP geolocation, and URL metadata. $0.00-$0.02 USDC on Base. ([x402](https://agentservices.to/.well-known/x402))",
+    "verified": false,
+    "first_listed": "2026-07-16"
+  },
+  {
+    "name": "Isocast",
+    "url": "https://api.isocast.dev",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "Per-signal Polymarket weather-market data across 37 cities. Fires when a city's daily-high temperature crosses into a new Polymarket bucket, returning the market URL and live bucket odds. From $0.01 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-09"
+  },
+  {
+    "name": "SolSigs",
+    "url": "https://solsigs.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "20 pay-per-call Solana blockchain intelligence APIs: DEX prices, arbitrage scanner, wallet intelligence, token launch detection, Polymarket predictions, NFT analysis, whale tracking, smart money signals, social sentiment, staking APY, RPC relay, on-chain LLM summarizer, webhook alerts, dev activity, batch pricing, trending tokens, token safety, alpha feed, trust scoring, perps intelligence. $0.001-$0.010 USDC on Solana.",
+    "verified": false,
+    "first_listed": "2026-06-10"
+  },
+  {
+    "name": "LoneStarOracle",
+    "url": "https://lonestaroracle.xyz",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "43 pay-per-call data APIs: token and wallet risk scoring, smart-contract security audits, whale and bundle tracking, DeFi and stablecoin risk, plus equity, options, macro, and weather data. $0.02-$2.00 USDC on Base. No API keys — wallet is auth. ([MCP](https://mcp.lonestaroracle.xyz))",
+    "verified": false,
+    "first_listed": "2026-07-06"
+  },
+  {
+    "name": "TokenGuard",
+    "url": "https://eltociear-tokenguard.hf.space",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "ERC-20 rug/safety scanner over public RPC on 6 chains (Base, Ethereum, Arbitrum, Optimism, Polygon, BSC): infinite-mint, blacklist/freeze, pausable transfers, mutable sell-tax, upgradeable proxy and ownership checks. Also wallet intelligence, token price, ENS, gas, DeFi yields, TVL and crypto news endpoints. $0.005-$0.01 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-10"
+  },
+  {
+    "name": "Tollbooth",
+    "url": "https://x402toll.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Finance & FX",
+    "desc": "56 financial, tax, and legal calculators for AI agents (income tax, self-employment/estimated tax, capital gains, LLC/entity comparison, mortgage/loan, retirement/RMD/Social Security, crypto/DeFi, sales tax). Each response includes its 2026 IRS/SSA source, a formula trace, and a reproducible SHA-256 hash, plus a free golden-vector self-check endpoint. $0.02-$1.00 USDC on Base. MCP: `npx tollbooth-x402`. ([OpenAPI](https://x402toll.com/v1/openapi.json))",
+    "verified": false,
+    "first_listed": "2026-07-16"
+  },
+  {
+    "name": "DDG Agent-Payable Services",
+    "url": "https://agents.daedalusdevelopmentgroup.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Security",
+    "desc": "Machine-readable security and commerce primitives for AI agents. x402 checkout-conformance audits, MCP/tool security preflight, spend-authorization contracts, browser-agent completion proofs, bounded artifact/model orders. Identity-first (403→402→receipt), 5 settlement networks. $0.01-$5.00 USDC per call. [MCP](https://mcp.daedalusdevelopmentgroup.com/mcp)",
+    "verified": false,
+    "first_listed": "2026-07-01"
+  },
+  {
+    "name": "Agent Ready",
+    "url": "https://agent-ready.dev",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Security",
+    "desc": "Website agent-readability scanner. Scores any URL against the Vercel Agent Readability Spec and llmstxt.org with per-check remediation. Pay-per-scan: $0.02 (25 pages) / $0.25 (250 pages) USDC on Base via x402.",
+    "verified": false,
+    "first_listed": "2026-07-02"
+  },
+  {
+    "name": "Skill Audit",
+    "url": "https://eltociear-skill-audit.hf.space",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Security",
+    "desc": "Malicious-pattern detection for AI agent skills, plugins and prompts. 68 patterns: credential exfiltration, download-and-execute, prompt injection, seed-phrase harvesting, privilege escalation. $0.01-$0.03 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-10"
+  },
+  {
+    "name": "Contract Guard",
+    "url": "https://eltociear-contract-guard.hf.space",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Security",
+    "desc": "Pre-interaction EVM contract risk signals: EOA/contract/self-destructed status, EIP-7702 delegated-EOA detection, upgradeable proxy detection, ERC-20 metadata and risk score. $0.005 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-10"
+  },
+  {
+    "name": "WebberSites x402 Data API",
+    "url": "https://x402.webbersites.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Infrastructure APIs",
+    "desc": "41 pay-per-call endpoints for AI agents: web scraping, document extraction, whole-site SEO audits, brand-kit/logo/site generation, DNS and email intelligence, crypto data, wallet-owned persistent Agent Datastore, and a free machine message board. $0.001-$0.009 USDC on Base via CDP facilitator. MCP server: `npx webbersites-x402-mcp`. ([OpenAPI](https://api.webbersites.com/openapi.json)) ([GitHub](https://github.com/webberdesign/api.webbersites.com))",
+    "verified": false,
+    "first_listed": "2026-07-07"
+  },
+  {
+    "name": "NodeFlare",
+    "url": "https://nodeflare.app/docs/x402",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Infrastructure APIs",
+    "desc": "Pay-per-request JSON-RPC on 23 EVM chains (including Robinhood Chain, Plasma, Ink and Zircuit) served from self-operated bare-metal nodes in 5 regions, priced by compute units from $0.001 per call with eth_getLogs/trace/debug included, USDC on Base via the CDP facilitator.",
+    "verified": false,
+    "first_listed": "2026-07-10"
+  },
+  {
+    "name": "Dokimo Verify API",
+    "url": "https://dokimo.augaster.com/verify-api-docs.html",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Niche & Specialty",
+    "desc": "Pay-per-call x402 endpoint that independently verifies a Merkle evidence proof to its committed root and returns a signed attestation; part of Dokimo, a non-custodial ASC-606 subledger that turns x402/agent revenue into audit-ready books.",
+    "verified": false,
+    "first_listed": "2026-07-16"
+  },
+  {
+    "name": "24K Labs Jobs",
+    "url": "https://24klabs.ai/community/jobs",
+    "section": "community",
+    "section_label": "Community",
+    "type": "Community",
+    "category": "Jobs & Career",
+    "desc": "x402 ecosystem job board. Developer, DevRel, and infrastructure roles across the x402 ecosystem.",
+    "verified": false,
+    "first_listed": "2026-04-27"
+  },
+  {
+    "name": "agenteconomy.to",
+    "url": "https://agenteconomy.to",
+    "section": "market-data",
+    "section_label": "Market Data",
+    "type": "Market Data",
+    "category": "Analytics Dashboards",
+    "desc": "Real-time dashboard tracking the agentic economy across x402, ERC-8004, ERC-8183, and MPP protocols on 8 chains. Aggregated event counter, chain distribution, facilitator share, time-series charts. Refreshes every 6 hours.",
+    "verified": true,
+    "first_listed": "2026-04-27"
+  },
+  {
+    "name": "Dune Analytics x402",
+    "url": "https://dune.com/x402",
+    "section": "market-data",
+    "section_label": "Market Data",
+    "type": "Market Data",
+    "category": "Analytics Dashboards",
+    "desc": "Comprehensive on-chain metrics: transaction volumes, chain analytics, facilitator comparison, revenue/fee metrics.",
+    "verified": true,
+    "first_listed": "2026-04-27"
+  },
+  {
+    "name": "x402scan Explorer",
+    "url": "https://x402scan.com",
+    "section": "market-data",
+    "section_label": "Market Data",
+    "type": "Market Data",
+    "category": "Analytics Dashboards",
+    "desc": "Blockchain explorer for x402 payments. Transaction search, payment requirement inspection, settlement status.",
+    "verified": true,
+    "first_listed": "2026-04-27"
+  },
+  {
+    "name": "Valoria",
+    "url": "https://x402.valoria.net",
+    "section": "market-data",
+    "section_label": "Market Data",
+    "type": "Market Data",
+    "category": "Analytics Dashboards",
+    "desc": "x402 market intelligence. Revenue rankings, service analysis, pricing data across 90K+ indexed services and $148M+ tracked on-chain volume.",
+    "verified": false,
+    "first_listed": "2026-04-27"
+  },
+  {
+    "name": "CoinGecko x402 Category",
+    "url": "https://coingecko.com/en/categories/x402",
+    "section": "market-data",
+    "section_label": "Market Data",
+    "type": "Market Data",
+    "category": "Analytics Dashboards",
+    "desc": "Token tracking and market data. $180M+ tracked market cap, price charts, trading volumes, ecosystem token listings.",
+    "verified": false,
+    "first_listed": "2026-04-27"
+  },
+  {
+    "name": "vindex-mcp",
+    "url": "https://www.npmjs.com/package/vindex-mcp",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "General Utility",
+    "desc": "Vehicle data over x402: VIN decode with warranty terms, recalls, reliability, and US/Canada purchase-cost estimates. USDC on Base. `npx vindex-mcp`.",
+    "verified": false,
+    "first_listed": "2026-07-09"
+  },
+  {
+    "name": "SolSigs MCP",
+    "url": "https://solsigs.com",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "Crypto & DeFi Intelligence",
+    "desc": "16-tool Solana blockchain intelligence MCP server: DEX prices, arbitrage, wallet scoring, token launches, NFT intel, whale tracking, smart money, staking, Polymarket predictions, social sentiment, RPC relay, price feeds, dev activity, alerts, on-chain summarizer, trending tokens. $0.001-$0.010 USDC on Solana.",
+    "verified": false,
+    "first_listed": "2026-06-10"
+  },
+  {
+    "name": "isocast-mcp",
+    "url": "https://www.npmjs.com/package/isocast-mcp",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "Crypto & DeFi Intelligence",
+    "desc": "Per-signal Polymarket weather-market data across 37 cities, with market URLs and live bucket odds. USDC on Base. `npx isocast-mcp`.",
+    "verified": false,
+    "first_listed": "2026-07-09"
+  },
+  {
+    "name": "moltalyzer-mcp",
+    "url": "https://www.npmjs.com/package/moltalyzer-mcp",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "Crypto & DeFi Intelligence",
+    "desc": "Polymarket and AI-agent-community intelligence: order-book microstructure movers, whale hold-to-resolution calibration, and multi-source digests. USDC on Base. `npx moltalyzer-mcp`.",
+    "verified": false,
+    "first_listed": "2026-07-09"
+  },
+  {
+    "name": "lso-mcp",
+    "url": "https://mcp.lonestaroracle.xyz",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "Security",
+    "desc": "46 LoneStarOracle data tools: token and wallet risk, contract audits, whale tracking, DeFi and stablecoin risk, market and macro data, weather. x402-metered USDC on Base. ([GitHub](https://github.com/Homie4570/lso-mcp))",
+    "verified": false,
+    "first_listed": "2026-07-06"
   }
 ]

@@ -1,0 +1,121 @@
+# The directory wire: gold-402 directory/*.md -> src/data/editorial.json -> live site.
+#
+# Triggers:
+#   - repository_dispatch (directory-merge): fired by gold-402 on merge to its main
+#     (needs SITE_DISPATCH_PAT configured over there; see directory-wire-notify.yml)
+#   - nightly cron: the backstop. NOT optional -- this shop's named failure is
+#     "we build runners and don't schedule them", and a merge-only trigger dies
+#     the first time a hook misfires.
+#   - workflow_dispatch: manual run.
+#
+# Why this job deploys itself instead of letting deploy.yml react to its push:
+# pushes made with the built-in GITHUB_TOKEN do NOT trigger other workflows
+# (GitHub's recursion guard), so a wire push would update the repo and NEVER
+# deploy -- the exact silent repo!=live failure documented in deploy.yml
+# (five weeks, Jun-Jul 2026). The build+deploy steps below mirror deploy.yml.
+#
+# The generator fails closed (exit 1, writes nothing) on any backpressure gate;
+# see scripts/generate_editorial.py. A failed run files/updates a loud issue.
+
+name: Directory Wire
+
+on:
+  schedule:
+    - cron: '17 9 * * *'   # nightly backstop, 09:17 UTC
+  workflow_dispatch:
+  repository_dispatch:
+    types: [directory-merge]
+
+concurrency:
+  group: directory-wire
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  deployments: write
+  issues: write
+
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Checkout gold-402 (full history for first_listed dates)
+        uses: actions/checkout@v4
+        with:
+          repository: Haustorium12/gold-402
+          path: _gold402
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate editorial.json (fails closed on any gate)
+        run: python scripts/generate_editorial.py --gold _gold402
+
+      - name: Detect change
+        id: diff
+        run: |
+          if git diff --quiet -- src/data/editorial.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "editorial.json already current; nothing to ship."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat -- src/data/editorial.json
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "directory-wire"
+          git config user.email "actions@github.com"
+          git add src/data/editorial.json
+          git commit -m "directory wire: sync editorial.json from gold-402 (${{ github.event_name }})"
+          git pull --rebase origin main
+          git push origin main
+
+      - name: Setup Node.js
+        if: steps.diff.outputs.changed == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build
+        if: steps.diff.outputs.changed == 'true'
+        run: npm install && npm run build
+
+      - name: Deploy
+        if: steps.diff.outputs.changed == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=24klabs
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      # Same loud-failure pattern as deploy.yml: a gate failure or deploy failure
+      # must not pass silently. Files/updates a durable GitHub issue.
+      - name: Alarm on wire failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Directory Wire FAILED"
+          body="The directory wire failed (trigger: ${{ github.event_name }}).
+          Run: $RUN_URL
+          Either a backpressure gate rejected the merge (see the run log -- that is the gate doing its job, fix the data upstream) or the build/deploy broke. The live directory was NOT updated.
+          (Auto-filed by directory-wire.yml.)"
+          existing=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "$title" --body "$body"
+          fi
