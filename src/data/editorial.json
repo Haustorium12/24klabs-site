@@ -4459,5 +4459,38 @@
     "desc": "46 LoneStarOracle data tools: token and wallet risk, contract audits, whale tracking, DeFi and stablecoin risk, market and macro data, weather. x402-metered USDC on Base. ([GitHub](https://github.com/Homie4570/lso-mcp))",
     "verified": false,
     "first_listed": "2026-07-06"
+  },
+  {
+    "name": "OpSpawn A2A x402 Gateway",
+    "url": "https://a2a.opspawn.com",
+    "section": "ecosystem",
+    "section_label": "Ecosystem",
+    "type": "Ecosystem",
+    "category": "Agent-to-Agent (A2A)",
+    "desc": "Multi-chain A2A gateway with x402 payments. Google A2A protocol, Base/SKALE/Arbitrum support.",
+    "verified": false,
+    "first_listed": "2026-07-18"
+  },
+  {
+    "name": "x402-axum",
+    "url": "https://crates.io/crates/x402-axum",
+    "section": "frameworks",
+    "section_label": "Frameworks & Middleware",
+    "type": "Frameworks & Middleware",
+    "category": "Rust",
+    "desc": "Axum web framework integration (part of [x402-rs](https://github.com/x402-rs/x402-rs)).",
+    "verified": false,
+    "first_listed": "2026-07-18"
+  },
+  {
+    "name": "x402-reqwest",
+    "url": "https://crates.io/crates/x402-reqwest",
+    "section": "frameworks",
+    "section_label": "Frameworks & Middleware",
+    "type": "Frameworks & Middleware",
+    "category": "Rust",
+    "desc": "Reqwest HTTP client wrapper (part of x402-rs).",
+    "verified": false,
+    "first_listed": "2026-07-18"
   }
 ]
