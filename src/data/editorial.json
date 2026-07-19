@@ -4492,5 +4492,49 @@
     "desc": "Reqwest HTTP client wrapper (part of x402-rs).",
     "verified": false,
     "first_listed": "2026-07-18"
+  },
+  {
+    "name": "Grey Ridge Signals — x402 Data & Security APIs",
+    "url": "https://x402-data-api.sigrunner.workers.dev",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "17 agent-native pay-per-call endpoints: blockchain queries (balance, gas, code, receipts, token balances), crypto funding rates & prices, DeFi yields, domain enrichment, tech-risk scoring, prediction market data, MCP scanning. $0.001–$0.05 USDC on Base. ([OpenAPI](https://x402-data-api.sigrunner.workers.dev/openapi.json))",
+    "verified": false,
+    "first_listed": "2026-07-18"
+  },
+  {
+    "name": "GenTech x402 Gateway",
+    "url": "https://api.gentechlabs.net",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "15 pay-per-call endpoints for crypto intelligence, wallet analysis, token risk scoring, NFT search, game/movie deals, and agent scanning. $0.001-$0.10 USDC per call across 5 chains (Base, Solana, Avalanche, BNB, OKX). ([OpenAPI](https://api.gentechlabs.net/openapi.json)) ([Discovery](https://api.gentechlabs.net/.well-known/x402))",
+    "verified": false,
+    "first_listed": "2026-07-18"
+  },
+  {
+    "name": "Venture NL Open-Data",
+    "url": "https://api.pogo-tb.nl",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Web & Geospatial",
+    "desc": "Dutch open-government data: RDW vehicle registry, BAG addresses/buildings, postcode/geocoding, OV transit departures. CC0/CC-BY-4.0 sources. $0.001-$0.01 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-19"
+  },
+  {
+    "name": "Bincrease Operations APIs",
+    "url": "https://bincrease.vercel.app/developers",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Business Intelligence",
+    "desc": "Live no-spend USDC work shortlisting with risk and payout-evidence filters ($0.05 USDC), deterministic CSV deduplication ($0.10 USDC), commercial waste-bill analysis ($0.25 USDC), and bounded OpenAPI contract extraction ($0.50 USDC) over x402 v2, settled in native USDC on Base with OpenAPI and `llms.txt` discovery.",
+    "verified": false,
+    "first_listed": "2026-07-19"
   }
 ]
