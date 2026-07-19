@@ -89,7 +89,9 @@ const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
               {raters.map((r) => (
                 <div class="snap-rater">
                   <span class="snap-rater__name">{r.label}</span>
-                  <img class="snap-rater__badge" loading="lazy" alt={`x402 trust grade — ${r.label}`} src={r.badgeUrl} />
+                  <a class="snap-rater__link" href={r.href} target="_blank" rel="noopener noreferrer" title={`View ${r.label}'s live report`}>
+                    <img class="snap-rater__badge" loading="lazy" alt={`x402 trust grade — ${r.label} (click for report)`} src={r.badgeUrl} />
+                  </a>
                 </div>
               ))}
               <span class="snap-raters__more">More raters coming soon.</span>
@@ -227,6 +229,7 @@ const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
   .snap-raters { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
   .snap-rater { display: flex; align-items: center; gap: 8px; }
   .snap-rater__name { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; }
+  .snap-rater__link { display: inline-flex; line-height: 0; }
   .snap-rater__badge { height: 22px; border-radius: 4px; }
   .snap-raters__more, .snap-raters__none { font-size: 0.78rem; color: var(--text-dim); }
 

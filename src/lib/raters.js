@@ -16,6 +16,8 @@ export function ratersFor(entry) {
       label: 'fuchss',
       resource: entry.badge_resource,
       badgeUrl: `https://x402.fuchss.app/badge.svg?resource=${encodeURIComponent(entry.badge_resource)}`,
+      // Where the badge CLICKS THROUGH to: fuchss's live reliability report for this endpoint.
+      href: `https://x402.fuchss.app/endpoint?resource=${encodeURIComponent(entry.badge_resource)}`,
     });
   }
   return out;

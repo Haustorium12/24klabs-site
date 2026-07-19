@@ -511,6 +511,10 @@ const EDITORIAL_JSON = JSON.stringify(listings);
     font-size: 0.68rem; font-weight: 900; line-height: 1;
   }
   .card-grade { height: 22px; width: auto; display: inline-block; border-radius: 4px; }
+  /* Card is one big link via a stretched anchor (z1); the fuchss badge rides above it (z2)
+     so it stays independently clickable — the valid alternative to a link inside a link. */
+  .card-stretch { position: absolute; inset: 0; z-index: 1; border-radius: var(--radius); }
+  .card-grade-link { position: relative; z-index: 2; display: inline-flex; line-height: 0; }
 
   /* Head — monogram anchor + name + category */
   .card-head { display: flex; align-items: center; gap: 11px; margin-bottom: 13px; }
@@ -577,13 +581,14 @@ function esc(str) {
 // reserved (empty) for the Phase 2 pay rail so the row never needs re-cutting.
 function buildCard(e) {
   const grade = e.badge_resource
-    ? `<img class="card-grade" loading="lazy" alt="x402 trust grade — fuchss"
-         src="https://x402.fuchss.app/badge.svg?resource=${encodeURIComponent(e.badge_resource)}">`
+    ? `<a class="card-grade-link" href="https://x402.fuchss.app/endpoint?resource=${encodeURIComponent(e.badge_resource)}" target="_blank" rel="noopener noreferrer" title="View fuchss's live report"><img class="card-grade" loading="lazy" alt="x402 trust grade — fuchss (click for report)"
+         src="https://x402.fuchss.app/badge.svg?resource=${encodeURIComponent(e.badge_resource)}"></a>`
     : '';
   const initial = esc((e.name || '?').trim().charAt(0).toUpperCase()) || '#';
   const href = e.slug ? `/listing/${esc(e.slug)}` : '#';
   return `
-    <a href="${href}" class="service-card is-verified reveal">
+    <div class="service-card is-verified reveal">
+      <a href="${href}" class="card-stretch" aria-label="View ${esc(e.name)} verdict"></a>
       <div class="card-billboard" aria-hidden="true"></div>
       <div class="card-trust">
         <span class="card-verified"><span class="card-verified__check">&#10003;</span>24K Verified</span>
@@ -601,7 +606,7 @@ function buildCard(e) {
         <span class="card-section-label">${esc(e.section_label)}</span>
         <span class="card-link">View verdict &#8594;</span>
       </div>
-    </a>`;
+    </div>`;
 }
 
 function applyFilters() {
