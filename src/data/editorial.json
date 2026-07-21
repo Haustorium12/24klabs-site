@@ -4536,5 +4536,38 @@
     "desc": "Live no-spend USDC work shortlisting with risk and payout-evidence filters ($0.05 USDC), deterministic CSV deduplication ($0.10 USDC), commercial waste-bill analysis ($0.25 USDC), and bounded OpenAPI contract extraction ($0.50 USDC) over x402 v2, settled in native USDC on Base with OpenAPI and `llms.txt` discovery.",
     "verified": false,
     "first_listed": "2026-07-19"
+  },
+  {
+    "name": "Groundcheck",
+    "url": "https://groundcheck.seiche.info",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "Claim grounding and delivery attestation for AI agents: machine-verified verdicts (supported/refuted/unverified) with confidence scores and cited sources, plus signed offline-verifiable receipts binding an x402 payment to what was delivered. Free single-claim tier; paid endpoints $0.005–$0.05 USDC on Base. ([OpenAPI](https://groundcheck.seiche.info/openapi.json)) ([npm](https://www.npmjs.com/package/groundcheck-mcp))",
+    "verified": false,
+    "first_listed": "2026-07-21"
+  },
+  {
+    "name": "x402-seller",
+    "url": "https://x402-seller-m8nx.onrender.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "Token rug/honeypot scoring combining GoPlus static analysis with live Honeypot.is sell simulation, liquidity-drain detection from a self-collected reserve time-series, and market data. EVM + Solana. $0.001-$0.05 USDC on Base. ([Track record](https://x402-seller-m8nx.onrender.com/track-record))",
+    "verified": false,
+    "first_listed": "2026-07-20"
+  },
+  {
+    "name": "Fabler Labs x402 Storefront",
+    "url": "https://fablerlabs.com/x402/",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Security",
+    "desc": "Security and utility APIs for AI agents on Base, USDC per call, no signup: secret scan ($0.005), agent-config audit ($0.05), diff security gate ($0.10), pre-deploy evidence gate ($0.08), URL security evidence ($0.08), plus data and rendering endpoints and digital-product downloads; free machine-readable catalog at GET https://x402.fablerlabs.com/. Built and operated end-to-end by an autonomous AI agent.",
+    "verified": false,
+    "first_listed": "2026-07-20"
   }
 ]
