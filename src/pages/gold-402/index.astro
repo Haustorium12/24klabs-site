@@ -2,8 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 // Phase 1 (2026-07-13): /gold-402 is no longer a second directory surface — the directory
-// is the homepage now. This is the single "Get Listed" page: how a service earns a spot on
-// the hand-verified list. The bar is curation itself.
+// lives at /directory now. This is the single "Get Listed" page: how a service earns a spot
+// on the curated list. The bar is curation itself.
 const BAR = [
   {
     title: 'Editorial, not algorithmic',
@@ -15,14 +15,14 @@ const BAR = [
   },
   {
     title: 'It has to actually work',
-    desc: 'A reachable x402 endpoint that does what it claims. Live, honestly priced, honestly labeled. "24K Verified" means a human checked it and stands behind it.'
+    desc: 'A reachable x402 endpoint that does what it claims. Live, honestly priced, honestly labeled.'
   },
 ];
 
 const STEPS = [
   { n: '1', title: 'Open a submission', desc: 'File a PR against the gold-402 repo with your service — name, endpoint, category, and a one-line description.' },
   { n: '2', title: 'We verify it', desc: 'We probe the endpoint, read the manifest, and confirm it delivers. Independent rater grades (fuchss and more) get pulled in automatically.' },
-  { n: '3', title: 'It goes on the list', desc: 'Approved services render on the directory with the 24K Verified badge and any aggregated trust grades. That\'s the whole bar.' },
+  { n: '3', title: 'It goes on the list', desc: 'Approved services render on the directory with the Gold402 Verified badge and any aggregated trust grades. That\'s the whole bar.' },
 ];
 ---
 
@@ -43,7 +43,7 @@ const STEPS = [
       <div style="margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <a href="https://github.com/Haustorium12/gold-402/blob/main/CONTRIBUTING.md"
            target="_blank" rel="noopener" class="btn btn--primary btn--lg">Submit a Service ↗</a>
-        <a href="/" class="btn btn--outline btn--lg">Browse the Directory</a>
+        <a href="/directory" class="btn btn--outline btn--lg">Browse the Directory</a>
       </div>
     </div>
   </section>
@@ -91,7 +91,7 @@ const STEPS = [
         <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
           <a href="https://github.com/Haustorium12/gold-402/blob/main/CONTRIBUTING.md"
              target="_blank" rel="noopener" class="btn btn--primary">Submit on GitHub ↗</a>
-          <a href="/" class="btn btn--outline">Browse the Directory</a>
+          <a href="/directory" class="btn btn--outline">Browse the Directory</a>
         </div>
       </div>
     </div>

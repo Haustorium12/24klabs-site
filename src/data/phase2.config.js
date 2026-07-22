@@ -29,28 +29,7 @@ export function usdToAtomic(usd) {
 
 // --- Pricing (editable founding defaults) ---------------------------------------------------
 export const PRICING = {
-  // On-demand aggregation line — the $0.001 agent lookup.
+  // On-demand aggregation line — the $0.001 agent lookup (used by functions/api/v1/verify.js).
   verifyApi: { usd: 0.001 },
-  // Billboard pay rail. Parking-meter model: pay N months up front, NO auto-rebill.
-  billboard: {
-    tiers: {
-      billboard: { label: 'Billboard', usdPerMonth: 8, blurb: 'Your banner on your verified listing page.' },
-      featured:  { label: 'Featured',  usdPerMonth: 40, blurb: 'Billboard plus priority placement on the directory.' },
-    },
-    minMonths: 1,
-    maxMonths: 12,
-    autoRebill: false,
-    // Exactly one banner swap allowed; the replacement inherits the REMAINING time (no reset).
-    allowedChanges: 1,
-  },
 };
-
-// --- Banner moderation constraints (bot pre-screen before Sean's human review) ---------------
-export const BANNER = {
-  maxBytes: 512 * 1024,                 // 512 KB
-  allowedTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/gif'],
-  // Recommended slot dimensions (advisory, surfaced in the submit UI).
-  recommended: { width: 728, height: 90 },
-  maxLinkLength: 512,
-  maxAltLength: 120,
-};
+// (The billboard pay-rail config + banner-moderation constraints were removed with the billboard.)

@@ -16,6 +16,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <section class="section--sm">
     <div class="container prose">
 
+      <div class="reveal" style="margin-bottom: 40px; padding: 16px 20px; border: 1px solid var(--gold-dim); border-radius: var(--radius); background: rgba(212,175,55,0.05);">
+        <strong style="color: var(--gold);">Note:</strong> The 24K Labs code services shown below have been retired. The live x402 endpoint is the directory <strong>Verify API</strong> at <code>https://24klabs.ai/api/v1/verify</code>. This guide is being updated.
+      </div>
+
       <div class="step-block reveal">
         <h2>Step 1: Choose a Service</h2>
         <p>Pick the AI service you need. Each one accepts code and returns structured analysis.</p>
@@ -37,7 +41,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="step-block reveal">
         <h2>Step 2: Make the Request</h2>
         <p>Send a POST with your code. No auth headers needed.</p>
-<pre><code>{`curl -X POST https://api.24klabs.ai/api/explain-code \\
+<pre><code>{`curl -X POST https://24klabs.ai/api/explain-code \\
   -H "Content-Type: application/json" \\
   -d '{
     "code": "const add = (a, b) => a + b;",
@@ -75,7 +79,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="step-block reveal">
         <h2>Step 5: Retry with Receipt</h2>
         <p>Resend the same request with the payment receipt in the header.</p>
-<pre><code>{`curl -X POST https://api.24klabs.ai/api/explain-code \\
+<pre><code>{`curl -X POST https://24klabs.ai/api/explain-code \\
   -H "Content-Type: application/json" \\
   -H "PAYMENT-SIGNATURE: <base64 encoded PaymentPayload>" \\
   -d '{
@@ -91,7 +95,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="step-block reveal">
         <h2>Free Demo Endpoint</h2>
         <p>Not ready to pay? Try the free demo endpoint -- no payment required, 5 requests per day.</p>
-<pre><code>{`curl -X POST https://api.24klabs.ai/api/demo/explain \\
+<pre><code>{`curl -X POST https://24klabs.ai/api/demo/explain \\
   -H "Content-Type: application/json" \\
   -d '{
     "code": "print('hello world')",
@@ -104,7 +108,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <div class="reveal" style="text-align: center; padding: 40px 0;">
         <a href="/developers/docs" class="btn btn--primary">Full API Reference</a>
-        <a href="/pricing" class="btn btn--outline" style="margin-left: 12px;">View Pricing</a>
+        <a href="/directory" class="btn btn--outline" style="margin-left: 12px;">Browse the Directory</a>
       </div>
 
     </div>

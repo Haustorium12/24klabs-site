@@ -7,8 +7,8 @@
 //
 // Semantic (aligned to Phase 1 doctrine, 2026-07-13): being ON the curated list IS being
 // verified — single tier, curation is the bar. So there are two states, not three:
-//   matched (by entry url OR badge_resource endpoint) -> gold "24K Labs | Verified"
-//   not matched                                       -> neutral "24K Labs | not listed"
+//   matched (by entry url OR badge_resource endpoint) -> gold "Gold402 | Verified"
+//   not matched                                       -> neutral "Gold402 | not listed"
 // (The earlier order's middle "Listed-but-unverified" state is collapsed because Phase 1
 // removed the unverified tier. Flagged to Claude in the done-letter.)
 
@@ -35,13 +35,13 @@ function svg(listed) {
   const rightBg = listed ? "#D4AF37" : "#26262e";
   const rightFg = listed ? "#1a1a24" : "#8a8a99";
   const weight = listed ? "bold" : "normal";
-  const label = listed ? "24K Labs: Verified" : "24K Labs: not listed";
+  const label = listed ? "Gold402: Verified" : "Gold402: not listed";
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${total}" height="20" role="img" aria-label="${label}">
   <clipPath id="r"><rect width="${total}" height="20" rx="3"/></clipPath>
   <g clip-path="url(#r)" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11">
     <rect width="60" height="20" fill="#1a1a24"/>
     <rect x="60" width="${rightW}" height="20" fill="${rightBg}"/>
-    <text x="30" y="14" fill="#D4AF37" text-anchor="middle">24K Labs</text>
+    <text x="30" y="14" fill="#D4AF37" text-anchor="middle">Gold402</text>
     <text x="${60 + rightW / 2}" y="14" fill="${rightFg}" text-anchor="middle" font-weight="${weight}">${right}</text>
   </g>
 </svg>`;

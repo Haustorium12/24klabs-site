@@ -16,9 +16,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <section class="section--sm">
     <div class="container">
 
+      <div class="reveal" style="margin-bottom: 40px; padding: 16px 20px; border: 1px solid var(--gold-dim); border-radius: var(--radius); background: rgba(212,175,55,0.05);">
+        <strong style="color: var(--gold);">Note:</strong> The 24K Labs code services (Explain, Debug, Code Review, Security Audit, Automation, MCP Blueprint) have been retired. The live x402 surface is now the directory <strong>Verify API</strong> at <code>https://24klabs.ai/api/v1/verify</code>. This reference is being updated.
+      </div>
+
       <div class="reveal" style="margin-bottom: 48px;">
         <h2 class="docs-heading">Base URL</h2>
-        <pre><code>https://api.24klabs.ai</code></pre>
+        <pre><code>https://24klabs.ai</code></pre>
       </div>
 
       <div class="reveal" style="margin-bottom: 48px;">
@@ -134,7 +138,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 // Query parameter
 ?tier=quick|standard|pro   // Analysis depth and price tier. Default: standard.`}</code></pre>
-        <p>The AI model is fixed per service -- see the <a href="/pricing">pricing page</a> for which model each service uses. Tiers control output depth and token budget, not the model.</p>
+        <p>The AI model is fixed per service. Tiers control output depth and token budget, not the model.</p>
       </div>
 
       <div class="reveal prose" style="margin-bottom: 48px;">
@@ -182,7 +186,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <div class="reveal" style="text-align: center; padding: 40px 0;">
         <a href="/developers/quickstart" class="btn btn--primary">Quickstart Guide</a>
-        <a href="/pricing" class="btn btn--outline" style="margin-left: 12px;">View Pricing</a>
+        <a href="/directory" class="btn btn--outline" style="margin-left: 12px;">Browse the Directory</a>
       </div>
 
     </div>

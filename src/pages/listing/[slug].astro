@@ -1,12 +1,9 @@
 ---
-// Snapshot page — ONE page per verified listing. The floor of Phase 2: everything else
-// (embed storefront, billboard, verify API) sits on this. Home cards now land HERE instead of
-// pushing visitors off-site, so there is somewhere for a billboard to live and a stamp to be
-// copied. The off-site link becomes the "Visit service" button at the bottom.
+// Snapshot page — ONE page per listing. Home cards land HERE instead of pushing visitors
+// off-site, so there is somewhere for the verdict, rater grades, and a copyable stamp to live.
+// The off-site link becomes the "Visit service" button at the bottom.
 //
-// Static: getStaticPaths emits one page per editorial row (375). The billboard slot is the only
-// dynamic bit — it hydrates client-side from /api/v1/billboard/status so a static page can still
-// show a live, paid banner (or the "advertise here" state).
+// Static: getStaticPaths emits one page per editorial row.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { listings } from '../../lib/listings.js';
 import { ratersFor } from '../../lib/raters.js';
@@ -30,21 +27,21 @@ const cardUrl = `${origin}/card.svg?resource=${encodeURIComponent(resource)}`;
 const listingUrl = `${origin}/listing/${entry.slug}`;
 
 const initial = (entry.name || '?').trim().charAt(0).toUpperCase() || '#';
-const pageTitle = `${entry.name} — 24K Verified | 24K Labs`;
-const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
+const pageTitle = `${entry.name} — Gold402 Verified | 24K Labs`;
+const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified x402 service.`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDesc}>
   <section class="snap container" data-slug={entry.slug} data-resource={resource}>
 
-    <a href="/" class="snap-back">← Directory</a>
+    <a href="/directory" class="snap-back">← Directory</a>
 
     <!-- HEADER -->
     <header class="snap-head">
       <div class="snap-logo" aria-hidden="true">{initial}</div>
       <div class="snap-head__text">
         <div class="snap-trust">
-          <span class="snap-verified"><span class="snap-verified__check">&#10003;</span>24K Verified</span>
+          <span class="snap-verified"><span class="snap-verified__check">&#10003;</span>Gold402 Verified</span>
           {entry.category && <span class="snap-cat">{entry.category}</span>}
         </div>
         <h1 class="snap-name">{entry.name}</h1>
@@ -57,14 +54,6 @@ const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
       </div>
     </header>
 
-    <!-- BILLBOARD SLOT — hydrated client-side from /api/v1/billboard/status -->
-    <div class="snap-billboard" id="billboard" aria-live="polite">
-      <div class="snap-billboard__placeholder">
-        <span class="snap-billboard__eyebrow">Billboard</span>
-        <span class="snap-billboard__msg">Coming Soon</span>
-      </div>
-    </div>
-
     <div class="snap-grid">
       <div class="snap-main">
 
@@ -73,7 +62,7 @@ const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
           <h2 class="snap-block__title">Our Verdict</h2>
           <div class="snap-verdict">
             <p class="snap-verdict__line">
-              <strong class="text-gold">24K Verified.</strong>
+              <strong class="text-gold">Gold402 Verified.</strong>
               Hand-reviewed and on the curated list — curation is the bar.
             </p>
             {entry.desc && <p class="snap-verdict__desc">{entry.desc}</p>}
@@ -99,7 +88,7 @@ const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
           ) : (
             <p class="snap-raters__none">
               No independent rater grade published for this endpoint yet. Our verdict is the
-              24K Verified stamp above.
+              Gold402 Verified stamp above.
             </p>
           )}
         </section>
@@ -108,7 +97,7 @@ const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
         <section class="snap-block" id="embed">
           <h2 class="snap-block__title">Embed Your Stamp</h2>
           <p class="snap-embed__intro">
-            Show visitors you're 24K Verified. Copy a snippet — the badge and the aggregation card
+            Show visitors you're Gold402 Verified. Copy a snippet — the badge and the aggregation card
             render live from your verdict, so they stay current.
           </p>
 
@@ -197,23 +186,6 @@ const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
   .snap-copy:hover, .snip-copy:hover { border-color: var(--gold-dim); color: var(--gold); }
   .snap-copy.copied, .snip-copy.copied { color: var(--success); border-color: var(--success); }
 
-  /* Billboard slot */
-  .snap-billboard {
-    margin-bottom: 32px; border: 1px dashed var(--border); border-radius: var(--radius);
-    min-height: 96px; display: flex; align-items: center; justify-content: center;
-    background: var(--bg-surface); overflow: hidden;
-  }
-  .snap-billboard.is-live { border-style: solid; border-color: rgba(212,175,55,0.3); padding: 0; }
-  .snap-billboard__placeholder {
-    display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center;
-    padding: 20px; text-align: center;
-  }
-  .snap-billboard__eyebrow {
-    font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--gold-dim);
-  }
-  .snap-billboard__msg { font-size: 0.85rem; color: var(--text-muted); }
-
   .snap-grid { display: grid; grid-template-columns: 1fr 260px; gap: 32px; align-items: start; }
   .snap-main { min-width: 0; }
 
@@ -266,8 +238,6 @@ const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
     background: var(--bg-card); border: 1px solid var(--border);
     padding: 10px 12px; border-radius: var(--radius-sm); word-break: break-all; white-space: pre-wrap;
   }
-  .snap-billboard__banner { display: block; max-width: 100%; height: auto; }
-  .snap-billboard__link { display: block; line-height: 0; }
 </style>
 
 <script>
@@ -293,7 +263,7 @@ const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
     const card = data.dataset.card;
     const listing = data.dataset.listing;
     const name = data.dataset.name || 'this service';
-    const alt = `${name} is 24K Verified`;
+    const alt = `${name} is Gold402 Verified`;
     const snippets = [
       { label: 'Badge — Markdown', value: `[![${alt}](${badge})](${listing})` },
       { label: 'Badge — HTML', value: `<a href="${listing}"><img src="${badge}" alt="${alt}"></a>` },
@@ -311,25 +281,5 @@ const pageDesc = entry.desc || `${entry.name} is a 24K Verified x402 service.`;
         </div>
         <code class="snap-snippet__code">${esc(s.value)}</code>
       </div>`).join('');
-  }
-
-  // Billboard hydration — a static page still shows a live paid banner (or the available state).
-  const bb = document.getElementById('billboard');
-  const slug = document.querySelector('.snap')?.dataset.slug;
-  if (bb && slug) {
-    fetch(`/api/v1/billboard/status?slug=${encodeURIComponent(slug)}`)
-      .then((r) => (r.ok ? r.json() : null))
-      .then((state) => {
-        if (state && state.active && state.banner) {
-          const b = state.banner;
-          const img = `<img class="snap-billboard__banner" src="${b.image}" alt="${(b.alt || 'Sponsored banner').replace(/"/g, '&quot;')}">`;
-          bb.innerHTML = b.link
-            ? `<a class="snap-billboard__link" href="${b.link}" target="_blank" rel="noopener noreferrer sponsored">${img}</a>`
-            : img;
-          bb.classList.add('is-live');
-        }
-        // else: leave the default "advertise here" placeholder in the markup.
-      })
-      .catch(() => { /* keep placeholder */ });
   }
 </script>

@@ -66,7 +66,7 @@ async function buildVerdict(resource) {
     endpoint: entry.badge_resource || entry.url || null,
     category: entry.category || null,
     type: entry.type || null,
-    summary: entry.desc || `${entry.name} is 24K Verified.`,
+    summary: entry.desc || `${entry.name} is Gold402 Verified.`,
     listingUrl: `https://24klabs.ai/listing/${entry.slug}`,
     raters: grades,
     source: '24K Labs — the truth layer for the x402 ecosystem',

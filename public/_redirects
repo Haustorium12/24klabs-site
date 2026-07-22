@@ -1,4 +1,15 @@
-/community/directory    /                          301
-/markets                /                          301
-/community/jobs         /                          301
-/products/time-lord     /products/chronographer    301
+# Directory now lives at /directory (the homepage is the landing page).
+/community/directory    /directory                  301
+/markets                /                           301
+/community/jobs         /                           301
+/products/time-lord     /products/chronographer     301
+
+# Stripped shelf pages — 24klabs.ai is the directory now. Route to the landing page.
+/products/ai-services   /                           301
+/products/tools         /                           301
+/pricing                /                           301
+
+# Retired shelf-marketing blog posts -> blog index.
+/developers/blog/code-review-per-pr     /developers/blog   301
+/developers/blog/security-audit-owasp   /developers/blog   301
+/developers/blog/mcp-blueprint-service  /developers/blog   301

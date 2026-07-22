@@ -61,7 +61,7 @@ export async function onRequestGet(context) {
   const svg = renderCard({
     listed: !!entry,
     name: entry ? entry.name : 'Not listed',
-    verdict: entry ? '✓ 24K Verified' : 'Not on the curated list',
+    verdict: entry ? '✓ Gold402 Verified' : 'Not on the curated list',
     grades,
   });
 
