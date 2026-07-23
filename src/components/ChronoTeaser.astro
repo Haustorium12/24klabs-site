@@ -1,0 +1,196 @@
+---
+// ChronoTeaser — a slim live "showcase" strip for The Chronographer endpoint.
+//
+// Deliberate design constraint: everything this strip displays is computed IN THE VISITOR'S
+// BROWSER from their own clock — plain Date math (weekday, day-of-year, ISO week, Unix,
+// Julian Date). All of it is genuinely live and genuinely true, and NONE of it is the paid
+// product. The endpoint's value — lunar phase, astrology, circadian read, and the AI
+// /ask interpretation — stays server-side behind the $0.001 paywall and is never shipped
+// to the client. So this is an honest taste of "15 time systems" with nothing worth stealing:
+// the facts shown here are ones every computer already knows. The strip is also
+// user-select:none to discourage casual copy-paste. It links to the product page.
+---
+
+<a href="/products/chronographer" class="chrono-teaser" aria-label="The Chronographer — live time endpoint">
+  <span class="chrono-teaser__left">
+    <span class="chrono-teaser__dot"></span>
+    <span class="chrono-teaser__clock" id="chrono-clock">--:--:--</span>
+  </span>
+  <span class="chrono-teaser__facet" id="chrono-facet">reading the moment…</span>
+  <span class="chrono-teaser__tag">
+    15 systems · $0.001 · <span class="chrono-teaser__cta">The Chronographer →</span>
+  </span>
+</a>
+
+<style>
+  .chrono-teaser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    max-width: 680px;
+    margin: 0 auto 36px;
+    padding: 9px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--gold-dim);
+    border-radius: 100px;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.28), inset 0 1px 0 rgba(212,175,55,0.06);
+    transition: border-color 0.25s, box-shadow 0.25s;
+    /* Not for copying — this is a live showcase, not a snippet to lift. */
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  .chrono-teaser:hover {
+    border-color: var(--gold);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(212,175,55,0.12);
+  }
+
+  .chrono-teaser__left {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+  }
+  .chrono-teaser__dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: chrono-pulse 2s ease-in-out infinite;
+  }
+  @keyframes chrono-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.75); }
+  }
+
+  .chrono-teaser__clock {
+    font-family: var(--mono, monospace);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    color: var(--gold);
+  }
+
+  .chrono-teaser__facet {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    font-family: var(--mono, monospace);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: opacity 0.4s;
+  }
+  .chrono-teaser__facet.is-fading { opacity: 0; }
+
+  .chrono-teaser__tag {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  .chrono-teaser__cta {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* Divider hairlines between the three zones. */
+  .chrono-teaser__facet {
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    padding: 2px 16px;
+    margin: 0 2px;
+  }
+
+  @media (max-width: 640px) {
+    .chrono-teaser {
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      border-radius: 18px;
+      padding: 10px 18px;
+    }
+    .chrono-teaser__facet {
+      order: 3;
+      flex-basis: 100%;
+      border: none;
+      border-top: 1px solid var(--border);
+      padding: 6px 0 0;
+      margin: 2px 0 0;
+    }
+  }
+</style>
+
+<script>
+  // Everything here runs on the visitor's own clock. No network call, no cost, no paid data.
+  const clockEl = document.getElementById('chrono-clock');
+  const facetEl = document.getElementById('chrono-facet');
+
+  const WEEKDAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  function pad(n: number, w = 2) { return String(n).padStart(w, '0'); }
+
+  function dayOfYear(d: Date) {
+    const start = new Date(d.getFullYear(), 0, 0);
+    const diff = d.getTime() - start.getTime();
+    return Math.floor(diff / 86400000);
+  }
+
+  function isoWeek(d: Date) {
+    const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    const day = t.getUTCDay() || 7;
+    t.setUTCDate(t.getUTCDate() + 4 - day);
+    const yearStart = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+    return Math.ceil((((t.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
+  }
+
+  function julianDate(d: Date) {
+    // Standard Julian Date at the given instant.
+    return (d.getTime() / 86400000) + 2440587.5;
+  }
+
+  function quarter(d: Date) { return Math.floor(d.getMonth() / 3) + 1; }
+
+  // Real, live, browser-computed facets — a true sliver of "many time systems".
+  // The paid systems (lunar / solar / astrology / circadian / market / the AI read) are NOT here.
+  function facets(d: Date): string[] {
+    return [
+      `${WEEKDAYS[d.getDay()]} · day ${dayOfYear(d)} of ${d.getFullYear()}`,
+      `ISO week ${isoWeek(d)} · Q${quarter(d)}`,
+      `Unix ${Math.floor(d.getTime() / 1000)}`,
+      `Julian Date ${julianDate(d).toFixed(3)}`,
+      `…lunar, solar & 9 more behind the call`,
+    ];
+  }
+
+  function tick() {
+    const now = new Date();
+    if (clockEl) {
+      const h24 = now.getHours();
+      const period = h24 < 12 ? 'AM' : 'PM';
+      const h12 = h24 % 12 || 12;
+      clockEl.textContent = `${h12}:${pad(now.getMinutes())}:${pad(now.getSeconds())} ${period}`;
+    }
+  }
+
+  let fi = 0;
+  function rotateFacet() {
+    if (!facetEl) return;
+    const list = facets(new Date());
+    facetEl.classList.add('is-fading');
+    setTimeout(() => {
+      fi = (fi + 1) % list.length;
+      facetEl.textContent = list[fi];
+      facetEl.classList.remove('is-fading');
+    }, 400);
+  }
+
+  // First paint immediately, then run.
+  tick();
+  if (facetEl) facetEl.textContent = facets(new Date())[0];
+  setInterval(tick, 1000);
+  setInterval(rotateFacet, 4200);
+</script>
