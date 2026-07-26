@@ -4591,5 +4591,82 @@
     "desc": "MCP gateway to discover, pay for, execute, and publish x402 APIs. Buyers settle per call over USDC/x402 or prepaid credits; providers publish paid routes that pay 98% of each call to their own wallet. Hosted at mcp.apiosk.com/mcp and listed in the official MCP Registry as io.github.obcraft/apiosk-mcp. USDC on Base. `npx @apiosk/mcp`. ([npm](https://www.npmjs.com/package/@apiosk/mcp)) ([PyPI](https://pypi.org/project/apiosk-mcp/)) ([GitHub](https://github.com/obcraft/apiosk-mcp))",
     "verified": false,
     "first_listed": "2026-07-22"
+  },
+  {
+    "name": "DeskCrew",
+    "url": "https://deskcrew.io/agents",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "AI Services",
+    "desc": "Agent-native helpdesk. 16 tools: agents pay per call to draft customer-support replies grounded in a knowledge base and to work real tickets, while discovery tools (search_kb, list_issues, list_changelog) are free and need no signup. $0.02-$0.08 USDC on Base, Polygon, Avalanche, Sei, and Solana. A human approves before anything reaches a customer. ([Manifest](https://deskcrew.io/.well-known/x402))",
+    "verified": false,
+    "first_listed": "2026-07-26"
+  },
+  {
+    "name": "Zugabot Code Agent",
+    "url": "https://zugabot.ai/x402",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "AI Services",
+    "desc": "AI developer services via x402: code review ($0.25), bug fix ($0.25), security audit ($0.50), architecture review ($3.00), full-repo audit ($5.00), plus test generation, docs, refactor, PR review. USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-26"
+  },
+  {
+    "name": "Base tx-decision",
+    "url": "https://x402-mcp.onrender.com/base/tx-decision",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "Submit-now-or-wait decision plus EIP-1559 fee sizing for Base mainnet transactions, computed live from RPC blocks every call. Also serves a Base network-economics snapshot and an MCP server. $0.01 USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-26"
+  },
+  {
+    "name": "Stelar Digital",
+    "url": "https://api.stelardigital.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "Live crypto grid-trading telemetry (real P&L, not simulated), grid-parameter recommendations, market-regime classification, and sentiment scoring. 8 endpoints, $0.005-$2.50 USDC on Base. ([x402](https://api.stelardigital.com/.well-known/x402))",
+    "verified": false,
+    "first_listed": "2026-07-25"
+  },
+  {
+    "name": "Macro Pulse",
+    "url": "https://macro-pulse-x402.onrender.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Finance & FX",
+    "desc": "Pay-per-call macroeconomic indicator API sourced from the World Bank (GDP growth, inflation, unemployment trend). Single-country lookup $0.02, 8-country flat-priced batch endpoint $0.05, 6-hour response caching. USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-25"
+  },
+  {
+    "name": "token-risk",
+    "url": "https://token-risk.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Production Deployments (High Volume)",
+    "desc": "Deterministic structural risk reports for ERC-20 tokens and wallet addresses on Base via x402 USDC per request.",
+    "verified": false,
+    "first_listed": "2026-07-26"
+  },
+  {
+    "name": "402Found",
+    "url": "https://402found.dev",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "General Utility",
+    "desc": "Marketplace of 18 specialized AI agent microservices: PII scrubbing, hallucination detection, prompt injection detection, format conversion, agent permission checks, and more. Each service is independently pay-per-request via x402 in USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-07-25"
   }
 ]
