@@ -18,7 +18,7 @@
     "type": "API / Service",
     "category": "AI Services",
     "desc": "6 AI code analysis services: explain, debug, review, security audit, automation scripts, MCP blueprints. $0.50-$50.00 per request. USDC on Base. [Live API](https://api.24klabs.ai)",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -117,7 +117,7 @@
     "type": "API / Service",
     "category": "Data & Research",
     "desc": "20 utility tools for AI agents: `ip-lookup`, `dns-lookup`, `qr-code`, `exchange-rates`, `email-validate`, `ssl-check`, `weather`, `translate`, `whois`, `crypto-prices`, `stock-prices`, `geocode`, `web-search`, `news-search`, `pdf-extract`, `screenshot`, `webpage-reader`, `html-to-pdf`, `ocr`. $0.001-$0.008 USDC per call on Base. ([GitHub](https://github.com/jakobautomation/agentsvc-mcp))",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -532,7 +532,7 @@
     "type": "API / Service",
     "category": "Web & Geospatial",
     "desc": "Web scraping and search API with x402-gated endpoints and automatic on-chain USDC settlement. Featured in Coinbase CDP case studies as a reference x402 integration.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-05-07"
   },
   {
@@ -703,7 +703,7 @@
     "type": "API / Service",
     "category": "Business Intelligence",
     "desc": "Trust layer for AI agents with 250+ independently tested business data and compliance capabilities: IBAN validation, VAT checks, sanctions screening, company lookups, SSL checks, and more. Quality-scored (SQS). $0.02-$1.00 USDC. [MCP](https://api.strale.io/mcp)",
-    "verified": true,
+    "verified": false,
     "badge_resource": "https://api.strale.io/x402/robots-txt-parse",
     "first_listed": "2026-04-27"
   },
@@ -772,7 +772,7 @@
     "type": "API / Service",
     "category": "Infrastructure APIs",
     "desc": "58 production API tools for AI agents. Web scraping, AI generation, crypto data, OCR, browser automation. Patent-pending agent auth. 15+ chains. ([GitHub](https://github.com/Deesmo/Arch-AI-Tools))",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -927,7 +927,7 @@
     "type": "API / Service",
     "category": "Production Deployments (High Volume)",
     "desc": "Leading x402 payment processor. **10.5M+ cumulative transactions** on the x402 network. The benchmark for production scale.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -938,7 +938,7 @@
     "type": "API / Service",
     "category": "Production Deployments (High Volume)",
     "desc": "Official CDP implementation processing hundreds of thousands of transactions weekly. Enterprise-grade, 2-second settlement.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -949,7 +949,7 @@
     "type": "API / Service",
     "category": "Production Deployments (High Volume)",
     "desc": "Edge payment verification at scale across 300+ data centers globally.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -994,7 +994,7 @@
     "type": "Ecosystem",
     "category": "Infrastructure",
     "desc": "Hosted facilitator service with enterprise-grade reliability and instant settlement. The primary x402 infrastructure layer.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1005,7 +1005,7 @@
     "type": "Ecosystem",
     "category": "Infrastructure",
     "desc": "Edge payment processing across 300+ global data centers.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1016,7 +1016,7 @@
     "type": "Ecosystem",
     "category": "Infrastructure",
     "desc": "Near-instant finality, sub-$0.001 fees, no reorgs. Coinbase CDP facilitator with gas sponsorship and KYT compliance. USDC, USDT, non-USD stablecoins. ([Docs](https://agentic-docs.polygon.technology/general/x402/intro/))",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1093,7 +1093,7 @@
     "type": "Ecosystem",
     "category": "Infrastructure",
     "desc": "Machine-first API discovery for AI agents. 110+ capabilities, semantic intent resolution, continuous 402 verification probes, quality ranking. MCP server, TypeScript SDK, REST API. ([Docs](https://entroute.com/docs))",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1115,7 +1115,7 @@
     "type": "Ecosystem",
     "category": "Agent Wallets",
     "desc": "Wallet infrastructure purpose-built for autonomous AI agents. 50M+ transactions processed since protocol launch.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1324,7 +1324,7 @@
     "type": "Ecosystem",
     "category": "Marketplaces & Discovery",
     "desc": "x402 Foundation's official app store for agents. Launched April 20, 2026. Unified marketplace aggregating x402-enabled services. Find, evaluate pricing, consume services. Backed by Coinbase.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1445,7 +1445,7 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Official facilitator on Base and Base Sepolia. Instant settlement, supports all ERC-20 tokens (not just USDC). Most widely used in the ecosystem.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1456,7 +1456,7 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Stripe's Machine Payments infrastructure. Deposit addresses, automatic PaymentIntent capture on settlement, dashboard monitoring, webhooks. USDC on Base. ([Quickstart](https://docs.stripe.com/payments/machine/x402/quickstart))",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1467,7 +1467,7 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Edge computing facilitator on Base and Ethereum. Deferred settlement. Global distribution via 300+ data centers.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1478,7 +1478,7 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Coinbase CDP on Polygon with gas sponsorship, automated KYT compliance screening, 1,000 free transactions/month. USDC on Polygon.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1489,7 +1489,7 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Official Stellar Foundation integration. Middleware for Stellar payment addresses, browser wallet support.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1533,7 +1533,7 @@
     "type": "Facilitator",
     "category": "Hosted Facilitators",
     "desc": "Open-source x402 facilitator and SDK. Chain-agnostic v2 with client, server, React hooks, and Express middleware.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-05-07"
   },
   {
@@ -1874,7 +1874,7 @@
     "type": "SDK / Library",
     "category": "TypeScript / JavaScript",
     "desc": "Official TypeScript implementation. Core protocol types, payment verification and settlement logic, multi-chain support (Base, Base Sepolia, Ethereum, Solana).",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -1907,7 +1907,7 @@
     "type": "SDK / Library",
     "category": "TypeScript / JavaScript",
     "desc": "Vercel's library for adding x402 paywalls to MCP servers via the AI SDK. The `paidTool` primitive — declare a price on any MCP tool, require payment before execution. ([Blog](https://vercel.com/blog/introducing-x402-mcp-open-protocol-payments-for-mcp-tools))",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2006,7 +2006,7 @@
     "type": "SDK / Library",
     "category": "Python",
     "desc": "Official Python SDK. FastAPI middleware, `requests` session with auto-payments, payment requirement generation.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2017,7 +2017,7 @@
     "type": "SDK / Library",
     "category": "Python",
     "desc": "Payment layer for AI agents using x402. Wrap any API or MCP server with a USDC paywall (`ag402 serve`), or let agents auto-pay (`ag402 run`). Solana USDC, ~0.5s settlement, non-custodial, 648+ tests.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2149,7 +2149,7 @@
     "type": "SDK / Library",
     "category": "Rust",
     "desc": "Production-grade Rust implementation. Axum middleware, reqwest client wrapper, self-hostable facilitator, multi-chain support.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2182,7 +2182,7 @@
     "type": "SDK / Library",
     "category": "Go",
     "desc": "Official Go implementation. Core protocol types, multi-chain support.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2304,7 +2304,7 @@
     "type": "MCP Server",
     "category": "General Utility",
     "desc": "Vercel's `paidTool` primitive — add an x402 paywall to any MCP tool with one wrapper. The foundational MCP payment SDK. ([Blog](https://vercel.com/blog/introducing-x402-mcp-open-protocol-payments-for-mcp-tools)) ([Starter Template](https://vercel.com/templates/next.js/x402-ai-starter))",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2315,7 +2315,7 @@
     "type": "MCP Server",
     "category": "General Utility",
     "desc": "20 pay-per-call utility tools: screenshots (Playwright), OCR (Tesseract), PDF generation, webpage reader, web/news search, weather, forex/crypto/stock prices, DNS, IP geolocation, geocoding, translation, QR codes, email/phone/SSL validation, WHOIS. $0.001-$0.008 USDC on Base. ([GitHub](https://github.com/jakobautomation/agentsvc-mcp))",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2326,7 +2326,7 @@
     "type": "MCP Server",
     "category": "General Utility",
     "desc": "80+ tool MCP server: image generation (Flux), web scraping, TTS, OCR, QR codes, browser automation, sandboxed code execution, DNS, WHOIS, weather, crypto, charts, email validation, URL shortening, and more. $0.001-$0.01 USDC on Base. ([GitHub](https://github.com/fredpsantos33/mcp-iteratools))",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2348,7 +2348,7 @@
     "type": "MCP Server",
     "category": "General Utility",
     "desc": "Discover and call 350+ verified x402 API endpoints across 110+ capabilities. Natural language intent discovery, quality ranking (success rate, latency, price), automatic payments. `npx @entroute/mcp-server`. ([GitHub](https://github.com/entroute/mcp-server))",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2557,7 +2557,7 @@
     "type": "MCP Server",
     "category": "Code & Development",
     "desc": "6 AI code analysis tools: explain, debug, review, security audit, automation scripts, MCP blueprints. $0.50-$50.00 USDC on Base.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2889,7 +2889,7 @@
     "type": "Tool / Utility",
     "category": "GitHub Actions & CI/CD",
     "desc": "Automated AI code review on every PR. Runs explain, debug, review, and security audit via x402 micropayments. Drop into any GitHub Actions workflow.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2911,7 +2911,7 @@
     "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
     "desc": "Enterprise audit and compliance layer for x402 payments. Budget enforcement (per-call, hourly, daily), structured audit trails, real-time dashboard, public payment explorer. SDK: [`@x402sentinel/x402`](https://npmjs.com/package/@x402sentinel/x402).",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2922,7 +2922,7 @@
     "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
     "desc": "Trust scoring infrastructure for x402 services. Monitors 1,700+ services with continuous health checks and fidelity probes. 4-pillar model: Contract Clarity, Availability, Response Fidelity, Identity & Safety. [npm SDK](https://www.npmjs.com/package/@scoutscore/sdk) [MCP Server](https://www.npmjs.com/package/@scoutscore/mcp-server)",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -2933,7 +2933,7 @@
     "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
     "desc": "Blockchain explorer for x402 payments. Transaction search and verification, payment requirement inspection, settlement status tracking.",
-    "verified": true,
+    "verified": false,
     "badge_resource": "https://www.x402scan.com/api/x402/resources/search",
     "first_listed": "2026-04-27"
   },
@@ -2968,7 +2968,7 @@
     "type": "Tool / Utility",
     "category": "Monitoring & Analytics",
     "desc": "Real-time monitoring and discovery platform for 20,000+ x402 endpoints. Probes every 10 minutes, tracks health scores, uptime, and latency. MCP server for agent access included.",
-    "verified": true,
+    "verified": false,
     "badge_resource": "https://x402station.io/api/v1/forensics",
     "first_listed": "2026-05-07"
   },
@@ -3013,7 +3013,7 @@
     "type": "Tool / Utility",
     "category": "Spending Controls & Policy",
     "desc": "Open-source governance proxy for x402 agent payments. Per-agent budgets, circuit breakers, SQLite audit trail. Drop-in `@x402/fetch` replacement. MIT licensed.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -3234,7 +3234,7 @@
     "type": "Learning Resource",
     "category": "Quick Start Guides",
     "desc": "Official Coinbase guide. Accept your first x402 payment in minutes.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -3817,7 +3817,7 @@
     "type": "Security",
     "category": "Security Monitoring Tools",
     "desc": "x402-native security intelligence API. 9 endpoints: password/email breach check (900M+ HIBP hashes), domain/IP reputation, URL safety scanning, prompt injection detection, skill security analysis. Micropayments on Base. [MCP Server](https://www.npmjs.com/package/shieldapi-mcp)",
-    "verified": true,
+    "verified": false,
     "badge_resource": "https://shield.vainplex.dev/api/cdp/check/email",
     "first_listed": "2026-04-27"
   },
@@ -3884,7 +3884,7 @@
     "type": "Security",
     "category": "Spending Controls",
     "desc": "Open-source governance proxy for x402 agent payments. Per-agent budgets, time-windowed limits, circuit breakers, full audit trail. MIT licensed.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -4358,7 +4358,7 @@
     "type": "Market Data",
     "category": "Analytics Dashboards",
     "desc": "Real-time dashboard tracking the agentic economy across x402, ERC-8004, ERC-8183, and MPP protocols on 8 chains. Aggregated event counter, chain distribution, facilitator share, time-series charts. Refreshes every 6 hours.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -4369,7 +4369,7 @@
     "type": "Market Data",
     "category": "Analytics Dashboards",
     "desc": "Comprehensive on-chain metrics: transaction volumes, chain analytics, facilitator comparison, revenue/fee metrics.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
@@ -4380,7 +4380,7 @@
     "type": "Market Data",
     "category": "Analytics Dashboards",
     "desc": "Blockchain explorer for x402 payments. Transaction search, payment requirement inspection, settlement status.",
-    "verified": true,
+    "verified": false,
     "first_listed": "2026-04-27"
   },
   {
