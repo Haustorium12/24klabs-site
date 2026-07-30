@@ -60,6 +60,7 @@ SECTION_TABLE = {
     "ecosystem":    ("Ecosystem",               "Ecosystem"),
     "facilitators": ("Facilitators",            "Facilitator"),
     "frameworks":   ("Frameworks & Middleware", "Frameworks & Middleware"),
+    "global":       ("Global Agent Economy",    "Global Rail / Platform"),
     "learning":     ("Learning Resources",      "Learning Resource"),
     "market-data":  ("Market Data",             "Market Data"),
     "mcp-servers":  ("MCP Servers",             "MCP Server"),

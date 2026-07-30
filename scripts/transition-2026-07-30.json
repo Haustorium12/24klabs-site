@@ -1,0 +1,9 @@
+{
+  "note": "Transition applied 2026-07-30 with the global-shelf wire. gold-402 ddf8c63 (07-29 re-clone/editorial pilot) replaced our own dead '24K Labs' apis entry (api.24klabs.ai retired in the 07-22 site strip) with the live Chronographer entry in place. The rebind carries row identity (first_listed 2026-04-27, verified) across the url change so the merge does not misread our own listing's repair as a delete+add. Idempotent: once applied, the from_url no longer appears in the JSON and the rebind is a no-op on later runs.",
+  "rebind": [
+    { "from_url": "https://24klabs.ai", "from_section": "apis", "to_url": "https://24klabs.ai/products/chronographer", "to_section": "apis", "reason": "gold-402 ddf8c63: dead api.24klabs.ai product entry fixed in place to the live Chronographer (site strip 07-22 retired the old surface)" }
+  ],
+  "seed_first_listed": [
+    { "url": "https://zugabot.ai/x402#image-generation", "section": "apis", "date": "2026-07-29", "reason": "PR #66 (fef2776) merged 2026-07-29 with url https://zugabot.ai/x402, identical to the Code Agent row (#47) in the same section; fragment added 2026-07-30 to disambiguate the (url,section) key. Date = original merge per Sean's rule." }
+  ]
+}
