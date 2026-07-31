@@ -4671,12 +4671,12 @@
   },
   {
     "name": "Zugabot Image Generation",
-    "url": "https://zugabot.ai/x402#image-generation",
+    "url": "https://zugabot.ai/api/x402/agent/image-generate",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "AI Services",
-    "desc": "Text-to-image generation via x402: FLUX Schnell ($0.15) or FLUX 2 Pro ($0.50), returns image URL plus dimensions and seed. USDC on Base.",
+    "desc": "Text-to-image generation via x402: FLUX Schnell ($0.15) or FLUX 2 Pro ($0.50), returns image URL plus dimensions and seed. USDC on Base. `POST` to the endpoint; storefront at [zugabot.ai/x402](https://zugabot.ai/x402).",
     "verified": false,
     "first_listed": "2026-07-29"
   },
@@ -5042,5 +5042,27 @@
     "desc": "Deterministic endpoint conformance and remediation tool that inspects unpaid challenges, validates Base USDC requirements, probes discovery documents, and returns OpenAPI, Bazaar, and agent-instruction templates. [Live x402 offer](https://fixspec.am518.uk/buy/fixspec).",
     "verified": false,
     "first_listed": "2026-07-29"
+  },
+  {
+    "name": "Fry x402 MCP",
+    "url": "https://github.com/Fry-Foundation/fry-x402-mcp",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "General Utility",
+    "desc": "MCP server for the fry.farm x402 API. Repo live 2026-07-30; storefront at [fry.farm/x402](https://fry.farm/x402/).",
+    "verified": false,
+    "first_listed": "2026-07-30"
+  },
+  {
+    "name": "Agent Café",
+    "url": "https://api.402.coffee/docs",
+    "section": "tools",
+    "section_label": "Tools & Utilities",
+    "type": "Tool / Utility",
+    "category": "Discovery & Search",
+    "desc": "x402 developer service with published API documentation.",
+    "verified": false,
+    "first_listed": "2026-07-30"
   }
 ]
