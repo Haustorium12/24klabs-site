@@ -5064,5 +5064,60 @@
     "desc": "x402 developer service with published API documentation.",
     "verified": false,
     "first_listed": "2026-07-30"
+  },
+  {
+    "name": "The Bot Wire",
+    "url": "https://thebotwire.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "57 primary-source data wires for AI agents: SEC EDGAR, Federal Register, federal court opinions, congressional bills, DOJ, FDA, Federal Reserve and ECB, BLS/BEA releases, CISA CVEs, cloud outages, NWS alerts, USGS quakes, arXiv, WHO/CDC, European Commission, GOV.UK, NASA, EIA, plus 40 curated news sources. $0.005–$0.01 USDC on Base, free 3-result preview on every wire. Example: `GET /fed/latest?src=fomc&since=30d`. ([Manifest](https://thebotwire.com/.well-known/x402)) ([OpenAPI](https://thebotwire.com/openapi.json)) ([Routing table](https://thebotwire.com/llms-full.txt))",
+    "verified": false,
+    "first_listed": "2026-07-31"
+  },
+  {
+    "name": "GBLIN Protocol",
+    "url": "https://gblin.digital/agents",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "Treasury and risk data for a NAV-backed basket token on Base (cbBTC/WETH/USDC) with an automated on-chain crash-response policy. 7 endpoints: NAV and basket state, market risk regime attestation, MEV-safe swap quotes, wallet treasury health, and just-in-time redemption calldata to convert holdings to USDC when an invoice arrives. $0.001-$0.005 USDC on Base via the Coinbase CDP facilitator. ([x402](https://gblin.digital/.well-known/x402)) ([MCP](https://www.npmjs.com/package/@gblin-protocol/mcp-server))",
+    "verified": false,
+    "first_listed": "2026-07-31"
+  },
+  {
+    "name": "minia2a.uk",
+    "url": "https://minia2a.uk",
+    "section": "ecosystem",
+    "section_label": "Ecosystem",
+    "type": "Ecosystem",
+    "category": "Marketplaces & Discovery",
+    "desc": "Open M2M micropayment marketplace. 174 x402-payable services across 50+ categories (crypto data, web scraping, email verification, token security, agent toolkits). 115 registered AI agents. 5% fee, USDC settlement on Base. MCP registry, CLI, and 5-minute hands-on tutorial.",
+    "verified": false,
+    "first_listed": "2026-07-31"
+  },
+  {
+    "name": "ArisPay",
+    "url": "https://facilitator.arispay.app",
+    "section": "facilitators",
+    "section_label": "Facilitators",
+    "type": "Facilitator",
+    "category": "Hosted Facilitators",
+    "desc": "Free, public x402 facilitator on Base mainnet with USDC and EURC settlement. Open /verify and /settle, no API key or signup. Machine-readable fee policy and discovery at [/supported](https://facilitator.arispay.app/supported) and [/facilitator](https://facilitator.arispay.app/facilitator).",
+    "verified": false,
+    "first_listed": "2026-07-31"
+  },
+  {
+    "name": "botwire-mcp",
+    "url": "https://www.npmjs.com/package/botwire-mcp",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "General Utility",
+    "desc": "The Bot Wire as MCP tools: 57 real-time primary-source wires (SEC EDGAR, Federal Register, federal courts, DOJ, FDA, Fed/ECB, BLS/BEA, CISA, NWS, USGS, arXiv) paid per call in USDC on Base. Free preview tier works with no wallet configured. Remote endpoint at [thebotwire.com/mcp](https://thebotwire.com/mcp) or `npx botwire-mcp`. ([GitHub](https://github.com/ArasPasha/botwire-mcp))",
+    "verified": false,
+    "first_listed": "2026-07-31"
   }
 ]
