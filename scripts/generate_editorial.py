@@ -47,6 +47,7 @@ import argparse
 import datetime
 import json
 import re
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -130,8 +131,9 @@ def git_first_listed(gold_dir, url):
     """Merge date = first commit whose diff adds the url to directory/*.md."""
     out = subprocess.run(
         ["git", "-C", str(gold_dir), "log", "-S", "(%s)" % url, "--reverse",
-         "--format=%ad", "--date=short", "--", "directory/*.md"],
+         "--format=%cd", "--date=format-local:%Y-%m-%d", "--", "directory/*.md"],
         capture_output=True, text=True, check=True,
+        env={**os.environ, "TZ": "UTC"},
     ).stdout.strip().splitlines()
     return out[0] if out else None
 
