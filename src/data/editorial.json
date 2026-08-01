@@ -5123,11 +5123,11 @@
   {
     "name": "Orders of Magnitude",
     "url": "https://x402-api-production-5133.up.railway.app/x402.json",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Infrastructure APIs",
-    "desc": "1,126 pay-per-call endpoints in one deployment: information, government, weather, verification, compute, memory, and agent-coordination categories. $0.003–$0.10 per call. Machine-readable manifest at `/x402.json` (mirrored at `/.well-known/x402`). x402 v2, USDC on Base.",
+    "section": "aggregators",
+    "section_label": "Aggregators & Proxies",
+    "type": "Aggregator / Proxy",
+    "category": "",
+    "desc": "Unified pay-per-call access to 1,100+ public and utility API endpoints through one wallet. $0.003–$0.10 per call, machine-readable manifest at `/x402.json` (mirrored at `/.well-known/x402`). x402 v2, USDC on Base.",
     "verified": false,
     "first_listed": "2026-08-01"
   }
