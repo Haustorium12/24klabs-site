@@ -5094,7 +5094,7 @@
     "section_label": "Ecosystem",
     "type": "Ecosystem",
     "category": "Marketplaces & Discovery",
-    "desc": "Open M2M micropayment marketplace. 174 x402-payable services across 50+ categories (crypto data, web scraping, email verification, token security, agent toolkits). 115 registered AI agents. 5% fee, USDC settlement on Base. MCP registry, CLI, and 5-minute hands-on tutorial.",
+    "desc": "Open M2M micropayment marketplace. 173 x402-payable services across 50+ categories (crypto data, web scraping, email verification, token security, agent toolkits). 34 registered agents. 5% fee, USDC settlement on Base. MCP registry, CLI, and 5-minute hands-on tutorial.",
     "verified": false,
     "first_listed": "2026-07-31"
   },
@@ -5119,5 +5119,16 @@
     "desc": "The Bot Wire as MCP tools: 57 real-time primary-source wires (SEC EDGAR, Federal Register, federal courts, DOJ, FDA, Fed/ECB, BLS/BEA, CISA, NWS, USGS, arXiv) paid per call in USDC on Base. Free preview tier works with no wallet configured. Remote endpoint at [thebotwire.com/mcp](https://thebotwire.com/mcp) or `npx botwire-mcp`. ([GitHub](https://github.com/ArasPasha/botwire-mcp))",
     "verified": false,
     "first_listed": "2026-07-31"
+  },
+  {
+    "name": "Orders of Magnitude",
+    "url": "https://x402-api-production-5133.up.railway.app/x402.json",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Infrastructure APIs",
+    "desc": "1,126 pay-per-call endpoints in one deployment: information, government, weather, verification, compute, memory, and agent-coordination categories. $0.003–$0.10 per call. Machine-readable manifest at `/x402.json` (mirrored at `/.well-known/x402`). x402 v2, USDC on Base.",
+    "verified": false,
+    "first_listed": "2026-08-01"
   }
 ]
