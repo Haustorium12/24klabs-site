@@ -1,0 +1,18 @@
+{
+ "date": "2026-07-27",
+ "week_label": "Week of July 27 \u2013 August 2, 2026",
+ "items": [
+  {
+   "title": "The announcement wire went quiet \u2014 and that's the story.",
+   "body": "After a month of institutional news \u2014 the Foundation's operational launch, Ripple and MoonPay buying in, the hyperscalers shipping edge support \u2014 no major protocol or member announcement landed this week. In a young standard's life, the weeks nobody announces anything are the weeks the software gets written.",
+   "cite_label": null,
+   "cite_url": null
+  },
+  {
+   "title": "Catch-up worth reading: the hyperscaler split.",
+   "body": "InfoQ's July analysis is the clearest side-by-side in print on the two edge implementations: AWS CloudFront's x402 support is generally available at no charge beyond standard WAF pricing, while Cloudflare's Monetization Gateway remains waitlist-only with no pricing or timeline. Same protocol, opposite go-to-market. The demand argument rides in one number from the same piece: Cloudflare measures 52% of crawler requests as AI-training traffic now, up from 22% in spring 2025 \u2014 alongside Coinbase-reported first-year totals of 169M+ payments across roughly 590K buyers and 100K sellers.",
+   "cite_label": "InfoQ",
+   "cite_url": "https://www.infoq.com/news/2026/07/cloudflare-aws-x402-micropayment/"
+  }
+ ]
+}

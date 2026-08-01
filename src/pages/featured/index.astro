@@ -1,0 +1,39 @@
+---
+// The month's Featured slate: one pick per shelf, blurb + link to each pick's snapshot page.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { listings } from '../../lib/listings.js';
+import featured from '../../data/featured.json';
+
+const seen = new Set();
+const picks = [];
+for (const e of listings) {
+  const blurb = featured.picks[e.url];
+  if (blurb && !seen.has(e.url)) {
+    seen.add(e.url);
+    picks.push({ name: e.name, slug: e.slug, section: e.section_label, blurb });
+  }
+}
+---
+
+<BaseLayout title={`Featured — ${featured.month} | 24K Labs`} description="One Featured pick per shelf, chosen by the maintainers: well-built, actively used, worth a second look.">
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">★ Featured</span>
+      <h1 class="page-header__title">Featured — <span class="text-gold">{featured.month}</span></h1>
+      <p class="page-header__desc">One pick per shelf. Well-built, actively used, worth a second look. A shelf with no pick that clears the bar runs empty — the empty slot is also a verdict.</p>
+    </div>
+  </section>
+  <section class="section--sm">
+    <div class="container">
+      {picks.map((p) => (
+        <a href={`/listing/${p.slug}/`} class="card reveal" style="display:block; margin-bottom:16px; text-decoration:none;">
+          <div style="color: var(--text-muted); font-size:0.85rem;">{p.section}</div>
+          <div class="text-gold" style="font-weight:800; margin-top:2px;">★ {p.name}</div>
+          <div style="color: var(--text-muted); margin-top:6px;">{p.blurb}</div>
+        </a>
+      ))}
+      <p style="color: var(--text-muted); font-size:0.9rem;">Aggregators &amp; Proxies runs empty this month.</p>
+    </div>
+  </section>
+</BaseLayout>

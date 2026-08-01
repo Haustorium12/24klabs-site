@@ -1,0 +1,27 @@
+---
+// Index of all This Week in x402 editions, newest first. The canonical home of the weekly wire.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const mods = import.meta.glob('../../data/news/*.json', { eager: true });
+const editions = Object.values(mods).map((m) => m.default ?? m).sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<BaseLayout title="This Week in x402 — the weekly wire | 24K Labs" description="Dated, permanent weekly editions covering what actually happened in the x402 ecosystem. Cited, curated, honest about quiet weeks.">
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge"><span class="live-dot"></span>The Weekly Wire</span>
+      <h1 class="page-header__title">This Week in <span class="text-gold">x402</span></h1>
+      <p class="page-header__desc">What actually happened, one edition a week, every claim cited. Editions are permanent — this is the record.</p>
+    </div>
+  </section>
+  <section class="section--sm">
+    <div class="container">
+      {editions.map((ed) => (
+        <a href={`/news/${ed.date}/`} class="card reveal" style="display:block; margin-bottom:16px; text-decoration:none;">
+          <div class="text-gold" style="font-weight:800;">{ed.week_label}</div>
+          <div style="color: var(--text-muted); margin-top:6px;">{ed.items.map((i) => i.title).join(' ')}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

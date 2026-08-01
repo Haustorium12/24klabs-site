@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const posts = Object.values(import.meta.glob('./*.md', { eager: true }))
+  .sort((a, b) => (b.url || '').localeCompare(a.url || ''));
+---
+
+<BaseLayout title="Articles & Reports | 24K Labs" description="Verification reports, featured write-ups, and editorial from the Gold-402 desk.">
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">The Desk</span>
+      <h1 class="page-header__title">Articles &amp; <span class="text-gold">Reports</span></h1>
+      <p class="page-header__desc">Verification reports and editorial write-ups. Method over marketing.</p>
+    </div>
+  </section>
+  <section class="section--sm">
+    <div class="container">
+      {posts.map((p) => (
+        <a href={p.url} class="card reveal" style="display:block; margin-bottom:16px; text-decoration:none;">
+          <div class="text-gold" style="font-weight:800;">{p.frontmatter.title}</div>
+          <div style="color: var(--text-muted); margin-top:6px;">{p.frontmatter.badge} &middot; {p.frontmatter.meta}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

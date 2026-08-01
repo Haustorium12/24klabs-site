@@ -1,0 +1,41 @@
+---
+// Dated, permanent editions of This Week in x402. One JSON per edition in src/data/news/.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  const mods = import.meta.glob('../../data/news/*.json', { eager: true });
+  return Object.values(mods).map((m) => {
+    const ed = m.default ?? m;
+    return { params: { date: ed.date }, props: { ed } };
+  });
+}
+const { ed } = Astro.props;
+const title = `This Week in x402 — ${ed.week_label} | 24K Labs`;
+---
+
+<BaseLayout title={title} description={`The x402 weekly wire from 24K Labs — ${ed.week_label}.`}>
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">This Week in x402</span>
+      <h1 class="page-header__title">{ed.week_label}</h1>
+      <p class="page-header__meta">The weekly wire from 24K Labs &middot; <a href="/news">All editions</a></p>
+    </div>
+  </section>
+  <section class="section--sm">
+    <div class="container">
+      <div class="prose">
+        {ed.items.map((it) => (
+          <p>
+            <strong class="text-gold">{it.title}</strong>{' '}
+            {it.body}
+            {it.cite_url && (
+              <>{' '}<a href={it.cite_url} target="_blank" rel="noopener noreferrer">[{it.cite_label}]</a></>
+            )}
+          </p>
+        ))}
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Every claim above is cited to its source. A quiet week gets reported as a quiet week — we don't pad the wire.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

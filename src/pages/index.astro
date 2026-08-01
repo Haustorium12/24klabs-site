@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ChronoTeaser from '../components/ChronoTeaser.astro';
 import { listings } from '../lib/listings.js';
+const newsMods = import.meta.glob('../data/news/*.json', { eager: true });
+const latestEdition = Object.values(newsMods).map((m) => m.default ?? m).sort((a, b) => b.date.localeCompare(a.date))[0];
 
 // Landing page. 24klabs.ai is the Gold-402 Directory — the list is the product. The full
 // directory app (search, filters, cards) lives at /directory; this page explains what the
@@ -31,6 +33,13 @@ const sections = [...new Set(listings.map((e) => e.section_label))];
         <a href="/directory" class="btn btn--primary btn--lg">Browse the Directory</a>
         <a href="/gold-402" class="btn btn--outline btn--lg">Get Listed ↗</a>
       </div>
+      {latestEdition && (
+        <a href={`/news/${latestEdition.date}/`} style="display:inline-flex; align-items:center; gap:10px; margin-top:22px; padding:8px 16px; border:1px solid var(--border, rgba(212,175,55,0.25)); border-radius:999px; text-decoration:none; font-size:0.88rem; color:var(--text-muted);">
+          <span class="text-gold" style="font-weight:800;">This Week in x402</span>
+          <span>{latestEdition.items[0].title}</span>
+          <span class="text-gold">→</span>
+        </a>
+      )}
     </div>
   </section>
 
