@@ -534,7 +534,8 @@
   "category": "Web & Geospatial",
   "desc": "Web scraping and search API with x402-gated endpoints and automatic on-chain USDC settlement. Featured in Coinbase CDP case studies as a reference x402 integration.",
   "verified": false,
-  "first_listed": "2026-05-07"
+  "first_listed": "2026-05-07",
+  "badge_resource": "https://api.firecrawl.dev/v1/x402/search"
  },
  {
   "name": "Visual API",
@@ -4214,7 +4215,8 @@
   "category": "Crypto & DeFi Data",
   "desc": "Per-signal Polymarket weather-market data across 37 cities. Fires when a city's daily-high temperature crosses into a new Polymarket bucket, returning the market URL and live bucket odds. From $0.01 USDC on Base.",
   "verified": false,
-  "first_listed": "2026-07-09"
+  "first_listed": "2026-07-09",
+  "badge_resource": "https://api.isocast.dev"
  },
  {
   "name": "SolSigs",
@@ -4544,7 +4546,8 @@
   "category": "Data & Research",
   "desc": "Claim grounding and delivery attestation for AI agents: machine-verified verdicts (supported/refuted/unverified) with confidence scores and cited sources, plus signed offline-verifiable receipts binding an x402 payment to what was delivered. Free single-claim tier; paid endpoints $0.005\u2013$0.05 USDC on Base. ([OpenAPI](https://groundcheck.seiche.info/openapi.json)) ([npm](https://www.npmjs.com/package/groundcheck-mcp))",
   "verified": false,
-  "first_listed": "2026-07-21"
+  "first_listed": "2026-07-21",
+  "badge_resource": "https://groundcheck.seiche.info"
  },
  {
   "name": "x402-seller",
@@ -4699,7 +4702,8 @@
   "category": "Production Deployments (High Volume)",
   "desc": "16 pay-per-call data and validation APIs: field-verified AV/IT device-integration knowledge base (curated by working systems integrators), IBAN / EU-VAT (VIES) / email / phone / card / GTIN validation, DNS and RDAP domain lookup, timezone and ECB currency conversion. $0.002\u2013$0.03 USDC on Base; free catalog, llms.txt, and OpenAPI. ([llms.txt](https://api.aventtech.com/llms.txt)) ([MCP server](https://github.com/ttsempelis/avt-x402-mcp))",
   "verified": false,
-  "first_listed": "2026-07-29"
+  "first_listed": "2026-07-29",
+  "badge_resource": "https://api.aventtech.com"
  },
  {
   "name": "Visibility AI Audit API",
