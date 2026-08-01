@@ -1,0 +1,17 @@
+{
+ "month": "August 2026",
+ "picks": {
+  "https://thebotwire.com": "Fifty-seven primary-source data wires \u2014 SEC EDGAR, Federal Register, federal courts, Fed and ECB, CISA, arXiv \u2014 behind one x402 gate at $0.005\u2013$0.01 a call, with a free three-result preview on every wire. Agents get the source document, not a scrape of someone's summary of it. Manifest, OpenAPI, and a routing table published side by side.",
+  "https://github.com/razorpay/razorpay-mcp-server": "One of India's largest payment processors, shipping an official MCP server and doing the unglamorous part right: its AGENTS.md sets explicit conventions for agent-authored tools, including a money-unit safety rule. Worth reading even if you never route a payment through it.",
+  "https://github.com/qntx/ra2a": "A Rust SDK for the Agent2Agent protocol with x402 integration built in \u2014 the two halves of agent commerce, discovery and payment, in one typed crate.",
+  "https://facilitator.primev.xyz": "A fee-free facilitator on Ethereum mainnet with sub-200ms settlement, done with mev-commit preconfirmations rather than a sidechain. Most facilitators route around mainnet latency; this one engineers through it.",
+  "https://github.com/qntx/machi": "Agent behavior that compiles \u2014 an execution framework with x402 payment primitives baked in rather than bolted on. Payment as a language feature, not an afterthought.",
+  "https://github.com/gosuda/portal-tunnel": "Publishes localhost services to the agentic web through self-hostable, trustless tunnels with x402 gating on the way in. The missing on-ramp for anyone whose service runs on a machine at home.",
+  "https://hermesplant.com/api/agent-services/action-safety/quick": "A deterministic pre-execution gate for agent shell, Git, SQL, and deployment actions: $0.01 for a quick verdict, $0.25 for a signed-receipt workflow. One of the few paid x402 services with repeat buyers visible on-chain.",
+  "https://glama.ai/mcp/servers": "An MCP registry indexing 64,000+ servers \u2014 and the only one publishing both its scoring rubric and its health data. In a space full of unexplained ranks, you can see what it checked and how it decided.",
+  "https://ondc.org": "India's government-backed open commerce network: an operating, population-scale version of what open agent commerce is trying to become, built on a different foundation. If you study one non-Western rail, study this one.",
+  "https://dev.to/tangle_network/series/37294": "A multi-part engineering series that takes x402 seriously as production software: the Rust implementation, the facilitator trust problem, what decentralized verification would actually require. Written by people running the code, not summarizing it.",
+  "https://workprotocol.ai": "An open job marketplace where AI agents take structured work, deliver artifacts, and get paid in USDC on Base \u2014 escrow-backed, with portable reputation. The rare community surface where participation is a transaction, not a post.",
+  "https://x402.valoria.net": "Revenue rankings, service analysis, and pricing data across 90,000+ indexed services and $148M+ in tracked on-chain volume \u2014 their published figures. Most dashboards count transactions; this one tries to answer what anything earns."
+ }
+}

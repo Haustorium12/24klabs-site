@@ -7,6 +7,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { listings } from '../../lib/listings.js';
 import { ratersFor } from '../../lib/raters.js';
+import featured from '../../data/featured.json';
 
 export function getStaticPaths() {
   return listings.map((e) => ({ params: { slug: e.slug }, props: { entry: e } }));
@@ -14,6 +15,7 @@ export function getStaticPaths() {
 
 const { entry } = Astro.props;
 const raters = ratersFor(entry);
+const featuredBlurb = featured.picks[entry.url];
 
 // Canonical resource the badge/card/API key off of: the service's own URL. badge.svg matches on
 // url OR badge_resource, so this always resolves to this listing.
@@ -65,6 +67,11 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified x402 service
               <strong class="text-gold">Gold402 Verified.</strong>
               Hand-reviewed and on the curated list — curation is the bar.
             </p>
+            {featuredBlurb && (
+              <p class="snap-verdict__line">
+                <strong class="text-gold">★ Featured — {featured.month}.</strong> {featuredBlurb}
+              </p>
+            )}
             {entry.desc && <p class="snap-verdict__desc">{entry.desc}</p>}
             {entry.type && <div class="snap-verdict__meta">{entry.type} · {entry.section_label}</div>}
           </div>
