@@ -31,10 +31,11 @@ export async function fetchFuchssGrade(badgeUrl) {
     const res = await fetch(badgeUrl, { cf: { cacheTtl: 300 } });
     if (!res.ok) return null;
     const svg = await res.text();
-    // fuchss renders the grade as SVG <text>. Grab a standalone letter grade (A–F, +/-) and,
-    // if present, a 0–100 score. Heuristic + tolerant: absence just yields nulls.
-    const gradeMatch = svg.match(/>\s*([A-F][+-]?)\s*</);
-    const scoreMatch = svg.match(/>\s*(\d{1,3})\s*</);
+    // fuchss's SVG carries the truth in its aria-label ("x402 trust: grade A, score 84") —
+    // parse that first; fall back to the old render-text heuristic if the label ever changes.
+    const label = svg.match(/aria-label="x402 trust: grade ([A-F][+-]?), score (\d{1,3})"/);
+    const gradeMatch = label ? [null, label[1]] : svg.match(/>\s*([A-F][+-]?)(?:\s*·\s*\d{1,3})?\s*</);
+    const scoreMatch = label ? [null, label[2]] : svg.match(/>\s*(?:[A-F][+-]?\s*·\s*)?(\d{1,3})\s*</);
     const grade = gradeMatch ? gradeMatch[1] : null;
     let score = scoreMatch ? parseInt(scoreMatch[1], 10) : null;
     if (score != null && (score < 0 || score > 100)) score = null;
