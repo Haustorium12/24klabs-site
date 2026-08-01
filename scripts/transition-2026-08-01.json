@@ -1,0 +1,12 @@
+{
+  "note": "Transition applied 2026-08-01 with the aggregators shelf launch (Sean's ruling). gold-402 15d2ed6 moved Orders of Magnitude from apis.md (added same day, 2a9f1d7) to the new directory/aggregators.md. Rebind carries the (url,section) key across so G3 does not read the same-day move as a delete. Idempotent: once applied, the from-key no longer appears in the JSON.",
+  "rebind": [
+    {
+      "from_url": "https://x402-api-production-5133.up.railway.app/x402.json",
+      "from_section": "apis",
+      "to_url": "https://x402-api-production-5133.up.railway.app/x402.json",
+      "to_section": "aggregators",
+      "reason": "gold-402 15d2ed6: entry moved to the new Aggregators & Proxies shelf, launched 2026-08-01; first_listed 2026-08-01 unchanged."
+    }
+  ]
+}

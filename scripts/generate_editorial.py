@@ -56,6 +56,7 @@ EM_DASH = "\u2014"  # em-dash escape: .py files stay CP1252/ASCII-safe
 
 # Fixed lookup: filename stem -> (section_label, type). Do NOT derive these.
 SECTION_TABLE = {
+    "aggregators":  ("Aggregators & Proxies",   "Aggregator / Proxy"),
     "apis":         ("APIs & Services",         "API / Service"),
     "community":    ("Community",               "Community"),
     "ecosystem":    ("Ecosystem",               "Ecosystem"),
