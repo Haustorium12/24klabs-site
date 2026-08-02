@@ -8,6 +8,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { listings } from '../../lib/listings.js';
 import { ratersFor } from '../../lib/raters.js';
 import featured from '../../data/featured.json';
+import editorialNotes from '../../data/editorial_notes.json';
 
 export function getStaticPaths() {
   return listings.map((e) => ({ params: { slug: e.slug }, props: { entry: e } }));
@@ -16,6 +17,8 @@ export function getStaticPaths() {
 const { entry } = Astro.props;
 const raters = ratersFor(entry);
 const featuredBlurb = featured.picks[entry.url];
+// Editorial blip: keyed by slug (url collides on multi-service vendors). Missing key -> nothing.
+const editorialBlip = editorialNotes[entry.slug];
 
 // Canonical resource the badge/card/API key off of: the service's own URL. badge.svg matches on
 // url OR badge_resource, so this always resolves to this listing.
@@ -72,6 +75,7 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified x402 service
                 <strong class="text-gold">★ Featured — {featured.month}.</strong> {featuredBlurb}
               </p>
             )}
+            {editorialBlip && <p class="snap-verdict__editorial">{editorialBlip}</p>}
             {entry.desc && <p class="snap-verdict__desc">{entry.desc}</p>}
             {entry.type && <div class="snap-verdict__meta">{entry.type} · {entry.section_label}</div>}
           </div>
@@ -202,6 +206,7 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified x402 service
     color: var(--text-dim); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
   }
   .snap-verdict__line { font-size: 1rem; line-height: 1.6; margin-bottom: 10px; }
+  .snap-verdict__editorial { font-size: 0.95rem; line-height: 1.65; margin-bottom: 10px; }
   .snap-verdict__desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 10px; }
   .snap-verdict__meta { font-size: 0.72rem; color: var(--text-dim); font-family: var(--mono); }
 
