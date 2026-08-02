@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — Not Found | 24K Labs" description="That page doesn't exist.">
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">404</span>
+      <h1 class="page-header__title">That page doesn't <span class="text-gold">exist</span></h1>
+      <p class="page-header__desc">An honest 404 — no soft-200s here. If a listing moved, the directory below has the current address.</p>
+      <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
+        <a href="/directory" class="btn btn--gold">The Directory</a>
+        <a href="/news" class="btn btn--outline">This Week in x402</a>
+        <a href="/" class="btn btn--outline">Home</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
