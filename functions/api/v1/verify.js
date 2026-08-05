@@ -33,9 +33,25 @@ export function onRequestOptions() {
   return new Response(null, { status: 204, headers: CORS });
 }
 
+// Resolve a resource param to a listing. The param arrives already once-decoded by
+// searchParams; try that form first, then one lenient extra decode for legacy
+// double-encoded callers (throw-safe — malformed escapes resolve to no match).
+function resolveResource(resource) {
+  let entry = byResource(resource);
+  if (!entry) {
+    try {
+      const extra = decodeURIComponent(resource);
+      if (extra !== resource) entry = byResource(extra);
+    } catch {
+      /* no match */
+    }
+  }
+  return entry;
+}
+
 // Build the verdict payload for a resource. Pure lookup + best-effort live rater grades.
 async function buildVerdict(resource) {
-  const entry = byResource(resource);
+  const entry = resolveResource(resource);
   if (!entry) {
     return {
       resource,
@@ -76,7 +92,7 @@ async function buildVerdict(resource) {
 export async function onRequestGet(context) {
   const { request, env } = context;
   const url = new URL(request.url);
-  const resource = decodeURIComponent(url.searchParams.get('resource') || '').trim();
+  const resource = (url.searchParams.get('resource') || '').trim();
 
   if (!resource) {
     return new Response(JSON.stringify({ error: 'resource query parameter is required' }), {

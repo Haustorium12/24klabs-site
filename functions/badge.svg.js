@@ -49,8 +49,20 @@ function svg(listed) {
 
 export function onRequestGet(context) {
   const url = new URL(context.request.url);
+  // searchParams.get() has ALREADY percent-decoded once — decoding again corrupts any
+  // resource URL that legitimately contains percent-escapes in its own query string
+  // (first hit: Viridis, whose URL carries manifest=%7B%7D). Match the once-decoded
+  // form first; fall back to one extra decode for legacy double-encoded embeds.
   const resource = url.searchParams.get("resource") || "";
-  const listed = MATCH.has(normalize(decodeURIComponent(resource)));
+  let listed = MATCH.has(normalize(resource));
+  if (!listed) {
+    try {
+      const extra = decodeURIComponent(resource);
+      if (extra !== resource) listed = MATCH.has(normalize(extra));
+    } catch {
+      /* malformed escapes: treat as not listed rather than 500 */
+    }
+  }
   return new Response(svg(listed), {
     headers: {
       "content-type": "image/svg+xml; charset=utf-8",

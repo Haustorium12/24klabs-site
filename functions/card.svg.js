@@ -43,8 +43,19 @@ function renderCard({ listed, name, verdict, grades }) {
 
 export async function onRequestGet(context) {
   const url = new URL(context.request.url);
-  const resource = decodeURIComponent(url.searchParams.get('resource') || '');
-  const entry = byResource(resource);
+  // searchParams.get() already decodes once; a second decode corrupts resource URLs
+  // that contain their own percent-escapes. Try the once-decoded form first, then one
+  // lenient extra decode for legacy double-encoded embeds (throw-safe).
+  const resource = url.searchParams.get('resource') || '';
+  let entry = byResource(resource);
+  if (!entry) {
+    try {
+      const extra = decodeURIComponent(resource);
+      if (extra !== resource) entry = byResource(extra);
+    } catch {
+      /* malformed escapes: no match */
+    }
+  }
 
   let grades = [];
   if (entry) {
