@@ -1637,7 +1637,7 @@
   },
   {
     "name": "Cloudflare Agents SDK v0.4.0",
-    "url": "https://developers.cloudflare.com/changelog/post/2026-02-09-agents-sdk-v040/",
+    "url": "https://developers.cloudflare.com/agents/",
     "section": "frameworks",
     "section_label": "Frameworks & Middleware",
     "type": "Frameworks & Middleware",
@@ -3019,7 +3019,7 @@
   },
   {
     "name": "Buyer/Client Setup",
-    "url": "https://docs.cdp.coinbase.com/x402/quickstart-buyers",
+    "url": "https://docs.cdp.coinbase.com/x402/quickstart-for-buyers",
     "section": "learning",
     "section_label": "Learning Resources",
     "type": "Learning Resource",
@@ -3337,39 +3337,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "From Stripe to x402",
-    "url": "https://docs.cdp.coinbase.com/x402/migrate/stripe",
-    "section": "learning",
-    "section_label": "Learning Resources",
-    "type": "Learning Resource",
-    "category": "Migration Guides",
-    "desc": "Migrate subscription and one-time payments from Stripe to x402.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "From API Keys to x402 Payments",
-    "url": "https://docs.cdp.coinbase.com/x402/migrate/api-keys",
-    "section": "learning",
-    "section_label": "Learning Resources",
-    "type": "Learning Resource",
-    "category": "Migration Guides",
-    "desc": "Replace API key-based access control with payment-per-use.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "From Subscription to Pay-Per-Use",
-    "url": "https://docs.cdp.coinbase.com/x402/migrate/subscriptions",
-    "section": "learning",
-    "section_label": "Learning Resources",
-    "type": "Learning Resource",
-    "category": "Migration Guides",
-    "desc": "Transform monthly subscriptions into granular pay-as-you-go.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "x402 V2 Migration Guide",
     "url": "https://docs.cdp.coinbase.com/x402/migration-guide",
     "section": "learning",
@@ -3480,17 +3447,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "Coinbase x402 Security Audit",
-    "url": "https://docs.cdp.coinbase.com/x402/security",
-    "section": "security",
-    "section_label": "Security",
-    "type": "Security",
-    "category": "Smart Contract Audits",
-    "desc": "Official security audit of x402 protocol smart contracts.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "EIP-3009 Security Analysis",
     "url": "https://eips.ethereum.org/EIPS/eip-3009#security-considerations",
     "section": "security",
@@ -3513,17 +3469,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "x402 Security Checklist",
-    "url": "https://docs.cdp.coinbase.com/x402/security/checklist",
-    "section": "security",
-    "section_label": "Security",
-    "type": "Security",
-    "category": "Security Best Practices",
-    "desc": "Production deployment security requirements: signature verification, replay attack prevention, nonce management, rate limiting.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "Payment Verification Guide",
     "url": "https://github.com/x402-foundation/x402/blob/main/SECURITY.md",
     "section": "security",
@@ -3531,28 +3476,6 @@
     "type": "Security",
     "category": "Security Best Practices",
     "desc": "Proper payment verification: facilitator trust models, on-chain verification fallbacks, amount and recipient validation.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "Key Management",
-    "url": "https://docs.cdp.coinbase.com/x402/security/keys",
-    "section": "security",
-    "section_label": "Security",
-    "type": "Security",
-    "category": "Security Best Practices",
-    "desc": "Secure private key handling for automated payments: hardware wallet integration, key rotation, multi-sig setups.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "Replay Attack Prevention",
-    "url": "https://docs.cdp.coinbase.com/x402/security/replay",
-    "section": "security",
-    "section_label": "Security",
-    "type": "Security",
-    "category": "Security Best Practices",
-    "desc": "Nonce and deadline handling.",
     "verified": false,
     "first_listed": "2026-04-27"
   },
