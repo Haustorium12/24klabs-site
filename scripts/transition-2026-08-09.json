@@ -1,10 +1,150 @@
 {
-  "note": "Transition applied 2026-08-09. gold-402 67a9d3d folded the standalone Minneapolis Rental Compliance entry into the US City Open-Data Compliance Network entry (PR #83, merge a9c663351) per the one-entry-per-service rule -- the network's own catalog carries Minneapolis as a member jurisdiction at the same paid route. Drop ruling: human-decided removal recorded here, not script churn. Idempotent: once applied, the key no longer appears in the JSON.",
+  "note": "Transition applied 2026-08-09, two events. (1) gold-402 67a9d3d folded the standalone Minneapolis Rental Compliance entry into the US City Open-Data Compliance Network entry (PR #83) per one-entry-per-service. (2) gold-402 ceee18e delisted 28 entries confirmed dead in the 2026-08-09 liveness sweep (477 URLs probed twice, browser UA, 40s retry; manifest/API second-level checks on ambiguous 404s). All drops below are human-decided rulings, not script churn. Idempotent: once applied, keys no longer appear in the JSON.",
   "drop": [
     {
       "url": "https://x402-mcp.onrender.com/mn/property-check",
       "section": "apis",
       "reason": "gold-402 67a9d3d: folded into US City Open-Data Compliance Network (one entry per service); Minneapolis remains city #1 inside the network's catalog."
+    },
+    {
+      "url": "https://daydreams.ai",
+      "section": "ecosystem",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Daydreams): DNS dead"
+    },
+    {
+      "url": "https://a2a.opspawn.com",
+      "section": "ecosystem",
+      "reason": "gold-402 ceee18e liveness-sweep delist (OpSpawn A2A x402 Gateway): DNS dead (operator gone: screenshot-api repo also deleted)"
+    },
+    {
+      "url": "https://prowlfi.com",
+      "section": "ecosystem",
+      "reason": "gold-402 ceee18e liveness-sweep delist (ProwlFi): DNS dead (operator gone: prowldata.dev also dead)"
+    },
+    {
+      "url": "https://orbisapi.com",
+      "section": "ecosystem",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Orbis API Marketplace): homepage and manifest both 404"
+    },
+    {
+      "url": "http://daizyx402.com:5402",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Daizyx402 Security Research API): connection dead"
+    },
+    {
+      "url": "http://72.62.52.171:8000",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (EnrichAPI): connection dead (bare IP listing)"
+    },
+    {
+      "url": "https://github.com/opspawn/screenshot-api",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (OpSpawn Screenshot API): repo deleted/private (GitHub API 404)"
+    },
+    {
+      "url": "https://broker-entry-api.kasanegi123.workers.dev",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Micro Data API Factory — Broker): homepage and manifest both 404"
+    },
+    {
+      "url": "https://weather-data-api.kasanegi123.workers.dev",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Micro Data API Factory — Weather): 410 Gone (deliberate tombstone)"
+    },
+    {
+      "url": "https://x402-reputation-api-production.up.railway.app",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Product Reputation API): homepage and manifest both 404"
+    },
+    {
+      "url": "https://rug-scanner-production.up.railway.app",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Rug Scanner): homepage and manifest both 404"
+    },
+    {
+      "url": "https://defi-signal-agent-production.up.railway.app",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (DeFi Signal Agent): homepage and manifest both 404"
+    },
+    {
+      "url": "https://prowldata.dev",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (PROWL): homepage and manifest both 404"
+    },
+    {
+      "url": "https://cryptorugmunch.app",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Rug Munch Intelligence): homepage and manifest both 404"
+    },
+    {
+      "url": "https://bodyguard.finance",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Banking Bodyguard): homepage and manifest both 404"
+    },
+    {
+      "url": "https://x402.bankr.bot/0x98ee945dfa6bb8e9ed9f9b6ae56eb82bcc82f0aa/",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Cross-Asset Intelligence API): listed resource 404, host manifest 404"
+    },
+    {
+      "url": "https://api.mornin-agentee.cc",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (mornin-agentee): homepage and manifest both 404"
+    },
+    {
+      "url": "https://token-risk.com",
+      "section": "apis",
+      "reason": "gold-402 ceee18e liveness-sweep delist (token-risk): homepage and manifest both 404"
+    },
+    {
+      "url": "https://github.com/0xMetatime/solx402-mcp-server",
+      "section": "mcp-servers",
+      "reason": "gold-402 ceee18e liveness-sweep delist (SOLx402 MCP): repo deleted/private (GitHub API 404)"
+    },
+    {
+      "url": "https://github.com/zkproofport/proofport-ai",
+      "section": "mcp-servers",
+      "reason": "gold-402 ceee18e liveness-sweep delist (ZKProofport MCP): repo deleted/private (GitHub API 404)"
+    },
+    {
+      "url": "https://api.iteratools.com",
+      "section": "mcp-servers",
+      "reason": "gold-402 ceee18e liveness-sweep delist (IteraTools MCP): homepage and manifest both 404"
+    },
+    {
+      "url": "https://github.com/djd-agent-score/djd-agent-score",
+      "section": "security",
+      "reason": "gold-402 ceee18e liveness-sweep delist (DJD AgentScore): repo deleted/private (GitHub API 404)"
+    },
+    {
+      "url": "https://github.com/x402notary/notary",
+      "section": "security",
+      "reason": "gold-402 ceee18e liveness-sweep delist (x402 Notary): repo deleted/private (GitHub API 404); was double-listed security+tools"
+    },
+    {
+      "url": "https://github.com/x402notary/notary",
+      "section": "tools",
+      "reason": "gold-402 ceee18e liveness-sweep delist (x402 Notary): repo deleted/private (GitHub API 404); was double-listed security+tools"
+    },
+    {
+      "url": "https://github.com/am5188/x402-fixspec",
+      "section": "tools",
+      "reason": "gold-402 ceee18e liveness-sweep delist (x402 FixSpec): repo deleted/private (GitHub API 404)"
+    },
+    {
+      "url": "https://24klabs.ai/blog/code-review-api-pay-per-pr",
+      "section": "learning",
+      "reason": "gold-402 ceee18e liveness-sweep delist (Code Review API: Pay Per PR, Not Per Seat): route removed in the 2026-07-22 site strip (own dead link)"
+    },
+    {
+      "url": "https://24klabs.ai/blog/how-to-pay-for-ai-services-with-usdc",
+      "section": "learning",
+      "reason": "gold-402 ceee18e liveness-sweep delist (How to Pay for AI Services with USDC in One HTTP Call): route removed in the 2026-07-22 site strip (own dead link)"
+    },
+    {
+      "url": "https://24klabs.ai/blog/x402-explained",
+      "section": "learning",
+      "reason": "gold-402 ceee18e liveness-sweep delist (x402 Explained: The HTTP Status Code That Took 35 Years to Ship): route removed in the 2026-07-22 site strip (own dead link)"
     }
   ]
 }
