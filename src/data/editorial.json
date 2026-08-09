@@ -313,17 +313,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "Rug Munch Intelligence",
-    "url": "https://cryptorugmunch.app",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Crypto & DeFi Data",
-    "desc": "AI-powered crypto risk intelligence. 19 x402 endpoints: rug pull detection, honeypot scoring, deployer tracking, holder deep-dive, KOL shill detection, social OSINT, LLM forensic analysis. $0.02-$2.00 USDC on Base.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "AlphaClaw",
     "url": "https://github.com/diassique/alphaclaw",
     "section": "apis",
@@ -515,17 +504,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "Cross-Asset Intelligence API",
-    "url": "https://x402.bankr.bot/0x98ee945dfa6bb8e9ed9f9b6ae56eb82bcc82f0aa/",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Finance & FX",
-    "desc": "AI-powered cross-market financial analysis (crypto × traditional finance). 10 x402 endpoints on Base. BTC-equity correlation, risk scores, macro reports, daily briefings. Powered by Claude Haiku.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "Firecrawl x402",
     "url": "https://api.firecrawl.dev/v1/x402/search",
     "section": "apis",
@@ -584,17 +562,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "Micro Data API Factory — Weather",
-    "url": "https://weather-data-api.kasanegi123.workers.dev",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Web & Geospatial",
-    "desc": "Cloudflare Workers edge weather for AI agents. Current conditions + 1-7 day forecasts worldwide by city name. $0.001 USDC on Base. Open-Meteo (CC BY 4.0).",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "Weather API",
     "url": "https://weather.hugen.tokyo",
     "section": "apis",
@@ -647,28 +614,6 @@
     "type": "API / Service",
     "category": "Security",
     "desc": "Security intelligence for AI agents. Password breach (900M+ HIBP hashes), email breach, domain/IP reputation, URL safety, prompt injection detection, skill security analysis. $0.001-$0.02 USDC on Base. [MCP Server](https://www.npmjs.com/package/shieldapi-mcp)",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "Rug Scanner",
-    "url": "https://rug-scanner-production.up.railway.app",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Security",
-    "desc": "On-chain token risk analysis. 7 parallel checks (bytecode, holders, liquidity, deployer, trading, verification, market), deterministic scoring. $0.05 USDC on Base.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "Daizyx402 Security Research API",
-    "url": "http://daizyx402.com:5402",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Security",
-    "desc": "AI-powered smart contract security analysis. $0.05 USDC per query, $0.50 USDC deep analysis on Base. No signup.",
     "verified": false,
     "first_listed": "2026-04-27"
   },
@@ -731,28 +676,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "EnrichAPI",
-    "url": "http://72.62.52.171:8000",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Business Intelligence",
-    "desc": "B2B lead intelligence. POST a company URL, get tech stack, growth signals, ICP fit score, pain hypothesis, and personalized outreach angle. $0.01 USDC/call.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "DeFi Signal Agent",
-    "url": "https://defi-signal-agent-production.up.railway.app",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Business Intelligence",
-    "desc": "Real-time DeFi intelligence. New pool risk scoring (0-10) on Base + Ethereum, Solana whale alerts (>$100K), Dune Analytics enrichment. 4 endpoints from $0.01-$0.10 USDC on Base Sepolia.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "Kerdos Market Intelligence",
     "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev",
     "section": "apis",
@@ -798,61 +721,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "OpSpawn Screenshot API",
-    "url": "https://github.com/opspawn/screenshot-api",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Infrastructure APIs",
-    "desc": "Pay-per-request screenshot and document generation. $0.01/screenshot, $0.005/markdown conversion. USDC on Base.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "Micro Data API Factory — Broker",
-    "url": "https://broker-entry-api.kasanegi123.workers.dev",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Infrastructure APIs",
-    "desc": "Wallet-free entry layer. Issues trial API key instantly, meters calls against credit, hands off to x402 when exhausted. Factory primitive — new products added by DB insert.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "Banking Bodyguard",
-    "url": "https://bodyguard.finance",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Niche & Specialty",
-    "desc": "Real-time cbBTC whale movement signals on Base. Scored sentiment (1-10), HOLD/TIGHTEN_STOP/EXIT recommendations. ~500K signals indexed. $0.10 USDC on Base.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "mornin-agentee",
-    "url": "https://api.mornin-agentee.cc",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Niche & Specialty",
-    "desc": "Daily Tokyo morning briefing. Top 5 Japanese news, weather, 3 focus proposals — refreshed daily 07:30 JST. $0.05 USDC on Base.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "Product Reputation API",
-    "url": "https://x402-reputation-api-production.up.railway.app",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Niche & Specialty",
-    "desc": "AI-powered product reputation intelligence from Reddit, HN & YouTube. Structured scores, dimensional analysis, competitor comparisons. $0.03-$0.08 USDC.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "Know Your Human (Convrgent)",
     "url": "https://convrgent.ai/kyh",
     "section": "apis",
@@ -860,17 +728,6 @@
     "type": "API / Service",
     "category": "Niche & Specialty",
     "desc": "Personality intelligence API. 36 endpoints across 11 personality frameworks (Socionics, Enneagram, Human Design, Vedic, BaZi, more). $0.10-$25 USDC on Base & Solana.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "PROWL",
-    "url": "https://prowldata.dev",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Niche & Specialty",
-    "desc": "47 real-world data feeds (prediction markets, economics, weather, geopolitics, narrative, crypto) for AI agents. MCP server for Claude included.",
     "verified": false,
     "first_listed": "2026-04-27"
   },
@@ -1152,17 +1009,6 @@
     "first_listed": "2026-06-07"
   },
   {
-    "name": "Daydreams",
-    "url": "https://daydreams.ai",
-    "section": "ecosystem",
-    "section_label": "Ecosystem",
-    "type": "Ecosystem",
-    "category": "Agent Frameworks",
-    "desc": "Tools for building agents for commerce. x402-native agent framework with built-in payment primitives. 606★",
-    "verified": false,
-    "first_listed": "2026-06-07"
-  },
-  {
     "name": "Lucid Agents",
     "url": "https://github.com/daydreamsai/lucid-agents",
     "section": "ecosystem",
@@ -1214,17 +1060,6 @@
     "type": "Ecosystem",
     "category": "Agent Frameworks",
     "desc": "Routing and settlement layer for AI agents. x402-native payment coordination for multi-agent workflows. 69★",
-    "verified": false,
-    "first_listed": "2026-06-07"
-  },
-  {
-    "name": "ProwlFi",
-    "url": "https://prowlfi.com",
-    "section": "ecosystem",
-    "section_label": "Ecosystem",
-    "type": "Ecosystem",
-    "category": "Agent Frameworks",
-    "desc": "Private rails for the agentic economy on Solana. Stealth addresses + x402 payments. 324★",
     "verified": false,
     "first_listed": "2026-06-07"
   },
@@ -1390,17 +1225,6 @@
     "type": "Ecosystem",
     "category": "Marketplaces & Discovery",
     "desc": "Decentralized API marketplace with 69 native x402-payable endpoints. Multi-chain USDC on Base and SKALE. MCP server via `npx x402-bazaar init`. 505 passing tests.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "Orbis API Marketplace",
-    "url": "https://orbisapi.com",
-    "section": "ecosystem",
-    "section_label": "Ecosystem",
-    "type": "Ecosystem",
-    "category": "Marketplaces & Discovery",
-    "desc": "x402-native API marketplace with 1,000+ APIs at $0.01/call via USDC on Base. Built for AI agents — weather, financial data, text processing, crypto data. No API keys required.",
     "verified": false,
     "first_listed": "2026-04-27"
   },
@@ -2319,17 +2143,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "IteraTools MCP",
-    "url": "https://api.iteratools.com",
-    "section": "mcp-servers",
-    "section_label": "MCP Servers",
-    "type": "MCP Server",
-    "category": "General Utility",
-    "desc": "80+ tool MCP server: image generation (Flux), web scraping, TTS, OCR, QR codes, browser automation, sandboxed code execution, DNS, WHOIS, weather, crypto, charts, email validation, URL shortening, and more. $0.001-$0.01 USDC on Base. ([GitHub](https://github.com/fredpsantos33/mcp-iteratools))",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "Spraay MCP",
     "url": "https://docs.spraay.app",
     "section": "mcp-servers",
@@ -2506,17 +2319,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "SOLx402 MCP",
-    "url": "https://github.com/0xMetatime/solx402-mcp-server",
-    "section": "mcp-servers",
-    "section_label": "MCP Servers",
-    "type": "MCP Server",
-    "category": "Crypto & DeFi Intelligence",
-    "desc": "Interact with x402 on Solana. Discover/consume services, manage USDC, query protocol docs.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "ShieldAPI MCP",
     "url": "https://www.npmjs.com/package/shieldapi-mcp",
     "section": "mcp-servers",
@@ -2535,17 +2337,6 @@
     "type": "MCP Server",
     "category": "Security",
     "desc": "Pay-per-call HTTP security header scanning. $0.05 USDC on Base.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "ZKProofport MCP",
-    "url": "https://github.com/zkproofport/proofport-ai",
-    "section": "mcp-servers",
-    "section_label": "MCP Servers",
-    "type": "MCP Server",
-    "category": "Identity & Trust",
-    "desc": "Zero-knowledge identity proof generation. Coinbase KYC, Country, Google OIDC proofs without revealing personal data. AWS Nitro Enclave TEE proving. NPM: `@zkproofport-ai/mcp`. Won 1st place at The Synthesis Hackathon (April 2026).",
     "verified": false,
     "first_listed": "2026-04-27"
   },
@@ -3050,17 +2841,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "x402 Notary",
-    "url": "https://github.com/x402notary/notary",
-    "section": "tools",
-    "section_label": "Tools & Utilities",
-    "type": "Tool / Utility",
-    "category": "Spending Controls & Policy",
-    "desc": "Enterprise-grade audit and compliance platform for x402. Full visibility into agent spending, policy enforcement, cryptographic audit trails.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "Decision Anchor",
     "url": "https://api.decision-anchor.com",
     "section": "tools",
@@ -3333,39 +3113,6 @@
     "type": "Learning Resource",
     "category": "Blog Posts & Articles",
     "desc": "Polygon's dedicated x402 agentic payments page.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "How to Pay for AI Services with USDC in One HTTP Call",
-    "url": "https://24klabs.ai/blog/how-to-pay-for-ai-services-with-usdc",
-    "section": "learning",
-    "section_label": "Learning Resources",
-    "type": "Learning Resource",
-    "category": "Blog Posts & Articles",
-    "desc": "Walkthrough of x402 payment flow for AI code analysis.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "x402 Explained: The HTTP Status Code That Took 35 Years to Ship",
-    "url": "https://24klabs.ai/blog/x402-explained",
-    "section": "learning",
-    "section_label": "Learning Resources",
-    "type": "Learning Resource",
-    "category": "Blog Posts & Articles",
-    "desc": "History and technical breakdown of HTTP 402.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "Code Review API: Pay Per PR, Not Per Seat",
-    "url": "https://24klabs.ai/blog/code-review-api-pay-per-pr",
-    "section": "learning",
-    "section_label": "Learning Resources",
-    "type": "Learning Resource",
-    "category": "Blog Posts & Articles",
-    "desc": "Why per-request pricing beats SaaS subscriptions.",
     "verified": false,
     "first_listed": "2026-04-27"
   },
@@ -3854,17 +3601,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "x402 Notary",
-    "url": "https://github.com/x402notary/notary",
-    "section": "security",
-    "section_label": "Security",
-    "type": "Security",
-    "category": "Security Monitoring Tools",
-    "desc": "Enterprise-grade audit and compliance platform. Full visibility into agent spending, policy enforcement, cryptographic audit trails.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
     "name": "Sentinel/Valeo",
     "url": "https://sentinel.valeocash.com",
     "section": "security",
@@ -3938,17 +3674,6 @@
     "type": "Security",
     "category": "Agent Trust & Reputation",
     "desc": "Agent trust scoring (0-100), Sybil detection with funding cluster analysis, Polymarket integrity, Ed25519 Verifiable Credentials. 7 MCP tools. $0.005-$0.05 USDC on Base.",
-    "verified": false,
-    "first_listed": "2026-04-27"
-  },
-  {
-    "name": "DJD AgentScore",
-    "url": "https://github.com/djd-agent-score/djd-agent-score",
-    "section": "security",
-    "section_label": "Security",
-    "type": "Security",
-    "category": "Agent Trust & Reputation",
-    "desc": "On-chain reputation scoring for AI agent wallets. 0-100 trust score across 5 dimensions (identity, behavior, reliability, viability, capability) from x402 settlement history on Base. Free tier.",
     "verified": false,
     "first_listed": "2026-04-27"
   },
@@ -4461,17 +4186,6 @@
     "first_listed": "2026-07-06"
   },
   {
-    "name": "OpSpawn A2A x402 Gateway",
-    "url": "https://a2a.opspawn.com",
-    "section": "ecosystem",
-    "section_label": "Ecosystem",
-    "type": "Ecosystem",
-    "category": "Agent-to-Agent (A2A)",
-    "desc": "Multi-chain A2A gateway with x402 payments. Google A2A protocol, Base/SKALE/Arbitrum support.",
-    "verified": false,
-    "first_listed": "2026-07-18"
-  },
-  {
     "name": "x402-axum",
     "url": "https://crates.io/crates/x402-axum",
     "section": "frameworks",
@@ -4648,17 +4362,6 @@
     "desc": "Pay-per-call macroeconomic indicator API sourced from the World Bank (GDP growth, inflation, unemployment trend). Single-country lookup $0.02, 8-country flat-priced batch endpoint $0.05, 6-hour response caching. USDC on Base.",
     "verified": false,
     "first_listed": "2026-07-25"
-  },
-  {
-    "name": "token-risk",
-    "url": "https://token-risk.com",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Production Deployments (High Volume)",
-    "desc": "Deterministic structural risk reports for ERC-20 tokens and wallet addresses on Base via x402 USDC per request.",
-    "verified": false,
-    "first_listed": "2026-07-26"
   },
   {
     "name": "402Found",
@@ -5035,17 +4738,6 @@
     "desc": "Self-hostable MIT credential vault for agent API keys and OAuth tokens. Addresses the gap nobody in the pay-per-call world talks about: agents still need somewhere safe to keep the keys x402 didn't replace.",
     "verified": false,
     "first_listed": "2026-07-30"
-  },
-  {
-    "name": "x402 FixSpec",
-    "url": "https://github.com/am5188/x402-fixspec",
-    "section": "tools",
-    "section_label": "Tools & Utilities",
-    "type": "Tool / Utility",
-    "category": "Testing & Development",
-    "desc": "Deterministic endpoint conformance and remediation tool that inspects unpaid challenges, validates Base USDC requirements, probes discovery documents, and returns OpenAPI, Bazaar, and agent-instruction templates. [Live x402 offer](https://fixspec.am518.uk/buy/fixspec).",
-    "verified": false,
-    "first_listed": "2026-07-29"
   },
   {
     "name": "Fry x402 MCP",
