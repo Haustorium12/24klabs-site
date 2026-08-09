@@ -1,0 +1,18 @@
+{
+ "date": "2026-08-03",
+ "week_label": "Week of August 3 – 9, 2026",
+ "items": [
+  {
+   "title": "The week the volume got audited.",
+   "body": "A widely shared analysis this week put hard numbers on the gap between x402's headline figures and its commerce: 200 million-plus transactions on the adoption trackers, but Artemis Analytics finding more than 95% of that activity to be protocol signaling and self-dealing rather than buyer-seller exchange, with real daily commercial volume around $28,000 by CoinDesk's March measure. The same week, Mastercard completed its $1.8 billion acquisition of stablecoin-infrastructure firm BVNK — roughly $30 billion in annualized payment volume. The institutions are paying real money for the rails while the rail's own commerce stays small; both things are true, and the honest accounting is the news.",
+   "cite_label": "Yahoo Finance",
+   "cite_url": "https://finance.yahoo.com/markets/crypto/articles/x402-foundation-activated-27-old-152440828.html"
+  },
+  {
+   "title": "We knocked on all 477 doors.",
+   "body": "This week the directory ran its first full liveness census — every listing probed live. The standard is now explicit: listed means it answered when we last knocked. Thirty-five entries came off the shelf; 442 stand. The method mattered as much as the count: a front-door 404 is not a death certificate here, so manifests and registries got knocked before any removal — a second look that saved twelve listings from wrong burials, including one operator's entire seven-service fleet that simply serves no homepages. The churn is real: one service merged in late July was gone within two weeks. And the door stayed busy — eleven new listings landed on the census's final day.",
+   "cite_label": "The directory",
+   "cite_url": "https://24klabs.ai/"
+  }
+ ]
+}
