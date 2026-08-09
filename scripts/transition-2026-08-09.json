@@ -1,5 +1,5 @@
 {
-  "note": "Transition applied 2026-08-09, two events. (1) gold-402 67a9d3d folded the standalone Minneapolis Rental Compliance entry into the US City Open-Data Compliance Network entry (PR #83) per one-entry-per-service. (2) gold-402 ceee18e delisted 28 entries confirmed dead in the 2026-08-09 liveness sweep (477 URLs probed twice, browser UA, 40s retry; manifest/API second-level checks on ambiguous 404s). All drops below are human-decided rulings, not script churn. Idempotent: once applied, keys no longer appear in the JSON.",
+  "note": "Transition applied 2026-08-09, two events. (1) gold-402 67a9d3d folded the standalone Minneapolis Rental Compliance entry into the US City Open-Data Compliance Network entry (PR #83) per one-entry-per-service. (2) gold-402 ceee18e delisted 28 entries confirmed dead in the 2026-08-09 liveness sweep (477 URLs probed twice, browser UA, 40s retry; manifest/API second-level checks on ambiguous 404s). All drops below are human-decided rulings, not script churn. Idempotent: once applied, keys no longer appear in the JSON. (3) gold-402 dcf568d link-rot pass: 2 rebinds (CDP buyer quickstart new slug; Cloudflare changelog link repointed to the Agents SDK docs) and 7 drops (CDP migrate pages consolidated upstream into the already-listed migration-guide; CDP security subsection removed upstream, no successor).",
   "drop": [
     {
       "url": "https://x402-mcp.onrender.com/mn/property-check",
@@ -145,6 +145,57 @@
       "url": "https://24klabs.ai/blog/x402-explained",
       "section": "learning",
       "reason": "gold-402 ceee18e liveness-sweep delist (x402 Explained: The HTTP Status Code That Took 35 Years to Ship): route removed in the 2026-07-22 site strip (own dead link)"
+    },
+    {
+      "url": "https://docs.cdp.coinbase.com/x402/migrate/api-keys",
+      "section": "learning",
+      "reason": "gold-402 dcf568d link-rot pass: consolidated upstream into migration-guide (already listed)"
+    },
+    {
+      "url": "https://docs.cdp.coinbase.com/x402/migrate/stripe",
+      "section": "learning",
+      "reason": "gold-402 dcf568d link-rot pass: consolidated upstream into migration-guide (already listed)"
+    },
+    {
+      "url": "https://docs.cdp.coinbase.com/x402/migrate/subscriptions",
+      "section": "learning",
+      "reason": "gold-402 dcf568d link-rot pass: consolidated upstream into migration-guide (already listed)"
+    },
+    {
+      "url": "https://docs.cdp.coinbase.com/x402/security",
+      "section": "security",
+      "reason": "gold-402 dcf568d link-rot pass: upstream security section removed, no successor"
+    },
+    {
+      "url": "https://docs.cdp.coinbase.com/x402/security/keys",
+      "section": "security",
+      "reason": "gold-402 dcf568d link-rot pass: upstream security section removed, no successor"
+    },
+    {
+      "url": "https://docs.cdp.coinbase.com/x402/security/replay",
+      "section": "security",
+      "reason": "gold-402 dcf568d link-rot pass: upstream security section removed, no successor"
+    },
+    {
+      "url": "https://docs.cdp.coinbase.com/x402/security/checklist",
+      "section": "security",
+      "reason": "gold-402 dcf568d link-rot pass: upstream security section removed, no successor"
+    }
+  ],
+  "rebind": [
+    {
+      "from_url": "https://docs.cdp.coinbase.com/x402/quickstart-buyers",
+      "from_section": "learning",
+      "to_url": "https://docs.cdp.coinbase.com/x402/quickstart-for-buyers",
+      "to_section": "learning",
+      "reason": "gold-402 dcf568d: CDP docs restructure, new slug; first_listed carried."
+    },
+    {
+      "from_url": "https://developers.cloudflare.com/changelog/post/2026-02-09-agents-sdk-v040/",
+      "from_section": "frameworks",
+      "to_url": "https://developers.cloudflare.com/agents/",
+      "to_section": "frameworks",
+      "reason": "gold-402 dcf568d: changelog permalink dead; repointed to the canonical Agents SDK docs; first_listed carried."
     }
   ]
 }
