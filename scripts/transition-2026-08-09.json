@@ -1,0 +1,10 @@
+{
+  "note": "Transition applied 2026-08-09. gold-402 67a9d3d folded the standalone Minneapolis Rental Compliance entry into the US City Open-Data Compliance Network entry (PR #83, merge a9c663351) per the one-entry-per-service rule -- the network's own catalog carries Minneapolis as a member jurisdiction at the same paid route. Drop ruling: human-decided removal recorded here, not script churn. Idempotent: once applied, the key no longer appears in the JSON.",
+  "drop": [
+    {
+      "url": "https://x402-mcp.onrender.com/mn/property-check",
+      "section": "apis",
+      "reason": "gold-402 67a9d3d: folded into US City Open-Data Compliance Network (one entry per service); Minneapolis remains city #1 inside the network's catalog."
+    }
+  ]
+}
