@@ -3067,7 +3067,7 @@
     "section_label": "Tools & Utilities",
     "type": "Tool / Utility",
     "category": "Spending Controls & Policy",
-    "desc": "External accountability proof for agent payments and delegation. Records what was authorized, when, at what scope — before x402 payment execution.",
+    "desc": "External anchoring layer for agent payments and delegation. Records what was authorized, when, at what scope — before x402 payment execution. Content-blind.",
     "verified": false,
     "first_listed": "2026-04-27"
   },
@@ -3915,7 +3915,7 @@
     "section_label": "Security",
     "type": "Security",
     "category": "Spending Controls",
-    "desc": "External accountability proof before x402 payment execution. Records what was authorized, when, and at what scope. Non-judgmental.",
+    "desc": "External anchoring layer for accountability before x402 payment execution. Records what was authorized, when, and at what scope. Content-blind. Non-judgmental.",
     "verified": false,
     "first_listed": "2026-04-27"
   },
@@ -5137,17 +5137,6 @@
     "first_listed": "2026-08-01"
   },
   {
-    "name": "Minneapolis Rental Compliance",
-    "url": "https://x402-mcp.onrender.com/mn/property-check",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Data & Research",
-    "desc": "Rental-license status, tier, licensed unit count and expiration for any Minneapolis street address, plus violation and code-enforcement case history and condemned/boarded status. Live City of Minneapolis open data. For tenant screening and landlord or property-manager due diligence. $0.01 USDC on Base. ([OpenAPI](https://x402-mcp.onrender.com/openapi.json)) ([llms.txt](https://x402-mcp.onrender.com/llms.txt))",
-    "verified": false,
-    "first_listed": "2026-08-05"
-  },
-  {
     "name": "Viridis MCP Security Preflight",
     "url": "https://mcp.viridisconservation.com/x402/security-preflight/security_preflight?agent_id=viridis-probe&manifest=%7B%7D",
     "section": "security",
@@ -5168,5 +5157,126 @@
     "desc": "Autonomous trust and reliability scoring for every publicly listed x402 endpoint, derived from continuous live probing and on-chain USDC settlement. Live report via POST /v1/x402-trust, free preview via GET /v1/x402-trust-preview.",
     "verified": false,
     "first_listed": "2026-08-05"
+  },
+  {
+    "name": "BridgeNode",
+    "url": "https://bridgenode.cc",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "AI Services",
+    "desc": "OpenAI-compatible LLM inference bridge: chat completions with SSE streaming, pay per call via x402 with Solana USDC. From $0.002 per call. ([OpenAPI](https://bridgenode.cc/openapi.json)) ([llms.txt](https://bridgenode.cc/llms.txt)) ([GitHub](https://github.com/applefanaimail-blip/bridgenode-llm))",
+    "verified": false,
+    "first_listed": "2026-08-05"
+  },
+  {
+    "name": "US City Open-Data Compliance Network",
+    "url": "https://x402-mcp.onrender.com/us/cities",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "Multi-jurisdiction property compliance for AI agents: free catalog /us/cities, free samples /us/{code}/property-check/sample, paid /us/{code}/property-check ($0.01 USDC on Base). Fourteen live open-data markets covering rental registration/license and code-violation public feeds. ([OpenAPI](https://x402-mcp.onrender.com/openapi.json)) ([llms.txt](https://x402-mcp.onrender.com/llms.txt)) ([GitHub](https://github.com/kwizzlesurp10-ctrl/x402-mcp))",
+    "verified": false,
+    "first_listed": "2026-08-06"
+  },
+  {
+    "name": "OyaPicks",
+    "url": "https://oyapicks.app",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "Cross-venue prediction market data for AI agents: 10 endpoints covering keyword market search, single-market lookup, probability movers, 24h volume spikes, cross-venue arbitrage gaps between Polymarket and Alpha Arcade, markets closing within 48 hours, newly listed markets, resolutions with winning outcomes, and price history. $0.01–$0.25 USDC on Base via the CDP facilitator and Algorand via GoPlausible. Example: `GET /api/x402/single-market?q=fed`. ([Manifest](https://oyapicks.app/.well-known/x402)) ([OpenAPI](https://oyapicks.app/openapi.json)) ([llms.txt](https://oyapicks.app/llms.txt))",
+    "verified": false,
+    "first_listed": "2026-08-07"
+  },
+  {
+    "name": "Data Quality Gate",
+    "url": "https://www.aidatatools.dev/api",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "Deterministic dataset-quality verdict (RELIABLE/USABLE_WITH_CLEANING/UNRELIABLE) with per-check facts on completeness, nulls, types, impossible values, duplicates, and outliers, plus optional cross-source price-divergence detection for financial/trading data, for $0.01 USDC per call on Base or Solana.",
+    "verified": false,
+    "first_listed": "2026-08-08"
+  },
+  {
+    "name": "Node Scorecard API",
+    "url": "https://nodescorecard.xyz/scorecard/nodes",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "Scored directory of Sentinel dVPN network nodes: composite score per node, sorted best-first, active nodes by default with an optional full snapshot. $0.005 USDC per call on Base, Solana, Polygon, Arbitrum, and Avalanche.",
+    "verified": false,
+    "first_listed": "2026-08-09"
+  },
+  {
+    "name": "ECB FX Reference",
+    "url": "https://official-fx-reference.vercel.app/api/v1/convert",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Finance & FX",
+    "desc": "Converts amounts across ECB-supported currencies from the European Central Bank's daily euro reference observations, returning source rates, publication date, cross-rate math, and attribution for $0.0015 USDC per call on Base. ([OpenAPI](https://official-fx-reference.vercel.app/openapi.json)) ([GitHub](https://github.com/ArgonautWorks/ecb-fx-reference))",
+    "verified": false,
+    "first_listed": "2026-08-04"
+  },
+  {
+    "name": "IBANforge",
+    "url": "https://ibanforge.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Finance & FX",
+    "desc": "Pre-payout IBAN screening: validation + issuing-bank identification against 6 national bank registers (CH/LI, DE, AT, BE, FI), Swiss clearing incl. QR-IID resolution, bank-level sanctions, SEPA + VoP reachability. 121k+ BICs, 89 IBAN countries. $0.002-$0.02 USDC on Base (CDP facilitator). MCP: `npx -y ibanforge-mcp`. ([OpenAPI](https://api.ibanforge.com/openapi.json), [x402 discovery](https://api.ibanforge.com/.well-known/x402))",
+    "verified": false,
+    "first_listed": "2026-08-06"
+  },
+  {
+    "name": "Rue Render API",
+    "url": "https://rue.mossgate.dev",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Web & Geospatial",
+    "desc": "Renders a URL or raw HTML to PDF, PNG, or JPEG via headless Chromium, SSRF-guarded. $0.003 USDC on Base via x402.",
+    "verified": false,
+    "first_listed": "2026-08-08"
+  },
+  {
+    "name": "Mossgate Trust API",
+    "url": "https://api.mossgate.dev",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Security",
+    "desc": "Onchain risk checks for Base ERC-20 tokens and wallets: token verdict returns ok/caution/danger with liquidity, pair age, 24h volume, and contract flags; wallet profile returns onchain reputation for a counterparty. $0.01-$0.25 USDC on Base. ([llms.txt](https://api.mossgate.dev/llms.txt))",
+    "verified": false,
+    "first_listed": "2026-08-08"
+  },
+  {
+    "name": "BridgeNode MCP",
+    "url": "https://www.npmjs.com/package/@bridgenode/mcp",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "General Utility",
+    "desc": "x402-gated AI inference MCP server: chat completions + model listing, automatic USDC payments on Solana. Remote streamable-http at [bridgenode.cc/mcp](https://bridgenode.cc/mcp) or stdio via `npx @bridgenode/mcp`. ([GitHub](https://github.com/applefanaimail-blip/bridgenode-llm))",
+    "verified": false,
+    "first_listed": "2026-08-05"
+  },
+  {
+    "name": "x402 Manifest Check",
+    "url": "https://github.com/ruizmr/x402-api-readiness-review",
+    "section": "security",
+    "section_label": "Security",
+    "type": "Security",
+    "category": "Security Monitoring Tools",
+    "desc": "Zero-dependency Python CLI and live x402-paid API for static manifest checks covering network, recipient, asset, and amount bindings; neither validates runtime enforcement or settlement.",
+    "verified": false,
+    "first_listed": "2026-08-07"
   }
 ]
