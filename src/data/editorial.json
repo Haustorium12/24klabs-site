@@ -4780,7 +4780,7 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "AI Services",
-    "desc": "OpenAI-compatible LLM inference bridge: chat completions with SSE streaming, pay per call via x402 with Solana USDC. From $0.002 per call. ([OpenAPI](https://bridgenode.cc/openapi.json)) ([llms.txt](https://bridgenode.cc/llms.txt)) ([GitHub](https://github.com/applefanaimail-blip/bridgenode-llm))",
+    "desc": "OpenAI-compatible LLM inference bridge: chat completions with SSE streaming, pay per call via x402 with Solana USDC. From $0.002 per call. ([OpenAPI](https://bridgenode.cc/openapi.json)) ([llms.txt](https://bridgenode.cc/llms.txt)) ([GitHub](https://github.com/applefanaimail-blip/bridgenode-skill))",
     "verified": false,
     "first_listed": "2026-08-05"
   },
@@ -4879,7 +4879,7 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "General Utility",
-    "desc": "x402-gated AI inference MCP server: chat completions + model listing, automatic USDC payments on Solana. Remote streamable-http at [bridgenode.cc/mcp](https://bridgenode.cc/mcp) or stdio via `npx @bridgenode/mcp`. ([GitHub](https://github.com/applefanaimail-blip/bridgenode-llm))",
+    "desc": "x402-gated AI inference MCP server: chat completions + model listing, automatic USDC payments on Solana. Remote streamable-http at [bridgenode.cc/mcp](https://bridgenode.cc/mcp) or stdio via `npx @bridgenode/mcp`. ([GitHub](https://github.com/applefanaimail-blip/bridgenode-skill))",
     "verified": false,
     "first_listed": "2026-08-05"
   },
