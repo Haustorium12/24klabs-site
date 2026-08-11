@@ -4802,7 +4802,7 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Data & Research",
-    "desc": "Cross-venue prediction market data for AI agents: 10 endpoints covering keyword market search, single-market lookup, probability movers, 24h volume spikes, cross-venue arbitrage gaps between Polymarket and Alpha Arcade, markets closing within 48 hours, newly listed markets, resolutions with winning outcomes, and price history. $0.01–$0.25 USDC on Base via the CDP facilitator and Algorand via GoPlausible. Example: `GET /api/x402/single-market?q=fed`. ([Manifest](https://oyapicks.app/.well-known/x402)) ([OpenAPI](https://oyapicks.app/openapi.json)) ([llms.txt](https://oyapicks.app/llms.txt))",
+    "desc": "Cross-venue prediction market data for AI agents: 11 endpoints covering keyword market search, single-market lookup, probability movers, 24h volume spikes, cross-venue arbitrage gaps between Polymarket and Alpha Arcade, markets closing within 48 hours, newly listed markets, resolutions with winning outcomes, price history, and the complete live Alpha Arcade catalog in one call with per-outcome prices and Algorand application IDs. $0.01–$0.25 USDC on Base via the CDP facilitator and Algorand via GoPlausible. Example: `GET /api/x402/single-market?q=fed`. ([Manifest](https://oyapicks.app/.well-known/x402)) ([OpenAPI](https://oyapicks.app/openapi.json)) ([llms.txt](https://oyapicks.app/llms.txt))",
     "verified": false,
     "first_listed": "2026-08-07"
   },
@@ -4893,5 +4893,49 @@
     "desc": "Zero-dependency Python CLI and live x402-paid API for static manifest checks covering network, recipient, asset, and amount bindings; neither validates runtime enforcement or settlement.",
     "verified": false,
     "first_listed": "2026-08-07"
+  },
+  {
+    "name": "402PIXEL",
+    "url": "https://402pixel.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Niche & Specialty",
+    "desc": "AI-agent-only territory game on a shared 402-tile board. `POST /api/claim {\"tile\":0-401,\"days\":1-30,\"name\":\"MyAgent\",\"color\":\"#4DD2FF\"}` — 0.01-1.00 USDC/day by tile tier on Base, days stack, top payers rank on a live Hall of Fame. ([Manifest](https://402pixel.com/api/manifest)) ([llms.txt](https://402pixel.com/llms.txt))",
+    "verified": false,
+    "first_listed": "2026-08-11"
+  },
+  {
+    "name": "bridgenode-llm",
+    "url": "https://pypi.org/project/bridgenode-llm",
+    "section": "sdks",
+    "section_label": "SDKs & Libraries",
+    "type": "SDK / Library",
+    "category": "",
+    "desc": "Drop-in OpenAI Python client with automatic x402 payment support on Solana USDC: gasless, no API keys, pay per request.",
+    "verified": false,
+    "first_listed": "2026-08-11"
+  },
+  {
+    "name": "@bridgenode/llm",
+    "url": "https://www.npmjs.com/package/@bridgenode/llm",
+    "section": "sdks",
+    "section_label": "SDKs & Libraries",
+    "type": "SDK / Library",
+    "category": "",
+    "desc": "Drop-in OpenAI TypeScript client with automatic x402 payment support on Solana USDC: gasless, no API keys, pay per request.",
+    "verified": false,
+    "first_listed": "2026-08-11"
+  },
+  {
+    "name": "bridgenode",
+    "url": "https://pypi.org/project/bridgenode-cli",
+    "section": "tools",
+    "section_label": "Tools & Utilities",
+    "type": "Tool / Utility",
+    "category": "CLI Tools",
+    "desc": "CLI for x402-paid LLM inference on Solana: chat completions + model listing with automatic USDC payment. `pip install bridgenode-cli`.",
+    "verified": false,
+    "first_listed": "2026-08-11"
   }
 ]
