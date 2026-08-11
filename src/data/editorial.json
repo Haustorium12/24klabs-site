@@ -504,18 +504,6 @@
     "first_listed": "2026-04-27"
   },
   {
-    "name": "Firecrawl x402",
-    "url": "https://api.firecrawl.dev/v1/x402/search",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Web & Geospatial",
-    "desc": "Web scraping and search API with x402-gated endpoints and automatic on-chain USDC settlement. Featured in Coinbase CDP case studies as a reference x402 integration.",
-    "verified": false,
-    "badge_resource": "https://api.firecrawl.dev/v1/x402/search",
-    "first_listed": "2026-05-07"
-  },
-  {
     "name": "Visual API",
     "url": "https://visual.hugen.tokyo",
     "section": "apis",
@@ -1417,7 +1405,7 @@
   },
   {
     "name": "Satoshi Facilitator",
-    "url": "https://bitcoinsapi.com/docs",
+    "url": "https://bitcoinsapi.com",
     "section": "facilitators",
     "section_label": "Facilitators",
     "type": "Facilitator",
@@ -4160,17 +4148,6 @@
     "type": "API / Service",
     "category": "Web & Geospatial",
     "desc": "Dutch open-government data: RDW vehicle registry, BAG addresses/buildings, postcode/geocoding, OV transit departures. CC0/CC-BY-4.0 sources. $0.001-$0.01 USDC on Base.",
-    "verified": false,
-    "first_listed": "2026-07-19"
-  },
-  {
-    "name": "Bincrease Operations APIs",
-    "url": "https://bincrease.vercel.app/developers",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Business Intelligence",
-    "desc": "Live no-spend USDC work shortlisting with risk and payout-evidence filters ($0.05 USDC), deterministic CSV deduplication ($0.10 USDC), commercial waste-bill analysis ($0.25 USDC), and bounded OpenAPI contract extraction ($0.50 USDC) over x402 v2, settled in native USDC on Base with OpenAPI and `llms.txt` discovery.",
     "verified": false,
     "first_listed": "2026-07-19"
   },
