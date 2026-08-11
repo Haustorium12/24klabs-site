@@ -1,0 +1,24 @@
+{
+  "note": "Transition applied 2026-08-11 — strike-two pass on the 2026-08-09 liveness watchlist (gold-402 1b8f930). Full directory re-probed (446 entries / 416 unique URLs, browser UA, 40s retry, wake-up retry on 5xx, manifest/registry second-level checks). Two strike-two delists, one repoint. All drops are human-decided rulings, not script churn. Idempotent: once applied, keys no longer appear in the JSON.",
+  "drop": [
+    {
+      "url": "https://api.firecrawl.dev/v1/x402/search",
+      "section": "apis",
+      "reason": "gold-402 1b8f930 strike-two delist (Firecrawl x402): route 404 on 08-09 and 08-11; v1/v2 routes and both manifests 404; docs.firecrawl.dev no longer mentions x402 — offering withdrawn upstream."
+    },
+    {
+      "url": "https://bincrease.vercel.app/developers",
+      "section": "apis",
+      "reason": "gold-402 1b8f930 strike-two delist (Bincrease Operations APIs): 404 on 08-09 and 08-11, manifest 404, repeat of an earlier 404 in July."
+    }
+  ],
+  "rebind": [
+    {
+      "from_url": "https://bitcoinsapi.com/docs",
+      "from_section": "facilitators",
+      "to_url": "https://bitcoinsapi.com",
+      "to_section": "facilitators",
+      "reason": "gold-402 1b8f930: /docs path gone but service alive (root 200, /.well-known/x402 200) — entry repointed to live root; first_listed carried."
+    }
+  ]
+}
