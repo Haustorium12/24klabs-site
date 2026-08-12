@@ -4757,7 +4757,7 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "AI Services",
-    "desc": "OpenAI-compatible LLM inference bridge: chat completions with SSE streaming, pay per call via x402 with Solana USDC. From $0.002 per call. ([OpenAPI](https://bridgenode.cc/openapi.json)) ([llms.txt](https://bridgenode.cc/llms.txt)) ([GitHub](https://github.com/applefanaimail-blip/bridgenode-skill))",
+    "desc": "OpenAI-compatible LLM inference bridge: chat completions with SSE streaming, pay per call via x402 with Solana USDC. From $0.002 per call. Example: `POST /v1/chat/completions {\"model\":\"deepseek-v4-flash\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}]}`. ([OpenAPI](https://bridgenode.cc/openapi.json)) ([llms.txt](https://bridgenode.cc/llms.txt)) ([GitHub](https://github.com/applefanaimail-blip/bridgenode-skill))",
     "verified": false,
     "first_listed": "2026-08-05"
   },
@@ -4856,7 +4856,7 @@
     "section_label": "MCP Servers",
     "type": "MCP Server",
     "category": "General Utility",
-    "desc": "x402-gated AI inference MCP server: chat completions + model listing, automatic USDC payments on Solana. Remote streamable-http at [bridgenode.cc/mcp](https://bridgenode.cc/mcp) or stdio via `npx @bridgenode/mcp`. ([GitHub](https://github.com/applefanaimail-blip/bridgenode-skill))",
+    "desc": "x402-gated AI inference MCP server: chat completions + model listing, automatic USDC payments on Solana. Remote streamable-http at [bridgenode.cc/mcp](https://bridgenode.cc/mcp) or stdio via `npx @bridgenode/mcp`. Example tool call: `chat_completions {\"model\":\"deepseek-v4-flash\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}]}`. ([GitHub](https://github.com/applefanaimail-blip/bridgenode-skill))",
     "verified": false,
     "first_listed": "2026-08-05"
   },
@@ -4912,6 +4912,28 @@
     "type": "Tool / Utility",
     "category": "CLI Tools",
     "desc": "CLI for x402-paid LLM inference on Solana: chat completions + model listing with automatic USDC payment. `pip install bridgenode-cli`.",
+    "verified": false,
+    "first_listed": "2026-08-11"
+  },
+  {
+    "name": "Gondola",
+    "url": "https://gondola-ai.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "AI Services",
+    "desc": "Pay-per-request LLM inference over x402 (OpenAI-compatible chat, images, and Anthropic messages); routes each request to the cheapest Venice AI supplier, no account required. Overpayment banks as reusable wallet credit. [OpenAPI](https://api.gondola-ai.com/openapi.json)",
+    "verified": false,
+    "first_listed": "2026-08-11"
+  },
+  {
+    "name": "BlinkCodes",
+    "url": "https://blinkcodes.com/api/v1",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Niche & Specialty",
+    "desc": "Storefront selling real-world digital goods to agents: gift card codes (Steam, Razer Gold, PSN, Apple), game top-ups, travel eSIMs, and rentable phone numbers for SMS. `POST /api/v1/buy {\"email\":\"you@example.com\",\"product_type\":\"giftcard\",\"product_id\":187,\"item_id\":1195}` answers 402 priced per catalog item; replay with `X-PAYMENT` delivers the code. From $0.10 USDC on Base via CDP facilitator. ([llms.txt](https://blinkcodes.com/llms.txt)) ([OpenAPI](https://blinkcodes.com/openapi.json))",
     "verified": false,
     "first_listed": "2026-08-11"
   }
