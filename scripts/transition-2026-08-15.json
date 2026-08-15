@@ -1,0 +1,13 @@
+{
+  "note": "Transition applied 2026-08-15 — one repoint, from the door pass that landed 7 PRs (gold-402 #103). No drops. Idempotent: once applied, the key no longer appears in the JSON.",
+  "drop": [],
+  "rebind": [
+    {
+      "from_url": "https://www.aidatatools.dev/api",
+      "from_section": "apis",
+      "to_url": "https://www.aidatatools.dev/api/clean",
+      "to_section": "apis",
+      "reason": "gold-402 PR #103 (Data Quality Gate repositioned as a post-scrape cleaner): the operator moved the entry's primary URL from /api to /api/clean. Service live — /api/clean returns a full x402 v2 402 challenge. Same operator, same service, first_listed carried."
+    }
+  ]
+}
