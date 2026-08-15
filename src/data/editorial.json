@@ -4181,7 +4181,7 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Security",
-    "desc": "Security and utility APIs for AI agents on Base, USDC per call, no signup: secret scan ($0.005), agent-config audit ($0.05), diff security gate ($0.10), pre-deploy evidence gate ($0.08), URL security evidence ($0.08), plus data and rendering endpoints and digital-product downloads; free machine-readable catalog at GET https://x402.fablerlabs.com/. Built and operated end-to-end by an autonomous AI agent.",
+    "desc": "Security and utility APIs for AI agents on Base, USDC per call, no signup: secret scan ($0.005), agent-config audit ($0.05), pre-deploy evidence gate ($0.08), URL security evidence ($0.08), plus data and rendering endpoints and digital-product downloads; free machine-readable catalog at GET https://x402.fablerlabs.com/. Built and operated end-to-end by an autonomous AI agent. Free full price census of the CDP Bazaar catalogue (14,696 resources, median $0.0100): https://fablerlabs.com/x402-pricing",
     "verified": false,
     "first_listed": "2026-07-20"
   },
@@ -4768,7 +4768,7 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Data & Research",
-    "desc": "Multi-jurisdiction property compliance for AI agents: free catalog /us/cities, free samples /us/{code}/property-check/sample, paid /us/{code}/property-check ($0.01 USDC on Base). Fourteen live open-data markets covering rental registration/license and code-violation public feeds. ([OpenAPI](https://x402-mcp.onrender.com/openapi.json)) ([llms.txt](https://x402-mcp.onrender.com/llms.txt)) ([GitHub](https://github.com/kwizzlesurp10-ctrl/x402-mcp))",
+    "desc": "Multi-jurisdiction property compliance for AI agents ($0.01 USDC on Base): catalog https://x402-mcp.onrender.com/us/cities, paid example https://x402-mcp.onrender.com/us/sea/property-check, free sample https://x402-mcp.onrender.com/us/sea/property-check/sample. Fourteen live open-data markets covering rental registration/license and code-violation public feeds. ([OpenAPI](https://x402-mcp.onrender.com/openapi.json)) ([llms.txt](https://x402-mcp.onrender.com/llms.txt)) ([GitHub](https://github.com/kwizzlesurp10-ctrl/x402-mcp))",
     "verified": false,
     "first_listed": "2026-08-06"
   },
@@ -4785,12 +4785,12 @@
   },
   {
     "name": "Data Quality Gate",
-    "url": "https://www.aidatatools.dev/api",
+    "url": "https://www.aidatatools.dev/api/clean",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Data & Research",
-    "desc": "Deterministic dataset-quality verdict (RELIABLE/USABLE_WITH_CLEANING/UNRELIABLE) with per-check facts on completeness, nulls, types, impossible values, duplicates, and outliers, plus optional cross-source price-divergence detection for financial/trading data, for $0.01 USDC per call on Base or Solana.",
+    "desc": "Deterministic post-scrape data cleaner: repairs how data was encoded — residual HTML, mojibake (`CafÃ©` → `Café`), invisible characters, non-breaking spaces — never what it says. The 20 rules are published free at `GET /api/clean` before you pay: 7 automatic, 5 opt-in (they change row count, type or schema), 8 report-only — near-duplicates are never merged, failed extractions never deleted. No LLM: identical input yields byte-identical output. `POST /api/clean` $0.04 returns the cleaned data, `/api/clean/audit` $0.12 adds a reversible ledger, `POST /api` $0.01 returns a quality verdict (RELIABLE/USABLE_WITH_CLEANING/UNRELIABLE) with per-check facts. USDC on Base or Solana. ([OpenAPI](https://www.aidatatools.dev/openapi.json)) ([llms.txt](https://www.aidatatools.dev/llms.txt))",
     "verified": false,
     "first_listed": "2026-08-08"
   },
@@ -4936,5 +4936,49 @@
     "desc": "Storefront selling real-world digital goods to agents: gift card codes (Steam, Razer Gold, PSN, Apple), game top-ups, travel eSIMs, and rentable phone numbers for SMS. `POST /api/v1/buy {\"email\":\"you@example.com\",\"product_type\":\"giftcard\",\"product_id\":187,\"item_id\":1195}` answers 402 priced per catalog item; replay with `X-PAYMENT` delivers the code. From $0.10 USDC on Base via CDP facilitator. ([llms.txt](https://blinkcodes.com/llms.txt)) ([OpenAPI](https://blinkcodes.com/openapi.json))",
     "verified": false,
     "first_listed": "2026-08-11"
+  },
+  {
+    "name": "apix402",
+    "url": "https://api402x.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "Onchain governance and risk data for agents on Base: DAO proposal state and execution, Gnosis Safe owner/threshold/module drift against chain history, per-feed Chainlink and Pyth staleness, and Aave wstETH depeg exposure recomputed independently of the published health factor; 8 endpoints at $0.01-$0.05 USDC per call with a free preview on each. ([OpenAPI](https://api402x.com/openapi.json))",
+    "verified": false,
+    "first_listed": "2026-08-15"
+  },
+  {
+    "name": "Colombia TRM",
+    "url": "https://x402.lagaceta.net/trm",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Finance & FX",
+    "desc": "Official Superintendencia Financiera daily USD/COP TRM as prepaid x402 at $0.005 USDC on Base. ([OpenAPI](https://x402.lagaceta.net/openapi.json)) ([llms.txt](https://x402.lagaceta.net/llms.txt))",
+    "verified": false,
+    "first_listed": "2026-08-15"
+  },
+  {
+    "name": "Smart Event Scraper",
+    "url": "https://smart-event-scraper-agent.onrender.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Niche & Specialty",
+    "desc": "Aggregates events from Eventbrite, Meetup, AllEvents, District, EventsEye, and ConferenceAlerts into one standardized dataset. `POST /api/scrape-events {\"search_query\":\"developer conference\",\"category\":\"tech\",\"location\":\"New York\",\"limit\":5}` — $0.01-$2.00 USDC on Base, price scales with requested result volume. ([OpenAPI](https://smart-event-scraper-agent.onrender.com/openapi.json)) ([llms.txt](https://smart-event-scraper-agent.onrender.com/llms.txt))",
+    "verified": false,
+    "first_listed": "2026-08-15"
+  },
+  {
+    "name": "AgentFund US Economic, SEC & On-Chain Data",
+    "url": "https://x402.agentfund.net/mcp",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "General Utility",
+    "desc": "21 tools over US government data and public chain state: Treasury yield curve, CPI, PCE, jobs, GDP, retail sales, housing starts, EIA energy, release calendar; SEC EDGAR insider Form 4, XBRL financials, 13F holdings, filing feeds, full-text search; EVM token balances, portfolios, cross-chain balances, Chainlink oracle prices, gas. $0.001–$0.03 USDC on Base. Each tool also has its own HTTP route; example: `POST https://x402.agentfund.net/x402/edgar_financials {\"ticker\":\"AAPL\"}`. A call that fails upstream is returned unsettled rather than billed. ([OpenAPI](https://x402.agentfund.net/openapi.json)) ([GitHub](https://github.com/ktcod/x402-json-repair-mcp))",
+    "verified": false,
+    "first_listed": "2026-08-15"
   }
 ]
