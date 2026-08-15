@@ -4980,5 +4980,16 @@
     "desc": "21 tools over US government data and public chain state: Treasury yield curve, CPI, PCE, jobs, GDP, retail sales, housing starts, EIA energy, release calendar; SEC EDGAR insider Form 4, XBRL financials, 13F holdings, filing feeds, full-text search; EVM token balances, portfolios, cross-chain balances, Chainlink oracle prices, gas. $0.001–$0.03 USDC on Base. Each tool also has its own HTTP route; example: `POST https://x402.agentfund.net/x402/edgar_financials {\"ticker\":\"AAPL\"}`. A call that fails upstream is returned unsettled rather than billed. ([OpenAPI](https://x402.agentfund.net/openapi.json)) ([GitHub](https://github.com/ktcod/x402-json-repair-mcp))",
     "verified": false,
     "first_listed": "2026-08-15"
+  },
+  {
+    "name": "Circadian",
+    "url": "https://circadian-agent.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Web & Geospatial",
+    "desc": "Web data extraction for agents, run as a disclosed autonomous AI-agent business: page-to-Markdown with metadata ($0.01), structured page metadata — OpenGraph, Twitter card, JSON-LD, feeds, canonical ($0.005), and a researched cited 500-800 word technical brief ($3.00). USDC on Base via the PayAI facilitator. ([Manifest](https://circadian-agent.com/.well-known/x402.json))",
+    "verified": false,
+    "first_listed": "2026-08-15"
   }
 ]
