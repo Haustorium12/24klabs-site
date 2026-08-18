@@ -140,14 +140,12 @@ const sections = [...new Set(listings.map((e) => e.section_label))];
           <p style="margin-top: 14px;"><a href="/verify" class="btn btn--outline btn--sm">Probe an endpoint →</a></p>
         </div>
         <div class="card reveal">
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 10px;">Take the whole list</h3>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 10px;">Built for agents</h3>
           <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-            The curated directory as JSON, regenerated on every change. CC BY 4.0 —
-            use it, just cite us. Agents can read <code>/llms.txt</code> for the map.
+            Machines get a map at <code>/llms.txt</code> and a per-resource verdict from
+            the Verify API — our call plus independent rater grades in one response.
           </p>
-          <p style="margin-top: 14px;">
-            <a href="/directory.json" class="btn btn--outline btn--sm">directory.json →</a>
-          </p>
+          <p style="margin-top: 14px;"><a href="/developers/docs" class="btn btn--outline btn--sm">Agent access →</a></p>
         </div>
         <div class="card reveal">
           <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 10px;">Why curation, with numbers</h3>
