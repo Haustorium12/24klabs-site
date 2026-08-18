@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Verify an x402 endpoint — 24K Labs"
+  description="Paste any x402 endpoint. We run the same live check we run before listing anything: does it answer, is it a real 402, what are the payment terms. Free, no signup, no payment.">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__badge">Free tool</div>
+      <h1 class="hero__title">
+        Check before you pay.<br>
+        <span class="text-gold">Any x402 endpoint. No signup.</span>
+      </h1>
+      <p class="hero__subtitle">
+        This is the same live check we run at the door before anything gets listed:
+        one unpaid request, plus a look at the origin's manifest. It never spends money.
+      </p>
+
+      <div class="probe">
+        <div class="probe__row">
+          <input
+            id="probe-url"
+            class="probe__input"
+            type="url"
+            inputmode="url"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="https://api.example.com/v1/quote"
+            aria-label="Endpoint URL to probe">
+          <button id="probe-go" class="btn btn--primary btn--lg">Probe</button>
+        </div>
+        <p class="probe__hint">
+          Try one from the shelf: <button class="probe__example" data-url="https://api.fetchx402.com/v1/tools/dns?domain=example.com">fetchx402</button>
+          <button class="probe__example" data-url="https://api402x.com/vesting-status">apix402</button>
+          <button class="probe__example" data-url="https://forgesignals.org/launch-signals">Forge</button>
+        </p>
+        <div id="probe-out" class="probe__out" hidden></div>
+      </div>
+    </div>
+    <div class="hero__glow"></div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <h2 class="section__title">What this tells you, and what it doesn't</h2>
+      <p>
+        A valid 402 proves the door works. It does not prove the service delivers what it
+        advertises — that takes actually buying the thing, which is a separate job and one
+        we do by hand. Treat a green result as "this is reachable and speaks the protocol,"
+        never as "this is good."
+      </p>
+      <p>
+        Absence from our list is not a verdict against a service either. gold-402 is a
+        curated shelf, not a census. Plenty of working endpoints have simply never been
+        submitted.
+      </p>
+      <p>
+        Agents can call the same check over MCP, and the paid aggregation lookup — our
+        verdict plus independent rater grades in one call — lives at
+        <code>/api/v1/verify</code>.
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .probe { max-width: 720px; margin: 2rem auto 0; text-align: left; }
+    .probe__row { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .probe__input {
+      flex: 1 1 320px; min-width: 0; padding: .9rem 1rem;
+      background: #111118; border: 1px solid #2a2a3a; border-radius: 8px;
+      color: #e8e8ed; font-family: 'JetBrains Mono', monospace; font-size: .95rem;
+    }
+    .probe__input:focus { outline: none; border-color: #D4AF37; }
+    .probe__hint { margin: .75rem 0 0; font-size: .85rem; color: #8888a0; }
+    .probe__example {
+      background: none; border: none; padding: 0 .35rem; cursor: pointer;
+      color: #D4AF37; font: inherit; text-decoration: underline dotted;
+    }
+    .probe__out {
+      margin-top: 1.5rem; padding: 1.25rem; background: #111118;
+      border: 1px solid #2a2a3a; border-left: 4px solid #555566; border-radius: 10px;
+    }
+    .probe__out[data-tone="good"] { border-left-color: #D4AF37; }
+    .probe__out[data-tone="bad"]  { border-left-color: #b4484a; }
+    .probe__verdict { font-size: 1.15rem; font-weight: 800; color: #e8e8ed; margin: 0 0 .35rem; }
+    .probe__detail { color: #b8b8c6; margin: 0 0 1rem; }
+    .probe__kv { font-family: 'JetBrains Mono', monospace; font-size: .85rem; color: #8888a0; margin: .2rem 0; word-break: break-all; }
+    .probe__kv b { color: #cfcfdb; font-weight: 500; }
+    .probe__note { font-size: .85rem; color: #b8b8c6; margin: .5rem 0 0; }
+    .probe__disclaimer { font-size: .8rem; color: #6f6f85; margin: 1rem 0 0; border-top: 1px solid #2a2a3a; padding-top: .75rem; }
+    .container--narrow { max-width: 720px; }
+  </style>
+
+  <script is:inline>
+    (function () {
+      var input = document.getElementById('probe-url');
+      var btn = document.getElementById('probe-go');
+      var out = document.getElementById('probe-out');
+      if (!input || !btn || !out) return;
+
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+        });
+      }
+      function show(html, tone) {
+        out.hidden = false;
+        out.setAttribute('data-tone', tone || 'neutral');
+        out.innerHTML = html;
+      }
+      function render(d) {
+        var good = d.verdict === 'LIVE 402';
+        var bad = d.verdict === 'NO ANSWER' || d.verdict === 'ORIGIN DOWN' || d.verdict === '402 WITHOUT USABLE TERMS';
+        var h = '<p class="probe__verdict">' + esc(d.verdict) + '</p>';
+        h += '<p class="probe__detail">' + esc(d.verdict_detail) + '</p>';
+        h += '<p class="probe__kv"><b>status</b> ' + esc(d.status) + '  ·  <b>402</b> ' + (d.is_402 ? 'yes' : 'no') + '</p>';
+        if (d.payment_terms) {
+          var t = d.payment_terms;
+          h += '<p class="probe__kv"><b>scheme</b> ' + esc(t.scheme) + '  <b>network</b> ' + esc(t.network) + '  <b>price</b> ' + esc(t.price) + '</p>';
+          h += '<p class="probe__kv"><b>payTo</b> ' + esc(t.payTo) + '</p>';
+        }
+        if (d.manifest) {
+          h += '<p class="probe__kv"><b>manifest</b> ' + esc(d.manifest.status || 'unreachable') +
+               (d.manifest.resources != null ? ', ' + esc(d.manifest.resources) + ' resources' : '') + '</p>';
+        }
+        if (d.gold402_listed) {
+          h += '<p class="probe__kv"><b>gold-402</b> ' + (d.gold402_listed.listed
+            ? 'listed — ' + esc(d.gold402_listed.name)
+            : 'not listed') + '</p>';
+        }
+        (d.notes || []).forEach(function (n) { h += '<p class="probe__note">— ' + esc(n) + '</p>'; });
+        h += '<p class="probe__disclaimer">' + esc(d.disclaimer) + '</p>';
+        show(h, good ? 'good' : bad ? 'bad' : 'neutral');
+      }
+
+      function run() {
+        var v = (input.value || '').trim();
+        if (!v) { show('<p class="probe__detail">Paste an endpoint URL first.</p>'); return; }
+        if (!/^https?:\/\//i.test(v)) { v = 'https://' + v; input.value = v; }
+        btn.disabled = true;
+        var old = btn.textContent;
+        btn.textContent = 'Probing…';
+        show('<p class="probe__detail">Knocking on ' + esc(v) + ' …</p>');
+        fetch('/api/probe?url=' + encodeURIComponent(v))
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d.error) { show('<p class="probe__detail">' + esc(d.error) + '</p>', 'bad'); return; }
+            render(d);
+          })
+          .catch(function (e) {
+            show('<p class="probe__detail">The probe itself failed: ' + esc(e.message) + '. That is on us, not the endpoint.</p>', 'bad');
+          })
+          .finally(function () { btn.disabled = false; btn.textContent = old; });
+      }
+
+      btn.addEventListener('click', run);
+      input.addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
+      Array.prototype.forEach.call(document.querySelectorAll('.probe__example'), function (b) {
+        b.addEventListener('click', function () { input.value = b.getAttribute('data-url'); run(); });
+      });
+    })();
+  </script>
+</BaseLayout>

@@ -24,6 +24,7 @@ License: directory data is CC BY 4.0 — attribution required: cite 24klabs.ai (
 - /directory.json: the full curated directory as JSON (licensed CC BY 4.0, attribution required)
 - /sitemap-index.xml: every page on this site
 - /badge.svg?resource=<url>: the 24K verify badge for listed services
+- /api/probe?url=<url>: FREE live probe of any x402 endpoint, listed or not — returns reachability, whether it is a real 402, decoded payment terms, origin manifest, and curated-list status. No key, no payment. Human UI at /verify.
 
 ## The directory (${total} entries, ${Object.keys(shelves).length} shelves)
 ${shelfLines}
