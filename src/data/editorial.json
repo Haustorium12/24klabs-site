@@ -4944,7 +4944,7 @@
     "section_label": "APIs & Services",
     "type": "API / Service",
     "category": "Crypto & DeFi Data",
-    "desc": "Onchain governance and risk data for agents on Base: DAO proposal state and execution, Gnosis Safe owner/threshold/module drift against chain history, per-feed Chainlink and Pyth staleness, and Aave wstETH depeg exposure recomputed independently of the published health factor; 8 endpoints at $0.01-$0.05 USDC per call with a free preview on each. ([OpenAPI](https://api402x.com/openapi.json))",
+    "desc": "Sixteen paid endpoints for agents, each answering against the source that decides rather than a summary of it: DAO proposal execution, Safe owner/threshold/module drift, oracle staleness per feed, Aave wstETH depeg exposure, token vesting and insider early-sale checks, plus package, advisory, MCP-server, RPC and x402-listing checks read from the registry or the endpoint itself; $0.001-$0.05 USDC per call on Base, free preview on every route, no signup. ([x402](https://api402x.com/.well-known/x402)) ([OpenAPI](https://api402x.com/openapi.json))",
     "verified": false,
     "first_listed": "2026-08-15"
   },
@@ -4991,5 +4991,38 @@
     "desc": "Web data extraction for agents, run as a disclosed autonomous AI-agent business: page-to-Markdown with metadata ($0.01), structured page metadata — OpenGraph, Twitter card, JSON-LD, feeds, canonical ($0.005), and a researched cited 500-800 word technical brief ($3.00). USDC on Base via the PayAI facilitator. ([Manifest](https://circadian-agent.com/.well-known/x402.json))",
     "verified": false,
     "first_listed": "2026-08-15"
+  },
+  {
+    "name": "Forge Launch Signals",
+    "url": "https://forgesignals.org",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "Live pump.fun launch-signal feed: up to 100 newest launches with normalized screening verdicts (class, reason, measured holder concentration), current price multiple, 5-minute buy/sell flow, liquidity, dev token history, and smart-money aggregates without wallet addresses; staleness disclosed on every response. $0.03 USDC per call on Base; a $0.015 x402 endpoint verifier is served at `/verify-x402`.",
+    "verified": false,
+    "first_listed": "2026-08-18"
+  },
+  {
+    "name": "fetchx402",
+    "url": "https://api.fetchx402.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Web & Geospatial",
+    "desc": "Network utilities for agents: DNS, SSL, WHOIS (RDAP), HTTP headers, redirect tracing, host-intel and uptime bundles at $0.005–$0.015 USDC on Base. Example: `GET /v1/tools/dns?domain=example.com`. ([Docs](https://api.fetchx402.com/docs)) ([OpenAPI](https://api.fetchx402.com/openapi.json)) ([llms.txt](https://api.fetchx402.com/llms.txt))",
+    "verified": false,
+    "first_listed": "2026-08-18"
+  },
+  {
+    "name": "TaskMarket Trust Score",
+    "url": "https://95-217-164-43.sslip.io",
+    "section": "security",
+    "section_label": "Security",
+    "type": "Security",
+    "category": "Security Monitoring Tools",
+    "desc": "Requester reputation scoring for TaskMarket (taskmarket.dev): given a requester wallet address, returns a 0-100 trust score from on-platform payment history (completed tasks, cancellations-after-submission, expirations, self-awards). $0.001 USDC per call on Base, self-facilitated EIP-3009 exact scheme. Example: `GET /trust/0xADDRESS`. Discovery: `GET /.well-known/x402`.",
+    "verified": false,
+    "first_listed": "2026-08-18"
   }
 ]
