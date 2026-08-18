@@ -21,7 +21,7 @@ Last updated: ${today} (generated at build from the directory database).
 License: directory data is CC BY 4.0 — attribution required: cite 24klabs.ai (gold-402).
 
 ## Machine-readable
-- /directory.json: the full curated directory as JSON (licensed CC BY 4.0, attribution required)
+- /directory.json: directory PREVIEW as JSON — shelf structure, counts, and the 25 most recently listed entries. The full set is not served in bulk to anonymous callers; per-resource verdicts are at /api/v1/verify and every entry is browsable at /directory
 - /sitemap-index.xml: every page on this site
 - /badge.svg?resource=<url>: the 24K verify badge for a listed service (live-rendered from our data, so it reflects the current verdict — it is not a static image)
 - /card.svg?resource=<url>: the aggregation card — the 24K verdict PLUS independent rater grades in one image
