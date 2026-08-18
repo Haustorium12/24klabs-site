@@ -23,7 +23,10 @@ License: directory data is CC BY 4.0 — attribution required: cite 24klabs.ai (
 ## Machine-readable
 - /directory.json: the full curated directory as JSON (licensed CC BY 4.0, attribution required)
 - /sitemap-index.xml: every page on this site
-- /badge.svg?resource=<url>: the 24K verify badge for listed services
+- /badge.svg?resource=<url>: the 24K verify badge for a listed service (live-rendered from our data, so it reflects the current verdict — it is not a static image)
+- /card.svg?resource=<url>: the aggregation card — the 24K verdict PLUS independent rater grades in one image
+- /api/v1/verify?resource=<url>: paid lookup ($0.001, x402) — our verdict plus aggregated rater grades as JSON
+- /verify: human page for the free probe above
 - /api/probe?url=<url>: FREE live probe of any x402 endpoint, listed or not — returns reachability, whether it is a real 402, decoded payment terms, origin manifest, and curated-list status. No key, no payment. Human UI at /verify.
 
 ## The directory (${total} entries, ${Object.keys(shelves).length} shelves)
