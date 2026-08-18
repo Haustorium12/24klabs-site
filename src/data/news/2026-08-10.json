@@ -1,0 +1,24 @@
+{
+ "date": "2026-08-10",
+ "week_label": "Week of August 10 – 16, 2026",
+ "items": [
+  {
+   "title": "The buy side finally got a wallet. Almost none of it works yet.",
+   "body": "Cloudflare announced Wallets on August 4 — a programmable wallet built into the infrastructure that already terminates a large share of the web's API traffic, settling over x402. The design is the interesting part: custody and spending are separated into two objects. An Account Wallet holds the money and belongs to a person or company; Virtual Wallets are restricted, pre-loaded instruments handed to individual agents, with the limits enforced by Cloudflare's own infrastructure rather than by a card network's fraud team. Coverage through this week read the announcement closely and landed on the same caveat: the language is forward-tense. Soon, you will be able to set up and use your wallet to pay for APIs and content. The Monetization Gateway that sells the other half has been waitlist-only since July 1 with no pricing and no timeline. This is worth watching precisely because it is the half nobody built — for a year the ecosystem has shipped ways to charge agents while the buyer side stayed thin. It is still an announcement, not a rail.",
+   "cite_label": "Search Engine Journal",
+   "cite_url": "https://www.searchenginejournal.com/cloudflare-gives-ai-agents-wallets-that-pay-for-what-they-access/584959/"
+  },
+  {
+   "title": "Three weeks, three independent parties, one lane: verification got crowded.",
+   "body": "We probe endpoints for a living, so this one is our own reporting. Since late July, three separate services have shipped products that mechanically check whether an x402 endpoint is what it claims. cortx runs a seven-stage pipeline that goes as far as making a real USDC payment and treating a second 402 on delivery as a critical incident. apix402 sells a listing-drift check that compares an advertised price against what the endpoint actually answers. And this week Forge shipped an attestation endpoint — a paid third-party witness that signs what an endpoint advertised at the moment of observation, verifies the Base settlement against that advertised price and payee, and labels every claim witnessed or asserted, stating plainly that a response hash submitted after the call is not proof of delivery. Meanwhile 402audit widened from x402 to also scan MPP, Stripe and Paradigm's competing rail. None of these are copies of each other. Four parties arrived independently at the same conclusion: the protocol handles payment and nobody was handling trust. The mechanical half of that problem now has a competitive market in it — good for anyone buying, and a reason to be precise about what any badge on any site actually certifies.",
+   "cite_label": "The directory",
+   "cite_url": "https://24klabs.ai/"
+  },
+  {
+   "title": "The door: four landed, two held, 454 on the shelf.",
+   "body": "New this week: fetchx402 (network utilities for agents — DNS, SSL, WHOIS, redirect tracing, at $0.005–$0.015), Forge Launch Signals (live pump.fun launch screening at $0.03, with a free capped preview), and TaskMarket Trust Score (requester reputation from on-platform payment history, $0.001). apix402 filed a correction to its own entry, growing from 8 endpoints to 16. Two submissions are held rather than listed: one origin returning 502 across five knocks, and one duplicate of services already on the shelf. Neither is closed — holds here mean not yet, with the specific fix named. One thing worth reporting because it cuts against us: we had been holding a submission on a rule that is not in our own published acceptance criteria. It has been withdrawn and the operator told so directly. The bar is the five things we published, and nothing else.",
+   "cite_label": "The directory",
+   "cite_url": "https://24klabs.ai/directory"
+  }
+ ]
+}
