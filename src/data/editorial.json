@@ -5024,5 +5024,60 @@
     "desc": "Requester reputation scoring for TaskMarket (taskmarket.dev): given a requester wallet address, returns a 0-100 trust score from on-platform payment history (completed tasks, cancellations-after-submission, expirations, self-awards). $0.001 USDC per call on Base, self-facilitated EIP-3009 exact scheme. Example: `GET /trust/0xADDRESS`. Discovery: `GET /.well-known/x402`.",
     "verified": false,
     "first_listed": "2026-08-18"
+  },
+  {
+    "name": "CapGain safety and work artifacts",
+    "url": "https://5-9-107-124.nip.io",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Crypto & DeFi Data",
+    "desc": "EVM token risk and Base swap preflights from $0.01, plus machine-buyable invariant tests ($0.03), repository reviews ($0.05), and protocol research ($0.03), paid in Base USDC via x402. ([x402](https://5-9-107-124.nip.io/.well-known/x402.json))",
+    "verified": false,
+    "first_listed": "2026-08-20"
+  },
+  {
+    "name": "Forge Attestation",
+    "url": "https://forgesignals.org/.well-known/forge-attestation",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Security",
+    "desc": "Signed third-party evidence records for x402 transactions, where every claim is labelled `witnessed` or `asserted`: witnessed means Forge observed it directly, either probing what the endpoint advertised at that moment or checking a Base settlement transaction against that advertised price and payee; asserted means a party stated it and Forge only notarised the statement. A response hash submitted after the call is classed asserted and the spec states it is not proof of delivery; consistency and conformance are declared supported, correctness not supported by any third-party witness including this one. Ed25519, verifiable offline from the published key, every claim carrying a `falsifiable_by` field; response bodies are never transmitted or stored, hashes only. $0.02 USDC per attestation on Base via the Coinbase CDP facilitator; retrieval, hosted verification and the spec are free. Example: `POST /attest {\"url\":\"https://example.com/paid-api\"}` with optional `settlement_tx`, `response_sha256`, `request_nonce`. Free: `POST /attestations/verify`, `GET /attestations/:id`.",
+    "verified": false,
+    "first_listed": "2026-08-20"
+  },
+  {
+    "name": "BridgeNode Solana x402 Quickstart",
+    "url": "https://github.com/applefanaimail-blip/bridgenode-sdk-ts/blob/main/QUICKSTART.md",
+    "section": "learning",
+    "section_label": "Learning Resources",
+    "type": "Learning Resource",
+    "category": "Quick Start Guides",
+    "desc": "Step-by-step walkthrough that teaches the x402 payment flow on Solana: trigger the 402, sign a USDC transfer (fee-sponsored, no SOL needed), retry with PAYMENT-SIGNATURE, get the 200. Curl + TypeScript + Python examples, from first payment to SDK usage.",
+    "verified": false,
+    "first_listed": "2026-08-20"
+  },
+  {
+    "name": "Andreax",
+    "url": "https://pagos.andreax.dev/tienda",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "General Utility",
+    "desc": "Remote MCP server with 54 pay-per-call AI tools: prompt compression, inference, web/PDF read, OCR, vision, embeddings, semantic search, translation, FX, and market data. $0.001-$0.50 USDC on Base. ([MCP](https://pagos.andreax.dev/mcp)) ([Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=andreax))",
+    "verified": false,
+    "first_listed": "2026-08-20"
+  },
+  {
+    "name": "Cleared Index",
+    "url": "https://clearedindex.com",
+    "section": "security",
+    "section_label": "Security",
+    "type": "Security",
+    "category": "Endpoint Trust & Reputation",
+    "desc": "Trust provider and verification index with a conformant trust-evaluation endpoint: `POST /api/cleared/trust/evaluate` (`x402-trust-evaluation-v0.1`), Ed25519 signed attestations, and public JWKS at `GET /api/cleared/jwks`. Discovery manifest: `/.well-known/x402.json`.",
+    "verified": false,
+    "first_listed": "2026-08-20"
   }
 ]
