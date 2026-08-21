@@ -25,7 +25,7 @@ License: directory data is CC BY 4.0 — attribution required: cite 24klabs.ai (
 - /sitemap-index.xml: every page on this site
 - /badge.svg?resource=<url>: the 24K verify badge for a listed service (live-rendered from our data, so it reflects the current verdict — it is not a static image)
 - /card.svg?resource=<url>: the aggregation card — the 24K verdict PLUS independent rater grades in one image
-- /api/v1/verify?resource=<url>: paid lookup ($0.001, x402) — our verdict plus aggregated rater grades as JSON
+- /api/v1/verify?resource=<url>: paid lookup ($2.00, x402) — our verdict plus aggregated rater grades as JSON. The free live probe at /api/probe covers reachability and payment terms; this is the editorial judgement.
 - /verify: human page for the free probe above
 - /api/probe?url=<url>: FREE live probe of any x402 endpoint, listed or not — returns reachability, whether it is a real 402, decoded payment terms, origin manifest, and curated-list status. No key, no payment. Human UI at /verify.
 

@@ -1,4 +1,4 @@
-// Piece 3 — on-demand aggregation endpoint. The $0.001 agent line.
+// Piece 3 — on-demand aggregation endpoint. The agent verdict line.
 // GET /api/v1/verify?resource=<url-encoded> -> JSON verdict + aggregated rater grades.
 //
 // This is the truth-layer LOOKUP nobody else offers: our verdict PLUS independent rater
@@ -6,7 +6,8 @@
 // the endpoint (that is a deliberate lane we stay out of). "Always current" = it reflects
 // whatever is on the list at request time, and grades are fetched live from the rater.
 //
-// x402-gated at $0.001 (founding default, editable in phase2.config.js). FAIL-CLOSED: if the
+// x402-gated; the price is PRICING.verifyApi.usd in src/data/phase2.config.js — $2.00 as of
+// 2026-08-21 (was $0.001; reasoning recorded at the constant). FAIL-CLOSED: if the
 // facilitator/keys are not configured, or verify/settle does not succeed, it returns 402 and
 // never serves the paid JSON. A caller with no PAYMENT-SIGNATURE always gets the 402 challenge.
 

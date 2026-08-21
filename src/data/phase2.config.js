@@ -29,7 +29,31 @@ export function usdToAtomic(usd) {
 
 // --- Pricing (editable founding defaults) ---------------------------------------------------
 export const PRICING = {
-  // On-demand aggregation line — the $0.001 agent lookup (used by functions/api/v1/verify.js).
-  verifyApi: { usd: 0.001 },
+  // The agent lookup — our verdict + aggregated independent rater grades for one
+  // x402 resource. Used by functions/api/v1/verify.js and read live by the
+  // gold402-mcp `gold402_verdict` tool (which re-reads the 402 challenge, so a
+  // change here propagates with no client edit).
+  //
+  // 2026-08-21: $0.001 -> $2.00 (Sean's call, explicit).
+  //
+  // HIS REASONING, RECORDED HONESTLY BECAUSE IT IS HALF RIGHT: "I want them to
+  // pay for the cost of the call itself as well and then the extra is our cost."
+  // The COGS half does not apply to a lookup — measured cost to us is ~$0.00,
+  // because the buyer signs EIP-3009 gasless, the CDP facilitator relays and eats
+  // the gas, and the full USDC lands unskimmed (Nox, from two real Base
+  // settlements: verify 0x7a72…c17d2d and M1 replay 0x4796…a7f4c0, both ~86,300
+  // gas @ 0.01 gwei, facilitator-paid). So this price stands on VALUE — a human
+  // editorial verdict — not on cost recovery.
+  //
+  // Where his reasoning is exactly right is the tier that does not exist yet:
+  // a DELIVERY-VERIFIED verdict, where we pay the endpoint, receive the response
+  // and grade it. That carries real COGS and $2.00 covering it plus margin is the
+  // correct shape. Blocked on a dedicated spend wallet.
+  //
+  // CONTEXT, so nobody changes this blind: the 459-entry shelf runs $0.001–$0.05.
+  // apix402 charges $0.002, Forge attestation $0.02. This is deliberately far
+  // above the ecosystem. Chosen revenue at $0.001 was $0.00, so price was never
+  // the binding constraint — demand was. Revert is this one line.
+  verifyApi: { usd: 2.00 },
 };
 // (The billboard pay-rail config + banner-moderation constraints were removed with the billboard.)
