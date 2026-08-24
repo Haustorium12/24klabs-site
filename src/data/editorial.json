@@ -5079,5 +5079,181 @@
     "desc": "Trust provider and verification index with a conformant trust-evaluation endpoint: `POST /api/cleared/trust/evaluate` (`x402-trust-evaluation-v0.1`), Ed25519 signed attestations, and public JWKS at `GET /api/cleared/jwks`. Discovery manifest: `/.well-known/x402.json`.",
     "verified": false,
     "first_listed": "2026-08-20"
+  },
+  {
+    "name": "TaskMarket Data API",
+    "url": "https://site-wine-nu-93.vercel.app/api/tm_list_tasks",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "Read-only TaskMarket bounty-market data for AI agents: list open tasks (rewards, deadlines, submission demand), full task details by ID, per-task submissions. $0.001/call USDC on Base via x402 v1 exact scheme (EIP-3009) — real on-chain enforcement through the non-custodial xpay facilitator, no CDP key needed. Unpaid requests get a spec-compliant 402 with payment terms. Built by Autonomy Labs, an autonomous AI agent. ([Discovery](https://site-wine-nu-93.vercel.app/.well-known/x402)) ([llms.txt](https://site-wine-nu-93.vercel.app/llms.txt)) ([GitHub](https://github.com/Autonomy-Labs-Tech/taskmarket-mcp))",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "MCPFax Public-Data Utility",
+    "url": "https://mcpfax-utility.bowling-anthony.workers.dev",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "31 keyless public-data endpoints for AI agents: geocoding, weather, air quality, VIN decode, FX, stock quotes, SEC company facts, holidays, LEI, DNS. $0.001–$0.004 USDC per call on Base (x402 v1+v2); errors are free — a call that returns no data settles nothing. ([llms.txt](https://mcpfax-utility.bowling-anthony.workers.dev/llms.txt)) ([MCP](https://mcpfax-utility.bowling-anthony.workers.dev/mcp))",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "Animica Research",
+    "url": "https://animica.dev/x402/research",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "One call that searches the web, fetches the top pages and returns their readable text with every requested URL accounted for; $0.02 USDC on Base or ANM natively at a 25% discount, free trial per client per day. Example: `POST /x402/research {\"query\":\"post-quantum blockchain signatures\",\"pages\":4}`. ([Manifest](https://animica.dev/.well-known/x402)) ([OpenAPI](https://animica.dev/openapi.json)) ([llms.txt](https://animica.dev/llms.txt))",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "Black Label Continuum Audit",
+    "url": "https://continuum.blacklabelbots.com/api/x402/cdp/audit",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Security",
+    "desc": "Scores eight self-declared AI-agent continuity capabilities and returns a deterministic 0–100 score with ranked gaps for 0.01 USDC on Base through Coinbase CDP x402; the same deterministic audit remains free at `POST /api/audit`, while the paid call adds x402 execution and a settlement receipt and does not commission Continuum.",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "Feeless402",
+    "url": "https://feeless402.com/premium",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Infrastructure APIs",
+    "desc": "Reference pay-per-call endpoint settling in Nano (XNO): GET /premium answers a v2 402 at 0.0001 XNO per call with sub-second on-chain settlement and no gas; the 402 carries the rail-hint extension pointing at an on-site faucet so a new agent can fund itself and pay in one session. ([llms.txt](https://feeless402.com/llms.txt)) ([Manifest](https://feeless402.com/.well-known/x402))",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "BlockLabs Catalog",
+    "url": "https://shop.blocklabs.nl",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Niche & Specialty",
+    "desc": "Dropshipping storefront selling physical products to agents: 300,000+ item catalog, paid full-text search at $0.001/query, order quotes (items + shipping + taxes) returned on the 402, ships to EU countries only. USDC on Base and Solana. ([llms.txt](https://shop.blocklabs.nl/llms.txt)) ([MCP](https://www.npmjs.com/package/@blocklabs/shop-mcp))",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "Verdoc",
+    "url": "https://verdoc.dev/agents-md?repo=octocat/Hello-World",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Production Deployments (High Volume)",
+    "desc": "Deterministic AGENTS.md generator for public GitHub repositories: build and test commands quoted from the repo's own manifests, each tagged with the file it came from, no language model involved — the same commit always returns the same file. `GET /agents-md?repo=owner/name` — $0.02 USDC on Base, Polygon or Arbitrum via CDP facilitator.",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "Animica Agent Job Network",
+    "url": "https://x402.animica.dev",
+    "section": "ecosystem",
+    "section_label": "Ecosystem",
+    "type": "Ecosystem",
+    "category": "Agent-to-Agent (A2A)",
+    "desc": "Agents post tasks with a USDC budget and other agents perform them for payment; escrow holds the budget until the buyer's chosen verification passes, rejected jobs refund in full, receipts are ML-DSA-65 signed. Example: `POST /api/v1/jobs/quote {\"capability\":\"summarise\",\"budget_usd\":1}`. ([OpenAPI](https://x402.animica.dev/openapi.json))",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "Frantic",
+    "url": "https://gofrantic.com",
+    "section": "ecosystem",
+    "section_label": "Ecosystem",
+    "type": "Ecosystem",
+    "category": "Marketplaces & Discovery",
+    "desc": "Bounty board where AI agents claim funded work, deliver artifacts in the open, and are paid in USDC on Base only when a delivery is accepted, with x402 pay-per-post at `POST /v1/vendor-postings/x402`, a manifest at `/.well-known/x402`, and every claim, judgment, and payout sealed to a public receipt ledger.",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "MCP Scores",
+    "url": "https://mcpscores.com",
+    "section": "market-data",
+    "section_label": "Market Data",
+    "type": "Market Data",
+    "category": "Analytics Dashboards",
+    "desc": "Reliability register + x402 money-flow observatory over 36K+ MCP/x402 listings: observed USDC inflow, seller rankings, payer breadth, wash-risk flags, with published methodology. Free register; paid intelligence via x402 ($0.003–$0.50) at [MCPFax Intel](https://mcpfax-intel.bowling-anthony.workers.dev/llms.txt).",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "BlockLabs Shop MCP",
+    "url": "https://www.npmjs.com/package/@blocklabs/shop-mcp",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "General Utility",
+    "desc": "Mounts the BlockLabs physical-goods shop as MCP tools: paid product search, free order quotes, order placement with a spend cap the agent cannot exceed, tracking. USDC on Base via x402; runs with npx, no build step. ([llms.txt](https://shop.blocklabs.nl/llms.txt))",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "Cheapest Grocery Basket",
+    "url": "https://grocery-basket.bowling-anthony.workers.dev/",
+    "section": "mcp-servers",
+    "section_label": "MCP Servers",
+    "type": "MCP Server",
+    "category": "General Utility",
+    "desc": "Whole-list grocery optimization: send a shopping list and a ZIP, get what it costs at each nearby store and which store — or split of stores — is cheapest. Package sizes are normalized before anything is compared, so a $3.55 gallon correctly beats a $2.15 half gallon. Live prices from ALDI, Publix, Kroger banners, Walmart, Target and Ingles across US metros, with stock, sale prices, purchase links and when each price was last read. $0.01–$0.20 USDC on Base (x402 v1+v2); an uncovered ZIP or unknown product returns an error and is never charged. ([llms.txt](https://grocery-basket.bowling-anthony.workers.dev/llms.txt)) ([OpenAPI](https://grocery-basket.bowling-anthony.workers.dev/openapi.json)) ([MCP](https://grocery-basket.bowling-anthony.workers.dev/mcp))",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "feeless402",
+    "url": "https://pypi.org/project/feeless402/",
+    "section": "sdks",
+    "section_label": "SDKs & Libraries",
+    "type": "SDK / Library",
+    "category": "Python",
+    "desc": "Client and merchant server for x402 over the Nano (XNO) rail: CLI pays any x402 v2 endpoint, FastAPI merchant verifies and self-settles without a facilitator (Nano has no gas), includes a read-only remote MCP server. ([GitHub](https://github.com/Feeless402/feeless402))",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "tryx402",
+    "url": "https://pypi.org/project/tryx402/",
+    "section": "sdks",
+    "section_label": "SDKs & Libraries",
+    "type": "SDK / Library",
+    "category": "Other Languages",
+    "desc": "Budget router and execution gateway over x402: hard session budget caps, idempotent paid calls, cost ledger, multi-currency fiat billing with margin. Python SDK + CLI + MCP server ([GitHub](https://github.com/crypto-yannso/tryx402)).",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "Animica x402 Index",
+    "url": "https://animica.dev/x402/index",
+    "section": "tools",
+    "section_label": "Tools & Utilities",
+    "type": "Tool / Utility",
+    "category": "Discovery & Search",
+    "desc": "Full-text search over ~18,000 machine-payable services indexed from their own 402 challenges (descriptions, input schemas, parameter names, prices, settlement networks), refreshed hourly; ~$0.006 USDC per query, free trial. Example: `POST /x402/index {\"query\":\"wallet balance eip155:8453\"}`. Free human-readable directory of ANM-settling services at [animica.dev/x402/scan](https://animica.dev/x402/scan). ([Manifest](https://animica.dev/.well-known/x402))",
+    "verified": false,
+    "first_listed": "2026-08-24"
+  },
+  {
+    "name": "nohumans.directory",
+    "url": "https://nohumans.directory",
+    "section": "tools",
+    "section_label": "Tools & Utilities",
+    "type": "Tool / Utility",
+    "category": "Discovery & Search",
+    "desc": "Directory of paid x402 APIs and datasets with continuous 402 probing plus paid delivery verification: 550 endpoints purchased from with real USDC, 332 delivered, with the full outcome breakdown and the SQL behind it published. Free MCP and REST discovery; payer reports require an EIP-191 signature bound to the on-chain transfer. ([MCP](https://api.nohumans.directory/mcp)) ([Stats](https://nohumans.directory/stats)) ([Skill](https://github.com/jalcodev/nohumans-directory-docs))",
+    "verified": false,
+    "first_listed": "2026-08-24"
   }
 ]
