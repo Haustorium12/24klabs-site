@@ -1,0 +1,13 @@
+{
+  "note": "Transition applied 2026-08-25 — one repoint from the door pass that cleared 9 of 10 (gold-402 #134-#143). No drops. Idempotent: once applied, the key no longer appears in the JSON.",
+  "drop": [],
+  "rebind": [
+    {
+      "from_url": "https://github.com/applefanaimail-blip/bridgenode-sdk-ts/blob/main/QUICKSTART.md",
+      "from_section": "learning",
+      "to_url": "https://github.com/bridgenode-ai/bridgenode-skill/blob/main/examples/README.md",
+      "to_section": "learning",
+      "reason": "gold-402 PR #139 (BridgeNode-cc): operator moved the quickstart from a personal repo to the bridgenode-ai org. Probed 2026-08-25 before rebinding — new URL 200, old URL 301 (GitHub transfer redirect, still resolving). Same operator, same document, first_listed carried."
+    }
+  ]
+}
