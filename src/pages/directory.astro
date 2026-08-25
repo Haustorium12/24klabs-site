@@ -59,6 +59,14 @@ const EDITORIAL_JSON = JSON.stringify(listings);
           </a>
         </div>
       </div>
+
+      <p class="dir-header__scope">
+        What the stamp covers: a human read every entry, and the endpoint answered when we
+        knocked — each card shows how long ago that was. It is not a delivery test. We have
+        not paid these services and graded what came back, so read it as
+        <em>reachable and speaks the protocol</em>, never as <em>worth the money</em>.
+        <a href="/verify">More on what this tells you, and what it doesn't →</a>
+      </p>
     </div>
   </section>
 
@@ -237,6 +245,13 @@ const EDITORIAL_JSON = JSON.stringify(listings);
     flex: 1;
   }
   .dir-stat-card--action { flex: 0; padding: 16px 24px; }
+  .dir-header__scope {
+    margin: 18px auto 0; max-width: 760px;
+    font-size: 0.78rem; line-height: 1.65; color: var(--text-dim);
+  }
+  .dir-header__scope em { color: var(--text-muted); font-style: normal; }
+  .dir-header__scope a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 3px; }
+  .dir-header__scope a:hover { color: var(--gold); }
   .dir-stat-card__icon { font-size: 1rem; color: var(--gold-dim); flex-shrink: 0; }
   .dir-stat-card__value { display: block; font-size: 1.1rem; font-weight: 800; color: var(--gold); letter-spacing: -0.03em; }
   .dir-stat-card__label { display: block; font-size: 0.62rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.09em; margin-top: 2px; }
