@@ -32,6 +32,8 @@
 #       (deletions are a human decision, recorded in a transition file, not a
 #       script side effect)
 #   G4  any entry lacks first_listed, or is dated in the future or before 2026-04-27
+#   G5  any existing last_checked is dropped or changed by a rebuild
+#   G6  any last_checked is in the future or predates the shelf
 #   G5  any section has no row in the lookup table
 #   G6  duplicate (url, section) key in the markdown (same project listed twice in
 #       one file -- happened once: agent.market, fixed 2026-07-17)
@@ -241,6 +243,12 @@ def main():
         }
         if row.get("badge_resource"):
             new_row["badge_resource"] = row["badge_resource"]
+        # last_checked is JSON-wins and is owned by scripts/merge_sweep.py, which
+        # writes it from dated knock receipts. The generator rebuilds rows from a
+        # fixed key set, so a field not carried here is a field silently DELETED
+        # on the next run -- the exact trap called out in editorial_notes.json.
+        if row.get("last_checked"):
+            new_row["last_checked"] = row["last_checked"]
         if row.get("first_listed"):
             new_row["first_listed"] = row["first_listed"]
         else:
@@ -281,6 +289,19 @@ def main():
     for key, val in old_badges.items():
         if new_badges.get(key) != val:
             failures.append("G2: badge_resource dropped/changed for %s [%s]" % key)
+
+    old_checked = {(r["url"], r["section"]): r["last_checked"]
+                   for r in cur_by_key.values() if r.get("last_checked")}
+    new_checked = {(r["url"], r["section"]): r.get("last_checked") for r in merged}
+    for key, val in old_checked.items():
+        if new_checked.get(key) != val:
+            failures.append("G5: last_checked dropped/changed for %s [%s]" % key)
+
+    for r in merged:
+        lc = r.get("last_checked")
+        if lc is not None and (lc > today or lc < FIRST_LISTED_FLOOR):
+            failures.append("G6: bad last_checked %r for %s [%s]"
+                            % (lc, r["url"], r["section"]))
 
     for r in merged:
         fl = r.get("first_listed")

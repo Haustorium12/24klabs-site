@@ -539,6 +539,16 @@ const EDITORIAL_JSON = JSON.stringify(listings);
     overflow: hidden; margin-bottom: 15px;
   }
 
+  /* Freshness stamp: quiet by default, and it gets quieter-to-louder as it ages.
+     Deliberately NOT gold -- gold is the verified badge, and these are different claims. */
+  .card-checked {
+    display: block; margin-top: 10px;
+    font-size: 0.68rem; color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
+  .card-checked--stale { color: #b08968; }
+  .card-checked--none { color: var(--text-dim); font-style: italic; opacity: 0.75; }
+
   .card-footer {
     display: flex; align-items: center; justify-content: space-between;
     padding-top: 12px; border-top: 1px solid var(--border);
@@ -573,6 +583,28 @@ function esc(str) {
 // grade, top of card), then a monogram + name + category, description, footer. Every listing
 // is on the curated list (Phase 1 single tier). The fuchss grade renders where we have real
 // telemetry (baked `badge_resource` = the x402 endpoint); no filler on the rest.
+// The freshness stamp. `last_checked` is the date of the most recent knock we hold a
+// receipt for (scripts/merge_sweep.py writes it from audits/sweep/*.jsonl). Computed in
+// the BROWSER, not at build time, so the number stays honest between deploys instead of
+// freezing at whatever it was the day we shipped.
+//
+// It says "checked", never "verified". A knock proves the endpoint answered. It does not
+// prove the service delivers anything worth paying for -- that is a different test and we
+// do not run it across the shelf yet. Do not relabel this without changing what it measures.
+function checkedStamp(lastChecked) {
+  if (!lastChecked) {
+    return `<span class="card-checked card-checked--none" title="No knock receipt on file for this entry yet">Not yet re-checked</span>`;
+  }
+  const then = Date.parse(lastChecked + 'T00:00:00Z');
+  if (Number.isNaN(then)) return '';
+  const days = Math.floor((Date.now() - then) / 86400000);
+  const label = days <= 0 ? 'Checked today'
+              : days === 1 ? 'Checked 1 day ago'
+              : `Checked ${days} days ago`;
+  const stale = days >= 30 ? ' card-checked--stale' : '';
+  return `<span class="card-checked${stale}" title="Last knock: ${esc(lastChecked)}. A knock means the endpoint answered — not that it delivers.">${label}</span>`;
+}
+
 function buildCard(e) {
   const grade = e.badge_resource
     ? `<a class="card-grade-link" href="https://x402.fuchss.app/endpoint?resource=${encodeURIComponent(e.badge_resource)}" target="_blank" rel="noopener noreferrer" title="View fuchss's live report"><img class="card-grade" loading="lazy" alt="x402 trust grade — fuchss (click for report)"
@@ -595,6 +627,7 @@ function buildCard(e) {
         </div>
       </div>
       <p class="card-desc">${esc(e.desc) || 'x402-enabled service.'}</p>
+      ${checkedStamp(e.last_checked)}
       <div class="card-footer">
         <span class="card-section-label">${esc(e.section_label)}</span>
         <span class="card-link">View verdict &#8594;</span>

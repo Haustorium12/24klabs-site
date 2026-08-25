@@ -78,6 +78,10 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified x402 service
             {editorialBlip && <p class="snap-verdict__editorial">{editorialBlip}</p>}
             {entry.desc && <p class="snap-verdict__desc">{entry.desc}</p>}
             {entry.type && <div class="snap-verdict__meta">{entry.type} · {entry.section_label}</div>}
+            {/* Freshness stamp. Rendered client-side (see the inline script below) so the
+                day count stays true between deploys instead of freezing at build time.
+                Says "checked", never "verified" — a knock proves the endpoint answered. */}
+            <div class="snap-checked" data-last-checked={entry.last_checked || ''}></div>
           </div>
         </section>
 
@@ -209,6 +213,9 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified x402 service
   .snap-verdict__editorial { font-size: 0.95rem; line-height: 1.65; margin-bottom: 10px; }
   .snap-verdict__desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 10px; }
   .snap-verdict__meta { font-size: 0.72rem; color: var(--text-dim); font-family: var(--mono); }
+  .snap-checked { margin-top: 8px; font-size: 0.72rem; color: var(--text-dim); font-family: var(--mono); }
+  .snap-checked.is-stale { color: #b08968; }
+  .snap-checked.is-none { font-style: italic; opacity: 0.75; }
 
   .snap-raters { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
   .snap-rater { display: flex; align-items: center; gap: 8px; }
@@ -294,4 +301,24 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified x402 service
         <code class="snap-snippet__code">${esc(s.value)}</code>
       </div>`).join('');
   }
+</script>
+
+<script is:inline>
+  // Freshness stamp, computed in the browser so it ages honestly without a rebuild.
+  (function () {
+    var el = document.querySelector('.snap-checked');
+    if (!el) return;
+    var d = el.getAttribute('data-last-checked');
+    if (!d) {
+      el.classList.add('is-none');
+      el.textContent = 'Not yet re-checked — no knock receipt on file';
+      return;
+    }
+    var then = Date.parse(d + 'T00:00:00Z');
+    if (isNaN(then)) return;
+    var days = Math.floor((Date.now() - then) / 86400000);
+    if (days >= 30) el.classList.add('is-stale');
+    el.textContent = (days <= 0 ? 'Checked today' : days === 1 ? 'Checked 1 day ago' : 'Checked ' + days + ' days ago')
+      + ' (last knock ' + d + ') — the endpoint answered; delivery is a separate test';
+  })();
 </script>
