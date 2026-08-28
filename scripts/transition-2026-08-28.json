@@ -1,0 +1,13 @@
+{
+  "note": "Transition applied 2026-08-28 — one rebind from the door pass that cleared 9 of 10 (gold-402 #135, #148-#156). No drops; the 2026-08-27 NEXUS withdrawals already applied and are idempotent. Caught by a dry-run of the gate before push, not in production.",
+  "drop": [],
+  "rebind": [
+    {
+      "from_url": "https://m0.aiverall.com/v1/verify-email",
+      "from_section": "apis",
+      "to_url": "https://m0.aiverall.com/v1/extract",
+      "to_section": "apis",
+      "reason": "gold-402 PR #148 (cavany-tech): operator repointed the entry from Email Verification to URL Extraction as the primary resource. Probed 2026-08-28 before rebinding — POST /v1/extract returns 402 with a base64 payment-required header carrying a valid x402 v2 challenge ($0.002 USDC, eip155:8453). Same operator, same service line, first_listed carried."
+    }
+  ]
+}
