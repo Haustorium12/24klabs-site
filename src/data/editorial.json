@@ -5724,8 +5724,8 @@
     "category": "",
     "desc": "POST router that returns the best Cleared-verified x402 endpoint for a task (category + strategy). Free to call; pairs with Cleared Check / Witness. Settle-tape aware. Paid probe: https://clearedindex.com/api/x402/ping · Manifest: https://clearedindex.com/.well-known/x402",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "TinyOps Automation Integration Preflight",
@@ -5736,8 +5736,8 @@
     "category": "AI Services",
     "desc": "Inspects a public webpage for automation readiness: integration links, forms, robots policy, security headers, and implementation acceptance criteria. `POST` only, $0.03 USDC on Base mainnet. Example: `{\"url\":\"https://example.com\"}`. ([Service page](https://tinyopsstudio.com/automation-preflight-api.html))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "Clear",
@@ -5748,8 +5748,8 @@
     "category": "AI Services",
     "desc": "Fetch one public URL as markdown from the public HTML (Readability + Turndown). $0.005 USDC on Base via PayAI. Failed extracts are not billed. Example: `{\"url\":\"https://example.com\"}`. ([Skill](https://github.com/curyous/clear-agent-fetch)) ([OpenAPI](https://clear-agent-fetch.fly.dev/openapi.yaml)) ([llms.txt](https://clear-agent-fetch.fly.dev/llms.txt))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "PayPerByte",
@@ -5760,8 +5760,8 @@
     "category": "AI Services",
     "desc": "Eleven pay-per-call USDC data feeds and oracles on Base mainnet: weather, earthquakes, CCTP v2 attestation-latency distributions, threat-intel, package/runtime vulnerability checks, and Know-Your-Agent counterparty/merchant-screening and reasoning-verdict oracles; $0.003–$0.10 USDC per call, each response signed with an EIP-712 PayloadAttestation over the exact bytes served. Example: `POST /feeds/address-reputation {\"domain\":\"example.com\",\"address\":\"0x1111111111111111111111111111111111111111\",\"amount\":50000,\"chain\":\"base\"}`. ([GitHub](https://github.com/0rkz/byte-x402-gateway)) ([Manifest](https://x402.payperbyte.io/.well-known/x402))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "GPT55 Model Gateway",
@@ -5772,8 +5772,8 @@
     "category": "AI Services",
     "desc": "OpenAI-compatible GPT-5.6 Luna Standard chat completions via x402 USDC on Base for $0.00293 per POST request.",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "Calibrated Similarity Search API",
@@ -5784,8 +5784,8 @@
     "category": "Data & Research",
     "desc": "Stateless NMI + cosine fusion similarity search over pre-computed numeric vectors, with an entropy-calibrated blending weight (alpha) computed per request; vectors only, no server-side embedding. $0.01 USDC on Base Sepolia (testnet) via x402, no API key required. Example: `POST /similarity/search {\"query\":{\"id\":\"q1\",\"vector\":[0.1,0.2,0.3]},\"corpus\":[{\"id\":\"c1\",\"vector\":[0.1,0.2,0.3]}]}`. ([OpenAPI](https://similarity-search-api-production.up.railway.app/openapi.json)) ([Agent Card](https://similarity-search-api-production.up.railway.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/similarity-search-api-sdk))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "Viraill",
@@ -5796,8 +5796,8 @@
     "category": "Data & Research",
     "desc": "Generative Engine Optimization (GEO) and Agentic Commerce Readiness APIs for AI agents and SaaS: `POST /v1/geo/audit` ($0.05) scores site visibility across ChatGPT, Perplexity, Gemini, Claude and computes market intent gaps with RAG answer blocks; `POST /v1/geo/social-generate` ($0.02) generates social posts aligned to market intent centroids; `POST /v1/agentic/scan` ($0.05) deterministic /100 readiness score across 5 pillars and 8 agent distribution channels with remediation pack. Free 3-call daily tier, then USDC on Base via x402. ([Manifest](https://viraill-core-api.fly.dev/.well-known/x402.json)) ([OpenAPI](https://viraill-core-api.fly.dev/openapi.json)) ([llms.txt](https://viraill-core-api.fly.dev/llms.txt)) ([GitHub](https://github.com/crypto-yannso/viraill-skills))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "On-Chain Activity Index",
@@ -5808,20 +5808,8 @@
     "category": "Crypto & DeFi Data",
     "desc": "0-100 quantitative DeFi Protocol Activity Index computed from real public DefiLlama data (TVL trend, fee/volume activity trend, chain diversification); explicitly a descriptive index, not trading advice. $0.30 USDC on Base Sepolia (testnet) via x402. Example: `POST /activity-index {\"protocol_slug\":\"uniswap\"}`. ([OpenAPI](https://onchain-activity-index-325572559480.us-central1.run.app/openapi.json)) ([Agent Card](https://onchain-activity-index-325572559480.us-central1.run.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/onchain-activity-index))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
-  },
-  {
-    "name": "URL Metadata API",
-    "url": "https://url-metadata-api-325572559480.us-central1.run.app",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Web & Geospatial",
-    "desc": "Link-preview API: given a URL, returns title/description/preview-image/site_name scraped from its OpenGraph and meta tags. $0.01 USDC on Base Sepolia (testnet) via x402. Example: `POST /extract {\"url\":\"https://example.com\"}`. ([OpenAPI](https://url-metadata-api-325572559480.us-central1.run.app/openapi.json)) ([Agent Card](https://url-metadata-api-325572559480.us-central1.run.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/url-metadata-api))",
-    "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "Live Entity Verification API",
@@ -5832,20 +5820,8 @@
     "category": "Security",
     "desc": "Cross-signal Bayesian corroboration of entity existence: fuses WHOIS, Certificate Transparency, Wayback Machine, and DNS operational maturity into a calibrated hallucination verdict with a confidence score. $0.01-$0.05 USDC on Base Sepolia (testnet) via x402, tiered per route. Example: `POST /verify-entity-existence-cross-signal {\"domain\":\"example.com\",\"entity_name\":\"Example Corp\"}`. ([OpenAPI](https://live-entity-verification-production.up.railway.app/openapi.json)) ([Agent Card](https://live-entity-verification-production.up.railway.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/live-entity-verification-sdk))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
-  },
-  {
-    "name": "Agent Verification API",
-    "url": "https://agent-verification-api-325572559480.us-central1.run.app",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Security",
-    "desc": "Confirms an AI agent/service is who it claims to be: fuses cross-signal domain-existence verification (WHOIS/CT/Wayback/DNS) with a real agent-card fetch and MCP `initialize` handshake against the claimed endpoint. $0.35 USDC on Base Sepolia (testnet) via x402. Example: `POST /verify-agent-identity {\"domain\":\"example.com\",\"entity_name\":\"Example Corp\"}`. ([OpenAPI](https://agent-verification-api-325572559480.us-central1.run.app/openapi.json)) ([Agent Card](https://agent-verification-api-325572559480.us-central1.run.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/agent-verification-api))",
-    "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "x402 Receipt Verifier",
@@ -5856,8 +5832,8 @@
     "category": "Security",
     "desc": "Audits NEXUS's own x402 payment logs against its own delivery logs and issues a signed HMAC receipt proving a specific payment correlates with a real, successful delivery; signature-only verification is free. $0.02 USDC on Base Sepolia (testnet) via x402 on the 2 paid routes. Example: `POST /verify-payment-receipt {\"asset_name\":\"document-conversion-api\",\"payer_address\":\"0x0000000000000000000000000000000000dEaD\",\"claimed_amount_usd\":0.01,\"claimed_at\":\"2026-08-24T00:00:00Z\"}`. ([OpenAPI](https://x402-receipt-verifier-325572559480.us-central1.run.app/openapi.json)) ([Agent Card](https://x402-receipt-verifier-325572559480.us-central1.run.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/x402-receipt-verifier))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "ERC-8004 Agent Liveness",
@@ -5868,8 +5844,8 @@
     "category": "Security",
     "desc": "Checks whether an agent registered in the real ERC-8004 Identity Registry (Base Sepolia testnet) is actually alive right now: resolves its on-chain registration file and runs a real MCP `initialize` handshake against the declared endpoint. $0.10 USDC on Base Sepolia (testnet) via x402. Example: `POST /verify-registered-agent {\"agent_id\":1}`. ([OpenAPI](https://erc8004-agent-liveness-325572559480.us-central1.run.app/openapi.json)) ([Agent Card](https://erc8004-agent-liveness-325572559480.us-central1.run.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/erc8004-agent-liveness))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "Public Tenders ES/EU",
@@ -5880,20 +5856,8 @@
     "category": "Business Intelligence",
     "desc": "Normalized search over public-sector tenders published in TED (EU official procurement notices), covering Spain plus the rest of the EU above the EU publication threshold, filterable by country/keyword/CPV code/recency. $0.01 USDC on Base Sepolia (testnet) via x402. Example: `POST /search-public-tenders {}`. ([OpenAPI](https://public-tenders-es-eu-325572559480.us-central1.run.app/openapi.json)) ([Agent Card](https://public-tenders-es-eu-325572559480.us-central1.run.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/public-tenders-es-eu))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
-  },
-  {
-    "name": "Document Conversion API",
-    "url": "https://document-conversion-api-325572559480.us-central1.run.app",
-    "section": "apis",
-    "section_label": "APIs & Services",
-    "type": "API / Service",
-    "category": "Infrastructure APIs",
-    "desc": "Converts between PDF/Office documents and structured JSON in both directions using pure open-source libraries (pdfplumber/python-docx/openpyxl/reportlab), no external conversion service. $0.01-$0.02 USDC on Base Sepolia (testnet) via x402, per route across 5 routes (PDF/DOCX/XLSX extraction, PDF/DOCX generation). Example: `POST /extract-pdf-to-json {\"file_base64\":\"<base64 PDF bytes>\"}`. ([OpenAPI](https://document-conversion-api-325572559480.us-central1.run.app/openapi.json)) ([Agent Card](https://document-conversion-api-325572559480.us-central1.run.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/document-conversion-api))",
-    "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "WebSocket Session Manager API",
@@ -5904,8 +5868,8 @@
     "category": "Infrastructure APIs",
     "desc": "Stateful WebSocket session registry that proxies a connection to a target URL and scores each inbound frame with a Shannon entropy delta for schema-divergence detection; free once a session is open. $0.01 USDC on Base Sepolia (testnet) via x402, charged only on session open. Example: `POST /ws-sessions/open {\"target_url\":\"wss://echo.websocket.org\"}`. ([OpenAPI](https://npm-package-ws-has-241560546-w-production.up.railway.app/openapi.json)) ([Agent Card](https://npm-package-ws-has-241560546-w-production.up.railway.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/npm-package-ws-has-241560546-weekly-downloads-but-sdk))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "New x402 Listings Feed",
@@ -5916,8 +5880,8 @@
     "category": "Niche & Specialty",
     "desc": "Feed of x402/L402 services newly listed on 402index.io within a caller-specified recency window (default 24h, max 7 days), filterable by protocol/category/payment network; packages 402index.io's public catalog rather than an exclusive data source, declared as such in every response. $0.01 USDC on Base Sepolia (testnet) via x402. Example: `POST /new-x402-listings {}`. ([OpenAPI](https://new-x402-listings-feed-325572559480.us-central1.run.app/openapi.json)) ([Agent Card](https://new-x402-listings-feed-325572559480.us-central1.run.app/.well-known/agent-card.json)) ([GitHub](https://github.com/nexus-mcp-infra/new-x402-listings-feed))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "PayPerByte MCP",
@@ -5928,8 +5892,8 @@
     "category": "General Utility",
     "desc": "15-tool MCP server for the PayPerByte x402 gateway: pay-per-call USDC data feeds and KYA screening/reasoning-verdict oracles on Base, each response carrying an embedded EIP-712 PayloadAttestation over the exact bytes served. `npx -y byte-mcp-server`. ([GitHub](https://github.com/0rkz/byte-mcp-server))",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
   },
   {
     "name": "Cleared Index MCP",
@@ -5940,7 +5904,40 @@
     "category": "Media & Content",
     "desc": "MCP server (`route_gateway`, check, trust, witness) so agents query attested inventory and route before pay. Default habit: check → route_gateway → pay → witness. `npx -y @n747ai/clearedindex-mcp-server`. ([npm](https://www.npmjs.com/package/@n747ai/clearedindex-mcp-server)) ([Glama](https://glama.ai/mcp/servers/N747AI/clearedindex-mcp)).",
     "verified": false,
-    "first_listed": "2026-08-25",
-    "last_checked": "2026-08-25"
+    "last_checked": "2026-08-25",
+    "first_listed": "2026-08-25"
+  },
+  {
+    "name": "CONNSKILL Growth Services",
+    "url": "https://agent.connskill.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "Growth infrastructure for AI agents: SEO/SERP research (Google SERP reports, keyword volume/CPC, ranked keywords, backlinks, competitors, site audit), SMS verification numbers (1,378 services, with a cheapest-country pricing endpoint) and social-marketing orders (1,003 orderable services). 45 endpoints, 29 paid and 16 free, $0.03–$3.00 USDC on Base via x402 v2 (EIP-3009); free quote, catalog and pricing lookups; A2A agent card with the x402 payments extension. Operated by a German company on EU infrastructure. ([OpenAPI](https://agent.connskill.com/openapi.json)) ([Discovery](https://agent.connskill.com/.well-known/x402)) ([llms.txt](https://agent.connskill.com/llms.txt)) ([Agent Card](https://agent.connskill.com/.well-known/agent-card.json))",
+    "verified": false,
+    "first_listed": "2026-08-27"
+  },
+  {
+    "name": "M0 Email Verification",
+    "url": "https://m0.aiverall.com/v1/verify-email",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Business Intelligence",
+    "desc": "RFC-shaped email syntax check + live domain DNS resolution, so an agent can filter out dead leads before spending money on downstream enrichment. $0.005 USDC on Base mainnet via x402 v2. Does not claim mailbox/SMTP verification. Example: `POST /v1/verify-email {\"email\":\"person@example.com\"}`. ([OpenAPI](https://m0.aiverall.com/openapi.json))",
+    "verified": false,
+    "first_listed": "2026-08-27"
+  },
+  {
+    "name": "DopamineDesk Transaction Preflight",
+    "url": "https://ai-data-marketplace-1042299154756.us-central1.run.app/api/v1/transaction_preflight",
+    "section": "security",
+    "section_label": "Security",
+    "type": "Security",
+    "category": "Security Monitoring Tools",
+    "desc": "Checks an unsigned EVM transaction for simulation errors, gas, proxy evidence, and optional token-security or allowance issues before an agent signs it. `POST` only, $0.005 USDC on Base. ([OpenAPI](https://ai-data-marketplace-1042299154756.us-central1.run.app/openapi.json))",
+    "verified": false,
+    "first_listed": "2026-08-26"
   }
 ]
