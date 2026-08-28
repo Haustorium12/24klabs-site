@@ -1,16 +1,20 @@
-// The curated directory, machine-readable.
+// The curated directory, machine-readable. Structure + recent listings.
 //
-// ANONYMOUS CALLERS GET A PREVIEW, NOT THE FULL SHELF.
+// SEARCH IS FREE AND UNGATED, AND IT LIVES AT /api/directory/search — not here.
+// This route cannot host it: the site builds `output: 'static'`, so this file compiles
+// to a flat asset and query parameters are discarded before any handler runs. Search
+// written here would build clean, deploy clean, and silently do nothing.
 //
-// The full list is 400+ entries probed by hand, one at a time, over months. It is the
-// product, not a marketing asset, and a single unauthenticated GET should not hand a
-// competitor the whole thing. Bulk access is being priced; until that exists this route
-// serves shelf structure, counts and a recent sample — enough for an agent to discover
-// what is here and decide whether to look something up.
+// WHAT CHANGED (Sean, 2026-08-28): "Free it up but not to download. Just search."
+// This route used to serve 25 of 501 and call itself a preview whose full set was
+// "being priced". Reading is never gated, so that copy was describing a restriction we
+// should not have had — and by then did not really have either: as of 2026-08-28 the
+// /directory/ hub server-renders all 501 entries into HTML, so the whole shelf was
+// already one unauthenticated GET away. The cap only inconvenienced polite callers
+// using the clean interface. That is a tax on good manners, not a moat.
 //
-// Nothing is hidden: every entry stays browsable at /directory with a permanent page at
-// /listing/<slug>. Per-resource verdicts are available now via the Verify API. This caps
-// bulk extraction, not access.
+// So: this stays a summary because handing an unasked caller 501 rows is bad manners,
+// and it now says exactly that instead of implying the rest is behind a price.
 
 import { listings } from '../lib/listings.js';
 
@@ -46,13 +50,19 @@ export async function GET() {
     site: 'https://24klabs.ai',
     generated: new Date().toISOString(),
     count: all.length,
-    preview: true,
-    preview_count: sample.length,
+    preview: false,
+    recent_count: sample.length,
     notice:
-      `This is a preview. ${all.length} entries are curated; the ${sample.length} most recently ` +
-      `listed are included here. Every entry is browsable at https://24klabs.ai/directory and has ` +
-      `a permanent page at /listing/<slug>. Bulk access to the full set is being priced — ` +
-      `ask at https://24klabs.ai/support.`,
+      `Summary view. All ${all.length} curated entries are reachable free and unauthenticated: ` +
+      `search at https://24klabs.ai/api/directory/search?q=<text> (or ?section=<id>), or browse ` +
+      `https://24klabs.ai/directory where every entry has a permanent page at /listing/<slug>. ` +
+      `This route returns shelf structure and the ${sample.length} most recently listed rather ` +
+      `than the full array — that is so a caller is not handed ${all.length} rows it did not ask ` +
+      `for, not a restriction on access.`,
+    search: {
+      endpoint: 'https://24klabs.ai/api/directory/search?q=<text>&section=<id>',
+      description: 'Free search over every curated entry. No key, no payment, no cap on access.',
+    },
     per_resource_lookup: {
       endpoint: 'https://24klabs.ai/api/v1/verify?resource=<url>',
       description:
