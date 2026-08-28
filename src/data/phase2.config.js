@@ -55,5 +55,23 @@ export const PRICING = {
   // above the ecosystem. Chosen revenue at $0.001 was $0.00, so price was never
   // the binding constraint — demand was. Revert is this one line.
   verifyApi: { usd: 2.00 },
+
+  // 2026-08-28, Sean, verbatim: "If they want to download our entire list then let's
+  // charge them 100.00 dollars for the entire list. I don't care if nobody buys it.
+  // That's the point. Search the site. Not a snatch and grab."
+  //
+  // THE PRICE IS A POSTURE, NOT A FORECAST. It is not set to clear at volume and it is
+  // not expected to sell. It says the shelf is a place you look things up in, not a
+  // table you sweep into a bag. Search stays free and ungated at
+  // /api/directory/search — reading is never gated. What costs $100 is the CONVENIENCE
+  // of one call: the whole set, clean, licensed, in a single machine-readable payload.
+  //
+  // DO NOT DRESS THIS UP AS EXCLUSIVITY ANYWHERE IN PUBLIC COPY. Every entry is
+  // browsable, each has a permanent /listing/<slug> page, all 501 are in the sitemap,
+  // and the hub links to every one of them. Somebody determined can assemble the list
+  // by hand for free and we should not pretend otherwise — the sentence has to survive
+  // being checked. What they cannot assemble is a single licensed artifact with the
+  // dated knock stamps in it, which is the only thing this route actually sells.
+  bulkExport: { usd: 100.00 },
 };
 // (The billboard pay-rail config + banner-moderation constraints were removed with the billboard.)

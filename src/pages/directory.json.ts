@@ -63,6 +63,14 @@ export async function GET() {
       endpoint: 'https://24klabs.ai/api/directory/search?q=<text>&section=<id>',
       description: 'Free search over every curated entry. No key, no payment, no cap on access.',
     },
+    bulk_export: {
+      endpoint: 'https://24klabs.ai/api/v1/directory/bulk',
+      usd: 100.0,
+      description:
+        'The whole shelf in one call: every entry with its dated knock stamp, licensed ' +
+        'CC-BY-4.0, generated at request time. x402-gated. This buys one licensed artifact ' +
+        'in a single request, not access — search and browsing are free.',
+    },
     per_resource_lookup: {
       endpoint: 'https://24klabs.ai/api/v1/verify?resource=<url>',
       description:

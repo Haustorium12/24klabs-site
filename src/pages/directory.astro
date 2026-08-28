@@ -136,14 +136,25 @@ const EDITORIAL_JSON = JSON.stringify(listings);
            first time either is touched. Machines need the link, the name and the
            description; humans never see this, because render() replaces the whole
            grid on load. Same reason it is cheap: ~200 bytes an entry instead of
-           ~600 for a full card. -->
+           ~600 for a full card.
+
+           DESCRIPTIONS WERE HERE AND CAME OUT THE SAME DAY (2026-08-28).
+           Hours after this went in, Sean priced a full-shelf export at $100 on
+           /api/v1/directory/bulk. Shipping every description here would have made
+           that price a claim we could not back — the paid payload, free, in one GET.
+           The fix is not to hide the shelf. It is to ship only what the crawl
+           actually needed: link equity travels on the LINK, and the description
+           belongs to the leaf page where it is not a duplicate of 500 others. Names
+           and links stay, so every /listing/<slug> keeps its crawl path and nothing
+           is cloaked.
+
+           IF DESCRIPTIONS EVER COME BACK HERE, THE $100 PRICE HAS TO GO. -->
       <div class="dir-grid" id="services-grid">
         <ul class="dir-index" id="dir-index">
           {listings.map(e => (
             <li>
               <a href={`/listing/${e.slug}`}>{e.name}</a>
               <span class="dir-index__sec">{e.section_label}</span>
-              <span class="dir-index__desc">{e.desc}</span>
             </li>
           ))}
         </ul>
