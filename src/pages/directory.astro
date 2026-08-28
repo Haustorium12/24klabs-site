@@ -116,8 +116,38 @@ const EDITORIAL_JSON = JSON.stringify(listings);
         </div>
       </div>
 
-      <!-- Grid -->
-      <div class="dir-grid" id="services-grid"></div>
+      <!-- Grid.
+           Server-rendered below: every entry as a real <a href="/listing/…">.
+
+           WHY THIS IS NOT EMPTY ANY MORE (2026-08-28).
+           This div used to ship empty and the client script filled it from
+           EDITORIAL_JSON. Measured before the change: 300KB of page, of which
+           279KB was one <script>, and the visible text a non-JS client got was
+           2,886 characters ending in "No entries match your filters."
+
+           The leaves were never the problem — all 501 /listing/<slug>/ pages are
+           prerendered and in sitemap-0.xml. The problem was that the hub linked to
+           NONE of them. 501 pages reachable only by sitemap: no crawl path, no
+           internal link equity, and no agent that fetches this page and parses
+           HTML sees a single service. The audience here is machines.
+
+           This is an index, not a copy of the cards. It deliberately does NOT
+           duplicate buildCard's markup — two copies of card HTML would drift the
+           first time either is touched. Machines need the link, the name and the
+           description; humans never see this, because render() replaces the whole
+           grid on load. Same reason it is cheap: ~200 bytes an entry instead of
+           ~600 for a full card. -->
+      <div class="dir-grid" id="services-grid">
+        <ul class="dir-index" id="dir-index">
+          {listings.map(e => (
+            <li>
+              <a href={`/listing/${e.slug}`}>{e.name}</a>
+              <span class="dir-index__sec">{e.section_label}</span>
+              <span class="dir-index__desc">{e.desc}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <!-- Empty -->
       <div id="empty-state" class="dir-empty" style="display:none">

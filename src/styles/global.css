@@ -342,3 +342,15 @@ img { max-width: 100%; display: block; }
   .grid-3 { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr; }
 }
+
+/* Directory hub server-rendered index (2026-08-28).
+   Present in the HTML so crawlers and agents reach the 501 listing pages by LINK,
+   not by sitemap alone. render() replaces #services-grid on load, so a human with
+   JS never sees this. Styled anyway rather than hidden: display:none content is
+   discounted by crawlers, and hiding links to fool a parser is cloaking. It is a
+   plain, honest list that happens to be replaced. */
+.dir-index { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; }
+.dir-index li { padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+.dir-index a { font-weight: 600; }
+.dir-index__sec,
+.dir-index__desc { display: block; font-size: .85rem; opacity: .7; }
