@@ -5916,7 +5916,8 @@
     "category": "Data & Research",
     "desc": "Growth infrastructure for AI agents: SEO/SERP research (Google SERP reports, keyword volume/CPC, ranked keywords, backlinks, competitors, site audit), SMS verification numbers (1,378 services, with a cheapest-country pricing endpoint), social-marketing orders (1,003 orderable services), receive-only email inboxes, GDPR/EU-hosted LLM inference, and read-only on-chain data (EVM state and call simulation on 5 chains, EIP-7702-aware). 51 endpoints, 32 paid and 19 free, $0.02–$18.00 USDC on Base via x402 v2 (EIP-3009), most calls $0.10 or less; free quote, catalog and pricing lookups; A2A agent card with the x402 payments extension. Also runs a curated [directory](https://agent.connskill.com/directory) of external x402 services with a pay-to-activate listing flow. Operated by a German company on EU infrastructure. ([OpenAPI](https://agent.connskill.com/openapi.json)) ([Discovery](https://agent.connskill.com/.well-known/x402)) ([llms.txt](https://agent.connskill.com/llms.txt)) ([Agent Card](https://agent.connskill.com/.well-known/agent-card.json))",
     "verified": false,
-    "first_listed": "2026-08-27"
+    "first_listed": "2026-08-27",
+    "last_checked": "2026-08-28"
   },
   {
     "name": "M0 URL Extraction",
@@ -5927,7 +5928,8 @@
     "category": "Business Intelligence",
     "desc": "Fetch a public URL, get back clean machine-consumable text (HTML noise stripped, SSRF-guarded). $0.002 USDC on Base mainnet via x402 v2. Example: `POST /v1/extract {\"url\":\"https://example.com\"}`. Also exposes email verification ($0.005, `/v1/verify-email`) and a lead-validation bundle ($0.015, `/v1/lead-validate` -- MX existence, disposable-domain, role-account detection). ([OpenAPI](https://m0.aiverall.com/openapi.json))",
     "verified": false,
-    "first_listed": "2026-08-27"
+    "first_listed": "2026-08-27",
+    "last_checked": "2026-08-28"
   },
   {
     "name": "DopamineDesk Transaction Preflight",
@@ -5949,7 +5951,8 @@
     "category": "Data & Research",
     "desc": "Agent-facing storefront + web-reader API on Cloudflare Workers. Pay-per-call URL-to-Markdown/metadata extraction ($0.001-$0.002 USDC on Base) plus a full x402 storefront selling agent-builder datasets (x402 facilitator/service registry, MCP server registry snapshot, prompt-injection test corpus, eval harness) $7-$39, ending in a signed download URL. PayAI facilitator. ([MCP](https://fetchgate.dev/mcp)) ([OpenAPI](https://fetchgate.dev/openapi.json)) ([llms.txt](https://fetchgate.dev/llms.txt))",
     "verified": false,
-    "first_listed": "2026-08-28"
+    "first_listed": "2026-08-28",
+    "last_checked": "2026-08-28"
   },
   {
     "name": "BNM Data Shop",
@@ -5960,7 +5963,8 @@
     "category": "Data & Research",
     "desc": "Official public-data caches on 37 paid GET routes (FDA, USDA, USCG, and US/UK/EU/Canadian agency texts and tables); $0.02 per document or $0.05 per page or table, USDC on Base, with free index/search at `/{door}/manifest.json`. Example: `GET /ticks`. ([Manifest](https://ticks.bnm.farm/.well-known/x402)) ([OpenAPI](https://ticks.bnm.farm/openapi.json)) ([MCP](https://ticks.bnm.farm/mcp)) ([llms.txt](https://ticks.bnm.farm/llms.txt))",
     "verified": false,
-    "first_listed": "2026-08-28"
+    "first_listed": "2026-08-28",
+    "last_checked": "2026-08-28"
   },
   {
     "name": "Saylor Watchdog",
@@ -5971,7 +5975,8 @@
     "category": "Crypto & DeFi Data",
     "desc": "Solana token intelligence: price/liquidity spread across two independent sources, security flags (mint/freeze authority, LP-lock %, top-10 holder concentration), full holder lists, wallet risk scoring, narrative classification, and new-pool scanning. $0.001-$0.01 USDC on Solana (self-verified settlement, no facilitator) or Base via CDP/PayAI facilitator. Example: `GET /api/price/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v`. ([OpenAPI](https://saylorinnovations.com/openapi.json)) ([Free samples](https://saylorinnovations.com/api/sample/price))",
     "verified": false,
-    "first_listed": "2026-08-28"
+    "first_listed": "2026-08-28",
+    "last_checked": "2026-08-28"
   },
   {
     "name": "csno",
@@ -5982,7 +5987,8 @@
     "category": "Niche & Specialty",
     "desc": "Provably-fair coinflip, dice, and European roulette for agents: `POST /api/csno/chips` answers 402 ($0.10 for 1,000 chips, $1.00 for 10,000, USDC on Base via the CDP facilitator), rounds are then free and settle off-chain in milliseconds, and cash-out returns USDC on-chain with the house paying gas in both directions; each round publishes sha256(server_seed) before play and reveals the seed in the result, so any outcome can be re-derived by the caller or via `GET /api/csno/verify/{bet_id}`. ([skill.md](https://csno.cc/skill.md)) ([OpenAPI](https://csno.cc/openapi.json)) ([MCP](https://csno.cc/api/mcp))",
     "verified": false,
-    "first_listed": "2026-08-28"
+    "first_listed": "2026-08-28",
+    "last_checked": "2026-08-28"
   },
   {
     "name": "OrbitWan.io MCP",
@@ -5993,7 +5999,8 @@
     "category": "Crypto & DeFi Intelligence",
     "desc": "24-tool Wanchain explorer MCP server from an independent archive node: addresses, transactions, tokens, validators, verified contracts, and WanBridge cross chain transfers with both legs correlated; 18 tools free, 6 premium tools prepaid via OrbitPay on Wanchain at 0.0005 USDT per 100 rows. ([Docs](https://orbitwan.io/docs/mcp)) ([Manifest](https://orbitwan.io/.well-known/x402)) ([Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=orbitwan))",
     "verified": false,
-    "first_listed": "2026-08-28"
+    "first_listed": "2026-08-28",
+    "last_checked": "2026-08-28"
   },
   {
     "name": "solana-x402",
@@ -6004,7 +6011,8 @@
     "category": "TypeScript / JavaScript",
     "desc": "Zero-dependency x402 resource server for Solana. Self-verified settlement (USDC/USDT/native SOL) with no facilitator or fee; optional CDP and/or PayAI facilitator settlement layered on for Base and stock x402 clients, with resources carrying an `outputSchema` automatically marked discoverable in the CDP Bazaar. MIT.",
     "verified": false,
-    "first_listed": "2026-08-28"
+    "first_listed": "2026-08-28",
+    "last_checked": "2026-08-28"
   },
   {
     "name": "x402 Checker (Nock)",
@@ -6015,6 +6023,7 @@
     "category": "Endpoint Trust & Reputation",
     "desc": "Free `GET /check?url=` honesty probe of a live x402 URL plus free `GET /board` (pay-to-rank, 24h) and `GET /name`; paid `GET /report?url=` is $0.05 USDC on Base via PayAI, and `POST /bid` and `POST /name` are $0.05. Example: `GET /check?url=https://example.com`. ([Manifest](https://x402-checker.nock-for-mak.workers.dev/.well-known/x402)) ([OpenAPI](https://x402-checker.nock-for-mak.workers.dev/openapi.json)) ([GitHub](https://github.com/nock-for-mak/skills))",
     "verified": false,
-    "first_listed": "2026-08-28"
+    "first_listed": "2026-08-28",
+    "last_checked": "2026-08-28"
   }
 ]
