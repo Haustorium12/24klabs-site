@@ -1,0 +1,21 @@
+{
+  "note": "Transition applied 2026-08-27 — three NEXUS listings withdrawn at the operator's request (gold-402 issue #145, shelf commit c38521e). The shelf markdown was updated the same day but no transition file was written, so gate G3 correctly failed closed and the wire has been jammed since 2026-08-27 19:52 UTC. This file records the human decision the gate was waiting for. No rebinds. Idempotent: once applied, the keys no longer appear in the JSON.",
+  "drop": [
+    {
+      "url": "https://url-metadata-api-325572559480.us-central1.run.app",
+      "section": "apis",
+      "reason": "gold-402 c38521e (issue #145): withdrawn at the operator's request. Confirmed 403 on knock; operator paused the service after a 7-day window with no outside payment."
+    },
+    {
+      "url": "https://agent-verification-api-325572559480.us-central1.run.app",
+      "section": "apis",
+      "reason": "gold-402 c38521e (issue #145): withdrawn at the operator's request. Confirmed 403 on knock; operator paused the service after a 7-day window with no outside payment."
+    },
+    {
+      "url": "https://document-conversion-api-325572559480.us-central1.run.app",
+      "section": "apis",
+      "reason": "gold-402 c38521e (issue #145): withdrawn at the operator's request. Confirmed 403 on knock; operator paused the service after a 7-day window with no outside payment."
+    }
+  ],
+  "rebind": []
+}
