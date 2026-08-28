@@ -1,6 +1,55 @@
+# ── 24klabs.ai response headers ────────────────────────────────────────────────
+# Cache values follow Cloudflare's own ops manual §6
+# (skills/cloudflare/references/cf-ops-manual-2026-08-28.md on the bus).
+#
+# s-maxage is the number that matters here. It controls the EDGE cache, and the
+# audience is machines — probers and crawlers ignore max-age entirely.
+#
+# READ THIS BEFORE ADDING A BLANKET /* CACHE RULE.
+# The manual's example opens with `/*  Cache-Control: public, max-age=3600,
+# s-maxage=7200`. Do not copy that here. This site serves a PAID endpoint:
+# /api/v1/verify is x402-gated at $2.00 and fails closed without a payment
+# signature. Caching it hands the product out for free, with no error and no log
+# — the same hazard CACHE_DECISION_2026-08-28.md found for api.24klabs.ai, except
+# that doc only names the subdomain and this one is on the Pages site itself.
+# So: nothing is cached by default. Caching is granted per path, deliberately.
+#
+# AND THE HEADERS BELOW ARE NOT ENOUGH ON THEIR OWN. A Cache Rule set to
+# "Ignore cache-control header and use this TTL" overrides everything here,
+# including the no-store. The dashboard rule MUST exclude /api/* explicitly.
+
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' raw.githubusercontent.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline';
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# ── never cached ──────────────────────────────────────────────────────────────
+# /api/v1/verify  — paid, $2.00, must revalidate payment on every single request
+# /api/probe      — a live knock; a cached liveness result is a false verdict
+/api/*
+  Cache-Control: no-store, no-cache, must-revalidate
+  X-Robots-Tag: noindex
+
+# ── the machine-readable catalog ──────────────────────────────────────────────
+# Free and public by doctrine. The heaviest-hit path we can safely serve cold.
+/directory.json
+  Content-Type: application/json
+  Cache-Control: public, max-age=300, s-maxage=7200
+  Access-Control-Allow-Origin: *
+
+# ── the shelf ─────────────────────────────────────────────────────────────────
+# 501 prerendered listing pages. Rebuilt by the Directory Wire; the edge cache
+# does NOT purge on deploy, so a merged entry appears after the TTL expires, not
+# at deploy. 2h is the Free-plan floor and the wire runs daily — acceptable.
+/listing/*
+  Cache-Control: public, max-age=3600, s-maxage=7200
+
+/directory/*
+  Cache-Control: public, max-age=3600, s-maxage=7200
+
+# ── agent-facing static ───────────────────────────────────────────────────────
+/llms.txt
+  Cache-Control: public, max-age=3600, s-maxage=7200
+  Access-Control-Allow-Origin: *
