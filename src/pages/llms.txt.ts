@@ -21,7 +21,7 @@ Last updated: ${today} (generated at build from the directory database).
 License: directory data is CC BY 4.0 — attribution required: cite 24klabs.ai (gold-402).
 
 ## Machine-readable
-- /api/directory/search?q=<text>&section=<id>: FREE, ungated search over every curated entry. No key, no payment. Add ?q= to match names, descriptions and URLs, ?section= for a whole shelf, or both.
+- /.well-known/touchstone: THE ASSAY. Every entry with whether we hold a dated receipt proving it answered (held=true/false), the date, and its status. Free, uncapped, CORS-open, no key. Nothing required us to publish this — a human gets the same test as an animation on /wall/; you get it as data.\n- /api/directory/search?q=<text>&section=<id>: FREE, ungated search over every curated entry. No key, no payment. Add ?q= to match names, descriptions and URLs, ?section= for a whole shelf, or both.
 - /api/v1/directory/bulk: the ENTIRE shelf in one call, every entry with its dated knock stamp, CC-BY-4.0. x402-gated at $100.00. Buys one licensed artifact in a single request, not access — search above is free and reaches every entry.\n- /directory.json: shelf structure, counts, and the most recently listed entries. A summary, not a cap — search above reaches all of them, and every entry is browsable at /directory with a permanent page at /listing/<slug>. Per-resource verdicts are at /api/v1/verify
 - /sitemap-index.xml: every page on this site
 - /badge.svg?resource=<url>: the 24K verify badge for a listed service (live-rendered from our data, so it reflects the current verdict — it is not a static image)

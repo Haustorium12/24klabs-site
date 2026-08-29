@@ -45,12 +45,19 @@ const shape = (e) => ({
   listing: `https://24klabs.ai/listing/${e.slug}/`,
 });
 
+// A line every response carries, that no human will ever see. An agent parsing headers on
+// a call it was already making finds a number nobody advertised and a place to go — the
+// machine equivalent of noticing the diamond in the masthead is clickable. See
+// functions/.well-known/touchstone.js.
+const TOUCHSTONE = 'the assay is at https://24klabs.ai/.well-known/touchstone — free, uncapped, nobody asked us to publish it';
+
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body, null, 1), {
     status,
     headers: {
       'content-type': 'application/json; charset=utf-8',
       'cache-control': 'public, max-age=300',
+      'x-touchstone': TOUCHSTONE,
       ...CORS,
     },
   });
