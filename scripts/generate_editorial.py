@@ -249,6 +249,19 @@ def main():
         # on the next run -- the exact trap called out in editorial_notes.json.
         if row.get("last_checked"):
             new_row["last_checked"] = row["last_checked"]
+        # The graveyard clock, same rule and the same trap (specs/GRAVEYARD_v0.1.md).
+        # first_failed is THE BADGE CLOCK -- "No answer for N days" counts from it --
+        # and losing it does not show up as an error. The badge just quietly restarts
+        # at zero and the record of how long something has been down is gone. That is
+        # the same class of mistake as verify.py overwriting liveness with no history,
+        # which is what left this company with no moat clock for a year.
+        # status is deliberately carried rather than recomputed: only merge_sweep, which
+        # holds the dated receipts, gets to move an entry between the shelf and the
+        # graveyard. The generator reads markdown and knows nothing about who answered.
+        for f in ("status", "first_failed", "returned"):
+            if row.get(f):
+                new_row[f] = row[f]
+        new_row.setdefault("status", "live")
         if row.get("first_listed"):
             new_row["first_listed"] = row["first_listed"]
         else:
@@ -296,6 +309,22 @@ def main():
     for key, val in old_checked.items():
         if new_checked.get(key) != val:
             failures.append("G5: last_checked dropped/changed for %s [%s]" % key)
+
+    # G7: the graveyard clock survives a rebuild, or the run fails closed.
+    # first_failed is what "No answer for N days" counts from. If a rebuild drops it,
+    # nothing errors -- the badge simply restarts at zero and the record of how long a
+    # service has been down is gone, unrecoverably, because you cannot re-observe a
+    # past silence. status matters for the same reason: a resident silently returning
+    # to the live shelf republishes it as verified without anyone knocking.
+    # (specs/GRAVEYARD_v0.1.md: "gate first_failed against overwrite".)
+    for field, gate in (("first_failed", "G7"), ("status", "G7")):
+        old_vals = {(r["url"], r["section"]): r[field]
+                    for r in cur_by_key.values() if r.get(field)}
+        new_vals = {(r["url"], r["section"]): r.get(field) for r in merged}
+        for key, val in old_vals.items():
+            if new_vals.get(key) != val:
+                failures.append("%s: %s dropped/changed for %s [%s]"
+                                % (gate, field, key[0], key[1]))
 
     for r in merged:
         lc = r.get("last_checked")
