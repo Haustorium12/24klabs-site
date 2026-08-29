@@ -1,6 +1,6 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { listings } from '../lib/listings.js';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { listings } from '../../lib/listings.js';
 
 // THE WALL — the dense static index of the whole shelf.
 //
@@ -92,7 +92,7 @@ const buried = listings.filter((e) => e.status === 'graveyard').length;
     <!-- THE SHAPE. 1996 Yahoo's actual move: the whole taxonomy legible before any entry. -->
     <nav class="wall-shape" aria-label="Shelves">
       {shelves.map((s, i) => (
-        <a href={`#${s.key}`}>
+        <a href={`/wall/${s.key}/`}>
           <span class="wall-shape__n">{String(i + 1).padStart(2, '0')}</span>
           <span class="wall-shape__l">{s.label}</span>
           <span class="wall-shape__c">{s.entries.length}</span>
@@ -106,7 +106,7 @@ const buried = listings.filter((e) => e.status === 'graveyard').length;
         <section class="wall-block" id={s.key} style={`--span:${s.entries.length > 90 ? 3 : s.entries.length > 40 ? 2 : 1}`}>
           <h2 class="wall-h">
             <span class="wall-h__n">{String(i + 1).padStart(2, '0')}</span>
-            <span class="wall-h__t">{s.label}</span>
+            <a class="wall-h__t" href={`/wall/${s.key}/`}>{s.label}</a>
             <span class="wall-h__c">{s.entries.length}</span>
           </h2>
           <ul class="wall-list">
@@ -260,7 +260,11 @@ const buried = listings.filter((e) => e.status === 'graveyard').length;
     color: var(--gold-dim);
     letter-spacing: 0;
   }
-  .wall-h__t { min-width: 0; }
+  /* The shelf heading is the door to its own page (Sean, 2026-08-29). It keeps the heading
+     register exactly — gold, letterspaced, no underline until hover — so the wall still reads
+     as a wall and not as a list of buttons. */
+  .wall-h__t { min-width: 0; color: inherit; text-decoration: none; }
+  .wall-h__t:hover, .wall-h__t:focus-visible { color: var(--gold-light); text-decoration: underline; }
   .wall-h__c {
     margin-left: auto;
     font-family: var(--mono);
