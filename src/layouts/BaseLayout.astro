@@ -8,7 +8,14 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'AI-powered services. Pay per request with USDC on Base L2. No subscriptions, no API keys.' } = Astro.props;
+// `bare` suppresses the marketing nav and footer. Added 2026-08-29 for /wall.
+// 1996 Yahoo is the model; 1998 is the warning — the directory lost its own page one
+// reasonable addition at a time, each individually defensible, all of them above the
+// thing people came for. The wall carries its own masthead and a seven-link utility
+// strip; stacking the site's dropdown nav on top of that put ~800 characters of menu
+// ahead of the first entry in the page source, for a page whose primary reader is a
+// crawler. Nothing goes above the wall that a visitor did not come for.
+const { title, description = 'AI-powered services. Pay per request with USDC on Base L2. No subscriptions, no API keys.', bare = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -34,11 +41,11 @@ const { title, description = 'AI-powered services. Pay per request with USDC on 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <Nav />
+  {!bare && <Nav />}
   <main>
     <slot />
   </main>
-  <Footer />
+  {!bare && <Footer />}
 
   <script>
     // Scroll reveal

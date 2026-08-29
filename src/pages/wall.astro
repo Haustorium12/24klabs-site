@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { listings } from '../lib/listings.js';
+
+// THE WALL — the dense static index of the whole shelf.
+//
+// WHY THIS PAGE EXISTS (Sean's brief, recorded in templates/ROUND_TABLE_HEADER.md Part B):
+// "Static HTML/CSS, no JavaScript for content — the live directory page currently ships
+// 300KB containing six links because it renders client-side, and that failure is why this
+// redesign exists. Extreme density, Craigslist-style packing. Dark palette, gold #D4AF37
+// constant on every door. Theme the header, never the row."
+//
+// THE ANCESTORS, each with a job rather than a vibe:
+//   1996 Yahoo   the GEOMETRY — the directory as an index, not a list. Counts on every
+//                heading, the whole shape legible in about a screen, comma-runs where a
+//                column would waste vertical space.
+//   Craigslist   the PACKING — blocks side by side in one grid, never stacked full-width.
+//                If it looks comfortable it is too big.
+//   DistroWatch  the STRUCTURE — status on every row, maintained for decades by one person.
+//   Kitco        the REGISTER — credibility from looking like an instrument, not a product.
+//
+// And Sean's own correction, which is why this is not bare: "Craigslist is bare because
+// it's a 1996 page nobody ever styled, not because bare is correct. Keep the density; add
+// craft at the edges. CHROME, NOT CONTENT." The reference to chase is not a website at all
+// — it is a printed assay report or a stock table. A pawnbroker's document.
+//
+// 1996 IS THE MODEL, 1998 IS THE WARNING. The directory lost its own page one reasonable
+// addition at a time: a banner, a featured box, a signup strip, each individually
+// defensible. Nothing goes above the wall that a visitor did not come for.
+
+const total = listings.length;
+
+// Order shelves biggest first — the wall should show scale before it shows taxonomy.
+const shelfMap = new Map();
+for (const e of listings) {
+  const key = e.section || 'unsorted';
+  if (!shelfMap.has(key)) {
+    shelfMap.set(key, { key, label: e.section_label || key, entries: [] });
+  }
+  shelfMap.get(key).entries.push(e);
+}
+const shelves = [...shelfMap.values()].sort((a, b) => b.entries.length - a.entries.length);
+
+// Descriptions run to 1,083 characters. A row is one line: take the first clause only.
+// The full note lives on the entry's own page, which is where it is not a duplicate of 500 others.
+function verb(e) {
+  const d = (e.desc || '').replace(/\s+/g, ' ').trim();
+  if (!d) return '';
+  const cut = d.split(/(?<=[.;])\s/)[0];
+  return (cut.length > 96 ? cut.slice(0, 93).trimEnd() + '…' : cut);
+}
+
+const stamped = listings.filter((e) => e.last_checked).length;
+const freshest = listings.reduce((a, e) => (e.last_checked && e.last_checked > a ? e.last_checked : a), '');
+const buried = listings.filter((e) => e.status === 'graveyard').length;
+---
+
+<BaseLayout
+  title="24K Labs — the gold-402 index"
+  description={`Every one of ${total} curated x402 services, on one page, in the page source. Static, free, no key.`}
+  bare={true}
+>
+  <div class="wall">
+
+    <!-- MASTHEAD. The head of a printed reference volume, not a hero. -->
+    <header class="wall-mast">
+      <div class="wall-mast__row">
+        <span class="wall-mast__mark">◆ 24K LABS</span>
+        <span class="wall-mast__sub">THE GOLD&#8209;402 INDEX</span>
+      </div>
+      <div class="wall-mast__rule"></div>
+      <p class="wall-mast__standing">
+        <strong>{total}</strong> curated x402 services, every one live&#8209;knocked before it was
+        listed. <strong>{stamped}</strong> carry a dated knock; most recent <time>{freshest}</time>.
+        A knock is one HTTP request that got an answer — it is not a delivery test. Read a stamp as
+        <em>reachable and speaks the protocol</em>, never as <em>worth the money</em>.
+      </p>
+    </header>
+
+    <!-- UTILITY STRIP. 1998 Yahoo's one good idea: small, honest, above the wall.
+         Links people want, never links we want them to see. It does not grow. -->
+    <nav class="wall-strip" aria-label="Tools">
+      <a href="/verify">verify an endpoint</a>
+      <a href="/api/directory/search?q=facilitator">search the index</a>
+      <a href="/api/probe?url=https://24klabs.ai">probe any url</a>
+      <a href="/news">this week in x402</a>
+      <a href="/featured">featured</a>
+      <a href="/articles">reports</a>
+      <a href="https://github.com/Haustorium12/gold-402">get listed ↗</a>
+    </nav>
+
+    <!-- THE SHAPE. 1996 Yahoo's actual move: the whole taxonomy legible before any entry. -->
+    <nav class="wall-shape" aria-label="Shelves">
+      {shelves.map((s, i) => (
+        <a href={`#${s.key}`}>
+          <span class="wall-shape__n">{String(i + 1).padStart(2, '0')}</span>
+          <span class="wall-shape__l">{s.label}</span>
+          <span class="wall-shape__c">{s.entries.length}</span>
+        </a>
+      ))}
+    </nav>
+
+    <!-- THE WALL. Every link in the source. No script builds any of this. -->
+    <main class="wall-grid">
+      {shelves.map((s, i) => (
+        <section class="wall-block" id={s.key} style={`--span:${s.entries.length > 90 ? 3 : s.entries.length > 40 ? 2 : 1}`}>
+          <h2 class="wall-h">
+            <span class="wall-h__n">{String(i + 1).padStart(2, '0')}</span>
+            <span class="wall-h__t">{s.label}</span>
+            <span class="wall-h__c">{s.entries.length}</span>
+          </h2>
+          <ul class="wall-list">
+            {s.entries.map((e) => (
+              <li class="wall-row">
+                <a class="wall-row__a" href={`/listing/${e.slug}/`}>{e.name}</a>
+                {e.last_checked
+                  ? <time class="wall-row__d" datetime={e.last_checked}>{e.last_checked.slice(5)}</time>
+                  : <span class="wall-row__d wall-row__d--none" title="no knock receipt on file">—</span>}
+                <span class="wall-row__v">{verb(e)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </main>
+
+    <footer class="wall-foot">
+      <div class="wall-mast__rule"></div>
+      <p>
+        <strong>{total}</strong> listed · <strong>{stamped}</strong> dated · <strong>{buried}</strong>
+        in the graveyard · index generated at build, last knock <time>{freshest}</time>
+      </p>
+      <p>
+        Nothing here is pay&#8209;to&#8209;list. A service earns its spot through a pull request that a
+        human reads and an endpoint that answers. Reading is never gated — this page is static, free,
+        and needs no key. <a href="https://github.com/Haustorium12/gold-402">Submission terms</a> ·
+        <a href="/about">About</a> · <a href="/llms.txt">llms.txt</a>
+      </p>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Everything is scoped under .wall so nothing here can reach the rest of the site. */
+  .wall {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 28px 18px 64px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  /* MASTHEAD ------------------------------------------------------------- */
+  .wall-mast__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .wall-mast__mark {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+  }
+  .wall-mast__sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+  }
+  /* The gold rule. This is the one thing that says 24K Labs after everything else changes. */
+  .wall-mast__rule {
+    height: 1px;
+    margin: 10px 0 12px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dim) 42%, var(--border) 100%);
+  }
+  .wall-mast__standing {
+    margin: 0 0 18px;
+    max-width: 78ch;
+    color: var(--text-muted);
+    font-size: 12.5px;
+  }
+  .wall-mast__standing strong { color: var(--text); font-family: var(--mono); }
+  .wall-mast__standing time { font-family: var(--mono); color: var(--gold-light); }
+  .wall-mast__standing em { color: var(--text); font-style: italic; }
+
+  /* UTILITY STRIP -------------------------------------------------------- */
+  .wall-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 18px;
+    padding: 7px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11.5px;
+  }
+  .wall-strip a { color: var(--text-muted); text-decoration: none; }
+  .wall-strip a:hover, .wall-strip a:focus-visible { color: var(--gold-light); }
+
+  /* THE SHAPE ------------------------------------------------------------ */
+  .wall-shape {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 1px 20px;
+    margin: 16px 0 26px;
+  }
+  .wall-shape a {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 2px 0;
+    text-decoration: none;
+    border-bottom: 1px dotted transparent;
+  }
+  .wall-shape a:hover, .wall-shape a:focus-visible { border-bottom-color: var(--gold-dim); }
+  .wall-shape__n { font-family: var(--mono); font-size: 10px; color: var(--text-dim); }
+  .wall-shape__l { color: var(--gold); font-weight: 600; }
+  .wall-shape__c {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* THE WALL ------------------------------------------------------------- */
+  /* Craigslist packing: blocks sit side by side in one grid and a big shelf spans wider,
+     rather than every shelf stacking full-width down the page. */
+  .wall-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 26px 24px;
+    align-items: start;
+  }
+  .wall-block { grid-column: span var(--span, 1); min-width: 0; }
+
+  /* THEME THE HEADER, NEVER THE ROW. All the weight lives here; the rows below are
+     identical on every shelf, which is the only reason the packing holds together. */
+  .wall-h {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    margin: 0 0 7px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--gold-dim);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .wall-h__n {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gold-dim);
+    letter-spacing: 0;
+  }
+  .wall-h__t { min-width: 0; }
+  .wall-h__c {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-dim);
+    letter-spacing: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .wall-list { list-style: none; margin: 0; padding: 0; }
+  /* A shelf wider than one column splits internally, the way a long Craigslist block does. */
+  .wall-block[style*="--span:2"] .wall-list { columns: 2; column-gap: 22px; }
+  .wall-block[style*="--span:3"] .wall-list { columns: 3; column-gap: 22px; }
+
+  .wall-row {
+    break-inside: avoid;
+    padding: 1px 0;
+    border-bottom: 1px solid transparent;
+  }
+  .wall-row:hover { border-bottom-color: var(--border); }
+  .wall-row__a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .wall-row__a:hover, .wall-row__a:focus-visible { color: var(--gold-light); text-decoration: underline; }
+  /* DistroWatch: status on every row. Here that is the knock date, in mono, tabular. */
+  .wall-row__d {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-left: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+  .wall-row__d--none { color: #3a3a48; }
+  .wall-row__v {
+    display: block;
+    color: var(--text-muted);
+    font-size: 11.5px;
+    line-height: 1.35;
+    margin-bottom: 3px;
+  }
+
+  /* FOOTER --------------------------------------------------------------- */
+  .wall-foot { margin-top: 40px; color: var(--text-dim); font-size: 11.5px; }
+  .wall-foot p { margin: 8px 0; max-width: 82ch; }
+  .wall-foot strong { font-family: var(--mono); color: var(--text-muted); }
+  .wall-foot time { font-family: var(--mono); }
+  .wall-foot a { color: var(--text-muted); }
+
+  /* MOBILE. The one honest constraint in the whole brief: 1996 was a desktop layout, and a
+     dense grid on a phone becomes a long scroll. The shape strip above stays — it is the
+     jump table — and every block collapses to a single column so no row wraps to three lines. */
+  @media (max-width: 900px) {
+    .wall { font-size: 14px; padding: 20px 14px 48px; }
+    .wall-grid { grid-template-columns: 1fr; gap: 22px; }
+    .wall-block { grid-column: span 1 !important; }
+    .wall-block[style*="--span:2"] .wall-list,
+    .wall-block[style*="--span:3"] .wall-list { columns: 1; }
+    .wall-shape { grid-template-columns: 1fr 1fr; }
+  }
+</style>
