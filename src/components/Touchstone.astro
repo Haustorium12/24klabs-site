@@ -1,0 +1,160 @@
+---
+// THE TOUCHSTONE.
+//
+// Sean, 2026-08-29: "I want these lists and pages to be fun and exciting and engaging.
+// There are as much art as they are information. I want to bring back the joy of a web
+// page and the wonder of what a web page can do. I'm aware this goes beyond what we
+// described for a web crawler but that bullshit can be done by any AI — this is for the
+// humans. This is what's called the Easter egg of sorts."
+//
+// He is right and the constraint was being misread, including by me, all evening. The
+// rule in the brief is "no JavaScript for CONTENT" — every link must exist in the page
+// source because crawlers and agents do not run JS. It never said no JavaScript for
+// EXPERIENCE. A crawler lifts 501 links out of the HTML and leaves. A human gets this.
+//
+// WHAT IT IS. In a pawnshop you rub gold on a touchstone and put acid on the streak; real
+// gold keeps its colour and everything else goes dull. That test is the whole company —
+// the directory, the knock, the stamp, the graveyard — and Sean spent fifteen years doing
+// it at a counter. So the ◆ in the masthead is the touchstone. Click it and the page gets
+// assayed: a gold streak sweeps down the wall, and as it passes each row the row shows its
+// mark. Entries with a dated knock hold their gold. Entries with no receipt on file go
+// dull and stay dull.
+//
+// IT IS NOT DECORATION. It renders a fact the page already contains and usually whispers:
+// 484 of 501 can prove when they last answered, and 17 cannot. The sweep is the only place
+// on the site where you FEEL that ratio instead of reading it.
+//
+// RULES THIS OBEYS:
+//   - No content depends on it. Remove this component and the page is unchanged to a
+//     crawler, a reader-mode, and anyone with JS off.
+//   - It only ever reads the DOM and toggles classes. It fetches nothing and writes nothing.
+//   - prefers-reduced-motion: the sweep does not move. The marks still appear, instantly.
+//     A person who cannot take motion still gets the information, just not the theatre.
+//   - It runs once per click and cleans up after itself. Nothing loops. Nothing idles.
+---
+
+<script>
+  const mark = document.querySelector('[data-touchstone]');
+  if (mark) {
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let busy = false;
+
+    mark.setAttribute('role', 'button');
+    mark.setAttribute('tabindex', '0');
+    mark.setAttribute('title', 'assay this page');
+    mark.setAttribute('aria-label', 'Assay this page — mark every entry that can prove when it last answered');
+
+    function assay() {
+      if (busy) return;
+      busy = true;
+
+      const rows = Array.from(document.querySelectorAll('.wall-row'));
+      const page = document.querySelector('.wall');
+      page && page.classList.add('is-assayed');
+
+      // The streak. One element, removed when it is done.
+      let streak = null;
+      if (!calm) {
+        streak = document.createElement('div');
+        streak.className = 'assay-streak';
+        document.body.appendChild(streak);
+      }
+
+      const span = calm ? 0 : 1500;
+      const doc = document.documentElement.scrollHeight;
+
+      rows.forEach((row) => {
+        const proven = !!row.querySelector('time');
+        // Fire each row as the streak reaches its position on the page, so the sweep
+        // reads as one continuous motion rather than a staggered list animation.
+        const at = calm ? 0 : (row.getBoundingClientRect().top + window.scrollY) / doc * span;
+        window.setTimeout(() => {
+          row.classList.add(proven ? 'assay-real' : 'assay-dull');
+        }, at);
+      });
+
+      const tally = document.querySelector('[data-assay-tally]');
+      if (tally) {
+        const proven = rows.filter((r) => r.querySelector('time')).length;
+        window.setTimeout(() => {
+          tally.textContent = proven + ' of ' + rows.length + ' held their colour';
+          tally.classList.add('is-shown');
+        }, calm ? 0 : span);
+      }
+
+      window.setTimeout(() => {
+        streak && streak.remove();
+        busy = false;
+      }, calm ? 0 : span + 700);
+    }
+
+    mark.addEventListener('click', assay);
+    mark.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); assay(); }
+    });
+  }
+</script>
+
+<style is:global>
+  [data-touchstone] { cursor: pointer; user-select: none; }
+  [data-touchstone]:hover,
+  [data-touchstone]:focus-visible { color: var(--gold-light); outline: none; }
+
+  /* The streak. A band of gold light travelling the length of the page, the way the
+     acid runs down a streak on the stone. */
+  .assay-streak {
+    position: fixed;
+    left: 0; right: 0; top: 0;
+    height: 130px;
+    pointer-events: none;
+    z-index: 40;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(212, 175, 55, 0.04) 32%,
+      rgba(244, 208, 63, 0.13) 50%,
+      rgba(212, 175, 55, 0.04) 68%,
+      transparent 100%
+    );
+    animation: assay-sweep 1.5s linear forwards;
+  }
+  @keyframes assay-sweep {
+    from { transform: translateY(-140px); }
+    to   { transform: translateY(100vh); }
+  }
+
+  /* Real gold holds its colour. */
+  .assay-real .wall-row__a { color: var(--gold-light); }
+  .assay-real .wall-row__d { color: var(--gold); opacity: 1; }
+  .assay-real { border-bottom-color: rgba(212, 175, 55, 0.22) !important; }
+
+  /* Everything that cannot prove it goes dull, and stays dull. */
+  .assay-dull .wall-row__a,
+  .assay-dull .wall-row__v { color: #4a4a58; }
+  .assay-dull .wall-row__d { color: #33333f; }
+
+  .assay-real, .assay-dull { transition: color 260ms ease, border-color 260ms ease; }
+  .assay-real .wall-row__a, .assay-dull .wall-row__a,
+  .assay-real .wall-row__d, .assay-dull .wall-row__d,
+  .assay-dull .wall-row__v { transition: color 260ms ease; }
+
+  .assay-tally {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    color: var(--gold-dim);
+    opacity: 0;
+    min-height: 1em;
+    transition: opacity 500ms ease;
+  }
+  .assay-tally.is-shown { opacity: 1; }
+
+  /* Motion is theatre; the information is not. Someone who cannot take movement still
+     gets every mark, they just arrive at once. */
+  @media (prefers-reduced-motion: reduce) {
+    .assay-streak { display: none; }
+    .assay-real, .assay-dull,
+    .assay-real *, .assay-dull * { transition: none !important; }
+  }
+</style>

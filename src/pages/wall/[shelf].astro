@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { listings } from '../../lib/listings.js';
 import { themeFor } from '../../lib/shelf-themes.js';
+import Touchstone from '../../components/Touchstone.astro';
 
 // ONE PAGE PER SHELF. Sean, 2026-08-29: "when we click on a major link I want to be taken
 // to a second page with just those listings."
@@ -73,8 +74,11 @@ const span = rows.length > 24 ? 2 : 1;
 
     <header class="wall-mast">
       <div class="wall-mast__row">
-        <span class="wall-mast__mark">◆ 24K LABS</span>
-        <span class="wall-mast__sub">THE GOLD&#8209;402 INDEX</span>
+        <span class="wall-mast__mark"><span data-touchstone>◆</span> 24K LABS</span>
+        <span class="wall-mast__sub">
+          THE GOLD&#8209;402 INDEX
+          <span class="assay-tally" data-assay-tally></span>
+        </span>
       </div>
       <div class="wall-mast__rule"></div>
 
@@ -213,6 +217,7 @@ const span = rows.length > 24 ? 2 : 1;
       </p>
     </footer>
   </div>
+  <Touchstone />
 </BaseLayout>
 
 <style>
