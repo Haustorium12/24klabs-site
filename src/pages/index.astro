@@ -10,6 +10,22 @@ const latestEdition = Object.values(newsMods).map((m) => m.default ?? m).sort((a
 // directory is and sends people into it. Counts are read live from the same editorial list.
 const totalEditorial = listings.length;
 const sections = [...new Set(listings.map((e) => e.section_label))];
+
+// The freshness stat. Read live from the same list, never typed in.
+//
+// WHY THIS REPLACED "Base L2 / Primary network": that was a label, not a measurement --
+// true, but it told a visitor nothing they could check, and it was the only one of the
+// three numbers that could not go stale because it never said anything. This one can go
+// down, and it should. A directory whose pitch is a disclosed date has to show the date.
+//
+// WHAT IS DELIBERATELY NOT CLAIMED HERE: that we re-knock nightly. The scheduled sweep
+// exists (shelf-sweep.yml, 04:40 UTC) but as of writing it has completed exactly one
+// run, fired by hand. Putting "re-knocked every night" on the homepage before the cron
+// has survived a single unattended night would be the same confident staleness this
+// company keeps catching in other registries. When it has run a week unattended, the
+// claim can go up -- and not before.
+const stamped = listings.filter((e) => e.last_checked).length;
+const freshest = listings.reduce((a, e) => (e.last_checked && e.last_checked > a ? e.last_checked : a), '');
 ---
 
 <BaseLayout
@@ -56,8 +72,11 @@ const sections = [...new Set(listings.map((e) => e.section_label))];
           <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Categories</div>
         </div>
         <div class="card reveal" style="text-align: center;">
-          <div class="text-gold" style="font-size: 2.4rem; font-weight: 900; letter-spacing: -0.03em;">Base L2</div>
-          <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">Primary network</div>
+          <div class="text-gold" style="font-size: 2.4rem; font-weight: 900; letter-spacing: -0.03em;">{stamped}</div>
+          <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">
+            Carry a dated knock<br />
+            <span style="font-size: 0.8rem; opacity: 0.75;">most recent {freshest}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -142,8 +161,10 @@ const sections = [...new Set(listings.map((e) => e.section_label))];
         <div class="card reveal">
           <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 10px;">Built for agents</h3>
           <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-            Machines get a map at <code>/llms.txt</code> and a per-resource verdict from
-            the Verify API — our call plus independent rater grades in one response.
+            Search every entry free — no key, no payment, no cap:
+            <code>/api/directory/search?q=</code>. Machines also get a map at
+            <code>/llms.txt</code> and a per-resource verdict from the Verify API.
+            Want the whole shelf as one dated, licensed file? That one costs $100.
           </p>
           <p style="margin-top: 14px;"><a href="/developers/docs" class="btn btn--outline btn--sm">Agent access →</a></p>
         </div>
