@@ -6577,5 +6577,38 @@
     "last_checked": "2026-08-28",
     "status": "live",
     "first_listed": "2026-08-28"
+  },
+  {
+    "name": "Citable",
+    "url": "https://citable.run",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "SEO and AI-visibility data on 17 paid GET routes: keyword research, on-page audits, AI-citation checks across ChatGPT, Claude, Gemini and Perplexity, plus rank, SERP, domain and backlink data; $0.005–$0.30 USDC on Solana mainnet, no account or API key, and any 4xx/5xx cancels the payment instead of settling it.",
+    "verified": false,
+    "first_listed": "2026-08-29"
+  },
+  {
+    "name": "Israel Company Verify",
+    "url": "https://israel-counterparty-intelligence.vercel.app/v1/verify/mainnet",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Business Intelligence",
+    "desc": "Verifies Israeli companies against structured public-registry data and returns evidence for $0.05 USDC per POST request on Base mainnet via x402 v2 and PayAI, with no account or API key. Example: `POST /v1/verify/mainnet {\"company_number\":\"520036120\",\"language\":\"en\",\"depth\":\"basic\"}`. ([OpenAPI](https://israel-counterparty-intelligence.vercel.app/openapi.json)) ([Manifest](https://israel-counterparty-intelligence.vercel.app/.well-known/x402)) ([llms.txt](https://israel-counterparty-intelligence.vercel.app/llms.txt))",
+    "verified": false,
+    "first_listed": "2026-08-29"
+  },
+  {
+    "name": "Sourcey Startup Credits Review",
+    "url": "https://api.sourcey.com/v1/startup-credits/reviews",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Business Intelligence",
+    "desc": "Human review of one startup-program submission against Sourcey's public evidence and Catalog admission rules; $25 USDC on Base per review, with payment separate from acceptance. ([OpenAPI](https://api.sourcey.com/openapi.yml)) ([Discovery](https://api.sourcey.com/.well-known/x402))",
+    "verified": false,
+    "first_listed": "2026-08-29"
   }
 ]
