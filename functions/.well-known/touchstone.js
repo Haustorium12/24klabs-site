@@ -116,3 +116,24 @@ export function onRequestGet() {
     },
   });
 }
+
+// HEAD must answer. Cloudflare Pages does NOT derive HEAD from onRequestGet — a function
+// exporting only onRequestGet returns 404 to a HEAD request, and all five of ours did
+// until 2026-08-29.
+//
+// This matters more than it looks. A HEAD request is how an agent cheaply checks that a
+// resource is alive and reads its headers without pulling the body — it is the polite
+// probe, and we would grade a shelf entry down for 404-ing one. We were doing it on our
+// own paid endpoints while running a directory whose entire product is knocking on other
+// people's doors and writing down what happened.
+//
+// Found because the x-touchstone header, whose whole discovery path is a cheap HEAD, was
+// invisible: GET returned 200 and the header, HEAD returned 404 and nothing.
+//
+// Same status, same headers, no body — which is exactly what HEAD is defined to be. On the
+// paid routes this is a feature: an agent can HEAD /api/v1/directory/bulk and read the 402
+// challenge, price and payTo included, without spending anything.
+export async function onRequestHead(context) {
+  const res = await onRequestGet(context);
+  return new Response(null, { status: res.status, headers: res.headers });
+}
