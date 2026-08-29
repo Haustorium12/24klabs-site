@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { listings } from '../../lib/listings.js';
+import { themeFor } from '../../lib/shelf-themes.js';
 
 // ONE PAGE PER SHELF. Sean, 2026-08-29: "when we click on a major link I want to be taken
 // to a second page with just those listings."
@@ -39,6 +40,11 @@ export function getStaticPaths() {
 
 const { shelf, n, siblings, total } = Astro.props;
 
+// THEME THE HEADER, NEVER THE ROW (specs/DOOR_THEMES_v0.1.md). Everything the theme
+// touches is above the list: the glyph, the accent on the heading rule, the standing
+// line. Rows below are byte-identical across all thirteen shelves.
+const th = themeFor(shelf.key);
+
 // Entries sorted by name so a reader can find one; the shelf's own order is arbitrary.
 const rows = [...shelf.entries].sort((a, b) => a.name.localeCompare(b.name));
 
@@ -63,7 +69,7 @@ const span = rows.length > 24 ? 2 : 1;
   description={`${rows.length} curated x402 services under ${shelf.label}. Every one live-knocked before listing. Static, free, no key.`}
   bare={true}
 >
-  <div class="wall">
+  <div class="wall" style={`--accent:${th.accent}`}>
 
     <header class="wall-mast">
       <div class="wall-mast__row">
@@ -79,13 +85,29 @@ const span = rows.length > 24 ? 2 : 1;
         <strong>{shelf.label}</strong>
       </nav>
 
-      <h1 class="wall-title">
+      <h1 class={`wall-title${th.serif ? ' wall-title--serif' : ''}${th.mono ? ' wall-title--mono' : ''}${th.doubleRule ? ' wall-title--dbl' : ''}`}>
         <span class="wall-title__n">{String(n).padStart(2, '0')}</span>
+        <svg class="wall-glyph" viewBox="0 0 16 16" aria-hidden="true" set:html={th.glyph}></svg>
         {shelf.label}
         <span class="wall-title__c">{rows.length}</span>
       </h1>
 
-      <p class="wall-mast__standing">
+      <!-- The standing line: what this shelf is, and what its stamp does and does not
+           prove here specifically. The spec calls this one of the three things never to
+           cut, and it is the only part of the theme that carries information. -->
+      <p class="wall-standing">{th.standing}</p>
+
+      {th.statusStrip && (
+        <!-- SECURITY earns a status strip because we hold the numbers already. Three
+             chips from real knock receipts — no chart, no decoration, no new data. -->
+        <div class="wall-chips">
+          <span class="wall-chip"><b>{rows.filter((e) => e.last_checked && e.status !== 'graveyard').length}</b> answered when knocked</span>
+          <span class="wall-chip"><b>{rows.filter((e) => e.status === 'graveyard').length}</b> answer nothing</span>
+          <span class="wall-chip"><b>{rows.filter((e) => !e.last_checked).length}</b> no receipt on file</span>
+        </div>
+      )}
+
+      <p class="wall-mast__standing wall-mast__standing--nums">
         <strong>{rows.length}</strong> of <strong>{total}</strong> curated services sit on this shelf.
         <strong>{stamped}</strong> carry a dated knock{freshest ? <>; most recent <time>{freshest}</time></> : null}.
         {buried > 0 ? <> <strong>{buried}</strong> currently answer nothing.</> : null}
@@ -165,6 +187,31 @@ const span = rows.length > 24 ? 2 : 1;
     text-transform: uppercase; color: var(--gold);
   }
   .wall-title__n { font-family: var(--mono); font-size: 11px; font-weight: 400; color: var(--gold-dim); letter-spacing: 0; }
+  /* The accent lives on the heading rule and nowhere else structural. Gold still carries
+     the type — the accent is a supporting voice, never a replacement. */
+  .wall-title { border-bottom-color: var(--accent); }
+  .wall-title--dbl { border-bottom: 3px double var(--accent); }
+  .wall-title--serif { font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.04em; text-transform: none; font-size: 19px; }
+  .wall-title--mono { font-family: var(--mono); letter-spacing: 0.06em; }
+  .wall-glyph {
+    width: 15px; height: 15px; flex: none;
+    fill: none; stroke: var(--accent); stroke-width: 1.3;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+  .wall-standing {
+    margin: 10px 0 0; max-width: 74ch;
+    color: var(--text-muted); font-size: 12.5px; line-height: 1.5;
+    border-left: 2px solid var(--accent); padding-left: 11px;
+  }
+  .wall-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .wall-chip {
+    font-family: var(--mono); font-size: 10.5px; color: var(--text-muted);
+    border: 1px solid var(--border); border-left: 2px solid var(--accent);
+    padding: 2px 8px;
+  }
+  .wall-chip b { color: var(--text); font-variant-numeric: tabular-nums; }
+  .wall-mast__standing--nums { margin-top: 14px; }
+
   .wall-title__c { margin-left: auto; font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--text-dim); letter-spacing: 0; font-variant-numeric: tabular-nums; }
 
   .wall-mast__standing { margin: 0 0 20px; max-width: 80ch; color: var(--text-muted); font-size: 12.5px; }

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { listings } from '../../lib/listings.js';
+import { themeFor } from '../../lib/shelf-themes.js';
 
 // THE WALL — the dense static index of the whole shelf.
 //
@@ -103,9 +104,10 @@ const buried = listings.filter((e) => e.status === 'graveyard').length;
     <!-- THE WALL. Every link in the source. No script builds any of this. -->
     <main class="wall-grid">
       {shelves.map((s, i) => (
-        <section class="wall-block" id={s.key} style={`--span:${s.entries.length > 90 ? 3 : s.entries.length > 40 ? 2 : 1}`}>
+        <section class="wall-block" id={s.key} style={`--span:${s.entries.length > 90 ? 3 : s.entries.length > 40 ? 2 : 1};--accent:${themeFor(s.key).accent}`}>
           <h2 class="wall-h">
             <span class="wall-h__n">{String(i + 1).padStart(2, '0')}</span>
+            <svg class="wall-glyph" viewBox="0 0 16 16" aria-hidden="true" set:html={themeFor(s.key).glyph}></svg>
             <a class="wall-h__t" href={`/wall/${s.key}/`}>{s.label}</a>
             <span class="wall-h__c">{s.entries.length}</span>
           </h2>
@@ -246,7 +248,10 @@ const buried = listings.filter((e) => e.status === 'graveyard').length;
     gap: 9px;
     margin: 0 0 7px;
     padding-bottom: 5px;
-    border-bottom: 1px solid var(--gold-dim);
+    /* The shelf's accent on its rule -- one variable, the orientation cue carried down
+       from the shelf page so the wall and the page read as the same place. Gold still
+       carries the type; the accent never replaces it. */
+    border-bottom: 1px solid var(--accent, var(--gold-dim));
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.13em;
@@ -273,6 +278,12 @@ const buried = listings.filter((e) => e.status === 'graveyard').length;
     color: var(--text-dim);
     letter-spacing: 0;
     font-variant-numeric: tabular-nums;
+  }
+
+  .wall-glyph {
+    width: 13px; height: 13px; flex: none;
+    fill: none; stroke: var(--accent, var(--gold-dim)); stroke-width: 1.3;
+    stroke-linecap: round; stroke-linejoin: round;
   }
 
   .wall-list { list-style: none; margin: 0; padding: 0; }
