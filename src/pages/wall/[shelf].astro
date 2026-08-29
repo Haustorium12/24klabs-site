@@ -69,7 +69,7 @@ const span = rows.length > 24 ? 2 : 1;
   description={`${rows.length} curated x402 services under ${shelf.label}. Every one live-knocked before listing. Static, free, no key.`}
   bare={true}
 >
-  <div class="wall" style={`--accent:${th.accent}`}>
+  <div class="wall" style={`--accent:${th.accent};--tint:${th.tint}`}>
 
     <header class="wall-mast">
       <div class="wall-mast__row">
@@ -85,6 +85,7 @@ const span = rows.length > 24 ? 2 : 1;
         <strong>{shelf.label}</strong>
       </nav>
 
+      <div class={`wall-panel wall-panel--${th.ornament || 'plain'}`}>
       <h1 class={`wall-title${th.serif ? ' wall-title--serif' : ''}${th.mono ? ' wall-title--mono' : ''}${th.doubleRule ? ' wall-title--dbl' : ''}`}>
         <span class="wall-title__n">{String(n).padStart(2, '0')}</span>
         <svg class="wall-glyph" viewBox="0 0 16 16" aria-hidden="true" set:html={th.glyph}></svg>
@@ -97,6 +98,53 @@ const span = rows.length > 24 ? 2 : 1;
            cut, and it is the only part of the theme that carries information. -->
       <p class="wall-standing">{th.standing}</p>
 
+      <p class="wall-register">— {th.register} —</p>
+
+      {th.ornament === 'ticker' && <div class="orn-ticker" aria-hidden="true"></div>}
+      {th.ornament === 'receipt' && (
+        <div class="orn-receipt" aria-hidden="true">
+          {rows.slice(0, 3).map((e) => (
+            <span><i>{e.name.slice(0, 22)}</i><u></u><b>{e.last_checked ? e.last_checked.slice(5) : '—'}</b></span>
+          ))}
+          <span class="orn-receipt__tot"><i>TOTAL LISTED</i><u></u><b>{rows.length}</b></span>
+        </div>
+      )}
+      {th.ornament === 'nodes' && (
+        <svg class="orn-nodes" viewBox="0 0 220 34" aria-hidden="true">
+          <path d="M14 17h44M72 17h44M130 17h44M188 17h18" />
+          <circle cx="8" cy="17" r="4" /><circle cx="65" cy="17" r="4" />
+          <circle cx="123" cy="17" r="4" /><circle cx="181" cy="17" r="4" />
+          <path d="M65 17 44 5M123 17l21 12M181 17l-18-12" />
+        </svg>
+      )}
+      {th.ornament === 'graticule' && <div class="orn-grat" aria-hidden="true"></div>}
+      {th.ornament === 'rack' && (
+        <div class="orn-rack" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      )}
+      {th.ornament === 'prompt' && (
+        <p class="orn-prompt" aria-hidden="true"># {rows.length} entries · sorted by name · knock date in the right gutter</p>
+      )}
+      {th.ornament === 'flap' && (
+        <div class="orn-flap" aria-hidden="true">
+          {['BASE', 'SOL', 'XRPL', 'EVM', 'MULTI'].map((c) => <b>{c}</b>)}
+        </div>
+      )}
+      {th.ornament === 'card' && <div class="orn-card" aria-hidden="true">GOLD&#8209;402 · {shelf.key.toUpperCase()} · {String(n).padStart(2, '0')}</div>}
+      {th.ornament === 'terminal' && (
+        <p class="orn-term" aria-hidden="true">scan · {rows.length} targets · last pass {freshest || 'n/a'} · signed by a human</p>
+      )}
+      {th.ornament === 'dropcap' && (
+        <p class="orn-cap" aria-hidden="true"><span>A</span>bove all, a page that teaches has to still be true. We can only prove it still loads.</p>
+      )}
+      {th.ornament === 'pin' && <div class="orn-pin" aria-hidden="true">◉</div>}
+      {th.ornament === 'spread' && (
+        <div class="orn-spread" aria-hidden="true">
+          {rows.slice(0, 24).map((e) => <i style={`opacity:${e.last_checked ? 0.85 : 0.25}`}></i>)}
+        </div>
+      )}
+
       {th.statusStrip && (
         <!-- SECURITY earns a status strip because we hold the numbers already. Three
              chips from real knock receipts — no chart, no decoration, no new data. -->
@@ -106,6 +154,8 @@ const span = rows.length > 24 ? 2 : 1;
           <span class="wall-chip"><b>{rows.filter((e) => !e.last_checked).length}</b> no receipt on file</span>
         </div>
       )}
+
+      </div>
 
       <p class="wall-mast__standing wall-mast__standing--nums">
         <strong>{rows.length}</strong> of <strong>{total}</strong> curated services sit on this shelf.
@@ -218,6 +268,108 @@ const span = rows.length > 24 ? 2 : 1;
   .wall-mast__standing strong { color: var(--text); font-family: var(--mono); }
   .wall-mast__standing time { font-family: var(--mono); color: var(--gold-light); }
   .wall-mast__standing em { color: var(--text); font-style: italic; }
+
+  /* THE MASTHEAD PANEL — Sean's override, 2026-08-29: more decoration. A bounded block
+     with the shelf's tint and corner ticks, the way a ruled frame sits around a column in
+     an almanac or a market report. Everything ornamental is INSIDE this panel; the list
+     below it is untouched on every shelf. */
+  .wall-panel {
+    position: relative;
+    background: var(--tint, transparent);
+    border: 1px solid var(--border);
+    padding: 14px 16px 15px;
+    margin-bottom: 20px;
+  }
+  /* Corner ticks. Four 7px hairlines, the registration marks on a printed sheet. */
+  .wall-panel::before, .wall-panel::after {
+    content: ''; position: absolute; width: 7px; height: 7px; pointer-events: none;
+  }
+  .wall-panel::before { top: -1px; left: -1px; border-top: 1px solid var(--accent); border-left: 1px solid var(--accent); }
+  .wall-panel::after { bottom: -1px; right: -1px; border-bottom: 1px solid var(--accent); border-right: 1px solid var(--accent); }
+  .wall-panel .wall-title { margin-top: 0; }
+
+  .wall-register {
+    margin: 9px 0 0; font-size: 10.5px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--text-dim); font-family: var(--mono);
+  }
+
+  /* MARKET DATA — the feed rack. Fine horizontal rules, a printed price table. */
+  .orn-ticker {
+    height: 22px; margin-top: 11px;
+    background: repeating-linear-gradient(to bottom, var(--border) 0 1px, transparent 1px 5px);
+    border-left: 2px solid var(--accent); opacity: 0.65;
+  }
+
+  /* FACILITATORS — the receipt. Leader dots to the figure, like an itemised bill. */
+  .orn-receipt { margin-top: 11px; font-family: var(--mono); font-size: 10.5px; color: var(--text-dim); }
+  .orn-receipt span { display: flex; align-items: baseline; gap: 4px; line-height: 1.7; }
+  .orn-receipt u { flex: 1; border-bottom: 1px dotted var(--border); text-decoration: none; }
+  .orn-receipt i { font-style: normal; }
+  .orn-receipt b { color: var(--text-muted); font-variant-numeric: tabular-nums; font-weight: 400; }
+  .orn-receipt__tot { border-top: 1px solid var(--accent); margin-top: 3px; padding-top: 3px; }
+  .orn-receipt__tot i, .orn-receipt__tot b { color: var(--text); }
+
+  /* MCP SERVERS — the node graph. The one shelf where a diagram is the subject. */
+  .orn-nodes { display: block; width: 100%; max-width: 240px; height: 34px; margin-top: 10px;
+               fill: none; stroke: var(--accent); stroke-width: 1.1; opacity: 0.7; }
+
+  /* ECOSYSTEM · GLOBAL — the survey sheet. A faint coordinate graticule. */
+  .orn-grat {
+    height: 26px; margin-top: 11px; opacity: 0.5;
+    background:
+      repeating-linear-gradient(to right, var(--border) 0 1px, transparent 1px 22px),
+      repeating-linear-gradient(to bottom, var(--border) 0 1px, transparent 1px 9px);
+  }
+
+  /* FRAMEWORKS — the rack elevation. Bounded unit, screw marks, LED pips. */
+  .orn-rack { display: flex; gap: 5px; margin-top: 11px; }
+  .orn-rack span {
+    flex: 1; height: 9px; border: 1px solid var(--border);
+    background: linear-gradient(to right, var(--accent) 0 3px, transparent 3px);
+    opacity: 0.55;
+  }
+
+  /* SDKS · TOOLS — the workbench. The shelf rule written as a code comment. */
+  .orn-prompt { margin: 11px 0 0; font-family: var(--mono); font-size: 10.5px; color: var(--text-dim); }
+  .orn-prompt::before { content: '$ '; color: var(--accent); }
+
+  /* GLOBAL — the departures board. Split-flap register, no motion. */
+  .orn-flap { display: flex; gap: 4px; margin-top: 11px; }
+  .orn-flap b {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; font-weight: 500;
+    color: var(--text-muted); background: #06060a; border: 1px solid var(--border);
+    border-top-color: var(--accent); padding: 3px 6px;
+  }
+
+  /* AGGREGATORS — the card catalogue. A typed catalogue-card label. */
+  .orn-card {
+    display: inline-block; margin-top: 11px; padding: 3px 9px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+    color: var(--text-muted); border: 1px solid var(--accent); opacity: 0.8;
+  }
+
+  /* COMMUNITY — the notice board. Pinned paper, very slightly off-square. */
+  .orn-pin { margin-top: 9px; color: var(--accent); font-size: 13px; transform: rotate(-4deg); transform-origin: left; }
+
+  /* SECURITY — the audit terminal. A readout line, signed. */
+  .orn-term {
+    margin: 11px 0 0; padding: 4px 8px;
+    font-family: var(--mono); font-size: 10.5px; color: var(--text-muted);
+    background: #06060a; border-left: 2px solid var(--accent);
+  }
+  .orn-term::before { content: '> '; color: var(--accent); }
+
+  /* LEARNING — the primer. The one drop cap on the site. */
+  .orn-cap { margin: 11px 0 0; max-width: 62ch; font-family: Georgia, 'Times New Roman', serif;
+             font-size: 12.5px; line-height: 1.5; color: var(--text-muted); font-style: italic; }
+  .orn-cap span {
+    float: left; font-size: 30px; line-height: 0.82; padding: 2px 7px 0 0;
+    color: var(--accent); font-style: normal;
+  }
+
+  /* APIS — the capability spread. One tick per entry, dim where no receipt exists. */
+  .orn-spread { display: flex; gap: 2px; margin-top: 12px; }
+  .orn-spread i { flex: 1; height: 10px; background: var(--accent); }
 
   .wall-list { list-style: none; margin: 0; padding: 0; }
   .wall-list--page { columns: var(--cols, 1); column-gap: 34px; }

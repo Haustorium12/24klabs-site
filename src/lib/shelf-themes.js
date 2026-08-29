@@ -17,10 +17,19 @@
 // Those alone carry the entire orientation benefit — someone landing three levels deep
 // from a search result knows which wing they are in before reading the breadcrumb.
 //
-// WHAT IS CUT, in the spec's own order: all animation, all textures (scanlines, brick,
-// CRT, noise), all alternate typefaces, all per-shelf background tints. They cost bytes
-// and add nothing at this density. Anything that survived is static and made of data we
-// already hold.
+// SEAN OVERRODE THE CUT, 2026-08-29: "I'm overriding here — I want you to do a little
+// more on the decorating." Fair: the spec was commissioned with "go overboard with the
+// decoration cause we can always scale back", and the first pass scaled back to the bone
+// before anyone had seen it decorated. So the masthead ornament is restored — a per-shelf
+// tint, a bounded masthead panel with corner ticks, the register line, and one static
+// figure per shelf drawn from that shelf's register.
+//
+// WHAT IS STILL CUT AND SHOULD STAY CUT: all animation, and any ornament that touches a
+// ROW. Motion on a page whose primary reader is a crawler is cost with no reader, and the
+// structural rule is not a decoration setting. Everything below lives above the list.
+//
+// Every ornament here is inline SVG or CSS. No images, no webfonts, no icon fonts, no
+// script. The heaviest shelf page gained about 1KB.
 //
 // AND THE GOLD NEVER CHANGES. --gold #D4AF37 carries links and headings on every shelf;
 // each adds ONE supporting accent. Gold is what tells a visitor they are still on
@@ -37,6 +46,8 @@ export const SHELF_THEMES = {
       'is not a product, it is a URL.',
     // a lens / aperture: what a spec sheet describes
     glyph: '<circle cx="8" cy="8" r="6.2"/><circle cx="8" cy="8" r="2.4"/><path d="M8 1.8v3M8 11.2v3M1.8 8h3M11.2 8h3"/>',
+    tint: 'rgba(124,109,240,0.055)',
+    ornament: 'spread',
   },
 
   // --- 02 · MCP Servers — the node graph ------------------------------------
@@ -48,6 +59,8 @@ export const SHELF_THEMES = {
       'shelf where a GET is the wrong knock: JSON-RPC answers POST and 405s everything else. ' +
       'We probe them the way a client would.',
     glyph: '<circle cx="3" cy="4" r="1.7"/><circle cx="13" cy="4" r="1.7"/><circle cx="8" cy="12.5" r="1.7"/><path d="M4.4 5.1 6.9 11M11.6 5.1 9.1 11M4.7 4h6.6"/>',
+    tint: 'rgba(78,205,196,0.05)',
+    ornament: 'nodes',
   },
 
   // --- 03 · Ecosystem — the survey sheet ------------------------------------
@@ -59,6 +72,8 @@ export const SHELF_THEMES = {
       'rather than a protocol. Listed because they exist and matter, not because they sell ' +
       'anything.',
     glyph: '<circle cx="8" cy="8" r="6.2"/><path d="M1.8 8h12.4M8 1.8c2.6 2.6 2.6 9.8 0 12.4M8 1.8c-2.6 2.6-2.6 9.8 0 12.4"/>',
+    tint: 'rgba(201,162,39,0.045)',
+    ornament: 'graticule',
   },
 
   // --- 04 · SDKs & Libraries — the workbench --------------------------------
@@ -71,6 +86,8 @@ export const SHELF_THEMES = {
       'difference is the point.',
     glyph: '<path d="M5.6 4 1.8 8l3.8 4M10.4 4l3.8 4-3.8 4M9.3 2.6 6.7 13.4"/>',
     mono: true, // spec: BUILD's mono is load-bearing and survives the cut
+    tint: 'rgba(143,191,106,0.045)',
+    ornament: 'prompt',
   },
 
   // --- 05 · Learning Resources — the primer ---------------------------------
@@ -83,6 +100,8 @@ export const SHELF_THEMES = {
       'A green knock here proves the page loads, nothing more.',
     glyph: '<path d="M8 3.6C6.4 2.5 4 2.4 1.9 3v9c2.1-.6 4.5-.5 6.1.6M8 3.6c1.6-1.1 4-1.2 6.1-.6v9c-2.1-.6-4.5-.5-6.1.6M8 3.6v9.6"/>',
     serif: true, // spec: the only shelf besides the graveyard where a serif appears
+    tint: 'rgba(217,201,163,0.05)',
+    ornament: 'dropcap',
   },
 
   // --- 06 · Tools & Utilities — the workbench -------------------------------
@@ -95,6 +114,8 @@ export const SHELF_THEMES = {
       'to stop paying for.',
     glyph: '<path d="M10.4 2.2a3.6 3.6 0 0 0-4.6 4.6l-4 4a1.4 1.4 0 0 0 2 2l4-4a3.6 3.6 0 0 0 4.6-4.6L10 6.4 8.9 5.3z"/>',
     mono: true,
+    tint: 'rgba(143,191,106,0.045)',
+    ornament: 'prompt',
   },
 
   // --- 07 · Security — the audit terminal -----------------------------------
@@ -109,6 +130,8 @@ export const SHELF_THEMES = {
     glyph: '<path d="M8 1.6v7.2M4.4 8.8h7.2l-3.6 5.6z"/><circle cx="8" cy="1.6" r="1"/>',
     doubleRule: true, // ruled off the way a signed report is
     statusStrip: true, // pass / fail / unprobed, from real knock receipts
+    tint: 'rgba(78,205,196,0.05)',
+    ornament: 'terminal',
   },
 
   // --- 08 · Facilitators — the ticker ---------------------------------------
@@ -120,6 +143,8 @@ export const SHELF_THEMES = {
       'systemic risk — a USENIX audit of fifteen major facilitators serving 119M transactions ' +
       'found security-rule violations in every one.',
     glyph: '<path d="M8 2.4v11.2M3 4.6h10M4.2 4.6 2 9.2h4.4zM11.8 4.6 9.6 9.2H14z"/>',
+    tint: 'rgba(244,208,63,0.05)',
+    ornament: 'receipt',
   },
 
   // --- 09 · Global Agent Economy — the departures board ---------------------
@@ -131,6 +156,8 @@ export const SHELF_THEMES = {
       'cross-border settlement. Seven-plus chains and eighteen tracked facilitators as of the ' +
       'last industry read.',
     glyph: '<circle cx="8" cy="8" r="6.2"/><path d="M8 1.8v12.4M2.4 5.2h11.2M2.4 10.8h11.2"/>',
+    tint: 'rgba(201,162,39,0.045)',
+    ornament: 'flap',
   },
 
   // --- 10 · Frameworks & Middleware — the rack elevation --------------------
@@ -142,6 +169,8 @@ export const SHELF_THEMES = {
       'scaffolding. Since AWS and Cloudflare made charging for an endpoint a console toggle, ' +
       'this shelf competes with a checkbox.',
     glyph: '<rect x="2" y="2.6" width="12" height="3.4" rx="0.4"/><rect x="2" y="10" width="12" height="3.4" rx="0.4"/><path d="M4 4.3h.01M4 11.7h.01"/>',
+    tint: 'rgba(127,156,147,0.05)',
+    ornament: 'rack',
   },
 
   // --- 11 · Community — the notice board ------------------------------------
@@ -152,6 +181,8 @@ export const SHELF_THEMES = {
       'Where people talk rather than where machines transact. Forums, chats, hubs, and the ' +
       'places a question gets answered by a human. Nothing here charges anything.',
     glyph: '<circle cx="8" cy="4" r="2.2"/><path d="M8 6.4v6M8 12.4l-2.6 1.6M8 12.4l2.6 1.6"/>',
+    tint: 'rgba(224,163,163,0.05)',
+    ornament: 'pin',
   },
 
   // --- 12 · Market Data — the feed rack -------------------------------------
@@ -163,6 +194,8 @@ export const SHELF_THEMES = {
       'most and means least — a feed can answer instantly and still be serving numbers from ' +
       'last week. A knock cannot see that.',
     glyph: '<path d="M2 12.6 5.6 8l2.8 2.6L14 3.4M14 3.4h-3.6M14 3.4v3.6"/>',
+    tint: 'rgba(244,208,63,0.05)',
+    ornament: 'ticker',
   },
 
   // --- 13 · Aggregators & Proxies — the card catalogue ----------------------
@@ -174,11 +207,15 @@ export const SHELF_THEMES = {
       'We list our competitors because a map that omits the other maps is not a map. Their ' +
       'scale is not our scale and pretending otherwise would be checkable.',
     glyph: '<rect x="2" y="3" width="12" height="10" rx="0.5"/><path d="M2 6.4h12M2 9.7h12M6.6 3v10"/>',
+    tint: 'rgba(221,217,201,0.05)',
+    ornament: 'card',
   },
 };
 
 export const DEFAULT_THEME = {
   accent: 'var(--gold-dim)',
+  tint: 'transparent',
+  ornament: null,
   register: 'a reference shelf',
   standing: 'Curated entries, each one live-knocked before it was listed.',
   glyph: '<rect x="2.4" y="2.4" width="11.2" height="11.2" rx="0.6"/><path d="M2.4 6.2h11.2"/>',
