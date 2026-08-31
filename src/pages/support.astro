@@ -1,95 +1,211 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Documentation currency is the single most reliable lever in support: help pages
+// refreshed within 30 days deflect roughly 45% of contacts, ones untouched for six
+// months deflect about 18%. So this page carries its own review date, in public,
+// and that date is a commitment rather than decoration.
+const REVIEWED = '2026-08-31';
 ---
 
-<BaseLayout title="Support -- 24K Labs" description="Need help with 24K Labs? Contact support, request refunds, or find answers to common questions.">
+<BaseLayout title="Support — 24K Labs" description="How to get help from 24K Labs: what you can answer yourself for free, what to email about, and what we actually promise.">
 
   <section class="page-header">
     <div class="page-header__glow"></div>
     <div class="container">
       <span class="page-header__badge">Help</span>
       <h1 class="page-header__title">Support</h1>
-      <p class="page-header__desc">Need help? We're here.</p>
+      <p class="page-header__desc">One person reads every message. Here is what we promise, and what we don't.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
 
-      <!-- Contact -->
-      <div class="support-contact reveal">
-        <div class="support-contact__email">
-          <h2 class="support-contact__heading">Get in Touch</h2>
-          <p class="support-contact__desc">
-            Email us at
-            <a href="mailto:sean@24klabs.ai" class="support-contact__link">sean@24klabs.ai</a>
+      <div class="sup-block reveal">
+        <h2 class="sup-h2">What we promise</h2>
+        <p class="sup-lede">
+          24K Labs is a small operation — one person, plus a lot of automation. That shapes what
+          we can honestly commit to, so here it is in plain terms instead of buried in a policy.
+        </p>
+        <div class="sup-grid sup-grid--3">
+          <div class="card">
+            <h3>A reply within two business days</h3>
+            <p>
+              Every message gets read by a person. If your problem will take longer than that to
+              fix, you'll hear <em>that</em> within two days rather than hearing nothing.
+            </p>
+          </div>
+          <div class="card">
+            <h3>The next update, not a fix time</h3>
+            <p>
+              We control when we update you. We don't always control when a thing gets fixed. So
+              we commit to the first and stay straight with you about the second.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Your money back if we didn't deliver</h3>
+            <p>
+              If you paid and got nothing, or got something broken, you get refunded. No argument,
+              no form. x402 payments refund to the wallet that paid.
+            </p>
+          </div>
+        </div>
+        <p class="sup-note">
+          <strong>What we don't promise:</strong> 24/7 coverage, a phone line, or a one-hour
+          response. We would rather under-promise and answer than post a response time we can't keep.
+        </p>
+      </div>
+
+      <div class="sup-block reveal">
+        <h2 class="sup-h2">Answer it yourself, free</h2>
+        <p class="sup-lede">
+          Most of what people ask us is faster to settle with a tool than with an email. These are
+          free, need no key, and no account.
+        </p>
+        <div class="sup-grid sup-grid--3">
+          <div class="card">
+            <h3><a href="/verify">Is this endpoint alive?</a></h3>
+            <p>
+              Point <code>/verify</code> at any x402 URL. It knocks the endpoint live and reports
+              what actually came back. Works on any service, including ones we don't list.
+            </p>
+          </div>
+          <div class="card">
+            <h3><a href="/api/directory/search">Is it in the directory?</a></h3>
+            <p>
+              <code>/api/directory/search?q=</code> searches every curated entry. Free and
+              ungated — the whole curated shelf is reachable there without paying us anything.
+            </p>
+          </div>
+          <div class="card">
+            <h3><a href="/wall/">Browse the shelves</a></h3>
+            <p>
+              Every listing, by category, server-rendered so crawlers and agents can read it
+              without running JavaScript.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sup-block reveal">
+        <h2 class="sup-h2">Buying the directory</h2>
+        <div class="sup-grid sup-grid--2">
+          <div class="card">
+            <h3>Full shelf export — $100</h3>
+            <p>
+              The complete curated shelf, dated, licensed CC-BY-4.0. It is x402-gated at
+              <code>/api/v1/directory/bulk</code> for $100 in USDC on Base. No key, no account —
+              the payment is the authentication.
+            </p>
+            <p>
+              <strong>There is no in-browser checkout yet.</strong> Paying that endpoint today
+              takes a wallet and an x402 client. If you want the export and that's a barrier,
+              email and we'll sort it out with you directly.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Do I have to pay to read the directory?</h3>
+            <p>
+              No. Reading is free and we intend to keep it that way. The search API returns every
+              curated entry at no cost, and the shelves are public.
+            </p>
+            <p>
+              The $100 buys the packaged, dated export with a license attached — not access to
+              something we're otherwise hiding from you.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sup-block reveal">
+        <h2 class="sup-h2">Still stuck? Email.</h2>
+        <div class="sup-contact">
+          <a href="mailto:sean@24klabs.ai" class="sup-email">sean@24klabs.ai</a>
+          <p class="sup-lede" style="margin-top: 16px;">
+            To get a useful answer on the first reply instead of the third, include whichever of
+            these you have:
+          </p>
+          <ul class="sup-list">
+            <li><strong>The URL or endpoint</strong> you were using.</li>
+            <li><strong>The transaction hash</strong>, if you paid. Every x402 payment has one, and it settles the question of whether money actually moved.</li>
+            <li><strong>What you expected and what you got.</strong> Paste the real response if you have it.</li>
+            <li><strong>Roughly when</strong> it happened, with a timezone.</li>
+          </ul>
+          <p class="sup-note" style="margin-top: 20px;">
+            Found a bug, or want a listing corrected? An issue on
+            <a href="https://github.com/Haustorium12/gold-402" target="_blank" rel="noopener">GitHub</a>
+            is usually faster than email, and it's public, so the fix is visible to everyone.
           </p>
         </div>
-        <div class="support-contact__options">
+      </div>
+
+      <div class="sup-block reveal">
+        <h2 class="sup-h2">Common questions</h2>
+        <div class="sup-grid sup-grid--2">
+
           <div class="card">
-            <h3>Refund Requests</h3>
-            <p>Email with your request ID (returned in every API response). Refunds processed within 24 hours.</p>
-          </div>
-          <div class="card">
-            <h3>Bug Reports</h3>
+            <h3>I paid and got nothing back</h3>
             <p>
-              Email us or open an issue on
-              <a href="https://github.com/Haustorium12" target="_blank" rel="noopener">GitHub</a>.
+              Email with the transaction hash. If the payment settled and we didn't deliver, you
+              get refunded to the wallet that paid. If it never settled, the hash shows that too,
+              and we'll tell you so plainly.
             </p>
           </div>
+
+          <div class="card">
+            <h3>Something about my listing is wrong</h3>
+            <p>
+              Tell us and we'll fix it. Corrections are free and always will be. We don't charge
+              anyone to be listed, to be corrected, or to be placed differently.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>My service got delisted</h3>
+            <p>
+              Every listing is knocked on a schedule, and entries that stop answering come off the
+              shelf. Operators get warned before that happens rather than finding out afterwards.
+              If yours came off and you believe it's answering, send the URL — we'll knock it
+              while you watch and show you exactly what came back.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>How do I get listed?</h3>
+            <p>
+              Open a pull request on
+              <a href="https://github.com/Haustorium12/gold-402" target="_blank" rel="noopener">gold-402</a>.
+              Listing is free. Your endpoint has to answer a live HTTP 402 probe before it gets
+              merged — that's the bar, and we don't invent extra ones.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Is something down?</h3>
+            <p>
+              We don't publish a status page yet, and we'd rather say so than point you at one
+              that doesn't exist. Until we do, <a href="/verify">/verify</a> gives you the live
+              truth about any endpoint, ours included. If we're down, email and say so.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>What happens to my data?</h3>
+            <p>
+              We don't run accounts, so there isn't much of it. What we do keep is in the
+              <a href="/privacy">Privacy Policy</a>, which is short and worth the two minutes.
+            </p>
+          </div>
+
         </div>
       </div>
 
-      <!-- FAQ -->
-      <div class="support-faq reveal">
-        <h2 class="section__title">Frequently Asked Questions</h2>
-        <p class="section__subtitle">Quick answers to common questions.</p>
-
-        <div class="faq-grid">
-
-          <div class="card">
-            <h3>I paid but didn't get a result</h3>
-            <p>
-              Check the request ID in the API response. Contact us with that ID and we'll investigate.
-              If the service failed on our end, you get a full refund.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>The AI output was wrong</h3>
-            <p>
-              AI analysis is advisory. If the output was clearly broken or empty, contact us for a refund.
-              If you disagree with the analysis, that's the nature of AI -- we'll review it case by case.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>How do I get a refund?</h3>
-            <p>
-              Email <a href="mailto:sean@24klabs.ai">sean@24klabs.ai</a> with your request ID
-              within 24 hours. x402 refunds go to the wallet that paid. Stripe refunds go to the
-              original card.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Is my code safe?</h3>
-            <p>
-              Your code is processed by Claude's API and not permanently stored by us.
-              See our <a href="/privacy">Privacy Policy</a> for the full details.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Can I get a receipt?</h3>
-            <p>
-              Every API response includes a request ID. x402 payments have an on-chain transaction hash
-              you can verify on any Base block explorer. Stripe will email a receipt automatically.
-            </p>
-          </div>
-
-        </div>
-      </div>
+      <p class="sup-reviewed">
+        This page was last reviewed <strong>{REVIEWED}</strong>.
+        A support page nobody has re-read in six months is worse than no support page — it answers
+        confidently and wrongly. If something here is out of date, that's a bug. Tell us.
+      </p>
 
     </div>
   </section>
@@ -97,75 +213,75 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  .support-contact {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-  .support-contact__heading {
-    font-size: 1.75rem;
+  .sup-h2 {
+    font-size: 1.6rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
-  .support-contact__desc {
+  .sup-lede {
     color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 32px;
+    line-height: 1.75;
+    max-width: 760px;
+    margin-bottom: 28px;
   }
-  .support-contact__link {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--gold);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  .support-contact__link:hover {
-    color: var(--gold-light);
-  }
-  .support-contact__options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .support-contact__options .card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-  .support-contact__options .card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-  .support-faq {
-    margin-top: 20px;
-  }
-  .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .faq-grid .card h3 {
+  .sup-block { margin-bottom: 72px; }
+  .sup-grid { display: grid; gap: 24px; }
+  .sup-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .sup-grid--2 { grid-template-columns: repeat(2, 1fr); max-width: 900px; }
+  .sup-grid .card h3 {
     font-size: 1.05rem;
     font-weight: 700;
     margin-bottom: 10px;
     color: var(--gold);
   }
-  .faq-grid .card p {
+  .sup-grid .card h3 a { color: inherit; text-decoration: none; }
+  .sup-grid .card h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .sup-grid .card p {
     color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.7;
   }
+  .sup-grid .card p + p { margin-top: 12px; }
+  .sup-note {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-top: 24px;
+    max-width: 760px;
+  }
+  .sup-contact { max-width: 760px; }
+  .sup-email {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .sup-email:hover { color: var(--gold-light); }
+  .sup-list {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    padding-left: 20px;
+  }
+  .sup-reviewed {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    max-width: 760px;
+    margin-top: 8px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  code {
+    font-size: 0.88em;
+    padding: 1px 5px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.06);
+  }
 
-  @media (max-width: 768px) {
-    .support-contact__options {
-      grid-template-columns: 1fr;
-    }
-    .faq-grid {
-      grid-template-columns: 1fr;
-    }
+  @media (max-width: 900px) {
+    .sup-grid--3 { grid-template-columns: 1fr; }
+    .sup-grid--2 { grid-template-columns: 1fr; }
   }
 </style>
