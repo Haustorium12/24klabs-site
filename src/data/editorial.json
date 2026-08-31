@@ -6613,5 +6613,16 @@
     "verified": false,
     "status": "live",
     "first_listed": "2026-08-29"
+  },
+  {
+    "name": "402Signal",
+    "url": "https://402signal.com/route",
+    "section": "aggregators",
+    "section_label": "Aggregators & Proxies",
+    "type": "Aggregator / Proxy",
+    "category": "",
+    "desc": "Fail-closed live-endpoint x402 router. POST /route returns a currently-alive x402 URL or an honest miss. $0.01 USDC on Base, Solana, and Algorand. Example: POST {\"need\":\"weather\"}. ([OpenAPI](https://402signal.com/openapi.json)) ([MCP](https://402signal.com/mcp.json)) ([Manifest](https://402signal.com/.well-known/x402.json))",
+    "verified": false,
+    "first_listed": "2026-08-30"
   }
 ]
