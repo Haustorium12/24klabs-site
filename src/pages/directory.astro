@@ -195,11 +195,11 @@ const EDITORIAL_JSON = JSON.stringify(listings);
             <div class="dir-paywall__divider"></div>
             <div class="dir-paywall__option">
               <div class="dir-paywall__option-label">For Humans</div>
-              <div class="dir-paywall__option-title">Full Access</div>
-              <div class="dir-paywall__option-desc">Unlock the complete catalog in-browser. Pay once via x402 USDC on Base.</div>
-              <button class="btn btn--gold btn--sm" id="unlock-btn">
-                Unlock Full Catalog
-              </button>
+              <div class="dir-paywall__option-title">Full Shelf Export — $100</div>
+              <div class="dir-paywall__option-desc">The complete curated shelf, dated, licensed CC-BY-4.0. $100 in USDC on Base, x402-gated at <code>/api/v1/directory/bulk</code> — no key, no account. There is no in-browser checkout yet: paying it takes a wallet and an x402 client. Want it another way? Ask.</div>
+              <a class="btn btn--gold btn--sm" href="/support">
+                How to buy it
+              </a>
             </div>
           </div>
         </div>
@@ -785,12 +785,6 @@ function clearAll() {
 }
 document.getElementById('clear-filters').addEventListener('click', clearAll);
 document.getElementById('clear-filters-2').addEventListener('click', clearAll);
-
-// Unlock button — placeholder for x402 integration
-document.getElementById('unlock-btn').addEventListener('click', () => {
-  // TODO: trigger x402 payment flow
-  alert('Full-catalog unlock is coming soon.');
-});
 
 // Init
 applyFilters();
