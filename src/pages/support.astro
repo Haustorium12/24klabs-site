@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // refreshed within 30 days deflect roughly 45% of contacts, ones untouched for six
 // months deflect about 18%. So this page carries its own review date, in public,
 // and that date is a commitment rather than decoration.
-const REVIEWED = '2026-08-31';
+const REVIEWED = '2026-09-01';
 ---
 
 <BaseLayout title="Support — 24K Labs" description="How to get help from 24K Labs: what you can answer yourself for free, what to email about, and what we actually promise.">
@@ -184,9 +184,11 @@ const REVIEWED = '2026-08-31';
           <div class="card">
             <h3>Is something down?</h3>
             <p>
-              We don't publish a status page yet, and we'd rather say so than point you at one
-              that doesn't exist. Until we do, <a href="/verify">/verify</a> gives you the live
-              truth about any endpoint, ours included. If we're down, email and say so.
+              <a href="/status">/status</a> knocks on every one of our own surfaces at the moment
+              you load it — nothing on it is cached from a build or self-reported. There is no
+              uptime percentage and no SLA, because we don't keep the history to compute an honest
+              one. For any endpoint that isn't ours, <a href="/verify">/verify</a> gives you the
+              same live truth. If we're down, email and say so.
             </p>
           </div>
 
