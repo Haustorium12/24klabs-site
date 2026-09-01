@@ -1,15 +1,20 @@
 ---
-// Index of all This Week in x402 editions, newest first. The canonical home of the weekly wire.
+// Index of all This Week in x402 editions, newest first.
+// NO CADENCE CLAIM ON THIS PAGE. It called itself "the weekly wire" while its newest
+// edition was 22 days old (#36), and the nav said the same in two more places. The word
+// was dropped rather than swapped for a different frequency: we publish when we publish,
+// and every edition carries its own date, which is the part that was always true.
+// state/claims.yaml C7 on the bus now fails if any page claims a cadence we are not keeping.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const mods = import.meta.glob('../../data/news/*.json', { eager: true });
 const editions = Object.values(mods).map((m) => m.default ?? m).sort((a, b) => b.date.localeCompare(a.date));
 ---
 
-<BaseLayout title="This Week in x402 — the weekly wire | 24K Labs" description="Dated, permanent weekly editions covering what actually happened in the x402 ecosystem. Cited, curated, honest about quiet weeks.">
+<BaseLayout title="This Week in x402 — dated editions | 24K Labs" description="Dated, permanent editions covering what actually happened in the x402 ecosystem. Cited, curated, honest about quiet weeks.">
   <section class="page-header">
     <div class="page-header__glow"></div>
     <div class="container">
-      <span class="page-header__badge"><span class="live-dot"></span>The Weekly Wire</span>
+      <span class="page-header__badge"><span class="live-dot"></span>Dated Editions</span>
       <h1 class="page-header__title">This Week in <span class="text-gold">x402</span></h1>
       <p class="page-header__desc">What actually happened, one edition a week, every claim cited. Editions are permanent — this is the record.</p>
     </div>

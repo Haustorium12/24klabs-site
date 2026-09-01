@@ -38,7 +38,7 @@ ${shelfLines}
 
 ## Editorial
 - Featured — ${featured.month}: one pick per shelf, chosen by the maintainers: /featured
-- This Week in x402 — the weekly wire, dated permanent editions: /news
+- This Week in x402 — dated, permanent editions: /news
 - Articles & verification reports: /articles
 
 ## Get listed

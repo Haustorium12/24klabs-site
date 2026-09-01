@@ -13,13 +13,13 @@ const { ed } = Astro.props;
 const title = `This Week in x402 — ${ed.week_label} | 24K Labs`;
 ---
 
-<BaseLayout title={title} description={`The x402 weekly wire from 24K Labs — ${ed.week_label}.`}>
+<BaseLayout title={title} description={`A dated x402 edition from 24K Labs — ${ed.week_label}.`}>
   <section class="page-header">
     <div class="page-header__glow"></div>
     <div class="container">
       <span class="page-header__badge">This Week in x402</span>
       <h1 class="page-header__title">{ed.week_label}</h1>
-      <p class="page-header__meta">The weekly wire from 24K Labs &middot; <a href="/news">All editions</a></p>
+      <p class="page-header__meta">A dated edition from 24K Labs &middot; <a href="/news">All editions</a></p>
     </div>
   </section>
   <section class="section--sm">
