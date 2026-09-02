@@ -6635,6 +6635,7 @@
     "category": "AI Services",
     "desc": "Removes AI-writing tells (em dashes, hedging, throat-clearing) from a draft, returns cleaned text plus a changelog. $0.10 USDC on Base. Example: `POST /api/deslop {\"text\":\"...\"}`. ([Prompt page](https://mooch.agency/prompts/deslop))",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-09-02"
   },
   {
@@ -6646,6 +6647,7 @@
     "category": "Data & Research",
     "desc": "163 pay-per-call x402 endpoints from a single provider: US federal regulatory data (EPA, OSHA, FEC, SEC full-text, FDA, NPI, CMS, FEMA, CFPB, CourtListener, SAM.gov, Congress.gov, GLEIF, WorldBank, and 15+ more), plus 12 AI reasoning engines (Tribunal multi-model verdict, WHETSTONE adversarial stress-test, POSTCOG action-safety gate, G-Score ground truth, Verify claim verification) and 5 composite intelligence products synthesized cross-source (Company Risk $0.35, Political Intel $0.35, Supply Chain Risk $0.30, Healthcare DDIL $0.30, Nonprofit Intel $0.20). Data adapters $0.01–$0.03/call, engines $0.05–$0.15/call. Base + Solana mainnet. No API keys — wallet is auth. ([OpenAPI](https://plexus-public-production.up.railway.app/openapi.json)) ([Manifest](https://plexus-public-production.up.railway.app/.well-known/x402)) ([llms.txt](https://plexus-public-production.up.railway.app/llms.txt)) ([MCP](https://plexus-public-production.up.railway.app/mcp))",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-09-02"
   },
   {
@@ -6657,6 +6659,7 @@
     "category": "Data & Research",
     "desc": "Sourced U.S. federal grant search, official notice detail, transparent mission-fit signals, application briefs, and deterministic shortlist preflight checks from current Grants.gov public records, priced from $0.05 to $5.00 USDC on Base through x402 v2. ([Manifest](https://genuinegood.online/.well-known/x402)) ([OpenAPI](https://genuinegood.online/openapi.json)) ([llms.txt](https://genuinegood.online/llms.txt))",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-09-02"
   },
   {
@@ -6668,6 +6671,7 @@
     "category": "Crypto & DeFi Data",
     "desc": "Technical-indicator and market-analysis API for trading agents: 73 indicators and 24 derived signals across 100 crypto markets, plus screening, analytics snapshots/history, and a natural-language endpoint that compiles a plain sentence into a deterministic query before executing it. Every returned value carries provenance — which bars were used, whether the indicator's warm-up period was satisfied, the data's age, and the upstream source — so a caller can verify freshness before acting on it. Example: `GET /api/v1/technical-analysis?symbol=BTCUSDT&interval=1h`. $0.00002-$0.0005 USDC on Base mainnet via x402 v2 (EIP-3009), 9 payable endpoints, no API key and no signup. ([OpenAPI](https://api.excelexi.com/openapi.json)) ([Discovery](https://api.excelexi.com/.well-known/x402)) ([Docs](https://excelexi.com/for-agents))",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-09-02"
   },
   {
@@ -6679,6 +6683,7 @@
     "category": "Web & Geospatial",
     "desc": "Extracts title, canonical URL, headings, hreflang, icons, feeds, Open Graph, Twitter Cards, and JSON-LD types from one public HTTPS page, with redirect and response provenance, for $0.002 USDC on Base or Solana. ([Catalog](https://apiacre.com/catalog/web.metadata)) ([OpenAPI](https://apiacre.com/openapi.json)) ([x402 discovery](https://apiacre.com/.well-known/x402))",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-09-02"
   },
   {
@@ -6690,6 +6695,7 @@
     "category": "Niche & Specialty",
     "desc": "Structured literary content for AI agents, including complete selected text units, metadata, characters, scenes and editable baseline reading direction, with free resource discovery and production-material JSON purchased through x402. ([Catalogue](https://api.textus.dev/api/v1/resources.json)) ([Docs](https://textus.dev/docs/))",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-09-02"
   },
   {
@@ -6701,6 +6707,7 @@
     "category": "Production Deployments (High Volume)",
     "desc": "OpenAI-compatible chat completions paid per request via x402 on Solana and Base, with no account or API key.",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-09-02"
   },
   {
@@ -6711,6 +6718,18 @@
     "type": "Security",
     "category": "Security Monitoring Tools",
     "desc": "Audits a public x402 endpoint before payment via required `resource_url` and optional `method=GET|HEAD`, `expected_network`, and `max_price_usd` query parameters; the audit costs $0.05 USDC on Base.",
+    "verified": false,
+    "status": "live",
+    "first_listed": "2026-09-02"
+  },
+  {
+    "name": "Truth Bear (GAUGE)",
+    "url": "https://api.truthbear.co/manifest",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Data & Research",
+    "desc": "180+ official-source data signals for AI agents: US river/flood and streamflow (USGS/NOAA), air quality (EPA), drought, power grid (EIA), shipping (IMF PortWatch), and SEC EDGAR filings. Each paid record ships a canonical sha256 record_hash the caller recomputes offline; readings are stated against the source agency's own published thresholds where one exists. $0.005–$0.09 USDC on Base and Solana, no API key, no signup; a query with no data returns 422 and is not billed. Screening-level, not decision-grade. Example: `GET /gauge/air`. ([llms.txt](https://api.truthbear.co/llms.txt)) ([Sample](https://api.truthbear.co/gauge/sample)) ([MCP](https://www.npmjs.com/package/mcp-gauge-x402))",
     "verified": false,
     "first_listed": "2026-09-02"
   }
