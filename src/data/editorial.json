@@ -6733,5 +6733,27 @@
     "verified": false,
     "status": "live",
     "first_listed": "2026-09-02"
+  },
+  {
+    "name": "x402-list",
+    "url": "https://x402-list.com",
+    "section": "aggregators",
+    "section_label": "Aggregators & Proxies",
+    "type": "Aggregator / Proxy",
+    "category": "",
+    "desc": "Agent-first directory of x402-payable APIs with a no-auth machine-readable REST feed and a hosted MCP server for finding and verifying endpoints before an agent pays.",
+    "verified": false,
+    "first_listed": "2026-09-02"
+  },
+  {
+    "name": "Ausca",
+    "url": "https://ausca.com",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Infrastructure APIs",
+    "desc": "Metered infrastructure services for agents: document OCR, document analysis, media transcription, leased browser sessions with CDP, and receive-only agent inboxes. From $0.05 USDC per call on Base via x402 v2, no accounts or API keys, every result bound to published schema digests and a terminal receipt. Unsigned `POST /v1/invocations` returns the live payment requirement. ([OpenAPI](https://ausca.com/openapi.json)) ([Manifest](https://ausca.com/.well-known/x402)) ([Skill](https://ausca.com/SKILL.md))",
+    "verified": false,
+    "first_listed": "2026-09-02"
   }
 ]
