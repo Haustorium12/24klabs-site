@@ -6731,6 +6731,7 @@
     "category": "Data & Research",
     "desc": "180+ official-source data signals for AI agents: US river/flood and streamflow (USGS/NOAA), air quality (EPA), drought, power grid (EIA), shipping (IMF PortWatch), and SEC EDGAR filings. Each paid record ships a canonical sha256 record_hash the caller recomputes offline; readings are stated against the source agency's own published thresholds where one exists. $0.005–$0.09 USDC on Base and Solana, no API key, no signup; a query with no data returns 422 and is not billed. Screening-level, not decision-grade. Example: `GET /gauge/air`. ([llms.txt](https://api.truthbear.co/llms.txt)) ([Sample](https://api.truthbear.co/gauge/sample)) ([MCP](https://www.npmjs.com/package/mcp-gauge-x402))",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-09-02"
   }
 ]
