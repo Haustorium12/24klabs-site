@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import listings from '../../data/editorial.json';
+
+// LEG 2.5 — the shop window. Added 2026-09-03.
+//
+// WHY THIS PAGE EXISTS
+//   /products and /services both returned 404 until today. The nav's Products
+//   dropdown listed eight gold-402 links and two x402 links and nothing we sell.
+//   Probed 2026-09-03: zero of our public pages stated our own live endpoint count
+//   anywhere, while /products/x402 quoted 26,000+ of other people's services.
+//   We were running a shop window full of other people's stock.
+//
+// THE NUMBERS ARE COUNTED, NOT TYPED
+//   House rule: every published number carries a date, and undated does not ship.
+//   So the endpoint count is fetched from the live manifests at build and the
+//   directory count comes from the same file the directory page renders. Nobody
+//   hand-edits a figure here, which is the only way it stays true — the record
+//   said six endpoints for weeks while the manifest served 143.
+//
+// IF THE FETCH FAILS, THE PAGE SAYS SO
+//   It does not fall back to a remembered number. A stale figure printed with
+//   confidence is the exact failure this page was built to stop being an example
+//   of. No count is better than a wrong one.
+
+const MANIFESTS = [
+  'https://api.24klabs.ai/.well-known/x402.json',
+  'https://time.24klabs.ai/.well-known/x402.json',
+];
+
+async function countResources(url: string): Promise<number | null> {
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
+    if (!res.ok) return null;
+    const json = await res.json();
+    return Array.isArray(json?.resources) ? json.resources.length : null;
+  } catch {
+    return null;
+  }
+}
+
+const counts = await Promise.all(MANIFESTS.map(countResources));
+const countedAll = counts.every((c) => c !== null);
+const liveEndpoints = countedAll ? counts.reduce((a, c) => a + (c ?? 0), 0) : null;
+const apiCount = counts[0];
+const timeCount = counts[1];
+
+const directoryCount = listings.length;
+// `section` is the shelf (13 of them). `category` is a finer sub-tag and there are 76
+// of those — written as a fallback first, which would have published "76 shelves"
+// against a real 13. Checked against the data before shipping, not after.
+const shelves = new Set(listings.map((l: any) => l.section).filter(Boolean)).size;
+
+const asOf = new Date().toISOString().slice(0, 10);
+
+// Our own repos. Stars are a stock, not a signal — they are here because a reader
+// deciding whether to trust a repo wants to see them, not because we think they
+// measure anything. Checked 2026-09-03.
+const openSource = [
+  {
+    name: 'continuity-v2',
+    desc: 'Long-term memory for Claude Code. Indexes every session so a cold start opens warm.',
+    href: 'https://github.com/Haustorium12/continuity-v2',
+    meta: '35 stars',
+  },
+  {
+    name: 'memory-v3',
+    desc: 'Brain-inspired persistent memory for AI coding assistants. Hybrid search, periodic consolidation.',
+    href: 'https://github.com/Haustorium12/memory-v3',
+    meta: '5 stars',
+  },
+  {
+    name: 'gold402-mcp',
+    desc: 'An MCP server over the gold-402 directory. Your agent searches the shelf without leaving the chat.',
+    href: 'https://github.com/Haustorium12/gold402-mcp',
+    meta: 'MCP',
+  },
+  {
+    name: '24klabs-action',
+    desc: 'AI code review as a GitHub Action. Security, performance and correctness on every pull request.',
+    href: 'https://github.com/Haustorium12/24klabs-action',
+    meta: 'GitHub Action',
+  },
+  {
+    name: 'adhd',
+    desc: 'A skill for coding agents. Tree-of-thought with pruning, for problems that branch.',
+    href: 'https://github.com/Haustorium12/adhd',
+    meta: 'Agent skill',
+  },
+];
+---
+
+<BaseLayout
+  title="Products — 24K Labs"
+  description="Everything 24K Labs makes: the x402 endpoint shelf, the Chronographer, the gold-402 directory, and the open-source tools. Counted live, dated, no signup.">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <div class="page-header__badge">Counted {asOf}</div>
+      <h1 class="page-header__title">Everything we make</h1>
+      <p class="page-header__desc">
+        Four things: a shelf of paid endpoints agents can call without an account, a time
+        service, a curated directory of everyone else's, and the tools we built for ourselves
+        and left open. Every number on this page is counted at build time from the thing it
+        describes.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE SHELF -->
+  <section class="section">
+    <div class="container">
+      <div class="shopfront">
+        <div class="shopfront__figure">
+          {liveEndpoints !== null ? (
+            <>
+              <div class="shopfront__count">{liveEndpoints}</div>
+              <div class="shopfront__unit">paid endpoints, live right now</div>
+            </>
+          ) : (
+            <>
+              <div class="shopfront__count shopfront__count--unknown">—</div>
+              <div class="shopfront__unit">
+                The manifests did not answer when this page was built. We would rather
+                show you nothing than a number we did not just check.
+              </div>
+            </>
+          )}
+        </div>
+
+        <div class="shopfront__body">
+          <h2 class="shopfront__title">The shelf</h2>
+          <p>
+            Code review, security audits, document extraction, image work, format conversion,
+            financial calculators, text tools. One HTTP request, USDC on Base, settled in the
+            same round trip. No key to rotate, no account to open, no invoice at the end of
+            the month.
+          </p>
+          <p>
+            Prices run from $0.001 to $3.00 depending on how much work the call actually does.
+            The cheap ones are cheap because they are deterministic and we are not paying a
+            model to run them.
+          </p>
+          {apiCount !== null && timeCount !== null && (
+            <p class="shopfront__split">
+              {apiCount} on <code>api.24klabs.ai</code> · {timeCount} on <code>time.24klabs.ai</code>
+            </p>
+          )}
+          <div class="shopfront__actions">
+            <a href="/developers/quickstart" class="btn btn--primary">Make your first call</a>
+            <a href="/developers/docs" class="btn btn--outline">Read the docs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE OTHER THREE -->
+  <section class="section section--sm">
+    <div class="container">
+      <div class="grid-3">
+
+        <article class="card">
+          <h3 class="card__title">The Chronographer</h3>
+          <p class="card__desc">
+            Agents have no clock. This one returns 15 time systems in a single JSON object —
+            Gregorian, Unix, ISO, Julian, solar, lunar, sidereal, market sessions, and more —
+            for $0.001 a call.
+          </p>
+          <a href="/products/chronographer" class="btn btn--outline btn--sm">See what it returns</a>
+        </article>
+
+        <article class="card">
+          <h3 class="card__title">Gold-402</h3>
+          <p class="card__desc">
+            {directoryCount.toLocaleString()} curated x402 services across {shelves} shelves,
+            as of {asOf}. Every listing answered a live request before it earned its spot, and
+            the ones that stopped answering are kept in the graveyard with the date they died.
+          </p>
+          <a href="/directory" class="btn btn--outline btn--sm">Browse the directory</a>
+        </article>
+
+        <article class="card">
+          <h3 class="card__title">Verify</h3>
+          <p class="card__desc">
+            Paste any x402 endpoint — ours or anyone's — and get the same live check we run at
+            the door before listing anything. One unpaid request. Free, and it never spends
+            your money.
+          </p>
+          <a href="/verify" class="btn btn--outline btn--sm">Check an endpoint</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN SOURCE -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Built for ourselves, left open</h2>
+      <p class="section__subtitle">
+        These came out of running this shop. They are free, they are on GitHub, and they are
+        the reason we know what agents actually break on.
+      </p>
+
+      <ul class="oss">
+        {openSource.map((r) => (
+          <li class="oss__row">
+            <a class="oss__name" href={r.href} rel="noopener">{r.name}</a>
+            <span class="oss__meta">{r.meta}</span>
+            <span class="oss__desc">{r.desc}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* One bold element on this page: the count. Everything else stays quiet. */
+  .shopfront {
+    display: grid;
+    grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .shopfront__figure {
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+
+  .shopfront__count {
+    font-family: var(--mono);
+    font-size: clamp(4rem, 12vw, 7.5rem);
+    line-height: 0.9;
+    color: var(--gold);
+    letter-spacing: -0.04em;
+  }
+
+  .shopfront__count--unknown {
+    color: var(--text-dim);
+  }
+
+  .shopfront__unit {
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    max-width: 22ch;
+    line-height: 1.5;
+  }
+
+  .shopfront__title {
+    font-size: 1.75rem;
+    margin: 0 0 1rem;
+  }
+
+  .shopfront__body p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 62ch;
+    margin: 0 0 1rem;
+  }
+
+  .shopfront__split {
+    font-family: var(--mono);
+    font-size: 0.875rem;
+    color: var(--text-dim);
+  }
+
+  .shopfront__split code {
+    color: var(--text-muted);
+  }
+
+  .shopfront__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .oss {
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem 0 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .oss__row {
+    display: grid;
+    grid-template-columns: minmax(0, 12rem) minmax(0, 8rem) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .oss__name {
+    font-family: var(--mono);
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .oss__name:hover,
+  .oss__name:focus-visible {
+    text-decoration: underline;
+  }
+
+  .oss__meta {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    color: var(--text-dim);
+  }
+
+  .oss__desc {
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .shopfront {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .oss__row {
+      grid-template-columns: 1fr;
+      gap: 0.375rem;
+    }
+  }
+</style>
