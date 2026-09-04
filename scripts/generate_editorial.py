@@ -37,6 +37,9 @@
 #   G5  any section has no row in the lookup table
 #   G6  duplicate (url, section) key in the markdown (same project listed twice in
 #       one file -- happened once: agent.market, fixed 2026-07-17)
+#   G7  any shelf line the parser cannot read (it would be dropped from the site
+#       while the repo still counts it -- happened once: SchemaLock used a colon
+#       where the shelf uses an em-dash, caught 2026-09-04)
 #
 # Usage:
 #   python scripts/generate_editorial.py --gold <path-to-gold-402-checkout>
@@ -91,9 +94,16 @@ def log(msg):
 
 
 def parse_markdown(gold_dir):
-    """Parse directory/*.md into ordered entries. Returns (entries, warnings)."""
+    """Parse directory/*.md into ordered entries. Returns (entries, dropped).
+
+    Every line in `dropped` is a shelf line the site DID NOT publish. These were
+    logged as ungated warnings until 2026-09-04, which is how SchemaLock -- one
+    entry whose separator was a colon instead of an em-dash -- sat unpublished
+    while the wire printed a clean run and the repo counted it. A drop is not a
+    warning. G7 gates on this list.
+    """
     entries = []
-    warnings = []
+    dropped = []
     md_files = sorted((gold_dir / "directory").glob("*.md"))
     if not md_files:
         raise SystemExit("FATAL: no markdown files under %s/directory" % gold_dir)
@@ -108,15 +118,15 @@ def parse_markdown(gold_dir):
             m = ENTRY_RE.match(line)
             if not m:
                 if SUSPICIOUS_RE.match(line):
-                    warnings.append("%s:%d does not parse as an entry: %s"
-                                    % (md.name, lineno, line.strip()[:80]))
+                    dropped.append("%s:%d does not parse as an entry: %s"
+                                   % (md.name, lineno, line.strip()[:80]))
                 continue
             name, url, rest = m.group(1), m.group(2), m.group(3)
             verified = VERIFIED_BADGE in rest
             rest = BADGE_RE.sub("", rest).strip()
             if not rest.startswith(EM_DASH):
-                warnings.append("%s:%d entry '%s' has no em-dash description"
-                                % (md.name, lineno, name))
+                dropped.append("%s:%d entry '%s' has no em-dash description"
+                               % (md.name, lineno, name))
                 continue
             desc = rest[len(EM_DASH):].strip()
             entries.append({
@@ -127,7 +137,7 @@ def parse_markdown(gold_dir):
                 "desc": desc,
                 "verified": verified,
             })
-    return entries, warnings
+    return entries, dropped
 
 
 def git_first_listed(gold_dir, url):
@@ -152,14 +162,19 @@ def main():
     site_dir = Path(__file__).resolve().parent.parent
     out_path = site_dir / "src" / "data" / "editorial.json"
 
-    md_entries, warnings = parse_markdown(gold_dir)
-    for w in warnings:
-        log("WARN (data debt, not gated): " + w)
+    md_entries, md_dropped = parse_markdown(gold_dir)
 
     current = json.loads(out_path.read_text(encoding="utf-8"))
     log("markdown entries: %d   current json: %d" % (len(md_entries), len(current)))
 
     failures = []
+
+    # G7: a shelf line the parser could not read is a line the site would drop,
+    # and a silent drop is the one failure mode this generator was built to
+    # refuse. The repo publishes the entry, the site does not, and nothing goes
+    # red. Fail closed and name the line instead.
+    for d in md_dropped:
+        failures.append("G7: shelf line dropped by the parser: " + d)
 
     # G5: every section must have a lookup row.
     for e in md_entries:
