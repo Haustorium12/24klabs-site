@@ -1,5 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { countShelf, inWords } from '../lib/shelf.js';
+
+// Counted at build from the live manifests, never typed. This page said "Six
+// live AI services" while the manifests served 147 -- see src/lib/shelf.js for
+// why the number is fetched and why a failed fetch prints nothing at all.
+const { total: liveEndpoints } = await countShelf();
+
+// The flagship grid. Hoisted out of the JSX so the prose below can count it
+// instead of restating it: "eleven" and "another 136" are both derived, so they
+// cannot drift apart from each other or from the row of cards underneath.
+const flagship = [
+  { badge: 'haiku', model: 'Haiku', name: 'Explain Code', desc: 'Clear explanation of what code does, how it works, and why.', price: '$0.01' },
+  { badge: 'sonnet', model: 'Sonnet', name: 'Debug Assist', desc: 'Find bugs, explain errors, suggest fixes with severity ratings.', price: '$0.08' },
+  { badge: 'sonnet', model: 'Sonnet', name: 'Code Review', desc: 'Security, performance, architecture review with quality score.', price: '$0.15' },
+  { badge: 'opus', model: 'Opus', name: 'Security Audit', desc: 'OWASP Top 10, CVSS scores, attack scenarios, remediation.', price: '$0.35' },
+  { badge: 'sonnet', model: 'Sonnet', name: 'Automation Script', desc: 'Production-ready scripts from requirements. Complete with docs.', price: '$0.12' },
+  { badge: 'opus', model: 'Opus', name: 'MCP Blueprint', desc: 'Full MCP server architecture, schemas, and deployment guide.', price: '$0.50' },
+  { badge: 'flat', model: 'No LLM', name: 'Web Reader', desc: 'Fetch any URL and return clean readable text. Zero AI cost, flat rate.', price: '$0.005' },
+  { badge: 'haiku', model: 'Haiku', name: 'Document Extractor', desc: 'Extract titles, facts, entities, and action items from any document.', price: '$0.02' },
+  { badge: 'haiku', model: 'Haiku', name: 'Image Analyzer', desc: 'Analyze images: objects, text, charts, diagrams. Transcribes visible text.', price: '$0.03' },
+  { badge: 'haiku', model: 'Haiku', name: 'Session Summarizer', desc: 'Summarize conversation transcripts into decisions, actions, and open questions.', price: '$0.02' },
+  { badge: 'haiku', model: 'Haiku', name: 'Content Summarizer', desc: 'Summarize articles and long-form text into key takeaways.', price: '$0.02' },
+];
+const rest = liveEndpoints === null ? null : liveEndpoints - flagship.length;
 ---
 
 <BaseLayout title="About — 24K Labs" description="24K Labs builds AI-powered services on the x402 protocol and runs the Gold-402 Directory. Founded in Philadelphia, 2026.">
@@ -13,7 +37,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span class="text-gold">Pay per request, not per seat.</span>
       </h1>
       <p class="hero__subtitle">
-        147 live endpoints from $0.001 to $3.00. No subscriptions, no API keys.
+        {liveEndpoints !== null
+          ? `${liveEndpoints} live endpoints from $0.001 to $3.00.`
+          : 'Pay-per-request endpoints from $0.001 to $3.00.'} No subscriptions, no API keys.
         Send a request, pay in USDC, get your result. The payment <em>is</em> the auth.
       </p>
       <div class="hero__actions">
@@ -22,8 +48,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
       <div class="hero__stats">
         <div class="hero__stat">
-          <span class="hero__stat-value">147</span>
-          <span class="hero__stat-label">Live Endpoints</span>
+          <span class="hero__stat-value">{liveEndpoints ?? '\u2014'}</span>
+          <span class="hero__stat-label">
+            {liveEndpoints !== null
+              ? 'Live Endpoints'
+              : 'Counted at build; the manifests did not answer'}
+          </span>
         </div>
         <div class="hero__stat">
           <span class="hero__stat-value">$0.001</span>
@@ -92,22 +122,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- SERVICES PREVIEW -->
   <section class="section" id="services" style="background: var(--bg-surface);">
     <div class="container">
-      <h2 class="section__title reveal">147 Endpoints, One Protocol</h2>
-      <p class="section__subtitle reveal">The eleven AI services below are the flagship line. Another 136 endpoints — text, data, image, web, finance and time utilities — run on the same rail. Every request settled in USDC on Base L2.</p>
+      <h2 class="section__title reveal">{liveEndpoints !== null ? `${liveEndpoints} Endpoints` : 'The Shelf'}, One Protocol</h2>
+      <p class="section__subtitle reveal">The {inWords(flagship.length)} AI services below are the flagship line. {rest !== null ? `Another ${rest} endpoints` : 'More endpoints'} — text, data, image, web, finance and time utilities — run on the same rail. Every request settled in USDC on Base L2.</p>
       <div class="grid-3">
-        {[
-          { badge: 'haiku', model: 'Haiku', name: 'Explain Code', desc: 'Clear explanation of what code does, how it works, and why.', price: '$0.01' },
-          { badge: 'sonnet', model: 'Sonnet', name: 'Debug Assist', desc: 'Find bugs, explain errors, suggest fixes with severity ratings.', price: '$0.08' },
-          { badge: 'sonnet', model: 'Sonnet', name: 'Code Review', desc: 'Security, performance, architecture review with quality score.', price: '$0.15' },
-          { badge: 'opus', model: 'Opus', name: 'Security Audit', desc: 'OWASP Top 10, CVSS scores, attack scenarios, remediation.', price: '$0.35' },
-          { badge: 'sonnet', model: 'Sonnet', name: 'Automation Script', desc: 'Production-ready scripts from requirements. Complete with docs.', price: '$0.12' },
-          { badge: 'opus', model: 'Opus', name: 'MCP Blueprint', desc: 'Full MCP server architecture, schemas, and deployment guide.', price: '$0.50' },
-          { badge: 'flat', model: 'No LLM', name: 'Web Reader', desc: 'Fetch any URL and return clean readable text. Zero AI cost, flat rate.', price: '$0.005' },
-          { badge: 'haiku', model: 'Haiku', name: 'Document Extractor', desc: 'Extract titles, facts, entities, and action items from any document.', price: '$0.02' },
-          { badge: 'haiku', model: 'Haiku', name: 'Image Analyzer', desc: 'Analyze images: objects, text, charts, diagrams. Transcribes visible text.', price: '$0.03' },
-          { badge: 'haiku', model: 'Haiku', name: 'Session Summarizer', desc: 'Summarize conversation transcripts into decisions, actions, and open questions.', price: '$0.02' },
-          { badge: 'haiku', model: 'Haiku', name: 'Content Summarizer', desc: 'Summarize articles and long-form text into key takeaways.', price: '$0.02' },
-        ].map(s => (
+        {flagship.map(s => (
           <div class="card reveal">
             <span class={`badge badge--${s.badge}`}>{s.model}</span>
             <h3 style="font-size: 1.25rem; font-weight: 700; margin: 16px 0 12px;">{s.name}</h3>

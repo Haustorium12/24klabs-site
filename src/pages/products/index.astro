@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import listings from '../../data/editorial.json';
+import { countShelf } from '../../lib/shelf.js';
 
 // LEG 2.5 — the shop window. Added 2026-09-03.
 //
@@ -23,27 +24,11 @@ import listings from '../../data/editorial.json';
 //   confidence is the exact failure this page was built to stop being an example
 //   of. No count is better than a wrong one.
 
-const MANIFESTS = [
-  'https://api.24klabs.ai/.well-known/x402.json',
-  'https://time.24klabs.ai/.well-known/x402.json',
-];
-
-async function countResources(url: string): Promise<number | null> {
-  try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
-    if (!res.ok) return null;
-    const json = await res.json();
-    return Array.isArray(json?.resources) ? json.resources.length : null;
-  } catch {
-    return null;
-  }
-}
-
-const counts = await Promise.all(MANIFESTS.map(countResources));
-const countedAll = counts.every((c) => c !== null);
-const liveEndpoints = countedAll ? counts.reduce((a, c) => a + (c ?? 0), 0) : null;
-const apiCount = counts[0];
-const timeCount = counts[1];
+// Moved to src/lib/shelf.js on 2026-09-04. It lived here, so /about typed its own
+// 147 rather than importing this -- and a typed count is the thing that went stale
+// in the first place. One counter, imported, or it happens again.
+const { total: liveEndpoints, perHost } = await countShelf();
+const [apiCount, timeCount] = perHost;
 
 const directoryCount = listings.length;
 // `section` is the shelf (13 of them). `category` is a finer sub-tag and there are 76
