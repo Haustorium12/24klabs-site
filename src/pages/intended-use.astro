@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Intended Use -- 24K Labs" description="What 24K Labs' services are designed for, what they must not be used for, and their known limitations.">
+
+  <section class="page-header">
+    <div class="page-header__glow"></div>
+    <div class="container">
+      <span class="page-header__badge">Legal</span>
+      <h1 class="page-header__title">Intended Use</h1>
+      <p class="page-header__desc">
+        What these services are for, what they are not for, and where they fall short.
+        Forty seconds to read. Worth it before you wire us into anything.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose reveal">
+
+        <p>
+          <strong>Effective date:</strong> September 4, 2026.
+          This statement forms part of our <a href="/terms">Terms of Service</a>.
+        </p>
+
+        <h2>What These Services Are For</h2>
+        <p>
+          Automated analysis and utility work on material you supply: source code, documents,
+          images, web pages, transcripts, and temporal queries. Explaining, debugging, reviewing,
+          auditing, extracting, summarising, converting and computing. That is what these services
+          were designed for and what they have been tested against.
+        </p>
+
+        <h2>What They Are Not For</h2>
+        <p>
+          These services must not be used to make, or materially inform, decisions about people.
+          The following are explicitly out of scope:
+        </p>
+        <ul>
+          <li>Employment, recruitment, or worker management</li>
+          <li>Credit scoring or assessment of creditworthiness</li>
+          <li>Access to education or vocational training</li>
+          <li>Medical, clinical, or healthcare decisions</li>
+          <li>Insurance pricing or eligibility</li>
+          <li>Law enforcement, migration, asylum, or border control</li>
+          <li>Biometric identification, categorisation, or emotion inference</li>
+          <li>Assessing a person's eligibility for essential public or private services</li>
+        </ul>
+        <p>
+          Our image analysis is for objects, text, charts and scene content.
+          <strong>It is not for identifying, categorising, or inferring anything about people</strong>,
+          and must not be used that way.
+        </p>
+        <p>
+          We have not built, tested, or validated for any of these. If your use case is on that
+          list, these are the wrong tools, and we would rather tell you now than take the payment.
+        </p>
+
+        <h2>Known Limitations</h2>
+        <p>
+          Output quality varies by model tier and by how much context you send. The analysis sees
+          only what is in your request -- it has no knowledge of your wider codebase, your runtime
+          environment, your dependencies, or your business rules unless you include them.
+        </p>
+        <p>
+          It can be <strong>confidently wrong</strong>. A plausible, well-written answer is not the
+          same as a correct one, and the system cannot reliably tell you which one you just got.
+          Every result is advisory and needs a human read before it is acted on.
+        </p>
+
+        <h2>Who The User Is</h2>
+        <p>
+          Developers, engineers, and automated agents acting on their behalf. Not consumers,
+          and not people being evaluated by the output.
+        </p>
+
+        <h2>Questions</h2>
+        <p>
+          Anything about this statement, including inquiries under the EU AI Act, goes to
+          <a href="mailto:sean@24klabs.ai">sean@24klabs.ai</a>.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
