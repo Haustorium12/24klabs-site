@@ -6779,6 +6779,7 @@
     "category": "Data & Research",
     "desc": "Structured JSON extraction from invoices, receipts, contracts, resumes, or raw text/HTML via a caller-supplied JSON Schema. Line items and totals are checked against each other; a document that still fails after one automatic retry returns 422 and settlement is skipped, not just flagged in the body. $0.05–$0.08 USDC on Base. MCP client on npm: `doc-extract-api-mcp` (every call still pays the live API, no free tier). ([GitHub](https://github.com/thestarboy9696/doc-extract-api)) ([MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.thestarboy9696/doc-extract-api))",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-08-30"
   }
 ]
