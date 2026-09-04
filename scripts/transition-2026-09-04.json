@@ -1,0 +1,20 @@
+{
+  "note": "Transition applied 2026-09-04 — one rebind from gold-402 #180, a host move onto the operator's own domain. Carries the 2026-08-28 rebind forward unchanged; it was already written into editorial.json that day and now no-ops, but it is kept so the applied set is never split across files.",
+  "drop": [],
+  "rebind": [
+    {
+      "from_url": "https://m0.aiverall.com/v1/verify-email",
+      "from_section": "apis",
+      "to_url": "https://m0.aiverall.com/v1/extract",
+      "to_section": "apis",
+      "reason": "gold-402 PR #148 (cavany-tech): operator repointed the entry from Email Verification to URL Extraction as the primary resource. Probed 2026-08-28 before rebinding — POST /v1/extract returns 402 with a base64 payment-required header carrying a valid x402 v2 challenge ($0.002 USDC, eip155:8453). Same operator, same service line, first_listed carried. Applied 2026-08-28; carried forward here as a no-op."
+    },
+    {
+      "from_url": "https://x402-wallet-readiness-service.vercel.app/api/x402/preflight/audit?resource_url=https%3A%2F%2Fx402-wallet-readiness-service.vercel.app%2Fapi%2Fx402%2Fdev%2Frepo-snapshot%3Frepo%3Dchico10117%2Fbasepay-readiness-service&method=GET&expected_network=eip155%3A8453&max_price_usd=1",
+      "from_section": "security",
+      "to_url": "https://x402.chikocorp.com/api/x402/preflight/audit?resource_url=https%3A%2F%2Fx402.chikocorp.com%2Fapi%2Fx402%2Fdev%2Frepo-snapshot%3Frepo%3Dchico10117%2Fbasepay-readiness-service&method=GET&expected_network=eip155%3A8453&max_price_usd=1",
+      "to_section": "security",
+      "reason": "gold-402 PR #180 (chico10117): operator moved x402 Preflight off the Vercel preview host onto the domain they own. Same service, same method, same request shape, same $0.05 USDC price on Base, description unchanged. Probed 2026-09-04T22:01Z before merging — the exact new URL returns HTTP 402. Host move only, so first_listed is carried from the original listing."
+    }
+  ]
+}
