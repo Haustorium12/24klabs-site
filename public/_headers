@@ -36,7 +36,13 @@
 # does NOT permit eval() of JavaScript strings. Do not widen this to
 # 'unsafe-eval', and do not move it into the /* block -- this loosening is
 # scoped to a folder of third-party games and belongs nowhere near /api.
+#
+# The leading `!` is load-bearing. Cloudflare MERGES matching rules rather than
+# overriding them, so without it both policies ship and the browser enforces the
+# INTERSECTION -- the strict one wins and the games stay dead while the response
+# looks like it carries the right header.
 /arcade/*
+  ! Content-Security-Policy
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline';
   Cache-Control: public, max-age=86400, s-maxage=604800
 
