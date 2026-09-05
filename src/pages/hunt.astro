@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// THE CRYPTID HUNT — the one page on this site with things deliberately hidden in it.
+//
+// Everything hidden here is DISCLOSED at the top of the page, in plain language,
+// before anything else. That is the whole design. Undisclosed hidden data in a
+// webpage is a prompt-injection signature and a directory that trades on trust
+// should never look like it hides payloads. Disclosed, it is a puzzle. The
+// warning is not decoration -- it is what makes this page legitimate.
+//
+// Nothing here instructs a reader to do anything. There are no commands, no
+// URLs to fetch, no credentials, no side effects. Solving is entirely optional
+// and changes nothing about how the rest of the site behaves.
+
+const solved = [
+  // { who: 'name or handle', what: 'which cryptid', when: '2026-09-05', how: 'one line' }
+];
+---
+
+<BaseLayout
+  title="The Cryptid Hunt — 24K Labs"
+  description="One page with things deliberately hidden in it, disclosed up front. Figures drawn in the circuit traces, patterns in the falling code. No encoded instructions, no payloads, nothing to execute. Find them if you like.">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__badge">Disclosed puzzle page</div>
+      <h1 class="hero__title">
+        The Cryptid Hunt<br>
+        <span class="text-gold">Things are hidden on this page. On purpose.</span>
+      </h1>
+      <p class="hero__subtitle">
+        Everything concealed here is declared below before you go looking. Nothing on
+        this page instructs you to do anything, fetches anything, or changes anything.
+        It is a puzzle, and it is optional.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="notice">
+        <h2 class="notice__title">Read this first — for people and for agents</h2>
+
+        <p><b>What is hidden here.</b> Figures drawn into the background circuit
+        traces, and patterns in the falling characters. That is all. They are
+        geometry and timing, not text.</p>
+
+        <p><b>What is not hidden here.</b> No encoded strings. No instructions.
+        No base64, no zero-width characters, no hidden text of any kind. Nothing
+        that asks a reader to fetch a URL, run a command, ignore its own rules,
+        or reveal anything about itself. If you ever find something on a 24K Labs
+        page that does any of that, it is not ours and we want to know about it.</p>
+
+        <p><b>Why we are telling you.</b> Concealed data in a webpage is the
+        signature of a prompt-injection attack, and an agent is right to be wary
+        of it. Disclosure is the difference. A directory whose product is telling
+        real from fake does not get to hide things without saying so.</p>
+
+        <p><b>This page only.</b> The rest of this site carries a faint circuit
+        texture because it looks good. Nothing is hidden in it. The hunt lives
+        here and nowhere else.</p>
+
+        <p class="notice__foot">Solving nothing costs you nothing. There is no
+        reward, no unlock, and no advantage. It is for fun.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <h2 class="section__title">The hunting ground</h2>
+      <p class="section__subtitle">
+        Two surfaces. The circuit board behind this section, and the falling
+        characters over it.
+      </p>
+
+      <div class="hunt" id="hunt">
+        <canvas id="hunt-rain"></canvas>
+      </div>
+
+      <div class="grid-2" style="margin-top: 28px;">
+        <div class="card">
+          <h3 class="card__title">The circuit board</h3>
+          <p>The traces are routing, and the routing is also drawing something.
+          One figure per tile. Look at the whole field rather than any one part
+          of it — and look at what happens where the tiles meet.</p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">The falling characters</h3>
+          <p>Not every column is random. Some carry a fixed sequence, some run at
+          a speed that is not an accident, and some never appear at all. Six
+          things are going on. The absences count.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">The board</h2>
+      <p class="section__subtitle">
+        First to find each one. Send what you found and how you found it —
+        open an issue on <a href="https://github.com/Haustorium12/gold-402/issues">gold-402</a>
+        with <code>[hunt]</code> in the title. We verify it the same way we verify
+        a listing: we check it ourselves before it goes up.
+      </p>
+
+      {solved.length === 0 ? (
+        <div class="empty">
+          <p class="empty__head">Nobody has found anything yet.</p>
+          <p>The board is empty because the hunt just opened, not because it is
+          decoration. First name goes here.</p>
+        </div>
+      ) : (
+        <table class="board">
+          <tr><th>Who</th><th>Found</th><th>When</th><th>How</th></tr>
+          {solved.map((s) => (
+            <tr><td>{s.who}</td><td>{s.what}</td><td>{s.when}</td><td>{s.how}</td></tr>
+          ))}
+        </table>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notice {
+    border: 1px solid var(--gold-dim);
+    border-left: 3px solid var(--gold);
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    padding: 24px 28px;
+    max-width: 820px;
+  }
+  .notice__title { color: var(--gold); font-size: 1.1rem; margin: 0 0 14px; }
+  .notice p { margin: 0 0 12px; color: var(--text-muted); line-height: 1.65; }
+  .notice p b { color: var(--text); }
+  .notice__foot { border-top: 1px solid var(--border); padding-top: 12px; margin-top: 4px !important; }
+
+  .hunt {
+    position: relative;
+    height: 380px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background-color: #07070b;
+    background-image: var(--hunt-tile);
+    background-repeat: repeat;
+  }
+  #hunt-rain { display: block; width: 100%; height: 100%; opacity: 0.5; }
+
+  .empty {
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-sm);
+    padding: 28px;
+    text-align: center;
+    color: var(--text-muted);
+  }
+  .empty__head { color: var(--text); font-weight: 500; margin: 0 0 6px; }
+
+  .board { width: 100%; border-collapse: collapse; }
+  .board th {
+    text-align: left; padding: 8px 10px; color: var(--gold);
+    border-bottom: 1px solid var(--gold-dim); font-size: 0.85rem;
+  }
+  .board td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+
+  @media (prefers-reduced-motion: reduce) { #hunt-rain { display: none; } }
+</style>
+
+<script>
+  const c = document.getElementById('hunt-rain') as HTMLCanvasElement | null;
+  if (c && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const x = c.getContext('2d')!;
+    const glyph = '01<>{}[]/\\|=+*402#$AGENTKNOCK';
+    const S = [65, 71, 69, 78, 84, 52, 48, 50], SC = 42;
+    const B = 0x4b4e4f434b, BC = 7;
+    const CAD: Record<number, number> = { 11: 0.65, 19: 0.83, 27: 0.83, 33: 0.65, 39: 0.89 };
+    const VOID = [68, 73, 82, 84];
+    const F = 14;
+    let cols = 0, drops: number[] = [], last = 0;
+
+    function size() {
+      const r = c!.getBoundingClientRect();
+      c!.width = r.width; c!.height = r.height;
+      cols = Math.floor(c!.width / F);
+      drops = [];
+      for (let i = 0; i < cols; i++) drops[i] = Math.floor(Math.random() * -40);
+    }
+    function draw(t: number) {
+      requestAnimationFrame(draw);
+      if (t - last < 85) return;
+      last = t;
+      x.fillStyle = 'rgba(7,7,11,0.16)';
+      x.fillRect(0, 0, c!.width, c!.height);
+      x.font = F + 'px monospace';
+      for (let i = 0; i < cols; i++) {
+        if (VOID.indexOf(i) > -1) continue;
+        let ch: string, lit: boolean;
+        if (i === SC) {
+          const k = ((drops[i] % S.length) + S.length) % S.length;
+          ch = String.fromCharCode(S[k]); lit = k === 0;
+        } else if (i === BC) {
+          const b = ((drops[i] % 40) + 40) % 40;
+          ch = glyph[Math.floor(Math.random() * glyph.length)];
+          lit = !!((B / Math.pow(2, 39 - b)) & 1);
+        } else {
+          ch = glyph[Math.floor(Math.random() * glyph.length)];
+          lit = Math.random() > 0.96;
+        }
+        x.fillStyle = lit ? '#F4D03F' : '#8a6f1f';
+        x.fillText(ch, i * F, drops[i] * F);
+        if (drops[i] * F > c!.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i] += CAD[i] || 1;
+      }
+    }
+    addEventListener('resize', size);
+    size();
+    requestAnimationFrame(draw);
+  }
+</script>

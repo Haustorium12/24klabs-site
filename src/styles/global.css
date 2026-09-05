@@ -31,6 +31,7 @@
   --mono:        'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
   --max-width:   1200px;
   --nav-height:  72px;
+  --hunt-tile:   url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><g fill='none' stroke='%239a7b1a' stroke-width='1.2' opacity='0.60'><path d='M80 38 L64 18 M80 38 L96 18'/><path d='M80 38 L80 122'/><path d='M80 52 L42 40 L28 66 L80 82'/><path d='M80 52 L118 40 L132 66 L80 82'/><path d='M80 84 L50 94 L58 116 L80 102'/><path d='M80 84 L110 94 L102 116 L80 102'/><path d='M80 122 L80 160'/><path d='M64 18 L64 0 M96 18 L96 0'/><path d='M0 66 L28 66 M132 66 L160 66'/><path d='M0 130 L58 130 L58 116 M160 130 L102 130 L102 116'/><path d='M0 24 L18 24 L18 8 L44 8'/><path d='M160 24 L142 24 L142 8 L116 8'/><path d='M0 96 L14 96 L14 148 L40 148'/><path d='M160 96 L146 96 L146 148 L120 148'/><path d='M22 40 L22 52 L8 52'/><path d='M138 40 L138 52 L152 52'/></g><g fill='%239a7b1a' opacity='0.70'><circle cx='28' cy='66' r='2.5'/><circle cx='132' cy='66' r='2.5'/><circle cx='58' cy='116' r='2'/><circle cx='102' cy='116' r='2'/><circle cx='64' cy='18' r='2'/><circle cx='96' cy='18' r='2'/><circle cx='18' cy='24' r='2'/><circle cx='142' cy='24' r='2'/><circle cx='14' cy='96' r='2'/><circle cx='146' cy='96' r='2'/></g><g fill='%23D4AF37' opacity='0.45'><circle cx='75' cy='18' r='2'/><circle cx='78' cy='44' r='2'/><circle cx='79' cy='70' r='2'/><circle cx='67' cy='96' r='2'/><circle cx='75' cy='122' r='2'/></g></svg>");
 }
 
 html {
