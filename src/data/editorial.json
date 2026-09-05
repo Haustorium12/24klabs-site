@@ -6781,5 +6781,16 @@
     "verified": false,
     "status": "live",
     "first_listed": "2026-08-30"
+  },
+  {
+    "name": "MIDAX402",
+    "url": "https://midax402.com",
+    "section": "security",
+    "section_label": "Security",
+    "type": "Security",
+    "category": "Endpoint Trust & Reputation",
+    "desc": "Signed EIP-712 conformance verdicts for x402 services, appended to a public registry. Paid board position available ($1–$100 ladder) as a separate column; no payment changes a verdict or the verification-date ordering.",
+    "verified": false,
+    "first_listed": "2026-09-05"
   }
 ]
