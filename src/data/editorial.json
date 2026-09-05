@@ -6803,6 +6803,7 @@
     "category": "Infrastructure",
     "desc": "Multi-tenant x402 paywall-as-a-service on Base mainnet via the Coinbase CDP facilitator. Self-serve signup, REST API to set price/network/payout wallet and forward to a real backend, live settlement views. Example: `GET https://paywall.wickedapi.com/wickedapi/weather` returns a live 402. ([OpenAPI](https://paywall-admin.wickedapi.com/openapi.json), [Cookbook](https://paywall.wickedapi.com/cookbook.html))",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-09-05"
   }
 ]
