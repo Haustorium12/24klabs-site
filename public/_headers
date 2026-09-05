@@ -25,6 +25,21 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
+# ── the arcade ────────────────────────────────────────────────────────────────
+# The puzzles are compiled C, shipped as WebAssembly. Instantiating WASM needs
+# 'wasm-unsafe-eval' -- WITHOUT it the games load, draw nothing, and the only
+# sign is a console line nobody reads. Found by loading the live page and
+# checking whether the canvas had pixels on it; every check that asked "is the
+# canvas there" passed while the games were dead.
+#
+# 'wasm-unsafe-eval' is the narrow directive: it permits compiling WASM and
+# does NOT permit eval() of JavaScript strings. Do not widen this to
+# 'unsafe-eval', and do not move it into the /* block -- this loosening is
+# scoped to a folder of third-party games and belongs nowhere near /api.
+/arcade/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline';
+  Cache-Control: public, max-age=86400, s-maxage=604800
+
 # ── never cached ──────────────────────────────────────────────────────────────
 # /api/v1/verify  — paid, $2.00, must revalidate payment on every single request
 # /api/probe      — a live knock; a cached liveness result is a false verdict
