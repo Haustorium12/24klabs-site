@@ -6815,6 +6815,18 @@
     "category": "Blog Posts & Articles",
     "desc": "Guide to x402 V2 payment headers, URL delivery, buyer-client requirements, and retry handling when settlement is uncertain.",
     "verified": false,
+    "status": "live",
+    "first_listed": "2026-09-05"
+  },
+  {
+    "name": "FractalAI x402 Proofs",
+    "url": "https://fractalai.net.co/.well-known/x402.json",
+    "section": "apis",
+    "section_label": "APIs & Services",
+    "type": "API / Service",
+    "category": "Security",
+    "desc": "Seven pay-per-call endpoints on Base (x402 v2, USDC via EIP-3009 gasless settlement) signing with ML-DSA-65/Dilithium-3 (NIST FIPS 204): message signing and verification, AI-decision attestation, and provenance/CBOM sealing, each response independently verifiable offline against the exact signed bytes returned; a companion `@x402/core` extension, [`@fractalai/x402-pqc-witness`](https://www.npmjs.com/package/@fractalai/x402-pqc-witness), adds the same post-quantum settlement attestation to any resource server.",
+    "verified": false,
     "first_listed": "2026-09-05"
   }
 ]
