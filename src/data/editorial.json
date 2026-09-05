@@ -6791,6 +6791,18 @@
     "category": "Endpoint Trust & Reputation",
     "desc": "Signed EIP-712 conformance verdicts for x402 services, appended to a public registry. Paid board position available ($1–$100 ladder) as a separate column; no payment changes a verdict or the verification-date ordering.",
     "verified": false,
+    "status": "live",
+    "first_listed": "2026-09-05"
+  },
+  {
+    "name": "WickedAPI x402 Paywall",
+    "url": "https://paywall.wickedapi.com",
+    "section": "ecosystem",
+    "section_label": "Ecosystem",
+    "type": "Ecosystem",
+    "category": "Infrastructure",
+    "desc": "Multi-tenant x402 paywall-as-a-service on Base mainnet via the Coinbase CDP facilitator. Self-serve signup, REST API to set price/network/payout wallet and forward to a real backend, live settlement views. Example: `GET https://paywall.wickedapi.com/wickedapi/weather` returns a live 402. ([OpenAPI](https://paywall-admin.wickedapi.com/openapi.json), [Cookbook](https://paywall.wickedapi.com/cookbook.html))",
+    "verified": false,
     "first_listed": "2026-09-05"
   }
 ]
