@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// THE ARCADE.
+//
+// Nothing here was written by us. Everything is open source, MIT licensed, and
+// self-hosted rather than embedded from someone else's server -- our CSP is
+// default-src 'self', and more to the point a third-party iframe is a
+// third-party dependency we cannot vouch for. These files are ours to serve
+// and nobody else's to change.
+//
+// Attribution is a licence condition, not a courtesy. Simon Tatham's terms:
+// do anything you like except pretend you wrote it. So we don't.
+
+const tatham = [
+  { s: 'solo',     n: 'Solo',        d: 'Sudoku. Also jigsaw and killer variants.' },
+  { s: 'mines',    n: 'Mines',       d: 'Minesweeper, with guaranteed-solvable grids.' },
+  { s: 'pattern',  n: 'Pattern',     d: 'Nonogram. Fill the grid from the row and column counts.' },
+  { s: 'keen',     n: 'Keen',        d: 'KenKen. Arithmetic Latin squares.' },
+  { s: 'towers',   n: 'Towers',      d: 'Skyscrapers. Deduce heights from what each viewpoint sees.' },
+  { s: 'unequal',  n: 'Unequal',     d: 'Futoshiki. Latin square with greater-than clues.' },
+  { s: 'singles',  n: 'Singles',     d: 'Hitori. Black out duplicates without splitting the grid.' },
+  { s: 'loopy',    n: 'Loopy',       d: 'Slitherlink. One closed loop, obeying the counts.' },
+  { s: 'bridges',  n: 'Bridges',     d: 'Hashi. Connect the islands, no crossings.' },
+  { s: 'lightup',  n: 'Light Up',    d: 'Place bulbs so every square is lit, none facing another.' },
+  { s: 'net',      n: 'Net',         d: 'Rotate the tiles until the whole network connects.' },
+  { s: 'galaxies', n: 'Galaxies',    d: 'Cut the grid into rotationally symmetric regions.' },
+  { s: 'magnets',  n: 'Magnets',     d: 'Place magnets to satisfy the row and column sums.' },
+  { s: 'filling',  n: 'Filling',     d: 'Number every square by the size of its own region.' },
+  { s: 'tents',    n: 'Tents',       d: 'One tent per tree, never touching another tent.' },
+  { s: 'signpost', n: 'Signpost',    d: 'Follow the arrows and number the whole chain.' },
+  { s: 'flip',     n: 'Flip',        d: 'Lights Out. Turn the whole board dark.' },
+  { s: 'untangle', n: 'Untangle',    d: 'Drag the points until no two edges cross.' },
+  { s: 'fifteen',  n: 'Fifteen',     d: 'The sliding tile puzzle.' },
+  { s: 'blackbox', n: 'Black Box',   d: 'Find the hidden balls by firing beams and reading the exits.' },
+  { s: 'pearl',    n: 'Pearl',       d: 'Masyu. One loop, turning correctly at every pearl.' },
+  { s: 'range',    n: 'Range',       d: 'Black out squares so every number sees exactly that many.' },
+  { s: 'slant',    n: 'Slant',       d: 'Draw diagonals without making a loop.' },
+  { s: 'dominosa', n: 'Dominosa',    d: 'Recover the domino layout from the bare numbers.' },
+  { s: 'map',      n: 'Map',         d: 'Four-colour the regions.' },
+  { s: 'rect',     n: 'Rectangles',  d: 'Cut the grid into rectangles matching their numbers.' },
+  { s: 'guess',    n: 'Guess',       d: 'Mastermind. Deduce the hidden colour sequence.' },
+  { s: 'mosaic',   n: 'Mosaic',      d: 'Shade squares to match every neighbour count.' },
+  { s: 'undead',   n: 'Undead',      d: 'Place ghosts, vampires and zombies by what the mirrors show.' },
+  { s: 'unruly',   n: 'Unruly',      d: 'Two colours, never three in a row, balanced everywhere.' },
+  { s: 'tracks',   n: 'Tracks',      d: 'Lay the railway from A to B, obeying the counts.' },
+  { s: 'palisade', n: 'Palisade',    d: 'Divide the grid into equal regions.' },
+  { s: 'inertia',  n: 'Inertia',     d: 'Slide until something stops you. Collect the gems, dodge the mines.' },
+  { s: 'flood',    n: 'Flood',       d: 'Flood the board to one colour in as few moves as you can.' },
+  { s: 'samegame', n: 'Same Game',   d: 'Clear groups of matching tiles for points.' },
+  { s: 'pegs',     n: 'Pegs',        d: 'Peg solitaire. Finish with one.' },
+  { s: 'sixteen',  n: 'Sixteen',     d: 'Sliding puzzle where whole rows and columns cycle.' },
+  { s: 'netslide', n: 'Netslide',    d: 'Net, but you slide rows instead of rotating tiles.' },
+  { s: 'twiddle',  n: 'Twiddle',     d: 'Rotate blocks of tiles back into order.' },
+  { s: 'cube',     n: 'Cube',        d: 'Roll the solid over the grid to pick up every marker.' },
+  { s: 'group',    n: 'Group',       d: 'A Latin square built on a group\u2019s Cayley table. Esoteric and hard.' },
+];
+---
+
+<BaseLayout
+  title="The Arcade — 24K Labs"
+  description="Forty-two open source puzzle games, self-hosted and free. Sudoku, minesweeper, nonograms, 2048 and thirty-eight more. No accounts, no ads, no tracking, nothing to install.">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__badge">Free · no signup</div>
+      <h1 class="hero__title">
+        The Arcade<br>
+        <span class="text-gold">Forty-two puzzles. Nothing to install.</span>
+      </h1>
+      <p class="hero__subtitle">
+        We did not write any of these. They are open source, they are excellent,
+        and we host them here so they load fast and stay put. No accounts, no ads,
+        no tracking, no scores sent anywhere.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Simon Tatham's Portable Puzzle Collection</h2>
+      <p class="section__subtitle">
+        Forty-one puzzles, written over twenty years and given away under the MIT
+        licence. If you only play one, play <a href="/arcade/sgt/solo.html">Solo</a> —
+        it generates sudoku that are always solvable by logic, never by guessing.
+      </p>
+
+      <div class="games">
+        {tatham.map((g) => (
+          <a class="game" href={`/arcade/sgt/${g.s}.html`}>
+            <span class="game__name">{g.n}</span>
+            <span class="game__desc">{g.d}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <h2 class="section__title">Also here</h2>
+      <div class="games">
+        <a class="game" href="/arcade/2048/index.html">
+          <span class="game__name">2048</span>
+          <span class="game__desc">Slide the tiles, add the matches, reach 2048. By Gabriele Cirulli, MIT.</span>
+        </a>
+        <a class="game" href="/hunt/">
+          <span class="game__name">The Cryptid Hunt</span>
+          <span class="game__desc">One page with things deliberately hidden in it, disclosed up front. Ours.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="credit">
+        <h2 class="credit__title">Who actually made these</h2>
+        <p><b>The Portable Puzzle Collection</b> is copyright 2004–2021 Simon Tatham,
+        with portions by Richard Boulton, James Harvey, Mike Pinna, Jonas Kölker,
+        Dariusz Olszewski, Michael Schierl, Lambros Lambrou, Bernd Schmidt, Steffen
+        Bauer, Lennard Sprong, Rogier Goossens, Michael Quevillon, Asher Gordon and
+        Didi Kohen. Distributed under the MIT licence. His terms, in his words: do
+        pretty much anything you like with it, except pretend you wrote it yourself.
+        We didn't. <a href="https://www.chiark.greenend.org.uk/~sgtatham/puzzles/">The
+        collection's home is here</a> and it is worth your time.</p>
+
+        <p><b>2048</b> is copyright 2014 Gabriele Cirulli, MIT licensed.
+        <a href="https://github.com/gabrielecirulli/2048">Source</a>.</p>
+
+        <p class="credit__foot">These are served from our own domain rather than
+        embedded from anyone else's, so they keep working whatever happens upstream,
+        and nothing you do here is reported to a third party. The rules of each game
+        are on its own page.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .games {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .game {
+    display: block;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .game:hover { background: var(--bg-card-hover); border-color: var(--gold-dim); }
+  .game__name { display: block; color: var(--gold); font-weight: 600; margin-bottom: 3px; }
+  .game__desc { display: block; color: var(--text-muted); font-size: 0.85rem; line-height: 1.45; }
+
+  .credit {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold-dim);
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    padding: 22px 26px;
+    max-width: 820px;
+  }
+  .credit__title { color: var(--gold); font-size: 1.05rem; margin: 0 0 12px; }
+  .credit p { color: var(--text-muted); line-height: 1.65; margin: 0 0 12px; }
+  .credit p b { color: var(--text); }
+  .credit__foot { border-top: 1px solid var(--border); padding-top: 12px; margin-bottom: 0 !important; }
+</style>
