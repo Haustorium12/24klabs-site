@@ -32,8 +32,21 @@ const cardUrl = `${origin}/card.svg?resource=${encodeURIComponent(resource)}`;
 const listingUrl = `${origin}/listing/${entry.slug}`;
 
 const initial = (entry.name || '?').trim().charAt(0).toUpperCase() || '#';
+
+// WHICH ACCEPTANCE RULE THIS ENTRY WAS ADMITTED UNDER (2026-09-05).
+// The shelf has always had two — CONTRIBUTING.md's "service" rule (must answer
+// HTTP 402) and its "resource" rule (a library, guide or community channel with
+// no payable endpoint, which only has to be publicly reachable). The submission
+// gate applies both. This page did not: it told every visitor "the endpoint
+// answered when we knocked" on all 522 listings, including 122 that have no
+// endpoint and were never asked for a 402. Same list as the gate's, deliberately.
+const RESOURCE_SHELVES = new Set(['learning', 'community', 'sdks', 'frameworks']);
+const isResource = RESOURCE_SHELVES.has(entry.section);
+const hasReceipt = !!entry.last_checked;
+const kindWord = isResource ? 'x402 resource' : 'x402 service';
+
 const pageTitle = `${entry.name} — Gold402 Verified | 24K Labs`;
-const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified x402 service.`;
+const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified ${kindWord}.`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDesc}>
@@ -68,10 +81,14 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified x402 service
           <div class="snap-verdict">
             <p class="snap-verdict__line">
               <strong class="text-gold">Gold402 Verified.</strong>
-              Hand-reviewed and on the curated list — curation is the bar. The stamp means a
-              human read this entry and the endpoint answered when we knocked. It is not a
-              delivery test: we have not paid this service and graded what came back, so treat
-              it as "reachable and speaks the protocol," never as "this is worth the money."
+              Hand-reviewed and on the curated list — curation is the bar.
+              {isResource
+                ? ' This entry sits on a shelf for libraries, guides and community resources, which have no payable endpoint. The stamp means a human read it and it was publicly reachable when we checked — we did not ask it for an HTTP 402, and it makes no claim to speak the protocol.'
+                : (hasReceipt
+                  ? ' The stamp means a human read this entry and the endpoint answered an x402 request when we knocked.'
+                  : ' The stamp means a human read this entry. We do not hold a dated receipt for a knock on it, and we will not backfill a date we cannot show — see the stamp below.')}
+              It is not a delivery test: we have not paid for this and graded what came back, so
+              treat it as "we checked what is stated above," never as "this is worth the money."
             </p>
             {featuredBlurb && (
               <p class="snap-verdict__line">
@@ -105,9 +122,9 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified x402 service
             </div>
           ) : (
             <p class="snap-raters__none">
-              No independent rater grade published for this endpoint yet. Our verdict is the
+              No independent rater grade published for this entry yet. Our verdict is the
               Gold402 Verified stamp above — a curation and reachability verdict, not a
-              measurement of what the service returns after payment.
+              measurement of what it returns after payment.
             </p>
           )}
         </section>

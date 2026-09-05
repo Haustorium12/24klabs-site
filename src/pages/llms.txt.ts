@@ -8,6 +8,18 @@ export async function GET() {
     shelves[e.section_label] = (shelves[e.section_label] || 0) + 1;
   }
   const total = (listings as any[]).length;
+
+  // TWO ACCEPTANCE RULES, COUNTED RATHER THAN ASSERTED (2026-09-05).
+  // This file used to open "every entry answered a live x402 probe at review".
+  // It was false for 122 entries on shelves that CONTRIBUTING.md and the
+  // submission gate both exempt from the 402 requirement, and for 38 with no
+  // dated receipt -- which /.well-known/touchstone was publishing as unproven
+  // on the same site at the same moment. Derived here so it cannot go stale.
+  const RESOURCE_SHELVES = new Set(['learning', 'community', 'sdks', 'frameworks']);
+  const resourceCount = (listings as any[]).filter((e) => RESOURCE_SHELVES.has(e.section)).length;
+  const serviceCount = total - resourceCount;
+  const withReceipt = (listings as any[]).filter((e) => !!e.last_checked).length;
+  const unproven = total - withReceipt;
   const shelfLines = Object.entries(shelves)
     .sort((a, b) => b[1] - a[1])
     .map(([k, v]) => `- ${k}: ${v}`)
@@ -15,7 +27,7 @@ export async function GET() {
   const today = new Date().toISOString().slice(0, 10);
 
   const body = `# 24K Labs — gold-402
-> The curated x402 directory and editorial verdict layer. ${total} hand-checked services — every entry answered a live x402 probe at review. No filler, no dead links, no pay-to-list.
+> The curated x402 directory and editorial verdict layer. ${total} hand-checked entries, admitted under two rules: ${serviceCount} services, admitted only on a live x402 probe that answered at review, and ${resourceCount} libraries, guides and community resources, which have no payable endpoint and were checked for public reachability instead. ${withReceipt} carry a dated receipt; ${unproven} do not and are published as unproven at /.well-known/touchstone rather than backfilled. No filler, no dead links, no pay-to-list.
 
 Last updated: ${today} (generated at build from the directory database).
 License: directory data is CC BY 4.0 — attribution required: cite 24klabs.ai (gold-402).
@@ -43,7 +55,7 @@ ${shelfLines}
 
 ## Get listed
 - Intake is a GitHub pull request: https://github.com/Haustorium12/gold-402 (read CONTRIBUTING.md first)
-- Listed = verified: a maintainer confirmed your endpoint answered an x402 request correctly at review.
+- Listed = verified: for a service, a maintainer confirmed your endpoint answered an x402 request correctly at review. For a library, framework, guide or community resource, that it was publicly reachable — those shelves are not asked for a 402, by CONTRIBUTING.md and by the submission gate alike.
 `;
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 }
