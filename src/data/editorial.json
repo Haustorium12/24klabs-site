@@ -6805,5 +6805,16 @@
     "verified": false,
     "status": "live",
     "first_listed": "2026-09-05"
+  },
+  {
+    "name": "How x402 paid links work (Payfirst)",
+    "url": "https://www.payfirst.app/guides/x402-paid-links",
+    "section": "learning",
+    "section_label": "Learning Resources",
+    "type": "Learning Resource",
+    "category": "Blog Posts & Articles",
+    "desc": "Guide to x402 V2 payment headers, URL delivery, buyer-client requirements, and retry handling when settlement is uncertain.",
+    "verified": false,
+    "first_listed": "2026-09-05"
   }
 ]
