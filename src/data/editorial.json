@@ -41,7 +41,7 @@
   },
   {
     "name": "AskClaude",
-    "url": "https://askclaude.shop",
+    "url": "https://askclaude.shop/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -54,7 +54,7 @@
   },
   {
     "name": "x402engine",
-    "url": "https://x402engine.app",
+    "url": "https://x402engine.app/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -67,7 +67,7 @@
   },
   {
     "name": "x402 AI API — zeroreader",
-    "url": "https://api.zeroreader.com",
+    "url": "https://api.zeroreader.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -185,7 +185,7 @@
   },
   {
     "name": "Content Intelligence API",
-    "url": "https://content.hugen.tokyo",
+    "url": "https://content.hugen.tokyo/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -214,7 +214,7 @@
   },
   {
     "name": "Scout MCP",
-    "url": "https://scout.hugen.tokyo",
+    "url": "https://scout.hugen.tokyo/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -241,7 +241,7 @@
   },
   {
     "name": "Fly Labs Agentic Market",
-    "url": "https://flylabs.fun/agents",
+    "url": "https://flylabs.fun/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -268,7 +268,7 @@
   },
   {
     "name": "AgentData API",
-    "url": "https://agentdata-api.com",
+    "url": "https://agentdata-api.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -294,7 +294,7 @@
   },
   {
     "name": "Tick Aggregator API",
-    "url": "https://tick.hugen.tokyo",
+    "url": "https://tick.hugen.tokyo/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -308,7 +308,7 @@
   },
   {
     "name": "DeFi Intelligence API",
-    "url": "https://defi.hugen.tokyo",
+    "url": "https://defi.hugen.tokyo/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -351,7 +351,7 @@
   },
   {
     "name": "MoltGuard",
-    "url": "https://api.moltrust.ch/guard/",
+    "url": "https://api.moltrust.ch/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -391,7 +391,7 @@
   },
   {
     "name": "SolSignal API",
-    "url": "https://solsignal-api.onrender.com",
+    "url": "https://solsignal-api.onrender.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -418,7 +418,7 @@
   },
   {
     "name": "SignalFuse",
-    "url": "https://api.signalfuse.co",
+    "url": "https://api.signalfuse.co/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -499,7 +499,7 @@
   },
   {
     "name": "Polymarket Liquidity API",
-    "url": "https://polymarket-liquidity-api.tatsu77.workers.dev",
+    "url": "https://polymarket-liquidity-api.tatsu77.workers.dev/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -539,7 +539,7 @@
   },
   {
     "name": "Mercury402",
-    "url": "https://mercury402.uk",
+    "url": "https://mercury402.uk/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -552,7 +552,7 @@
   },
   {
     "name": "Gotobi Calendar API",
-    "url": "https://gotobi.hugen.tokyo",
+    "url": "https://gotobi.hugen.tokyo/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -567,7 +567,7 @@
   },
   {
     "name": "PreReason",
-    "url": "https://www.prereason.com",
+    "url": "https://www.prereason.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -580,7 +580,7 @@
   },
   {
     "name": "KR Crypto Intelligence",
-    "url": "https://api.printmoneylab.com",
+    "url": "https://api.printmoneylab.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -607,7 +607,7 @@
   },
   {
     "name": "Visual API",
-    "url": "https://visual.hugen.tokyo",
+    "url": "https://visual.hugen.tokyo/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -649,7 +649,7 @@
   },
   {
     "name": "Domain Intelligence API",
-    "url": "https://domain.hugen.tokyo",
+    "url": "https://domain.hugen.tokyo/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -664,7 +664,7 @@
   },
   {
     "name": "Weather API",
-    "url": "https://weather.hugen.tokyo",
+    "url": "https://weather.hugen.tokyo/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -705,7 +705,7 @@
   },
   {
     "name": "Mailcheck API",
-    "url": "https://mailcheck.hugen.tokyo",
+    "url": "https://mailcheck.hugen.tokyo/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -719,7 +719,7 @@
   },
   {
     "name": "ShieldAPI",
-    "url": "https://shield.vainplex.dev",
+    "url": "https://shield.vainplex.dev/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -732,7 +732,7 @@
   },
   {
     "name": "AEO Scanner (Convrgent)",
-    "url": "https://scan.convrgent.ai",
+    "url": "https://scan.convrgent.ai/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -773,7 +773,7 @@
   },
   {
     "name": "Intel API",
-    "url": "https://intel.hugen.tokyo",
+    "url": "https://intel.hugen.tokyo/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -815,7 +815,7 @@
   },
   {
     "name": "Arch Tools",
-    "url": "https://archtools.dev",
+    "url": "https://archtools.dev/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -855,7 +855,7 @@
   },
   {
     "name": "Know Your Human (Convrgent)",
-    "url": "https://convrgent.ai/kyh",
+    "url": "https://convrgent.ai/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -895,7 +895,7 @@
   },
   {
     "name": "AgentPay",
-    "url": "https://www.x402-agent-pay.com",
+    "url": "https://www.x402-agent-pay.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -1344,7 +1344,7 @@
   },
   {
     "name": "Revettr",
-    "url": "https://revettr.com",
+    "url": "https://revettr.com/.well-known/x402.json",
     "section": "ecosystem",
     "section_label": "Ecosystem",
     "type": "Ecosystem",
@@ -1357,7 +1357,7 @@
   },
   {
     "name": "SwarmX",
-    "url": "https://swarmx.io",
+    "url": "https://swarmx.io/.well-known/x402",
     "section": "ecosystem",
     "section_label": "Ecosystem",
     "type": "Ecosystem",
@@ -1461,7 +1461,7 @@
   },
   {
     "name": "Satring",
-    "url": "https://satring.com",
+    "url": "https://satring.com/.well-known/x402",
     "section": "ecosystem",
     "section_label": "Ecosystem",
     "type": "Ecosystem",
@@ -2489,7 +2489,7 @@
   },
   {
     "name": "blockrun-mcp",
-    "url": "https://blockrun.ai",
+    "url": "https://blockrun.ai/.well-known/x402",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
@@ -2776,7 +2776,7 @@
   },
   {
     "name": "24K Labs API",
-    "url": "https://api.24klabs.ai",
+    "url": "https://api.24klabs.ai/.well-known/x402.json",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
@@ -2842,7 +2842,7 @@
   },
   {
     "name": "MoltGuard",
-    "url": "https://api.moltrust.ch/guard/",
+    "url": "https://api.moltrust.ch/.well-known/x402.json",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
@@ -2998,7 +2998,7 @@
   },
   {
     "name": "Scout MCP",
-    "url": "https://scout.hugen.tokyo",
+    "url": "https://scout.hugen.tokyo/.well-known/x402",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
@@ -3184,7 +3184,7 @@
   },
   {
     "name": "Obol GitHub Actions CI/CD",
-    "url": "https://api.obol.sh",
+    "url": "https://api.obol.sh/.well-known/x402",
     "section": "tools",
     "section_label": "Tools & Utilities",
     "type": "Tool / Utility",
@@ -3250,7 +3250,7 @@
   },
   {
     "name": "Valoria",
-    "url": "https://x402.valoria.net",
+    "url": "https://x402.valoria.net/.well-known/x402",
     "section": "tools",
     "section_label": "Tools & Utilities",
     "type": "Tool / Utility",
@@ -3489,7 +3489,7 @@
   },
   {
     "name": "AgentIndex",
-    "url": "https://agentndx-production.up.railway.app",
+    "url": "https://agentndx-production.up.railway.app/.well-known/x402",
     "section": "tools",
     "section_label": "Tools & Utilities",
     "type": "Tool / Utility",
@@ -3516,7 +3516,7 @@
   },
   {
     "name": "BlockRun",
-    "url": "https://blockrun.ai",
+    "url": "https://blockrun.ai/.well-known/x402",
     "section": "tools",
     "section_label": "Tools & Utilities",
     "type": "Tool / Utility",
@@ -4129,7 +4129,7 @@
   },
   {
     "name": "ShieldAPI",
-    "url": "https://shield.vainplex.dev",
+    "url": "https://shield.vainplex.dev/.well-known/x402.json",
     "section": "security",
     "section_label": "Security",
     "type": "Security",
@@ -4247,7 +4247,7 @@
   },
   {
     "name": "Revettr",
-    "url": "https://revettr.com",
+    "url": "https://revettr.com/.well-known/x402.json",
     "section": "security",
     "section_label": "Security",
     "type": "Security",
@@ -4260,7 +4260,7 @@
   },
   {
     "name": "MoltGuard",
-    "url": "https://api.moltrust.ch/guard/",
+    "url": "https://api.moltrust.ch/.well-known/x402.json",
     "section": "security",
     "section_label": "Security",
     "type": "Security",
@@ -4496,7 +4496,7 @@
   },
   {
     "name": "x402 Entity-ID Resolver",
-    "url": "https://entityresolver.xyz",
+    "url": "https://entityresolver.xyz/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4509,7 +4509,7 @@
   },
   {
     "name": "_done",
-    "url": "https://underscoredone.com",
+    "url": "https://underscoredone.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4522,7 +4522,7 @@
   },
   {
     "name": "PulseNetwork",
-    "url": "https://pulsenetwork.theaslangroupllc.com",
+    "url": "https://pulsenetwork.theaslangroupllc.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4548,7 +4548,7 @@
   },
   {
     "name": "Vindex",
-    "url": "https://api.vindexapi.dev",
+    "url": "https://api.vindexapi.dev/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4561,7 +4561,7 @@
   },
   {
     "name": "AgentServices",
-    "url": "https://agentservices.to",
+    "url": "https://agentservices.to/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4574,7 +4574,7 @@
   },
   {
     "name": "Isocast",
-    "url": "https://api.isocast.dev",
+    "url": "https://api.isocast.dev/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4588,7 +4588,7 @@
   },
   {
     "name": "SolSigs",
-    "url": "https://solsigs.com",
+    "url": "https://solsigs.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4614,7 +4614,7 @@
   },
   {
     "name": "TokenGuard",
-    "url": "https://eltociear-tokenguard.hf.space",
+    "url": "https://eltociear-tokenguard.hf.space/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4627,7 +4627,7 @@
   },
   {
     "name": "Tollbooth",
-    "url": "https://x402toll.com",
+    "url": "https://x402toll.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4653,7 +4653,7 @@
   },
   {
     "name": "Agent Ready",
-    "url": "https://agent-ready.dev",
+    "url": "https://agent-ready.dev/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4666,7 +4666,7 @@
   },
   {
     "name": "Skill Audit",
-    "url": "https://eltociear-skill-audit.hf.space",
+    "url": "https://eltociear-skill-audit.hf.space/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4679,7 +4679,7 @@
   },
   {
     "name": "Contract Guard",
-    "url": "https://eltociear-contract-guard.hf.space",
+    "url": "https://eltociear-contract-guard.hf.space/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4718,7 +4718,7 @@
   },
   {
     "name": "Dokimo Verify API",
-    "url": "https://dokimo.augaster.com/verify-api-docs.html",
+    "url": "https://dokimo.augaster.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4783,7 +4783,7 @@
   },
   {
     "name": "Valoria",
-    "url": "https://x402.valoria.net",
+    "url": "https://x402.valoria.net/.well-known/x402",
     "section": "market-data",
     "section_label": "Market Data",
     "type": "Market Data",
@@ -4823,7 +4823,7 @@
   },
   {
     "name": "SolSigs MCP",
-    "url": "https://solsigs.com",
+    "url": "https://solsigs.com/.well-known/x402.json",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
@@ -4903,7 +4903,7 @@
   },
   {
     "name": "Grey Ridge Signals — x402 Data & Security APIs",
-    "url": "https://x402-data-api.sigrunner.workers.dev",
+    "url": "https://x402-data-api.sigrunner.workers.dev/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4929,7 +4929,7 @@
   },
   {
     "name": "Venture NL Open-Data",
-    "url": "https://api.pogo-tb.nl",
+    "url": "https://api.pogo-tb.nl/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4942,7 +4942,7 @@
   },
   {
     "name": "Groundcheck",
-    "url": "https://groundcheck.seiche.info",
+    "url": "https://groundcheck.seiche.info/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4956,7 +4956,7 @@
   },
   {
     "name": "x402-seller",
-    "url": "https://x402-seller-m8nx.onrender.com",
+    "url": "https://x402-seller-m8nx.onrender.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -4995,7 +4995,7 @@
   },
   {
     "name": "Apiosk",
-    "url": "https://apiosk.com",
+    "url": "https://apiosk.com/.well-known/x402",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
@@ -5008,7 +5008,7 @@
   },
   {
     "name": "DeskCrew",
-    "url": "https://deskcrew.io/agents",
+    "url": "https://deskcrew.io/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5021,7 +5021,7 @@
   },
   {
     "name": "Zugabot Code Agent",
-    "url": "https://zugabot.ai/x402",
+    "url": "https://zugabot.ai/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5049,7 +5049,7 @@
   },
   {
     "name": "Stelar Digital",
-    "url": "https://api.stelardigital.com",
+    "url": "https://api.stelardigital.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5101,7 +5101,7 @@
   },
   {
     "name": "modelprices.xyz",
-    "url": "https://modelprices.xyz",
+    "url": "https://modelprices.xyz/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5536,7 +5536,7 @@
   },
   {
     "name": "Agent Café",
-    "url": "https://api.402.coffee/docs",
+    "url": "https://api.402.coffee/.well-known/x402.json",
     "section": "tools",
     "section_label": "Tools & Utilities",
     "type": "Tool / Utility",
@@ -5564,7 +5564,7 @@
   },
   {
     "name": "GBLIN Protocol",
-    "url": "https://gblin.digital/agents",
+    "url": "https://gblin.digital/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5642,7 +5642,7 @@
   },
   {
     "name": "x402 Trust",
-    "url": "https://x402.fuchss.app",
+    "url": "https://x402.fuchss.app/.well-known/x402",
     "section": "security",
     "section_label": "Security",
     "type": "Security",
@@ -5655,7 +5655,7 @@
   },
   {
     "name": "BridgeNode",
-    "url": "https://bridgenode.cc",
+    "url": "https://bridgenode.cc/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5668,7 +5668,7 @@
   },
   {
     "name": "US City Open-Data Compliance Network",
-    "url": "https://x402-mcp.onrender.com/us/cities",
+    "url": "https://x402-mcp.onrender.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5681,7 +5681,7 @@
   },
   {
     "name": "OyaPicks",
-    "url": "https://oyapicks.app",
+    "url": "https://oyapicks.app/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5800,7 +5800,7 @@
   },
   {
     "name": "402PIXEL",
-    "url": "https://402pixel.com",
+    "url": "https://402pixel.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5852,7 +5852,7 @@
   },
   {
     "name": "Gondola",
-    "url": "https://gondola-ai.com",
+    "url": "https://gondola-ai.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5878,7 +5878,7 @@
   },
   {
     "name": "apix402",
-    "url": "https://api402x.com",
+    "url": "https://api402x.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5904,7 +5904,7 @@
   },
   {
     "name": "Smart Event Scraper",
-    "url": "https://smart-event-scraper-agent.onrender.com",
+    "url": "https://smart-event-scraper-agent.onrender.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5917,7 +5917,7 @@
   },
   {
     "name": "AgentFund US Economic, SEC & On-Chain Data",
-    "url": "https://x402.agentfund.net/mcp",
+    "url": "https://x402.agentfund.net/.well-known/x402",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
@@ -5930,7 +5930,7 @@
   },
   {
     "name": "Circadian",
-    "url": "https://circadian-agent.com",
+    "url": "https://circadian-agent.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -5956,7 +5956,7 @@
   },
   {
     "name": "fetchx402",
-    "url": "https://api.fetchx402.com",
+    "url": "https://api.fetchx402.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6021,7 +6021,7 @@
   },
   {
     "name": "Andreax",
-    "url": "https://pagos.andreax.dev/tienda",
+    "url": "https://pagos.andreax.dev/.well-known/x402.json",
     "section": "mcp-servers",
     "section_label": "MCP Servers",
     "type": "MCP Server",
@@ -6034,7 +6034,7 @@
   },
   {
     "name": "Cleared Index",
-    "url": "https://clearedindex.com",
+    "url": "https://clearedindex.com/.well-known/x402.json",
     "section": "security",
     "section_label": "Security",
     "type": "Security",
@@ -6059,7 +6059,7 @@
   },
   {
     "name": "MCPFax Public-Data Utility",
-    "url": "https://mcpfax-utility.bowling-anthony.workers.dev",
+    "url": "https://mcpfax-utility.bowling-anthony.workers.dev/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6143,7 +6143,7 @@
   },
   {
     "name": "Frantic",
-    "url": "https://gofrantic.com",
+    "url": "https://gofrantic.com/.well-known/x402",
     "section": "ecosystem",
     "section_label": "Ecosystem",
     "type": "Ecosystem",
@@ -6239,7 +6239,7 @@
   },
   {
     "name": "Cleared Gateway",
-    "url": "https://clearedindex.com/api/cleared/gateway",
+    "url": "https://clearedindex.com/.well-known/x402.json",
     "section": "aggregators",
     "section_label": "Aggregators & Proxies",
     "type": "Aggregator / Proxy",
@@ -6265,7 +6265,7 @@
   },
   {
     "name": "Clear",
-    "url": "https://clear-agent-fetch.fly.dev",
+    "url": "https://clear-agent-fetch.fly.dev/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6278,7 +6278,7 @@
   },
   {
     "name": "PayPerByte",
-    "url": "https://x402.payperbyte.io/feeds",
+    "url": "https://x402.payperbyte.io/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6451,7 +6451,7 @@
   },
   {
     "name": "CONNSKILL Growth Services",
-    "url": "https://agent.connskill.com",
+    "url": "https://agent.connskill.com/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6489,7 +6489,7 @@
   },
   {
     "name": "Fetchgate",
-    "url": "https://fetchgate.dev",
+    "url": "https://fetchgate.dev/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6502,7 +6502,7 @@
   },
   {
     "name": "BNM Data Shop",
-    "url": "https://ticks.bnm.farm",
+    "url": "https://ticks.bnm.farm/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6528,7 +6528,7 @@
   },
   {
     "name": "csno",
-    "url": "https://csno.cc",
+    "url": "https://csno.cc/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6580,7 +6580,7 @@
   },
   {
     "name": "Citable",
-    "url": "https://citable.run",
+    "url": "https://citable.run/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6700,7 +6700,7 @@
   },
   {
     "name": "openzoo",
-    "url": "https://openzoo.fun",
+    "url": "https://openzoo.fun/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6724,7 +6724,7 @@
   },
   {
     "name": "Truth Bear (GAUGE)",
-    "url": "https://api.truthbear.co/manifest",
+    "url": "https://api.truthbear.co/.well-known/x402.json",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6748,7 +6748,7 @@
   },
   {
     "name": "Ausca",
-    "url": "https://ausca.com",
+    "url": "https://ausca.com/.well-known/x402",
     "section": "apis",
     "section_label": "APIs & Services",
     "type": "API / Service",
@@ -6784,7 +6784,7 @@
   },
   {
     "name": "MIDAX402",
-    "url": "https://midax402.com",
+    "url": "https://midax402.com/.well-known/x402.json",
     "section": "security",
     "section_label": "Security",
     "type": "Security",
@@ -6827,6 +6827,7 @@
     "category": "Security",
     "desc": "Seven pay-per-call endpoints on Base (x402 v2, USDC via EIP-3009 gasless settlement) signing with ML-DSA-65/Dilithium-3 (NIST FIPS 204): message signing and verification, AI-decision attestation, and provenance/CBOM sealing, each response independently verifiable offline against the exact signed bytes returned; a companion `@x402/core` extension, [`@fractalai/x402-pqc-witness`](https://www.npmjs.com/package/@fractalai/x402-pqc-witness), adds the same post-quantum settlement attestation to any resource server.",
     "verified": false,
+    "status": "live",
     "first_listed": "2026-09-05"
   }
 ]

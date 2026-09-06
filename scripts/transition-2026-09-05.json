@@ -1,0 +1,678 @@
+{
+  "note": "Carries the two rebinds from transition-2026-09-04 forward unchanged (both already written into editorial.json, no-ops here) so the applied set is never split across files. New this run: 94 rebinds from one operation, not 94 decisions. Every listed URL on the shelf was knocked on 2026-09-05 (POST {} then GET); 33 of 522 answered HTTP 402 at the address we publish. For these 94 the entry pointed at a site root or a non-paying path while the SAME HOST published an x402 discovery manifest naming a resource that answers 402. The rebind appends the well-known path to a host already listed \u2014 the origin never changes, so this is a correction to the address, not a change of what is listed. CONTRIBUTING.md accepts a manifest as the door in two places, and the submission gate follows one as of 2026-09-05. Cross-host candidates found by mining READMEs were NOT applied: a wrapper, CLI or MCP server is not the service it calls, and rebinding one to the other would list two artifacts at one address. Those stay as they are.",
+  "drop": [],
+  "rebind": [
+    {
+      "from_url": "https://m0.aiverall.com/v1/verify-email",
+      "from_section": "apis",
+      "to_url": "https://m0.aiverall.com/v1/extract",
+      "to_section": "apis",
+      "reason": "gold-402 PR #148 (cavany-tech): operator repointed the entry from Email Verification to URL Extraction as the primary resource. Probed 2026-08-28 before rebinding \u2014 POST /v1/extract returns 402 with a base64 payment-required header carrying a valid x402 v2 challenge ($0.002 USDC, eip155:8453). Same operator, same service line, first_listed carried. Applied 2026-08-28; carried forward here as a no-op. Carried forward from transition-2026-09-04 so the applied set is never split across files; a no-op here."
+    },
+    {
+      "from_url": "https://x402-wallet-readiness-service.vercel.app/api/x402/preflight/audit?resource_url=https%3A%2F%2Fx402-wallet-readiness-service.vercel.app%2Fapi%2Fx402%2Fdev%2Frepo-snapshot%3Frepo%3Dchico10117%2Fbasepay-readiness-service&method=GET&expected_network=eip155%3A8453&max_price_usd=1",
+      "from_section": "security",
+      "to_url": "https://x402.chikocorp.com/api/x402/preflight/audit?resource_url=https%3A%2F%2Fx402.chikocorp.com%2Fapi%2Fx402%2Fdev%2Frepo-snapshot%3Frepo%3Dchico10117%2Fbasepay-readiness-service&method=GET&expected_network=eip155%3A8453&max_price_usd=1",
+      "to_section": "security",
+      "reason": "gold-402 PR #180 (chico10117): operator moved x402 Preflight off the Vercel preview host onto the domain they own. Same service, same method, same request shape, same $0.05 USDC price on Base, description unchanged. Probed 2026-09-04T22:01Z before merging \u2014 the exact new URL returns HTTP 402. Host move only, so first_listed is carried from the original listing. Carried forward from transition-2026-09-04 so the applied set is never split across files; a no-op here."
+    },
+    {
+      "from_url": "https://clear-agent-fetch.fly.dev",
+      "from_section": "apis",
+      "to_url": "https://clear-agent-fetch.fly.dev/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://clear-agent-fetch.fly.dev returned no 402. https://clear-agent-fetch.fly.dev/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://clear-agent-fetch.fly.dev/v1/fetch returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://x402.payperbyte.io/feeds",
+      "from_section": "apis",
+      "to_url": "https://x402.payperbyte.io/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://x402.payperbyte.io/feeds returned no 402. https://x402.payperbyte.io/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://x402.payperbyte.io/feeds/weather returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://gondola-ai.com",
+      "from_section": "apis",
+      "to_url": "https://gondola-ai.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://gondola-ai.com returned no 402. https://gondola-ai.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://api.gondola-ai.com/v1/chat/completions returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://askclaude.shop",
+      "from_section": "apis",
+      "to_url": "https://askclaude.shop/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://askclaude.shop returned no 402. https://askclaude.shop/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://askclaude.shop/ask/haiku returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://x402engine.app",
+      "from_section": "apis",
+      "to_url": "https://x402engine.app/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://x402engine.app returned no 402. https://x402engine.app/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://x402engine.app/api/image/fast returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.zeroreader.com",
+      "from_section": "apis",
+      "to_url": "https://api.zeroreader.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.zeroreader.com returned no 402. https://api.zeroreader.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.zeroreader.com/v1/ai/granite-micro returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://deskcrew.io/agents",
+      "from_section": "apis",
+      "to_url": "https://deskcrew.io/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://deskcrew.io/agents returned no 402. https://deskcrew.io/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://deskcrew.io/api/x402/tools/deskcrew/get_ticket_context returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://zugabot.ai/x402",
+      "from_section": "apis",
+      "to_url": "https://zugabot.ai/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://zugabot.ai/x402 returned no 402. https://zugabot.ai/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://zugabot.ai/api/x402/agent/security-audit returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://bridgenode.cc",
+      "from_section": "apis",
+      "to_url": "https://bridgenode.cc/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://bridgenode.cc returned no 402. https://bridgenode.cc/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://bridgenode.cc/v1/chat/completions returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://content.hugen.tokyo",
+      "from_section": "apis",
+      "to_url": "https://content.hugen.tokyo/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://content.hugen.tokyo returned no 402. https://content.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://content.hugen.tokyo/content/analyze returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://scout.hugen.tokyo",
+      "from_section": "apis",
+      "to_url": "https://scout.hugen.tokyo/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://scout.hugen.tokyo returned no 402. https://scout.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://scout.hugen.tokyo/scout/hn returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://flylabs.fun/agents",
+      "from_section": "apis",
+      "to_url": "https://flylabs.fun/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://flylabs.fun/agents returned no 402. https://flylabs.fun/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://flylabs.fun/api/agents/transcribe returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://entityresolver.xyz",
+      "from_section": "apis",
+      "to_url": "https://entityresolver.xyz/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://entityresolver.xyz returned no 402. https://entityresolver.xyz/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://entityresolver.xyz/resolve returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://underscoredone.com",
+      "from_section": "apis",
+      "to_url": "https://underscoredone.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://underscoredone.com returned no 402. https://underscoredone.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://asn-lookup.underscoredone.com/lookup returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://pulsenetwork.theaslangroupllc.com",
+      "from_section": "apis",
+      "to_url": "https://pulsenetwork.theaslangroupllc.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://pulsenetwork.theaslangroupllc.com returned no 402. https://pulsenetwork.theaslangroupllc.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://pulse.theaslangroupllc.com/api/blueprint returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://modelprices.xyz",
+      "from_section": "apis",
+      "to_url": "https://modelprices.xyz/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://modelprices.xyz returned no 402. https://modelprices.xyz/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://modelprices.xyz/llm/price/:model returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.vindexapi.dev",
+      "from_section": "apis",
+      "to_url": "https://api.vindexapi.dev/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.vindexapi.dev returned no 402. https://api.vindexapi.dev/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.vindexapi.dev/v1/decode returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://x402-mcp.onrender.com/us/cities",
+      "from_section": "apis",
+      "to_url": "https://x402-mcp.onrender.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://x402-mcp.onrender.com/us/cities returned no 402. https://x402-mcp.onrender.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://x402-mcp.onrender.com/base/tx-decision returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://x402-data-api.sigrunner.workers.dev",
+      "from_section": "apis",
+      "to_url": "https://x402-data-api.sigrunner.workers.dev/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://x402-data-api.sigrunner.workers.dev returned no 402. https://x402-data-api.sigrunner.workers.dev/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://x402-data-api.sigrunner.workers.dev/pm/markets returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://groundcheck.seiche.info",
+      "from_section": "apis",
+      "to_url": "https://groundcheck.seiche.info/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://groundcheck.seiche.info returned no 402. https://groundcheck.seiche.info/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://groundcheck.seiche.info/attest-delivery returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://oyapicks.app",
+      "from_section": "apis",
+      "to_url": "https://oyapicks.app/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://oyapicks.app returned no 402. https://oyapicks.app/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://oyapicks.app/api/x402/analyze-algo returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://mcpfax-utility.bowling-anthony.workers.dev",
+      "from_section": "apis",
+      "to_url": "https://mcpfax-utility.bowling-anthony.workers.dev/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://mcpfax-utility.bowling-anthony.workers.dev returned no 402. https://mcpfax-utility.bowling-anthony.workers.dev/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://mcpfax-utility.bowling-anthony.workers.dev/v1/geocode returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://agent.connskill.com",
+      "from_section": "apis",
+      "to_url": "https://agent.connskill.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://agent.connskill.com returned no 402. https://agent.connskill.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://agent.connskill.com/v1/serp-report returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://fetchgate.dev",
+      "from_section": "apis",
+      "to_url": "https://fetchgate.dev/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://fetchgate.dev returned no 402. https://fetchgate.dev/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://fetchgate.dev/v1/buy/x402-registry-2026-08-28 returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://ticks.bnm.farm",
+      "from_section": "apis",
+      "to_url": "https://ticks.bnm.farm/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://ticks.bnm.farm returned no 402. https://ticks.bnm.farm/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://ticks.bnm.farm/ticks returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://citable.run",
+      "from_section": "apis",
+      "to_url": "https://citable.run/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://citable.run returned no 402. https://citable.run/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://citable.run/v1/keyword-suggest returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.truthbear.co/manifest",
+      "from_section": "apis",
+      "to_url": "https://api.truthbear.co/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.truthbear.co/manifest returned no 402. https://api.truthbear.co/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.truthbear.co/stablecoin-deaths returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://agentservices.to",
+      "from_section": "apis",
+      "to_url": "https://agentservices.to/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://agentservices.to returned no 402. https://agentservices.to/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://agentservices.to/v1/indicators/{symbol} returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://agentdata-api.com",
+      "from_section": "apis",
+      "to_url": "https://agentdata-api.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://agentdata-api.com returned no 402. https://agentdata-api.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://agentdata-api.com/api/diff returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.isocast.dev",
+      "from_section": "apis",
+      "to_url": "https://api.isocast.dev/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.isocast.dev returned no 402. https://api.isocast.dev/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.isocast.dev/v1/spot returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://tick.hugen.tokyo",
+      "from_section": "apis",
+      "to_url": "https://tick.hugen.tokyo/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://tick.hugen.tokyo returned no 402. https://tick.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://tick.hugen.tokyo/tick/latest returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://defi.hugen.tokyo",
+      "from_section": "apis",
+      "to_url": "https://defi.hugen.tokyo/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://defi.hugen.tokyo returned no 402. https://defi.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://defi.hugen.tokyo/defi/address returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://x402-seller-m8nx.onrender.com",
+      "from_section": "apis",
+      "to_url": "https://x402-seller-m8nx.onrender.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://x402-seller-m8nx.onrender.com returned no 402. https://x402-seller-m8nx.onrender.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://x402-seller-m8nx.onrender.com/weather/consensus returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.moltrust.ch/guard/",
+      "from_section": "apis",
+      "to_url": "https://api.moltrust.ch/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.moltrust.ch/guard/ returned no 402. https://api.moltrust.ch/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.moltrust.ch/guard/api/agent/score/{address} returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://solsignal-api.onrender.com",
+      "from_section": "apis",
+      "to_url": "https://solsignal-api.onrender.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://solsignal-api.onrender.com returned no 402. https://solsignal-api.onrender.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://solsignal-api.onrender.com/signals/live/{mint} returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.signalfuse.co",
+      "from_section": "apis",
+      "to_url": "https://api.signalfuse.co/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.signalfuse.co returned no 402. https://api.signalfuse.co/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.signalfuse.co/v1/regime returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://polymarket-liquidity-api.tatsu77.workers.dev",
+      "from_section": "apis",
+      "to_url": "https://polymarket-liquidity-api.tatsu77.workers.dev/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://polymarket-liquidity-api.tatsu77.workers.dev returned no 402. https://polymarket-liquidity-api.tatsu77.workers.dev/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://polymarket-liquidity-api.tatsu77.workers.dev/api/v1/market/0xa0f4c4924ea1a8b410b4ce821c2a9955fad21a1b19bdcfde90816732278b3dd5 returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://solsigs.com",
+      "from_section": "apis",
+      "to_url": "https://solsigs.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://solsigs.com returned no 402. https://solsigs.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://solsigs.com/dex returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://eltociear-tokenguard.hf.space",
+      "from_section": "apis",
+      "to_url": "https://eltociear-tokenguard.hf.space/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://eltociear-tokenguard.hf.space returned no 402. https://eltociear-tokenguard.hf.space/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://eltociear-tokenguard.hf.space/borrow returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.stelardigital.com",
+      "from_section": "apis",
+      "to_url": "https://api.stelardigital.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.stelardigital.com returned no 402. https://api.stelardigital.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://api.stelardigital.com/telemetry returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://gblin.digital/agents",
+      "from_section": "apis",
+      "to_url": "https://gblin.digital/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://gblin.digital/agents returned no 402. https://gblin.digital/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://gblin.digital/api/x402/treasury-state returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api402x.com",
+      "from_section": "apis",
+      "to_url": "https://api402x.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api402x.com returned no 402. https://api402x.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api402x.com/advisory-fix-availability-check returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://mercury402.uk",
+      "from_section": "apis",
+      "to_url": "https://mercury402.uk/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://mercury402.uk returned no 402. https://mercury402.uk/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://api.mercury402.com/v1/fred/UNRATE returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://gotobi.hugen.tokyo",
+      "from_section": "apis",
+      "to_url": "https://gotobi.hugen.tokyo/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://gotobi.hugen.tokyo returned no 402. https://gotobi.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://gotobi.hugen.tokyo/gotobi/today returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://www.prereason.com",
+      "from_section": "apis",
+      "to_url": "https://www.prereason.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://www.prereason.com returned no 402. https://www.prereason.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://www.prereason.com/api/metrics/bitcoin-price returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.printmoneylab.com",
+      "from_section": "apis",
+      "to_url": "https://api.printmoneylab.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.printmoneylab.com returned no 402. https://api.printmoneylab.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://api.printmoneylab.com/api/v1/kimchi-premium returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://x402toll.com",
+      "from_section": "apis",
+      "to_url": "https://x402toll.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://x402toll.com returned no 402. https://x402toll.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://x402toll.com/v1/paycheck returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://visual.hugen.tokyo",
+      "from_section": "apis",
+      "to_url": "https://visual.hugen.tokyo/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://visual.hugen.tokyo returned no 402. https://visual.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://visual.hugen.tokyo/visual/ocr returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://domain.hugen.tokyo",
+      "from_section": "apis",
+      "to_url": "https://domain.hugen.tokyo/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://domain.hugen.tokyo returned no 402. https://domain.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://domain.hugen.tokyo/domain/dns returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://weather.hugen.tokyo",
+      "from_section": "apis",
+      "to_url": "https://weather.hugen.tokyo/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://weather.hugen.tokyo returned no 402. https://weather.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://weather.hugen.tokyo/weather/current returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://mailcheck.hugen.tokyo",
+      "from_section": "apis",
+      "to_url": "https://mailcheck.hugen.tokyo/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://mailcheck.hugen.tokyo returned no 402. https://mailcheck.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://mailcheck.hugen.tokyo/mailcheck/validate returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.pogo-tb.nl",
+      "from_section": "apis",
+      "to_url": "https://api.pogo-tb.nl/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.pogo-tb.nl returned no 402. https://api.pogo-tb.nl/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.pogo-tb.nl/v1/kenteken/AB123C returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://circadian-agent.com",
+      "from_section": "apis",
+      "to_url": "https://circadian-agent.com/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://circadian-agent.com returned no 402. https://circadian-agent.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://circadian-agent.com/api/extract returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.fetchx402.com",
+      "from_section": "apis",
+      "to_url": "https://api.fetchx402.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.fetchx402.com returned no 402. https://api.fetchx402.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://api.fetchx402.com/v1/tools/dns returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://shield.vainplex.dev",
+      "from_section": "apis",
+      "to_url": "https://shield.vainplex.dev/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://shield.vainplex.dev returned no 402. https://shield.vainplex.dev/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://shield.vainplex.dev/api/check-password returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://scan.convrgent.ai",
+      "from_section": "apis",
+      "to_url": "https://scan.convrgent.ai/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://scan.convrgent.ai returned no 402. https://scan.convrgent.ai/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://scan.convrgent.ai/api/aeo/scan-x402 returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://agent-ready.dev",
+      "from_section": "apis",
+      "to_url": "https://agent-ready.dev/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://agent-ready.dev returned no 402. https://agent-ready.dev/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://agent-ready.dev/api/x402/scan returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://eltociear-skill-audit.hf.space",
+      "from_section": "apis",
+      "to_url": "https://eltociear-skill-audit.hf.space/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://eltociear-skill-audit.hf.space returned no 402. https://eltociear-skill-audit.hf.space/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://eltociear-skill-audit.hf.space/audit returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://eltociear-contract-guard.hf.space",
+      "from_section": "apis",
+      "to_url": "https://eltociear-contract-guard.hf.space/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://eltociear-contract-guard.hf.space returned no 402. https://eltociear-contract-guard.hf.space/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://eltociear-contract-guard.hf.space/check returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://intel.hugen.tokyo",
+      "from_section": "apis",
+      "to_url": "https://intel.hugen.tokyo/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://intel.hugen.tokyo returned no 402. https://intel.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://intel.hugen.tokyo/intel/token-report returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://archtools.dev",
+      "from_section": "apis",
+      "to_url": "https://archtools.dev/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://archtools.dev returned no 402. https://archtools.dev/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://archtools.dev/v1/tools/validate-data returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://ausca.com",
+      "from_section": "apis",
+      "to_url": "https://ausca.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://ausca.com returned no 402. https://ausca.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://ausca.com/v1/analyze-document returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://convrgent.ai/kyh",
+      "from_section": "apis",
+      "to_url": "https://convrgent.ai/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://convrgent.ai/kyh returned no 402. https://convrgent.ai/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://convrgent.ai/api/kyh/natal-chart returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://www.x402-agent-pay.com",
+      "from_section": "apis",
+      "to_url": "https://www.x402-agent-pay.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://www.x402-agent-pay.com returned no 402. https://www.x402-agent-pay.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://x402-agent-pay.com/pay returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://dokimo.augaster.com/verify-api-docs.html",
+      "from_section": "apis",
+      "to_url": "https://dokimo.augaster.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://dokimo.augaster.com/verify-api-docs.html returned no 402. https://dokimo.augaster.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://dokimo.augaster.com/paid/verify returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://402pixel.com",
+      "from_section": "apis",
+      "to_url": "https://402pixel.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://402pixel.com returned no 402. https://402pixel.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://402pixel.com/api/claim returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://smart-event-scraper-agent.onrender.com",
+      "from_section": "apis",
+      "to_url": "https://smart-event-scraper-agent.onrender.com/.well-known/x402",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://smart-event-scraper-agent.onrender.com returned no 402. https://smart-event-scraper-agent.onrender.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://smart-event-scraper-agent.onrender.com/api/scrape-events returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://csno.cc",
+      "from_section": "apis",
+      "to_url": "https://csno.cc/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://csno.cc returned no 402. https://csno.cc/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://csno.cc/api/csno/chips/micro returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://openzoo.fun",
+      "from_section": "apis",
+      "to_url": "https://openzoo.fun/.well-known/x402.json",
+      "to_section": "apis",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://openzoo.fun returned no 402. https://openzoo.fun/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://openzoo.fun/api/v1/chat/completions returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://pagos.andreax.dev/tienda",
+      "from_section": "mcp-servers",
+      "to_url": "https://pagos.andreax.dev/.well-known/x402.json",
+      "to_section": "mcp-servers",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://pagos.andreax.dev/tienda returned no 402. https://pagos.andreax.dev/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://pagos.andreax.dev/api/taller/peaje/market-data returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://blockrun.ai",
+      "from_section": "mcp-servers",
+      "to_url": "https://blockrun.ai/.well-known/x402",
+      "to_section": "mcp-servers",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://blockrun.ai returned no 402. https://blockrun.ai/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://blockrun.ai/api/v1/chat/completions returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://apiosk.com",
+      "from_section": "mcp-servers",
+      "to_url": "https://apiosk.com/.well-known/x402",
+      "to_section": "mcp-servers",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://apiosk.com returned no 402. https://apiosk.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://gateway.apiosk.com/gleif/autocompletions returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://x402.agentfund.net/mcp",
+      "from_section": "mcp-servers",
+      "to_url": "https://x402.agentfund.net/.well-known/x402",
+      "to_section": "mcp-servers",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://x402.agentfund.net/mcp returned no 402. https://x402.agentfund.net/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://x402.agentfund.net/x402/structured_json_repair returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://solsigs.com",
+      "from_section": "mcp-servers",
+      "to_url": "https://solsigs.com/.well-known/x402.json",
+      "to_section": "mcp-servers",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://solsigs.com returned no 402. https://solsigs.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://solsigs.com/dex returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.24klabs.ai",
+      "from_section": "mcp-servers",
+      "to_url": "https://api.24klabs.ai/.well-known/x402.json",
+      "to_section": "mcp-servers",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.24klabs.ai returned no 402. https://api.24klabs.ai/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.24klabs.ai/api/v1/explain-code returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.moltrust.ch/guard/",
+      "from_section": "mcp-servers",
+      "to_url": "https://api.moltrust.ch/.well-known/x402.json",
+      "to_section": "mcp-servers",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.moltrust.ch/guard/ returned no 402. https://api.moltrust.ch/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.moltrust.ch/guard/api/agent/score/{address} returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://scout.hugen.tokyo",
+      "from_section": "mcp-servers",
+      "to_url": "https://scout.hugen.tokyo/.well-known/x402",
+      "to_section": "mcp-servers",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://scout.hugen.tokyo returned no 402. https://scout.hugen.tokyo/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://scout.hugen.tokyo/scout/hn returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.obol.sh",
+      "from_section": "tools",
+      "to_url": "https://api.obol.sh/.well-known/x402",
+      "to_section": "tools",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.obol.sh returned no 402. https://api.obol.sh/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://api.obol.sh/site returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://x402.valoria.net",
+      "from_section": "tools",
+      "to_url": "https://x402.valoria.net/.well-known/x402",
+      "to_section": "tools",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://x402.valoria.net returned no 402. https://x402.valoria.net/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://x402.valoria.net/intelligence/pulse returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.402.coffee/docs",
+      "from_section": "tools",
+      "to_url": "https://api.402.coffee/.well-known/x402.json",
+      "to_section": "tools",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.402.coffee/docs returned no 402. https://api.402.coffee/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.402.coffee/test/basic returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://agentndx-production.up.railway.app",
+      "from_section": "tools",
+      "to_url": "https://agentndx-production.up.railway.app/.well-known/x402",
+      "to_section": "tools",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://agentndx-production.up.railway.app returned no 402. https://agentndx-production.up.railway.app/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://agentndx-production.up.railway.app/api/search returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://blockrun.ai",
+      "from_section": "tools",
+      "to_url": "https://blockrun.ai/.well-known/x402",
+      "to_section": "tools",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://blockrun.ai returned no 402. https://blockrun.ai/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://blockrun.ai/api/v1/chat/completions returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://shield.vainplex.dev",
+      "from_section": "security",
+      "to_url": "https://shield.vainplex.dev/.well-known/x402.json",
+      "to_section": "security",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://shield.vainplex.dev returned no 402. https://shield.vainplex.dev/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://shield.vainplex.dev/api/check-password returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://revettr.com",
+      "from_section": "security",
+      "to_url": "https://revettr.com/.well-known/x402.json",
+      "to_section": "security",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://revettr.com returned no 402. https://revettr.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://revettr.com/v1/score returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://api.moltrust.ch/guard/",
+      "from_section": "security",
+      "to_url": "https://api.moltrust.ch/.well-known/x402.json",
+      "to_section": "security",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://api.moltrust.ch/guard/ returned no 402. https://api.moltrust.ch/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://api.moltrust.ch/guard/api/agent/score/{address} returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://x402.fuchss.app",
+      "from_section": "security",
+      "to_url": "https://x402.fuchss.app/.well-known/x402",
+      "to_section": "security",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://x402.fuchss.app returned no 402. https://x402.fuchss.app/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://x402.fuchss.app/v1/x402-trust returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://clearedindex.com",
+      "from_section": "security",
+      "to_url": "https://clearedindex.com/.well-known/x402.json",
+      "to_section": "security",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://clearedindex.com returned no 402. https://clearedindex.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://clearedindex.com/api/x402/ping returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://midax402.com",
+      "from_section": "security",
+      "to_url": "https://midax402.com/.well-known/x402.json",
+      "to_section": "security",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://midax402.com returned no 402. https://midax402.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://midax402.com/midas-ops/basic returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://revettr.com",
+      "from_section": "ecosystem",
+      "to_url": "https://revettr.com/.well-known/x402.json",
+      "to_section": "ecosystem",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://revettr.com returned no 402. https://revettr.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://revettr.com/v1/score returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://swarmx.io",
+      "from_section": "ecosystem",
+      "to_url": "https://swarmx.io/.well-known/x402",
+      "to_section": "ecosystem",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://swarmx.io returned no 402. https://swarmx.io/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://swarmx.io/x402/rwa/stock-dd returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://satring.com",
+      "from_section": "ecosystem",
+      "to_url": "https://satring.com/.well-known/x402",
+      "to_section": "ecosystem",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://satring.com returned no 402. https://satring.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://satring.com/api/v1/services/bulk returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://gofrantic.com",
+      "from_section": "ecosystem",
+      "to_url": "https://gofrantic.com/.well-known/x402",
+      "to_section": "ecosystem",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://gofrantic.com returned no 402. https://gofrantic.com/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://gofrantic.com/v1/hire returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://x402.valoria.net",
+      "from_section": "market-data",
+      "to_url": "https://x402.valoria.net/.well-known/x402",
+      "to_section": "market-data",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://x402.valoria.net returned no 402. https://x402.valoria.net/.well-known/x402 is a readable x402 manifest on the same origin, and the resource it declares at https://x402.valoria.net/intelligence/pulse returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    },
+    {
+      "from_url": "https://clearedindex.com/api/cleared/gateway",
+      "from_section": "aggregators",
+      "to_url": "https://clearedindex.com/.well-known/x402.json",
+      "to_section": "aggregators",
+      "reason": "Address correction, same host. Knocked 2026-09-05: https://clearedindex.com/api/cleared/gateway returned no 402. https://clearedindex.com/.well-known/x402.json is a readable x402 manifest on the same origin, and the resource it declares at https://clearedindex.com/api/x402/ping returned HTTP 402 on that date. Same service, same operator, same host \u2014 only the published path changes. first_listed carried."
+    }
+  ]
+}
