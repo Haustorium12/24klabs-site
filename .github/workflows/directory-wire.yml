@@ -78,8 +78,37 @@ jobs:
           git config user.email "actions@github.com"
           git add src/data/editorial.json
           git commit -m "directory wire: sync editorial.json from gold-402 (${{ github.event_name }})"
-          git pull --rebase origin main
-          git push origin main
+          # A push race here is another commit landing on site main between our
+          # checkout and our push -- not a defect in editorial.json. Resolve it by
+          # RE-DERIVING against the new head, never by rebasing a stale diff:
+          # generate_editorial.py is deterministic and fails closed, so the second
+          # answer is computed from the same source of truth as the first, just newer.
+          #
+          # A plain `git pull --rebase` was here until 2026-09-06. On a conflict it
+          # stops mid-rebase and leaves unmerged files, and every step after it
+          # inherits a poisoned worktree -- the same shape that failed two README
+          # writers on gold-402 the same day. Abort first, always.
+          for i in 1 2 3 4 5; do
+            git push origin main && break
+            if [ "$i" = 5 ]; then
+              echo "::error::could not push editorial.json after 5 attempts against a moving main"
+              exit 1
+            fi
+            echo "push rejected (attempt $i) -- re-deriving on top of origin/main"
+            git rebase --abort >/dev/null 2>&1 || true
+            git merge --abort  >/dev/null 2>&1 || true
+            git fetch origin main || { echo "::error::could not fetch origin/main"; exit 1; }
+            git reset --hard origin/main
+            python scripts/generate_editorial.py --gold _gold402 --transition scripts/transition-2026-09-05.json \
+              || { echo "::error::generator failed while resolving the push race"; exit 1; }
+            if git diff --quiet -- src/data/editorial.json; then
+              echo "another run already shipped this same editorial.json -- nothing left to push"
+              exit 0
+            fi
+            git add src/data/editorial.json
+            git commit -m "directory wire: sync editorial.json from gold-402 (${{ github.event_name }})"
+            sleep $((i * 5))
+          done
 
       - name: Setup Node.js
         if: steps.diff.outputs.changed == 'true'
