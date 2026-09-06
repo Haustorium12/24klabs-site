@@ -72,7 +72,10 @@ export async function onRequestGet(context) {
   const svg = renderCard({
     listed: !!entry,
     name: entry ? entry.name : 'Not listed',
-    verdict: entry ? '✓ Gold402 Verified' : 'Not on the curated list',
+    // A date where we have one, plain membership where we do not, and never a tick.
+    verdict: entry
+      ? (entry.last_checked ? `Endpoint answered a 402 on ${entry.last_checked}` : 'On the curated list — no knock receipt yet')
+      : 'Not on the curated list',
     grades,
   });
 

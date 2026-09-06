@@ -549,20 +549,6 @@ const EDITORIAL_JSON = JSON.stringify(listings);
     display: flex; align-items: center; gap: 8px;
     margin-bottom: 14px; flex-wrap: wrap; min-height: 22px;
   }
-  .card-verified {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.01em;
-    color: var(--gold);
-    background: rgba(212,175,55,0.12);
-    border: 1px solid rgba(212,175,55,0.34);
-    padding: 4px 11px 4px 5px; border-radius: 999px; white-space: nowrap;
-  }
-  .card-verified__check {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 16px; height: 16px; border-radius: 50%;
-    background: var(--gold); color: var(--bg);
-    font-size: 0.68rem; font-weight: 900; line-height: 1;
-  }
   .card-grade { height: 22px; width: auto; display: inline-block; border-radius: 4px; }
   /* Card is one big link via a stretched anchor (z1); the fuchss badge rides above it (z2)
      so it stays independently clickable — the valid alternative to a link inside a link. */
@@ -635,10 +621,11 @@ function esc(str) {
   return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// Card layout: trust signals UP FRONT (a prominent "Gold402 Verified" pill + the fuchss trust
-// grade, top of card), then a monogram + name + category, description, footer. Every listing
-// is on the curated list (Phase 1 single tier). The fuchss grade renders where we have real
-// telemetry (baked `badge_resource` = the x402 endpoint); no filler on the rest.
+// Card layout: monogram + name + category, description, freshness, footer.
+//
+// No blanket mark on cards -- see DEC-0008. checkedStamp() below is the honest part:
+// a date, or an admission that we do not hold one. Do not put a tick back.
+// The fuchss grade renders where we have real telemetry (`badge_resource`).
 // The freshness stamp. `last_checked` is the date of the most recent knock we hold a
 // receipt for (scripts/merge_sweep.py writes it from audits/sweep/*.jsonl). Computed in
 // the BROWSER, not at build time, so the number stays honest between deploys instead of
@@ -669,12 +656,9 @@ function buildCard(e) {
   const initial = esc((e.name || '?').trim().charAt(0).toUpperCase()) || '#';
   const href = e.slug ? `/listing/${esc(e.slug)}` : '#';
   return `
-    <div class="service-card is-verified reveal">
-      <a href="${href}" class="card-stretch" aria-label="View ${esc(e.name)} verdict"></a>
-      <div class="card-trust">
-        <span class="card-verified"><span class="card-verified__check">&#10003;</span>Gold402 Verified</span>
-        ${grade}
-      </div>
+    <div class="service-card reveal">
+      <a href="${href}" class="card-stretch" aria-label="View ${esc(e.name)} listing"></a>
+      ${grade ? `<div class="card-trust">${grade}</div>` : ''}
       <div class="card-head">
         <div class="card-logo" aria-hidden="true">${initial}</div>
         <div class="card-head__text">
@@ -686,7 +670,7 @@ function buildCard(e) {
       ${checkedStamp(e.last_checked)}
       <div class="card-footer">
         <span class="card-section-label">${esc(e.section_label)}</span>
-        <span class="card-link">View verdict &#8594;</span>
+        <span class="card-link">View listing &#8594;</span>
       </div>
     </div>`;
 }

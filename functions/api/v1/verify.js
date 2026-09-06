@@ -52,12 +52,19 @@ function resolveResource(resource) {
 
 // Build the verdict payload for a resource. Pure lookup + best-effort live rater grades.
 async function buildVerdict(resource) {
+  // THE `verified` BOOLEAN IS GONE (2026-09-06, Sean). It was true for everything on
+  // the list, which made it true of a paid API we knocked yesterday and of a community
+  // wiki with no endpoint to knock. An agent reading `verified: true` learned nothing.
+  // Replaced by `listed` (membership, a fact) plus `last_knock` (a date or null). A
+  // consumer that wants a verdict now has to decide what a date means to it, which is
+  // the correct place for that decision to live.
   const entry = resolveResource(resource);
   if (!entry) {
     return {
       resource,
-      verdict: 'not-listed',
-      verified: false,
+      status: 'not-listed',
+      listed: false,
+      last_knock: null,
       summary: 'Not on the 24K Labs curated list.',
       raters: [],
       source: '24K Labs — the truth layer for the x402 ecosystem',
@@ -75,15 +82,18 @@ async function buildVerdict(resource) {
       };
     })
   );
+  const lastKnock = entry.last_checked || null;
   return {
     resource,
-    verdict: 'verified',
-    verified: true,
+    status: lastKnock ? 'listed-knocked' : 'listed-no-receipt',
+    listed: true,
+    last_knock: lastKnock,
+    knock_means: 'The endpoint answered an HTTP 402 on this date. It is not a delivery test — we have not paid this service and graded what came back.',
     name: entry.name,
     endpoint: entry.badge_resource || entry.url || null,
     category: entry.category || null,
     type: entry.type || null,
-    summary: entry.desc || `${entry.name} is Gold402 Verified.`,
+    summary: entry.desc || `${entry.name} is on the 24K Labs curated list.`,
     listingUrl: `https://24klabs.ai/listing/${entry.slug}`,
     raters: grades,
     source: '24K Labs — the truth layer for the x402 ecosystem',

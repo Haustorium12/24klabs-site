@@ -45,8 +45,19 @@ const isResource = RESOURCE_SHELVES.has(entry.section);
 const hasReceipt = !!entry.last_checked;
 const kindWord = isResource ? 'x402 resource' : 'x402 service';
 
-const pageTitle = `${entry.name} — Gold402 Verified | 24K Labs`;
-const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified ${kindWord}.`;
+// THE STAMP IS GONE (2026-09-06, Sean). One word cannot carry three different
+// findings. "Gold402 Verified" rode identically on a paid API we knocked, a community
+// resource with no endpoint to knock, and an entry we hold no dated receipt for --
+// which means it certified nothing, the same failure we name in other people's badges.
+// What replaces it is the finding itself, per entry, in the header where the stamp was.
+const stampState = !isResource && hasReceipt
+  ? { label: 'Answered 402', detail: entry.last_checked, tone: 'knock' }
+  : isResource
+    ? { label: 'Listed · no endpoint to knock', detail: null, tone: 'resource' }
+    : { label: 'Listed · no knock on file', detail: null, tone: 'unknocked' };
+
+const pageTitle = `${entry.name} | 24K Labs`;
+const pageDesc = entry.desc || `${entry.name} — a ${kindWord} on the 24K Labs curated list.`;
 ---
 
 <BaseLayout title={pageTitle} description={pageDesc}>
@@ -59,7 +70,9 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified ${kindWord}.
       <div class="snap-logo" aria-hidden="true">{initial}</div>
       <div class="snap-head__text">
         <div class="snap-trust">
-          <span class="snap-verified"><span class="snap-verified__check">&#10003;</span>Gold402 Verified</span>
+          <span class={`snap-state snap-state--${stampState.tone}`}>
+            {stampState.label}{stampState.detail && <span class="snap-state__date"> · {stampState.detail}</span>}
+          </span>
           {entry.category && <span class="snap-cat">{entry.category}</span>}
         </div>
         <h1 class="snap-name">{entry.name}</h1>
@@ -80,15 +93,15 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified ${kindWord}.
           <h2 class="snap-block__title">Our Verdict</h2>
           <div class="snap-verdict">
             <p class="snap-verdict__line">
-              <strong class="text-gold">Gold402 Verified.</strong>
-              Hand-reviewed and on the curated list — curation is the bar.
+              <strong class="text-gold">A human read this entry.</strong> That is the one thing
+              true of everything on the list.
               {isResource
-                ? ' This entry sits on a shelf for libraries, guides and community resources, which have no payable endpoint. The stamp means a human read it and it was publicly reachable when we checked — we did not ask it for an HTTP 402, and it makes no claim to speak the protocol.'
+                ? ' Beyond that: this sits on a shelf for libraries, guides and community resources. There is no payable endpoint here, so we never asked it for an HTTP 402 and it makes no claim to speak the protocol. It was publicly reachable when we checked.'
                 : (hasReceipt
-                  ? ' The stamp means a human read this entry and the endpoint answered an x402 request when we knocked.'
-                  : ' The stamp means a human read this entry. We do not hold a dated receipt for a knock on it, and we will not backfill a date we cannot show — see the stamp below.')}
-              It is not a delivery test: we have not paid for this and graded what came back, so
-              treat it as "we checked what is stated above," never as "this is worth the money."
+                  ? ' Beyond that: the endpoint answered an x402 request when we knocked it, on the date shown. That date is the claim — not a word, a date.'
+                  : ' Beyond that: nothing. We hold no dated receipt for a knock on this one and we will not backfill a date we cannot show. It is listed because a human read it, and that is all this page will tell you.')}
+              None of it is a delivery test. We have not paid for this and graded what came back,
+              so read it as "we checked what is stated above," never as "this is worth the money."
             </p>
             {featuredBlurb && (
               <p class="snap-verdict__line">
@@ -122,25 +135,27 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified ${kindWord}.
             </div>
           ) : (
             <p class="snap-raters__none">
-              No independent rater grade published for this entry yet. Our verdict is the
-              Gold402 Verified stamp above — a curation and reachability verdict, not a
-              measurement of what it returns after payment.
+              No independent rater grade published for this entry yet. What we publish is
+              above: who read it, and whether its endpoint answered on a date we can show.
+              Neither is a measurement of what it returns after payment.
             </p>
           )}
         </section>
 
         <!-- EMBED STOREFRONT (Piece 2) -->
         <section class="snap-block" id="embed">
-          <h2 class="snap-block__title">Embed Your Stamp</h2>
+          <h2 class="snap-block__title">Embed Your Listing</h2>
           <p class="snap-embed__intro">
-            Show visitors you're Gold402 Verified. Copy a snippet — the badge and the aggregation card
-            render live from your verdict, so they stay current.
+            Copy a snippet. The badge and the card render live from this page, so they stay
+            current — and they say what we actually found, not that you passed something.
+            If we ever knock your endpoint and it stops answering, the embed changes on its
+            own. That is the point of it.
           </p>
 
           <div class="snap-embed">
             <div class="snap-embed__preview">
-              <img src={badgeUrl} alt="24K Labs verified badge preview" />
-              <img src={cardUrl} alt="24K Labs verdict card preview" class="snap-embed__card-preview" />
+              <img src={badgeUrl} alt="24K Labs listing badge preview" />
+              <img src={cardUrl} alt="24K Labs listing card preview" class="snap-embed__card-preview" />
             </div>
 
             <div class="snap-snippets" id="snippets">
@@ -191,17 +206,23 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified ${kindWord}.
   }
   .snap-head__text { min-width: 0; }
   .snap-trust { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-  .snap-verified {
+  /* Three states, weighted by how much we actually know. Gold is reserved for the one
+     backed by a date; the other two are deliberately quieter than the old tick was. */
+  .snap-state {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: 0.74rem; font-weight: 700; color: var(--gold);
+    font-size: 0.74rem; font-weight: 700;
+    padding: 4px 11px; border-radius: 999px;
+  }
+  .snap-state--knock {
+    color: var(--gold);
     background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.34);
-    padding: 4px 11px 4px 5px; border-radius: 999px;
   }
-  .snap-verified__check {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 16px; height: 16px; border-radius: 50%;
-    background: var(--gold); color: var(--bg); font-size: 0.68rem; font-weight: 900; line-height: 1;
+  .snap-state--resource,
+  .snap-state--unknocked {
+    color: #b8b8c4; font-weight: 600;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.13);
   }
+  .snap-state__date { font-variant-numeric: tabular-nums; font-weight: 800; }
   .snap-cat {
     font-size: 0.68rem; color: var(--text-dim); font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.05em;
@@ -303,7 +324,7 @@ const pageDesc = entry.desc || `${entry.name} is a Gold402 Verified ${kindWord}.
     const card = data.dataset.card;
     const listing = data.dataset.listing;
     const name = data.dataset.name || 'this service';
-    const alt = `${name} is Gold402 Verified`;
+    const alt = `${name} on the 24K Labs curated list`;
     const snippets = [
       { label: 'Badge — Markdown', value: `[![${alt}](${badge})](${listing})` },
       { label: 'Badge — HTML', value: `<a href="${listing}"><img src="${badge}" alt="${alt}"></a>` },
