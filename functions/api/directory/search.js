@@ -39,7 +39,10 @@ const shape = (e) => ({
   section: e.section,
   section_label: e.section_label,
   description: e.desc,
-  verified: !!e.verified,
+  // `verified` retired 2026-09-06 -- it was true of every row and told a caller
+  // nothing. `last_knock` is the date the endpoint answered a 402, or null when
+  // we hold no receipt. Null means we have not looked, never that it failed.
+  last_knock: e.last_checked || null,
   first_listed: e.first_listed || null,
   last_checked: e.last_checked || null,
   listing: `https://24klabs.ai/listing/${e.slug}/`,

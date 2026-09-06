@@ -27,7 +27,11 @@ export async function GET() {
     section: e.section,
     section_label: e.section_label,
     description: e.desc,
-    verified: !!e.verified,
+    // `verified: true` was on every row here, which meant an agent parsing this feed
+    // learned nothing from it. Retired 2026-09-06 with the rest of the stamp. What
+    // replaces it is the fact: the date the endpoint answered a 402, or null when we
+    // hold no receipt. Null is a real answer and must never be coerced to false.
+    last_knock: e.last_checked || null,
     first_listed: e.first_listed || null,
     listing: `https://24klabs.ai/listing/${e.slug}/`,
   }));
@@ -74,13 +78,19 @@ export async function GET() {
     per_resource_lookup: {
       endpoint: 'https://24klabs.ai/api/v1/verify?resource=<url>',
       description:
-        'The 24K Labs verdict for a single resource, plus independent rater grades where published. x402-gated, no API key.',
+        'What 24K Labs holds on a single resource — whether it is listed and the date its endpoint last answered a 402, if we hold one — plus independent rater grades where published. x402-gated, no API key.',
     },
     free_probe: {
       endpoint: 'https://24klabs.ai/api/probe?url=<url>',
       description:
         'Free live check of any x402 endpoint, listed or not: reachability, whether it returns a real 402, decoded payment terms, origin manifest. Never spends money.',
     },
+    what_listing_means:
+      'There is no stamp and no tiers. `last_knock` is a date the endpoint answered an ' +
+      'HTTP 402, or null when we hold no dated receipt — null means we have not looked, ' +
+      'never that it failed. Some entries have no endpoint to knock at all (wallets, ' +
+      'clients, libraries, guides) and will always carry null. None of this is a delivery ' +
+      'test: we have not paid these services and graded what came back.',
     license: 'CC-BY-4.0',
     attribution: 'Data: gold-402 by 24K Labs (https://24klabs.ai) — attribution required.',
     sections,
